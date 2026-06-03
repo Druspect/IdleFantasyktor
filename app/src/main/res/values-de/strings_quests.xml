@@ -316,7 +316,7 @@
     <string name="quest_lich_slayer_2_name">Lich-Schlächter II</string>
     <string name="quest_lich_slayer_2_objective">Besiegt 20 Lich</string>
     <string name="quest_dungeon_imp_1_name">Dungeon-Erforscher VII</string>
-    <string name="quest_dungeon_imp_1_objective">Schließt die Zwergenhöhle 5 Mal ab</string><!-- TODO check if "imp" should be actually "Kobold!, not "Zwerg"-->
+    <string name="quest_dungeon_imp_1_objective">Schließt die Wichtelhöhle 5 Mal ab</string>
     <string name="quest_dungeon_infernal_1_name">Dungeon-Meister IV</string>
     <string name="quest_dungeon_infernal_1_objective">Schließt die Höllenfestung 5 Mal ab</string>
     <string name="quest_dungeon_ancient_1_name">Dungeon-Meister V</string>

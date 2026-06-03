@@ -17,14 +17,14 @@
     <string name="enemy_troll_name">Bergtroll</string>
     <string name="enemy_demon_name">Kleiner Dämon</string>
     <string name="enemy_dragon_name">Grüner Drachen</string>
-    <string name="enemy_imp_name">Zwerg</string>
+    <string name="enemy_imp_name">Wichtel</string>
     <string name="enemy_chicken_name">Hühnchen</string>
     <string name="enemy_sheep_name">Schaf</string>
     <string name="enemy_cow_name">Kuh</string>
 
     <!-- ===== Dungeon names and descriptions ===== -->
-    <string name="dungeon_imp_cavern_name">Zwergenhöhle</string>
-    <string name="dungeon_imp_cavern_desc">Eine flache Höhle voller schelmischer Zwerge. Ideal für absolute Anfänger!</string>
+    <string name="dungeon_imp_cavern_name">Wichtelhöhle</string>
+    <string name="dungeon_imp_cavern_desc">Eine flache Höhle voller schelmischer Wichtel. Ideal für absolute Anfänger!</string>
     <string name="dungeon_goblin_cave_name">Koboldhöhle</string>
     <string name="dungeon_goblin_cave_desc">Eine dunkle Höhle, in der es von Kobolden und Riesenratten wimmelt. Ein guter Ort für angehende Abenteurer, um zu trainieren.</string>
     <string name="dungeon_spider_den_name">Spinnenhöhle</string>
@@ -57,8 +57,8 @@
     <!-- ===== Pet names and descriptions ===== -->
     <string name="pet_dragon_whelp_name">Drachenjunges</string>
     <string name="pet_dragon_whelp_desc">Ein junger Drache, der Eure Kampferfahrung erhöht.</string>
-    <string name="pet_imp_pet_name">Zwerg</string>
-    <string name="pet_imp_pet_desc">Ein schelmischer Zwerg, der Euer Gebetstraining verbessert.</string>
+    <string name="pet_imp_pet_name">Wichtel</string>
+    <string name="pet_imp_pet_desc">Ein schelmischer Wichtel, der Euer Gebetstraining verbessert.</string>
     <string name="pet_baby_kraken_name">Baby-Kraken</string>
     <string name="pet_baby_kraken_desc">Ein winziger Kraken, der Eure Koch-Erfahrungspunkte erhöht.</string>
     <string name="pet_rock_golem_name">Steingolem</string>

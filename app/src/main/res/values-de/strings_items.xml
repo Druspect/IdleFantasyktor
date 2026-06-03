@@ -469,8 +469,8 @@
     <string name="item_coins_desc">Die Währung des Königreichs. Beim Krämer einlösbar.</string>
     <string name="item_goblin_mail_name">Kobold-Rüstung</string>
     <string name="item_goblin_mail_desc">Von Kobolden fallengelassene, ramponierte Rüstung. Lässt sich gut verkaufen.</string>
-    <string name="item_imp_hide_name">Koboldfell</string>
-    <string name="item_imp_hide_desc">Lederartige Haut eines Kobolds.</string>
+    <string name="item_imp_hide_name">Wichtelhaut</string>
+    <string name="item_imp_hide_desc">Lederartige Haut eines Wichtels.</string>
     <string name="item_spider_silk_name">Spinnenseide</string>
     <string name="item_spider_silk_desc">Feine Seide, gesponnen von Riesenspinnen. Für Handwerker sehr wertvoll.</string>
     <string name="item_spider_fang_name">Spinnenzahn</string>
