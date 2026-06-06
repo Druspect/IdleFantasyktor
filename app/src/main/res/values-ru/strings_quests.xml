@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== Quest names and objectives ===== -->
+    <!-- Translator note: quest names are short titles; objectives are action sentences. -->
+
+    <!-- Mining -->
+    <string name="quest_mining_1_name">Добыча руды I</string>
+    <string name="quest_mining_1_objective">Добудьте 500 медной руды</string>
+    <string name="quest_mining_2_name">Добыча руды II</string>
+    <string name="quest_mining_2_objective">Добудьте 750 железной руды</string>
+    <string name="quest_mining_3_name">Добыча руды III</string>
+    <string name="quest_mining_3_objective">Добудьте 1100 угля</string>
+    <string name="quest_mining_4_name">Добыча руды IV</string>
+    <string name="quest_mining_4_objective">Добудьте 1650 мифриловой руды</string>
+    <string name="quest_mining_5_name">Добыча руды V</string>
+    <string name="quest_mining_5_objective">Добудьте 2450 адамантитовой руды</string>
+    <string name="quest_mining_6_name">Добыча руды VI</string>
+    <string name="quest_mining_6_objective">Добудьте 3650 рунитовой руды</string>
+
+    <!-- Woodcutting -->
+    <string name="quest_woodcutting_1_name">Рубка леса I</string>
+    <string name="quest_woodcutting_1_objective">Срубите 500 брёвен</string>
+    <string name="quest_woodcutting_2_name">Рубка леса II</string>
+    <string name="quest_woodcutting_2_objective">Срубите 750 дубовых брёвен</string>
+    <string name="quest_woodcutting_3_name">Рубка леса III</string>
+    <string name="quest_woodcutting_3_objective">Срубите 1100 ивовых брёвен</string>
+    <string name="quest_woodcutting_4_name">Рубка леса IV</string>
+    <string name="quest_woodcutting_4_objective">Срубите 1650 кленовых брёвен</string>
+    <string name="quest_woodcutting_5_name">Рубка леса V</string>
+    <string name="quest_woodcutting_5_objective">Срубите 2450 тисовых брёвен</string>
+    <string name="quest_woodcutting_6_name">Рубка леса VI</string>
+    <string name="quest_woodcutting_6_objective">Срубите 3650 магических брёвен</string>
+
+    <!-- Fishing -->
+    <string name="quest_fishing_1_name">Рыбалка I</string>
+    <string name="quest_fishing_1_objective">Поймайте 500 рыб</string>
+    <string name="quest_fishing_2_name">Рыбалка II</string>
+    <string name="quest_fishing_2_objective">Поймайте 750 рыб</string>
+    <string name="quest_fishing_3_name">Рыбалка III</string>
+    <string name="quest_fishing_3_objective">Поймайте 1100 рыб</string>
+    <string name="quest_fishing_4_name">Рыбалка IV</string>
+    <string name="quest_fishing_4_objective">Поймайте 1650 рыб</string>
+    <string name="quest_fishing_5_name">Рыбалка V</string>
+    <string name="quest_fishing_5_objective">Поймайте 2450 рыб</string>
+    <string name="quest_fishing_6_name">Рыбалка VI</string>
+    <string name="quest_fishing_6_objective">Поймайте 3650 рыб</string>
+
+    <!-- Smithing -->
+    <string name="quest_smithing_1_name">Ковка I</string>
+    <string name="quest_smithing_1_objective">Выплавьте 500 бронзовых слитков</string>
+    <string name="quest_smithing_2_name">Ковка II</string>
+    <string name="quest_smithing_2_objective">Выплавьте 750 железных слитков</string>
+    <string name="quest_smithing_3_name">Ковка III</string>
+    <string name="quest_smithing_3_objective">Выплавьте 1100 стальных слитков</string>
+    <string name="quest_smithing_4_name">Ковка IV</string>
+    <string name="quest_smithing_4_objective">Выплавьте 1650 мифриловых слитков</string>
+    <string name="quest_smithing_5_name">Ковка V</string>
+    <string name="quest_smithing_5_objective">Выплавьте 2450 адамантитовых слитков</string>
+    <string name="quest_smithing_6_name">Ковка VI</string>
+    <string name="quest_smithing_6_objective">Выплавьте 3650 рунитовых слитков</string>
+
+    <!-- Cooking - Fish -->
+    <string name="quest_cooking_fish_1_name">Кулинария — Рыба I</string>
+    <string name="quest_cooking_fish_1_objective">Приготовьте 500 рыб</string>
+    <string name="quest_cooking_fish_2_name">Кулинария — Рыба II</string>
+    <string name="quest_cooking_fish_2_objective">Приготовьте 750 рыб</string>
+    <string name="quest_cooking_fish_3_name">Кулинария — Рыба III</string>
+    <string name="quest_cooking_fish_3_objective">Приготовьте 1100 рыб</string>
+    <string name="quest_cooking_fish_4_name">Кулинария — Рыба IV</string>
+    <string name="quest_cooking_fish_4_objective">Приготовьте 1650 рыб</string>
+    <string name="quest_cooking_fish_5_name">Кулинария — Рыба V</string>
+    <string name="quest_cooking_fish_5_objective">Приготовьте 2450 рыб</string>
+    <string name="quest_cooking_fish_6_name">Кулинария — Рыба VI</string>
+    <string name="quest_cooking_fish_6_objective">Приготовьте 3650 рыб</string>
+
+    <!-- Cooking - Beef -->
+    <string name="quest_cooking_beef_1_name">Кулинария — Говядина I</string>
+    <string name="quest_cooking_beef_1_objective">Приготовьте 100 говядины</string>
+    <string name="quest_cooking_beef_2_name">Кулинария — Говядина II</string>
+    <string name="quest_cooking_beef_2_objective">Приготовьте 250 говядины</string>
+    <string name="quest_cooking_beef_3_name">Кулинария — Говядина III</string>
+    <string name="quest_cooking_beef_3_objective">Приготовьте 500 говядины</string>
+
+    <!-- Cooking - Chicken -->
+    <string name="quest_cooking_chicken_1_name">Кулинария — Курица I</string>
+    <string name="quest_cooking_chicken_1_objective">Приготовьте 100 курицы</string>
+    <string name="quest_cooking_chicken_2_name">Кулинария — Курица II</string>
+    <string name="quest_cooking_chicken_2_objective">Приготовьте 250 курицы</string>
+    <string name="quest_cooking_chicken_3_name">Кулинария — Курица III</string>
+    <string name="quest_cooking_chicken_3_objective">Приготовьте 500 курицы</string>
+
+    <!-- Cooking - Mutton -->
+    <string name="quest_cooking_mutton_1_name">Кулинария — Баранина I</string>
+    <string name="quest_cooking_mutton_1_objective">Приготовьте 100 баранины</string>
+    <string name="quest_cooking_mutton_2_name">Кулинария — Баранина II</string>
+    <string name="quest_cooking_mutton_2_objective">Приготовьте 250 баранины</string>
+    <string name="quest_cooking_mutton_3_name">Кулинария — Баранина III</string>
+    <string name="quest_cooking_mutton_3_objective">Приготовьте 500 баранины</string>
+
+    <!-- Fletching -->
+    <string name="quest_fletching_1_name">Флетчинг I</string>
+    <string name="quest_fletching_1_objective">Создайте 500 бронзовых стрел</string>
+    <string name="quest_fletching_2_name">Флетчинг II</string>
+    <string name="quest_fletching_2_objective">Создайте 750 железных стрел</string>
+    <string name="quest_fletching_3_name">Флетчинг III</string>
+    <string name="quest_fletching_3_objective">Создайте 1100 стальных стрел</string>
+    <string name="quest_fletching_4_name">Флетчинг IV</string>
+    <string name="quest_fletching_4_objective">Создайте 1650 мифриловых стрел</string>
+    <string name="quest_fletching_5_name">Флетчинг V</string>
+    <string name="quest_fletching_5_objective">Создайте 2450 адамантитовых стрел</string>
+    <string name="quest_fletching_6_name">Флетчинг VI</string>
+    <string name="quest_fletching_6_objective">Создайте 3650 рунитовых стрел</string>
+
+    <!-- Prayer -->
+    <string name="quest_prayer_1_name">Молитва I</string>
+    <string name="quest_prayer_1_objective">Захороните 500 костей</string>
+    <string name="quest_prayer_2_name">Молитва II</string>
+    <string name="quest_prayer_2_objective">Захороните 750 костей</string>
+    <string name="quest_prayer_3_name">Молитва III</string>
+    <string name="quest_prayer_3_objective">Захороните 1100 костей</string>
+    <string name="quest_prayer_4_name">Молитва IV</string>
+    <string name="quest_prayer_4_objective">Захороните 1650 костей</string>
+    <string name="quest_prayer_5_name">Молитва V</string>
+    <string name="quest_prayer_5_objective">Захороните 2450 костей</string>
+    <string name="quest_prayer_6_name">Молитва VI</string>
+    <string name="quest_prayer_6_objective">Захороните 3650 костей</string>
+
+    <!-- Slayer -->
+    <string name="quest_combat_kills_1_name">Охотник на монстров I</string>
+    <string name="quest_combat_kills_1_objective">Победите 100 врагов</string>
+    <string name="quest_combat_kills_2_name">Охотник на монстров II</string>
+    <string name="quest_combat_kills_2_objective">Победите 150 врагов</string>
+    <string name="quest_combat_kills_3_name">Охотник на монстров III</string>
+    <string name="quest_combat_kills_3_objective">Победите 200 врагов</string>
+    <string name="quest_combat_kills_4_name">Охотник на монстров IV</string>
+    <string name="quest_combat_kills_4_objective">Победите 300 врагов</string>
+    <string name="quest_combat_kills_5_name">Охотник на монстров V</string>
+    <string name="quest_combat_kills_5_objective">Победите 450 врагов</string>
+    <string name="quest_combat_kills_6_name">Охотник на монстров VI</string>
+    <string name="quest_combat_kills_6_objective">Победите 650 врагов</string>
+
+    <!-- Dungeon exploration -->
+    <string name="quest_dungeon_farm_1_name">Исследователь подземелий I</string>
+    <string name="quest_dungeon_farm_1_objective">Пройдите подземелье Ферма 5 раз</string>
+    <string name="quest_dungeon_goblin_1_name">Исследователь подземелий II</string>
+    <string name="quest_dungeon_goblin_1_objective">Пройдите Пещеру гоблинов 5 раз</string>
+    <string name="quest_dungeon_spider_1_name">Исследователь подземелий III</string>
+    <string name="quest_dungeon_spider_1_objective">Пройдите Логово пауков 5 раз</string>
+    <string name="quest_dungeon_bandit_1_name">Исследователь подземелий IV</string>
+    <string name="quest_dungeon_bandit_1_objective">Пройдите Лагерь бандитов 5 раз</string>
+    <string name="quest_dungeon_undead_1_name">Исследователь подземелий V</string>
+    <string name="quest_dungeon_undead_1_objective">Пройдите Крипту нежити 5 раз</string>
+    <string name="quest_dungeon_fortress_1_name">Исследователь подземелий VI</string>
+    <string name="quest_dungeon_fortress_1_objective">Пройдите Руины крепости 5 раз</string>
+    <string name="quest_dungeon_orc_1_name">Мастер подземелий I</string>
+    <string name="quest_dungeon_orc_1_objective">Пройдите Крепость орков 5 раз</string>
+    <string name="quest_dungeon_volcanic_1_name">Мастер подземелий II</string>
+    <string name="quest_dungeon_volcanic_1_objective">Пройдите Вулканические глубины 5 раз</string>
+    <string name="quest_dungeon_dragon_1_name">Мастер подземелий III</string>
+    <string name="quest_dungeon_dragon_1_objective">Пройдите Логово дракона 5 раз</string>
+
+    <!-- Crafting -->
+    <string name="quest_crafting_1_name">Ремесло I</string>
+    <string name="quest_crafting_1_objective">Создайте 100 серебряных колец</string>
+    <string name="quest_crafting_2_name">Ремесло II</string>
+    <string name="quest_crafting_2_objective">Создайте 250 золотых колец</string>
+    <string name="quest_crafting_3_name">Ремесло III</string>
+    <string name="quest_crafting_3_objective">Создайте 500 платиновых колец</string>
+    <string name="quest_crafting_4_name">Ремесло IV</string>
+    <string name="quest_crafting_4_objective">Создайте 750 серебряных колец с сапфиром</string>
+    <string name="quest_crafting_5_name">Ремесло V</string>
+    <string name="quest_crafting_5_objective">Создайте 1000 золотых колец с сапфиром</string>
+    <string name="quest_crafting_6_name">Ремесло VI</string>
+    <string name="quest_crafting_6_objective">Создайте 1500 платиновых колец с алмазом</string>
+
+    <!-- Monster slayer chains -->
+    <string name="quest_goblin_slayer_1_name">Гоблинский убийца I</string>
+    <string name="quest_goblin_slayer_1_objective">Победите 50 гоблинов</string>
+    <string name="quest_goblin_slayer_2_name">Гоблинский убийца II</string>
+    <string name="quest_goblin_slayer_2_objective">Победите 100 гоблинов</string>
+    <string name="quest_spider_slayer_1_name">Паучий убийца I</string>
+    <string name="quest_spider_slayer_1_objective">Победите 40 гигантских пауков</string>
+    <string name="quest_spider_slayer_2_name">Паучий убийца II</string>
+    <string name="quest_spider_slayer_2_objective">Победите 80 гигантских пауков</string>
+    <string name="quest_skeleton_slayer_1_name">Скелетный убийца I</string>
+    <string name="quest_skeleton_slayer_1_objective">Победите 35 скелетов</string>
+    <string name="quest_skeleton_slayer_2_name">Скелетный убийца II</string>
+    <string name="quest_skeleton_slayer_2_objective">Победите 70 скелетов</string>
+    <string name="quest_bandit_hunter_1_name">Охотник на бандитов I</string>
+    <string name="quest_bandit_hunter_1_objective">Победите 30 бандитов</string>
+    <string name="quest_bandit_hunter_2_name">Охотник на бандитов II</string>
+    <string name="quest_bandit_hunter_2_objective">Победите 60 бандитов</string>
+    <string name="quest_orc_slayer_1_name">Орочий убийца I</string>
+    <string name="quest_orc_slayer_1_objective">Победите 25 орков-воинов</string>
+    <string name="quest_orc_slayer_2_name">Орочий убийца II</string>
+    <string name="quest_orc_slayer_2_objective">Победите 50 орков-воинов</string>
+    <string name="quest_demon_slayer_1_name">Убийца демонов I</string>
+    <string name="quest_demon_slayer_1_objective">Победите Повелителя демонов</string>
+    <string name="quest_demon_slayer_2_name">Убийца демонов II</string>
+    <string name="quest_demon_slayer_2_objective">Победите Повелителя демонов 5 раз</string>
+    <string name="quest_demon_slayer_3_name">Убийца демонов III</string>
+    <string name="quest_demon_slayer_3_objective">Победите Повелителя демонов 25 раз</string>
+    <string name="quest_dragon_slayer_1_name">Драконий убийца I</string>
+    <string name="quest_dragon_slayer_1_objective">Победите 10 зелёных драконов</string>
+    <string name="quest_dragon_slayer_2_name">Драконий убийца II</string>
+    <string name="quest_dragon_slayer_2_objective">Победите 25 зелёных драконов</string>
+
+    <!-- Combat style challenges -->
+    <string name="quest_melee_warrior_1_name">Воин ближнего боя I</string>
+    <string name="quest_melee_warrior_1_objective">Пройдите Пещеру гоблинов только ближним боем</string>
+    <string name="quest_melee_warrior_2_name">Воин ближнего боя II</string>
+    <string name="quest_melee_warrior_2_objective">Пройдите Лагерь бандитов только ближним боем</string>
+    <string name="quest_melee_warrior_3_name">Воин ближнего боя III</string>
+    <string name="quest_melee_warrior_3_objective">Пройдите Руины крепости только ближним боем</string>
+    <string name="quest_ranger_elite_1_name">Элитный стрелок I</string>
+    <string name="quest_ranger_elite_1_objective">Пройдите Пещеру гоблинов только дальним боем</string>
+    <string name="quest_ranger_elite_2_name">Элитный стрелок II</string>
+    <string name="quest_ranger_elite_2_objective">Пройдите Лагерь бандитов только дальним боем</string>
+    <string name="quest_ranger_elite_3_name">Элитный стрелок III</string>
+    <string name="quest_ranger_elite_3_objective">Пройдите Руины крепости только дальним боем</string>
+    <string name="quest_mage_master_1_name">Мастер магии I</string>
+    <string name="quest_mage_master_1_objective">Пройдите Пещеру гоблинов только магией</string>
+    <string name="quest_mage_master_2_name">Мастер магии II</string>
+    <string name="quest_mage_master_2_objective">Пройдите Лагерь бандитов только магией</string>
+    <string name="quest_mage_master_3_name">Мастер магии III</string>
+    <string name="quest_mage_master_3_objective">Пройдите Руины крепости только магией</string>
+
+    <!-- Iron Stomach (no food) challenges -->
+    <string name="quest_iron_stomach_1_name">Желудок из железа I</string>
+    <string name="quest_iron_stomach_1_objective">Пройдите Логово пауков без еды</string>
+    <string name="quest_iron_stomach_2_name">Желудок из железа II</string>
+    <string name="quest_iron_stomach_2_objective">Пройдите Крипту нежити без еды</string>
+    <string name="quest_iron_stomach_3_name">Желудок из железа III</string>
+    <string name="quest_iron_stomach_3_objective">Пройдите Крепость орков без еды</string>
+    <string name="quest_iron_stomach_4_name">Желудок из железа IV</string>
+    <string name="quest_iron_stomach_4_objective">Пройдите Логово дракона без еды</string>
+
+    <!-- Treasure Hunter -->
+    <string name="quest_treasure_hunter_1_name">Охотник за сокровищами I</string>
+    <string name="quest_treasure_hunter_1_objective">Соберите 20 паучьих шёлков из боя</string>
+    <string name="quest_treasure_hunter_2_name">Охотник за сокровищами II</string>
+    <string name="quest_treasure_hunter_2_objective">Соберите 10 почт гоблинов из боя</string>
+    <string name="quest_treasure_hunter_3_name">Охотник за сокровищами III</string>
+    <string name="quest_treasure_hunter_3_objective">Соберите 5 рогов демона из боя</string>
+    <string name="quest_treasure_hunter_4_name">Охотник за сокровищами IV</string>
+    <string name="quest_treasure_hunter_4_objective">Соберите 3 чешуи дракона из боя</string>
+
+    <!-- Firemaking -->
+    <string name="quest_firemaking_1_name">Разжигание огня I</string>
+    <string name="quest_firemaking_1_objective">Сожгите 500 брёвен</string>
+    <string name="quest_firemaking_2_name">Разжигание огня II</string>
+    <string name="quest_firemaking_2_objective">Сожгите 750 дубовых брёвен</string>
+    <string name="quest_firemaking_3_name">Разжигание огня III</string>
+    <string name="quest_firemaking_3_objective">Сожгите 1100 ивовых брёвен</string>
+    <string name="quest_firemaking_4_name">Разжигание огня IV</string>
+    <string name="quest_firemaking_4_objective">Сожгите 1650 кленовых брёвен</string>
+    <string name="quest_firemaking_5_name">Разжигание огня V</string>
+    <string name="quest_firemaking_5_objective">Сожгите 2450 тисовых брёвен</string>
+    <string name="quest_firemaking_6_name">Разжигание огня VI</string>
+    <string name="quest_firemaking_6_objective">Сожгите 3650 магических брёвен</string>
+
+    <!-- Runecrafting -->
+    <string name="quest_runecrafting_1_name">Руническое ремесло I</string>
+    <string name="quest_runecrafting_1_objective">Создайте 500 рун воздуха</string>
+    <string name="quest_runecrafting_2_name">Руническое ремесло II</string>
+    <string name="quest_runecrafting_2_objective">Создайте 750 рун воды</string>
+    <string name="quest_runecrafting_3_name">Руническое ремесло III</string>
+    <string name="quest_runecrafting_3_objective">Создайте 1100 рун земли</string>
+    <string name="quest_runecrafting_4_name">Руническое ремесло IV</string>
+    <string name="quest_runecrafting_4_objective">Создайте 1650 рун огня</string>
+    <string name="quest_runecrafting_5_name">Руническое ремесло V</string>
+    <string name="quest_runecrafting_5_objective">Создайте 2450 рун разума</string>
+    <string name="quest_runecrafting_6_name">Руническое ремесло VI</string>
+    <string name="quest_runecrafting_6_objective">Создайте 3650 рун хаоса</string>
+
+    <!-- Herblore -->
+    <string name="quest_herblore_1_name">Травничество I</string>
+    <string name="quest_herblore_1_objective">Сварите 100 отваров атаки</string>
+    <string name="quest_herblore_2_name">Травничество II</string>
+    <string name="quest_herblore_2_objective">Смешайте 250 зелий защиты</string>
+    <string name="quest_herblore_3_name">Травничество III</string>
+    <string name="quest_herblore_3_objective">Смешайте 500 зелий силы</string>
+    <string name="quest_herblore_4_name">Травничество IV</string>
+    <string name="quest_herblore_4_objective">Смешайте 750 зелий стрельбы</string>
+    <string name="quest_herblore_5_name">Травничество V</string>
+    <string name="quest_herblore_5_objective">Смешайте 1000 зелий магии</string>
+    <string name="quest_herblore_6_name">Травничество VI</string>
+    <string name="quest_herblore_6_objective">Смешайте 1500 супер-зелий силы</string>
+
+    <!-- Slayer extended -->
+    <string name="quest_combat_kills_7_name">Охотник на монстров VII</string>
+    <string name="quest_combat_kills_7_objective">Победите 1000 врагов</string>
+    <string name="quest_combat_kills_8_name">Охотник на монстров VIII</string>
+    <string name="quest_combat_kills_8_objective">Победите 1500 врагов</string>
+    <string name="quest_combat_kills_9_name">Охотник на монстров IX</string>
+    <string name="quest_combat_kills_9_objective">Победите 2250 врагов</string>
+    <string name="quest_combat_kills_10_name">Охотник на монстров X</string>
+    <string name="quest_combat_kills_10_objective">Победите 3400 врагов</string>
+    <string name="quest_combat_kills_11_name">Охотник на монстров XI</string>
+    <string name="quest_combat_kills_11_objective">Победите 5100 врагов</string>
+    <string name="quest_combat_kills_12_name">Охотник на монстров XII</string>
+    <string name="quest_combat_kills_12_objective">Победите 7650 врагов</string>
+
+    <!-- New monster slayer chains -->
+    <string name="quest_zombie_slayer_1_name">Убийца зомби I</string>
+    <string name="quest_zombie_slayer_1_objective">Победите 35 зомби</string>
+    <string name="quest_zombie_slayer_2_name">Убийца зомби II</string>
+    <string name="quest_zombie_slayer_2_objective">Победите 70 зомби</string>
+    <string name="quest_hellhound_slayer_1_name">Убийца адских гончих I</string>
+    <string name="quest_hellhound_slayer_1_objective">Победите 25 адских гончих</string>
+    <string name="quest_hellhound_slayer_2_name">Убийца адских гончих II</string>
+    <string name="quest_hellhound_slayer_2_objective">Победите 50 адских гончих</string>
+    <string name="quest_troll_slayer_1_name">Убийца троллей I</string>
+    <string name="quest_troll_slayer_1_objective">Победите 20 горных троллей</string>
+    <string name="quest_troll_slayer_2_name">Убийца троллей II</string>
+    <string name="quest_troll_slayer_2_objective">Победите 40 горных троллей</string>
+    <string name="quest_fire_giant_slayer_1_name">Убийца огненных великанов I</string>
+    <string name="quest_fire_giant_slayer_1_objective">Победите 15 огненных великанов</string>
+    <string name="quest_fire_giant_slayer_2_name">Убийца огненных великанов II</string>
+    <string name="quest_fire_giant_slayer_2_objective">Победите 30 огненных великанов</string>
+    <string name="quest_ancient_guardian_slayer_1_name">Убийца древних стражей I</string>
+    <string name="quest_ancient_guardian_slayer_1_objective">Победите 10 древних стражей</string>
+    <string name="quest_ancient_guardian_slayer_2_name">Убийца древних стражей II</string>
+    <string name="quest_ancient_guardian_slayer_2_objective">Победите 20 древних стражей</string>
+    <string name="quest_lich_slayer_1_name">Убийца личей I</string>
+    <string name="quest_lich_slayer_1_objective">Победите 10 личей</string>
+    <string name="quest_lich_slayer_2_name">Убийца личей II</string>
+    <string name="quest_lich_slayer_2_objective">Победите 20 личей</string>
+
+    <!-- Dungeon exploration extended -->
+    <string name="quest_dungeon_imp_1_name">Исследователь подземелий VII</string>
+    <string name="quest_dungeon_imp_1_objective">Пройдите Пещеру бесов 5 раз</string>
+    <string name="quest_dungeon_infernal_1_name">Мастер подземелий IV</string>
+    <string name="quest_dungeon_infernal_1_objective">Пройдите Инфернальную цитадель 5 раз</string>
+    <string name="quest_dungeon_ancient_1_name">Мастер подземелий V</string>
+    <string name="quest_dungeon_ancient_1_objective">Пройдите Древний храм 5 раз</string>
+
+    <!-- Boss extended -->
+    <string name="quest_kbd_slayer_1_objective">Победите Чёрного короля-дракона</string>
+    <string name="quest_kbd_slayer_2_objective">Победите Чёрного короля-дракона 5 раз</string>
+    <string name="quest_kbd_slayer_3_objective">Победите Чёрного короля-дракона 25 раз</string>
+    <string name="quest_kbd_slayer_4_name">Убийца Чёрного короля-дракона IV</string>
+    <string name="quest_kbd_slayer_4_objective">Победите Чёрного короля-дракона 50 раз</string>
+    <string name="quest_demon_slayer_4_name">Убийца демонов IV</string>
+    <string name="quest_demon_slayer_4_objective">Победите Повелителя демонов 50 раз</string>
+    <string name="quest_kraken_killer_1_name">Убийца кракена I</string>
+    <string name="quest_kraken_killer_1_objective">Победите Кракена</string>
+    <string name="quest_kraken_killer_2_name">Убийца кракена II</string>
+    <string name="quest_kraken_killer_2_objective">Победите Кракена 5 раз</string>
+    <string name="quest_kraken_killer_3_name">Убийца кракена III</string>
+    <string name="quest_kraken_killer_3_objective">Победите Кракена 25 раз</string>
+    <string name="quest_kraken_killer_4_name">Убийца кракена IV</string>
+    <string name="quest_kraken_killer_4_objective">Победите Кракена 50 раз</string>
+    <string name="quest_balrog_bane_1_name">Гибель Балрога I</string>
+    <string name="quest_balrog_bane_1_objective">Победите Балрога</string>
+    <string name="quest_balrog_bane_2_name">Гибель Балрога II</string>
+    <string name="quest_balrog_bane_2_objective">Победите Балрога 5 раз</string>
+    <string name="quest_balrog_bane_3_name">Гибель Балрога III</string>
+    <string name="quest_balrog_bane_3_objective">Победите Балрога 25 раз</string>
+    <string name="quest_balrog_bane_4_name">Гибель Балрога IV</string>
+    <string name="quest_balrog_bane_4_objective">Победите Балрога 50 раз</string>
+
+    <!-- Combat style challenges extended -->
+    <string name="quest_melee_warrior_4_name">Воин ближнего боя IV</string>
+    <string name="quest_melee_warrior_4_objective">Пройдите Крепость орков только ближним боем</string>
+    <string name="quest_melee_warrior_5_name">Воин ближнего боя V</string>
+    <string name="quest_melee_warrior_5_objective">Пройдите Логово дракона только ближним боем</string>
+    <string name="quest_ranger_elite_4_name">Элитный стрелок IV</string>
+    <string name="quest_ranger_elite_4_objective">Пройдите Крепость орков только дальним боем</string>
+    <string name="quest_ranger_elite_5_name">Элитный стрелок V</string>
+    <string name="quest_ranger_elite_5_objective">Пройдите Логово дракона только дальним боем</string>
+    <string name="quest_mage_master_4_name">Мастер магии IV</string>
+    <string name="quest_mage_master_4_objective">Пройдите Крепость орков только магией</string>
+    <string name="quest_mage_master_5_name">Мастер магии V</string>
+    <string name="quest_mage_master_5_objective">Пройдите Логово дракона только магией</string>
+
+    <!-- Iron Stomach extended -->
+    <string name="quest_iron_stomach_5_name">Желудок из железа V</string>
+    <string name="quest_iron_stomach_5_objective">Пройдите Инфернальную цитадель без еды</string>
+    <string name="quest_iron_stomach_6_name">Желудок из железа VI</string>
+    <string name="quest_iron_stomach_6_objective">Пройдите Древний храм без еды</string>
+
+    <!-- Treasure Hunter extended -->
+    <string name="quest_treasure_hunter_5_name">Охотник за сокровищами V</string>
+    <string name="quest_treasure_hunter_5_objective">Соберите 10 клыков адской гончей из боя</string>
+    <string name="quest_treasure_hunter_6_name">Охотник за сокровищами VI</string>
+    <string name="quest_treasure_hunter_6_objective">Соберите 15 костей тролля из боя</string>
+
+    <!-- Daily quest verbs -->
+    <string name="daily_verb_mining">Добудьте</string>
+    <string name="daily_verb_fishing">Поймайте</string>
+    <string name="daily_verb_woodcutting">Срубите</string>
+    <string name="daily_verb_smithing">Выкуйте</string>
+    <string name="daily_verb_cooking">Приготовьте</string>
+    <string name="daily_verb_combat">Победите</string>
+
+    <!-- Daily quest names -->
+    <string name="quest_daily_mine_iron_name">Железный рудокоп</string>
+    <string name="quest_daily_mine_coal_name">Угольщик</string>
+    <string name="quest_daily_mine_mithril_name">Мифриловый разведчик</string>
+    <string name="quest_daily_mine_runite_name">Рунитовая лихорадка</string>
+    <string name="quest_daily_fish_salmon_name">Лососёвый ход</string>
+    <string name="quest_daily_fish_lobster_name">Омарья добыча</string>
+    <string name="quest_daily_fish_swordfish_name">Охотник на рыбу-меч</string>
+    <string name="quest_daily_fish_shark_name">Укротитель акул</string>
+    <string name="quest_daily_wc_oak_name">Дуборуб</string>
+    <string name="quest_daily_wc_willow_name">Ивовый работник</string>
+    <string name="quest_daily_wc_yew_name">Тисовый лесоруб</string>
+    <string name="quest_daily_wc_magic_name">Магический лесоруб</string>
+    <string name="quest_daily_smith_iron_name">Железный кузнец</string>
+    <string name="quest_daily_smith_mithril_name">Мифриловый плавильщик</string>
+    <string name="quest_daily_smith_adamantite_name">Адамантитовый ремесленник</string>
+    <string name="quest_daily_smith_runite_name">Рунитовый плавильщик</string>
+    <string name="quest_daily_cook_trout_name">Повар форели</string>
+    <string name="quest_daily_cook_salmon_name">Грильщик лосося</string>
+    <string name="quest_daily_cook_lobster_name">Повар омаров</string>
+    <string name="quest_daily_cook_swordfish_name">Повар рыбы-меч</string>
+    <string name="quest_daily_kill_goblin_name">Гоблинский убийца</string>
+    <string name="quest_daily_kill_bandit_name">Истребитель бандитов</string>
+    <string name="quest_daily_kill_demon_name">Охотник на демонов</string>
+    <string name="quest_daily_kill_dragon_name">Драконий убийца</string>
+</resources>

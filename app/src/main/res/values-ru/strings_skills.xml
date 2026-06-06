@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== Skill names and descriptions ===== -->
+
+    <!-- Gathering skills -->
+    <string name="skill_mining_name">Добыча руды</string>
+    <string name="skill_mining_desc">Добывайте ценную руду и драгоценные камни из недр земли.</string>
+    <string name="skill_fishing_name">Рыбалка</string>
+    <string name="skill_fishing_desc">Ловите рыбу и водные сокровища из водоёмов.</string>
+    <string name="skill_woodcutting_name">Рубка леса</string>
+    <string name="skill_woodcutting_desc">Рубите деревья и собирайте различные виды древесины.</string>
+    <string name="skill_farming_name">Фермерство</string>
+    <string name="skill_farming_desc">Сажайте и собирайте урожай на своих участках.</string>
+    <string name="skill_firemaking_name">Разжигание огня</string>
+    <string name="skill_firemaking_desc">Сжигайте брёвна из инвентаря, чтобы получить опыт Разжигания огня. Каждое сожжённое бревно также даёт пепел, который можно развеять в навыке Молитвы для дополнительного опыта Молитвы.</string>
+    <string name="skill_agility_name">Ловкость</string>
+    <string name="skill_agility_desc">Тренируйте Ловкость, чтобы сократить время сессий всех навыков. Уровень 99 убирает 20 минут из часа (60 мин → 40 мин) с плавным линейным уменьшением по мере повышения уровня.</string>
+
+    <!-- Crafting skills -->
+    <string name="skill_smithing_name">Ковка</string>
+    <string name="skill_smithing_desc">Плавьте руду в слитки и куйте мощное металлическое снаряжение.</string>
+    <string name="skill_cooking_name">Кулинария</string>
+    <string name="skill_cooking_desc">Готовьте сырые ингредиенты в пищу, восстанавливающую HP в бою.</string>
+    <string name="skill_fletching_name">Флетчинг</string>
+    <string name="skill_fletching_desc">Создавайте луки и стрелы из брёвен и металлических компонентов.</string>
+    <string name="skill_crafting_name">Ремесло</string>
+    <string name="skill_crafting_desc">Создавайте украшения и другие ремесленные изделия из драгоценных материалов.</string>
+    <string name="skill_runecrafting_name">Руническое ремесло</string>
+    <string name="skill_runecrafting_desc">Создавайте магические руны из рунической эссенции для использования в заклинаниях.</string>
+    <string name="skill_herblore_name">Травничество</string>
+    <string name="skill_herblore_desc">Варите зелья из фермерских трав и реагентов из подземелий для усиления боевых характеристик.</string>
+
+    <!-- Combat skills -->
+    <string name="skill_attack_name">Атака</string>
+    <string name="skill_attack_desc">Повышает точность ближнего боя, увеличивая шанс попадания.</string>
+    <string name="skill_strength_name">Сила</string>
+    <string name="skill_strength_desc">Увеличивает максимальный урон ближнего боя за удар.</string>
+    <string name="skill_defense_name">Защита</string>
+    <string name="skill_defense_desc">Уменьшает урон, получаемый от вражеских атак.</string>
+    <string name="skill_ranged_name">Стрельба</string>
+    <string name="skill_ranged_desc">Атакуйте врагов с безопасного расстояния с помощью лука и стрел.</string>
+    <string name="skill_magic_name">Магия</string>
+    <string name="skill_magic_desc">Произносите могущественные заклинания с помощью рун. Более высокие уровни открывают сильнейшие заклинания.</string>
+    <string name="skill_hitpoints_name">Здоровье</string>
+    <string name="skill_hitpoints_desc">Ваше общее здоровье. Более высокие уровни позволяют дольше выживать в бою.</string>
+    <string name="skill_prayer_name">Молитва</string>
+    <string name="skill_prayer_desc">Хороните кости, выпадающие из боя, чтобы получать опыт Молитвы. Более высокие уровни увеличивают ваш боевой уровень.</string>
+
+    <!-- ===== Skill unlock sheet labels ===== -->
+    <string name="label_lv">Ур. %1$d</string>
+    <string name="skills_agility_course_detail">Ур. %1$d  •  %2$d опыта/круг</string>
+    <string name="label_hp_passive">Пассивный — увеличивает макс. HP</string>
+    <string name="label_hp_scales">Макс. HP растёт с каждым уровнем</string>
+    <string name="label_hp_max">Макс. HP: %1$d</string>
+    <string name="label_xp_per_bone">%1$s (%2$d опыта/кость)</string>
+    <string name="label_xp_per_kill">%1$s (%2$d опыта/убийство)</string>
+
+    <!-- ===== Agility course names and descriptions ===== -->
+    <string name="agility_beginner_course_name">Начальный маршрут</string>
+    <string name="agility_beginner_course_desc">Простая полоса препятствий для тех, кто только начинает тренировку ловкости.</string>
+    <string name="agility_novice_course_name">Новичковый маршрут</string>
+    <string name="agility_novice_course_desc">Немного более сложный маршрут с базовыми препятствиями.</string>
+    <string name="agility_apprentice_course_name">Ученический маршрут</string>
+    <string name="agility_apprentice_course_desc">Промежуточный маршрут, требующий некоторого мастерства.</string>
+    <string name="agility_intermediate_course_name">Промежуточный маршрут</string>
+    <string name="agility_intermediate_course_desc">Умеренно сложный маршрут с хитрыми препятствиями.</string>
+    <string name="agility_advanced_course_name">Продвинутый маршрут</string>
+    <string name="agility_advanced_course_desc">Сложный маршрут, проверяющий ваше мастерство ловкости.</string>
+    <string name="agility_expert_course_name">Экспертный маршрут</string>
+    <string name="agility_expert_course_desc">Маршрут экспертного уровня с опасными препятствиями.</string>
+    <string name="agility_elite_course_name">Элитный маршрут</string>
+    <string name="agility_elite_course_desc">Только самые ловкие смогут освоить этот элитный маршрут.</string>
+    <string name="agility_master_course_name">Мастерский маршрут</string>
+    <string name="agility_master_course_desc">Маршрут уровня мастера с экстремальными препятствиями.</string>
+    <string name="agility_veteran_course_name">Ветеранский маршрут</string>
+    <string name="agility_veteran_course_desc">Тренировочная площадка ветеранов с суровыми испытаниями.</string>
+    <string name="agility_champion_course_name">Маршрут чемпиона</string>
+    <string name="agility_champion_course_desc">Маршрут уровня чемпиона, испытывающий вас на пределе возможностей.</string>
+    <string name="agility_heroic_course_name">Героический маршрут</string>
+    <string name="agility_heroic_course_desc">Героический маршрут, где осмеливаются ходить только лучшие.</string>
+    <string name="agility_legendary_course_name">Легендарный маршрут</string>
+    <string name="agility_legendary_course_desc">Легендарный маршрут, о котором шёпотом говорят среди элиты ловкости.</string>
+    <string name="agility_mythic_course_name">Мифический маршрут</string>
+    <string name="agility_mythic_course_desc">Мифический маршрут, бросающий вызов законам физики.</string>
+    <string name="agility_divine_course_name">Божественный маршрут</string>
+    <string name="agility_divine_course_desc">Божественный маршрут, благословлённый богами ловкости.</string>
+    <string name="agility_transcendent_course_name">Трансцендентный маршрут</string>
+    <string name="agility_transcendent_course_desc">Высшее испытание ловкости, превосходящее смертные пределы.</string>
+</resources>

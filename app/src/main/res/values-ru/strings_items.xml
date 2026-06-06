@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== Ores ===== -->
+    <string name="item_copper_ore_name">Медная руда</string>
+    <string name="item_copper_ore_desc">Обычная руда. Смешайте с оловянной рудой для выплавки бронзовых слитков.</string>
+    <string name="item_tin_ore_name">Оловянная руда</string>
+    <string name="item_tin_ore_desc">Обычная руда. Смешайте с медной рудой для выплавки бронзовых слитков.</string>
+    <string name="item_iron_ore_name">Железная руда</string>
+    <string name="item_iron_ore_desc">Универсальная руда для выплавки железных и стальных слитков.</string>
+    <string name="item_coal_name">Уголь</string>
+    <string name="item_coal_desc">Используется как топливный компонент при выплавке стальных и более высокоуровневых слитков.</string>
+    <string name="item_silver_ore_name">Серебряная руда</string>
+    <string name="item_silver_ore_desc">Драгоценная руда для создания серебряных слитков и украшений.</string>
+    <string name="item_gold_ore_name">Золотая руда</string>
+    <string name="item_gold_ore_desc">Драгоценная руда для создания золотых слитков и украшений.</string>
+    <string name="item_mithril_ore_name">Мифриловая руда</string>
+    <string name="item_mithril_ore_desc">Редкая руда с магическими свойствами.</string>
+    <string name="item_adamantite_ore_name">Адамантитовая руда</string>
+    <string name="item_adamantite_ore_desc">Экстремально твёрдая и очень редкая руда.</string>
+    <string name="item_runite_ore_name">Рунитовая руда</string>
+    <string name="item_runite_ore_desc">Самая редкая добываемая руда, используемая для сильнейшего снаряжения.</string>
+    <string name="item_rune_essence_name">Руническая эссенция</string>
+    <string name="item_rune_essence_desc">Сырой магический камень для создания всех типов рун.</string>
+
+    <!-- ===== Metal bars ===== -->
+    <string name="item_bronze_bar_name">Бронзовый слиток</string>
+    <string name="item_bronze_bar_desc">Выплавлен из медной и оловянной руды. Самый базовый металлический слиток.</string>
+    <string name="item_iron_bar_name">Железный слиток</string>
+    <string name="item_iron_bar_desc">Прочный железный слиток для создания железного снаряжения.</string>
+    <string name="item_silver_bar_name">Серебряный слиток</string>
+    <string name="item_silver_bar_desc">Очищенный серебряный слиток для создания украшений.</string>
+    <string name="item_steel_bar_name">Стальной слиток</string>
+    <string name="item_steel_bar_desc">Прочнее железа. Используется для создания стального снаряжения.</string>
+    <string name="item_gold_bar_name">Золотой слиток</string>
+    <string name="item_gold_bar_desc">Очищенный золотой слиток для создания украшений и золотого снаряжения.</string>
+    <string name="item_mithril_bar_name">Мифриловый слиток</string>
+    <string name="item_mithril_bar_desc">Легковесный магический металлический слиток.</string>
+    <string name="item_adamantite_bar_name">Адамантитовый слиток</string>
+    <string name="item_adamantite_bar_desc">Экстремально твёрдый металлический слиток.</string>
+    <string name="item_platinum_bar_name">Платиновый слиток</string>
+    <string name="item_platinum_bar_desc">Редкий и блестящий платиновый слиток для высокоуровневых украшений.</string>
+    <string name="item_runite_bar_name">Рунитовый слиток</string>
+    <string name="item_runite_bar_desc">Самый прочный выплавляемый металлический слиток.</string>
+
+    <!-- ===== Gems ===== -->
+    <string name="item_sapphire_name">Сапфир</string>
+    <string name="item_sapphire_desc">Синий драгоценный камень, используемый в ремесле украшений.</string>
+    <string name="item_emerald_name">Изумруд</string>
+    <string name="item_emerald_desc">Зелёный драгоценный камень средней редкости.</string>
+    <string name="item_ruby_name">Рубин</string>
+    <string name="item_ruby_desc">Красный драгоценный камень. Редкий и ценный.</string>
+    <string name="item_diamond_name">Алмаз</string>
+    <string name="item_diamond_desc">Самый редкий и ценный драгоценный камень.</string>
+
+    <!-- ===== Logs ===== -->
+    <string name="item_log_name">Брёвна</string>
+    <string name="item_log_desc">Обычные брёвна. Используются в Разжигании огня и Флетчинге.</string>
+    <string name="item_oak_log_name">Дубовые брёвна</string>
+    <string name="item_oak_log_desc">Брёвна из дуба.</string>
+    <string name="item_willow_log_name">Ивовые брёвна</string>
+    <string name="item_willow_log_desc">Лёгкие брёвна из ивы.</string>
+    <string name="item_maple_log_name">Кленовые брёвна</string>
+    <string name="item_maple_log_desc">Плотные брёвна из клёна.</string>
+    <string name="item_yew_log_name">Тисовые брёвна</string>
+    <string name="item_yew_log_desc">Брёвна из древнего тиса.</string>
+    <string name="item_magic_log_name">Магические брёвна</string>
+    <string name="item_magic_log_desc">Зачарованные брёвна из редких магических деревьев.</string>
+    <string name="item_redwood_log_name">Брёвна секвойи</string>
+    <string name="item_redwood_log_desc">Массивные брёвна из самых высоких деревьев секвойи.</string>
+
+    <!-- ===== Raw fish ===== -->
+    <string name="item_raw_shrimp_name">Сырая креветка</string>
+    <string name="item_raw_shrimp_desc">Сырая креветка. Приготовьте перед употреблением.</string>
+    <string name="item_raw_sardine_name">Сырая сардина</string>
+    <string name="item_raw_sardine_desc">Сырая сардина. Приготовьте перед употреблением.</string>
+    <string name="item_raw_herring_name">Сырая сельдь</string>
+    <string name="item_raw_herring_desc">Сырая сельдь. Приготовьте перед употреблением.</string>
+    <string name="item_raw_mackerel_name">Сырая скумбрия</string>
+    <string name="item_raw_mackerel_desc">Сырая скумбрия. Приготовьте перед употреблением.</string>
+    <string name="item_raw_trout_name">Сырая форель</string>
+    <string name="item_raw_trout_desc">Сырая форель. Приготовьте перед употреблением.</string>
+    <string name="item_raw_salmon_name">Сырой лосось</string>
+    <string name="item_raw_salmon_desc">Сырой лосось. Приготовьте перед употреблением.</string>
+    <string name="item_raw_tuna_name">Сырой тунец</string>
+    <string name="item_raw_tuna_desc">Сырой тунец. Приготовьте перед употреблением.</string>
+    <string name="item_raw_lobster_name">Сырой омар</string>
+    <string name="item_raw_lobster_desc">Сырой омар. Приготовьте перед употреблением.</string>
+    <string name="item_raw_swordfish_name">Сырая рыба-меч</string>
+    <string name="item_raw_swordfish_desc">Сырая рыба-меч. Приготовьте перед употреблением.</string>
+    <string name="item_raw_monkfish_name">Сырой морской черт</string>
+    <string name="item_raw_monkfish_desc">Сырой морской черт. Приготовьте перед употреблением.</string>
+    <string name="item_raw_shark_name">Сырая акула</string>
+    <string name="item_raw_shark_desc">Сырая акула. Приготовьте перед употреблением.</string>
+    <string name="item_raw_sea_turtle_name">Сырая морская черепаха</string>
+    <string name="item_raw_sea_turtle_desc">Сырая морская черепаха. Приготовьте перед употреблением.</string>
+    <string name="item_raw_manta_ray_name">Сырой манта</string>
+    <string name="item_raw_manta_ray_desc">Сырой манта. Приготовьте перед употреблением.</string>
+
+    <!-- ===== Cooked fish ===== -->
+    <string name="item_shrimp_name">Креветка</string>
+    <string name="item_shrimp_desc">Приготовленная креветка. Восстанавливает немного HP.</string>
+    <string name="item_sardine_name">Сардина</string>
+    <string name="item_sardine_desc">Приготовленная сардина. Восстанавливает HP при употреблении.</string>
+    <string name="item_herring_name">Сельдь</string>
+    <string name="item_herring_desc">Приготовленная сельдь. Восстанавливает HP при употреблении.</string>
+    <string name="item_mackerel_name">Скумбрия</string>
+    <string name="item_mackerel_desc">Приготовленная скумбрия. Восстанавливает HP при употреблении.</string>
+    <string name="item_trout_name">Форель</string>
+    <string name="item_trout_desc">Приготовленная форель. Восстанавливает HP при употреблении.</string>
+    <string name="item_salmon_name">Лосось</string>
+    <string name="item_salmon_desc">Приготовленный лосось. Восстанавливает HP при употреблении.</string>
+    <string name="item_tuna_name">Тунец</string>
+    <string name="item_tuna_desc">Приготовленный тунец. Восстанавливает HP при употреблении.</string>
+    <string name="item_lobster_name">Омар</string>
+    <string name="item_lobster_desc">Приготовленный омар. Восстанавливает хорошее количество HP.</string>
+    <string name="item_swordfish_name">Рыба-меч</string>
+    <string name="item_swordfish_desc">Приготовленная рыба-меч. Восстанавливает значительное количество HP.</string>
+    <string name="item_monkfish_name">Морской черт</string>
+    <string name="item_monkfish_desc">Приготовленный морской черт. Восстанавливает солидное количество HP.</string>
+    <string name="item_shark_name">Акула</string>
+    <string name="item_shark_desc">Приготовленная акула. Восстанавливает большое количество HP.</string>
+    <string name="item_sea_turtle_name">Морская черепаха</string>
+    <string name="item_sea_turtle_desc">Приготовленная морская черепаха. Восстанавливает очень большое количество HP.</string>
+    <string name="item_manta_ray_name">Манта</string>
+    <string name="item_manta_ray_desc">Приготовленный манта. Одна из лучших доступных блюд.</string>
+
+    <!-- ===== Raw meat ===== -->
+    <string name="item_raw_rat_meat_name">Сырое крысиное мясо</string>
+    <string name="item_raw_rat_meat_desc">Сырое крысиное мясо. Приготовьте перед употреблением.</string>
+    <string name="item_raw_chicken_name">Сырая курица</string>
+    <string name="item_raw_chicken_desc">Сырая курица. Приготовьте перед употреблением.</string>
+    <string name="item_raw_mutton_name">Сырая баранина</string>
+    <string name="item_raw_mutton_desc">Сырая баранина. Приготовьте перед употреблением.</string>
+    <string name="item_raw_beef_name">Сырая говядина</string>
+    <string name="item_raw_beef_desc">Сырая говядина. Приготовьте перед употреблением.</string>
+    <string name="item_raw_meat_name">Сырое мясо</string>
+    <string name="item_raw_meat_desc">Неопознанное сырое мясо. Приготовьте перед употреблением.</string>
+
+    <!-- ===== Cooked meat ===== -->
+    <string name="item_cooked_rat_meat_name">Крысиное мясо</string>
+    <string name="item_cooked_rat_meat_desc">Приготовленное крысиное мясо. Вряд ли съедобно, но восстанавливает крошечное количество HP.</string>
+    <string name="item_cooked_chicken_name">Курица</string>
+    <string name="item_cooked_chicken_desc">Приготовленная курица. Восстанавливает HP при употреблении.</string>
+    <string name="item_cooked_mutton_name">Баранина</string>
+    <string name="item_cooked_mutton_desc">Приготовленная баранина. Восстанавливает HP при употреблении.</string>
+    <string name="item_cooked_beef_name">Говядина</string>
+    <string name="item_cooked_beef_desc">Приготовленная говядина. Восстанавливает HP при употреблении.</string>
+
+    <!-- ===== Melee weapons — bronze ===== -->
+    <string name="item_bronze_sword_name">Бронзовый меч</string>
+    <string name="item_bronze_sword_desc">Базовый одноручный бронзовый клинок.</string>
+    <string name="item_bronze_scimitar_name">Бронзовый ятаган</string>
+    <string name="item_bronze_scimitar_desc">Изогнутый одноручный бронзовый клинок с хорошим бонусом силы.</string>
+    <string name="item_bronze_2h_sword_name">Бронзовый двуручный меч</string>
+    <string name="item_bronze_2h_sword_desc">Двуручный бронзовый меч. Высокий урон, медленная скорость.</string>
+    <string name="item_bronze_warhammer_name">Бронзовый молот войны</string>
+    <string name="item_bronze_warhammer_desc">Тяжёлый одноручный бронзовый молот.</string>
+    <string name="item_bronze_battleaxe_name">Бронзовая секира</string>
+    <string name="item_bronze_battleaxe_desc">Грозный одноручный бронзовый топор.</string>
+    <string name="item_bronze_dagger_name">Бронзовый кинжал</string>
+    <string name="item_bronze_dagger_desc">Быстрый и лёгкий бронзовый кинжал.</string>
+
+    <!-- Melee weapons — iron -->
+    <string name="item_iron_sword_name">Железный меч</string>
+    <string name="item_iron_sword_desc">Одноручный железный клинок.</string>
+    <string name="item_iron_scimitar_name">Железный ятаган</string>
+    <string name="item_iron_scimitar_desc">Изогнутый одноручный железный клинок с хорошим бонусом силы.</string>
+    <string name="item_iron_2h_sword_name">Железный двуручный меч</string>
+    <string name="item_iron_2h_sword_desc">Двуручный железный меч.</string>
+    <string name="item_iron_warhammer_name">Железный молот войны</string>
+    <string name="item_iron_warhammer_desc">Тяжёлый одноручный железный молот.</string>
+    <string name="item_iron_battleaxe_name">Железная секира</string>
+    <string name="item_iron_battleaxe_desc">Грозный одноручный железный топор.</string>
+    <string name="item_iron_dagger_name">Железный кинжал</string>
+    <string name="item_iron_dagger_desc">Быстрый и лёгкий железный кинжал.</string>
+
+    <!-- Melee weapons — steel -->
+    <string name="item_steel_sword_name">Стальной меч</string>
+    <string name="item_steel_sword_desc">Одноручный стальной клинок.</string>
+    <string name="item_steel_scimitar_name">Стальной ятаган</string>
+    <string name="item_steel_scimitar_desc">Изогнутый одноручный стальной клинок с хорошим бонусом силы.</string>
+    <string name="item_steel_2h_sword_name">Стальной двуручный меч</string>
+    <string name="item_steel_2h_sword_desc">Двуручный стальной меч.</string>
+    <string name="item_steel_warhammer_name">Стальной молот войны</string>
+    <string name="item_steel_warhammer_desc">Тяжёлый одноручный стальной молот.</string>
+    <string name="item_steel_battleaxe_name">Стальная секира</string>
+    <string name="item_steel_battleaxe_desc">Грозный одноручный стальной топор.</string>
+
+    <!-- Melee weapons — mithril -->
+    <string name="item_mithril_sword_name">Мифриловый меч</string>
+    <string name="item_mithril_sword_desc">Легковесный магический одноручный меч.</string>
+    <string name="item_mithril_scimitar_name">Мифриловый ятаган</string>
+    <string name="item_mithril_scimitar_desc">Изогнутый мифриловый клинок, сверхъестественно острый.</string>
+    <string name="item_mithril_2h_sword_name">Мифриловый двуручный меч</string>
+    <string name="item_mithril_2h_sword_desc">Двуручный мифриловый меч.</string>
+    <string name="item_mithril_warhammer_name">Мифриловый молот войны</string>
+    <string name="item_mithril_warhammer_desc">Легковесный магический молот войны.</string>
+    <string name="item_mithril_battleaxe_name">Мифриловая секира</string>
+    <string name="item_mithril_battleaxe_desc">Мифриловая секира исключительного качества.</string>
+
+    <!-- Melee weapons — adamantite -->
+    <string name="item_adamantite_sword_name">Адамантитовый меч</string>
+    <string name="item_adamantite_sword_desc">Экстремально твёрдый одноручный меч.</string>
+    <string name="item_adamantite_scimitar_name">Адамантитовый ятаган</string>
+    <string name="item_adamantite_scimitar_desc">Невероятно твёрдый изогнутый клинок с отличным бонусом силы.</string>
+    <string name="item_adamantite_2h_sword_name">Адамантитовый двуручный меч</string>
+    <string name="item_adamantite_2h_sword_desc">Двуручный меч, выкованный из адамантита.</string>
+    <string name="item_adamantite_warhammer_name">Адамантитовый молот войны</string>
+    <string name="item_adamantite_warhammer_desc">Экстремально тяжёлый и твёрдый молот войны.</string>
+    <string name="item_adamantite_battleaxe_name">Адамантитовая секира</string>
+    <string name="item_adamantite_battleaxe_desc">Разрушительная адамантитовая секира.</string>
+
+    <!-- Melee weapons — runite -->
+    <string name="item_runite_sword_name">Рунитовый меч</string>
+    <string name="item_runite_sword_desc">Лучший доступный одноручный меч.</string>
+    <string name="item_runite_scimitar_name">Рунитовый ятаган</string>
+    <string name="item_runite_scimitar_desc">Лучший доступный ятаган с исключительным бонусом силы.</string>
+    <string name="item_runite_2h_sword_name">Рунитовый двуручный меч</string>
+    <string name="item_runite_2h_sword_desc">Лучший доступный двуручный меч.</string>
+    <string name="item_runite_warhammer_name">Рунитовый молот войны</string>
+    <string name="item_runite_warhammer_desc">Лучший доступный молот войны.</string>
+    <string name="item_runite_battleaxe_name">Рунитовая секира</string>
+    <string name="item_runite_battleaxe_desc">Лучшая доступная секира.</string>
+
+    <!-- ===== Ranged weapons ===== -->
+    <string name="item_wooden_bow_name">Деревянный лук</string>
+    <string name="item_wooden_bow_desc">Простой деревянный лук. Подходит для тренировки Стрельбы.</string>
+    <string name="item_oak_bow_name">Дубовый лук</string>
+    <string name="item_oak_bow_desc">Надёжный лук, сделанный из дуба.</string>
+
+    <!-- ===== Magic weapons ===== -->
+    <string name="item_basic_staff_name">Базовый посох</string>
+    <string name="item_basic_staff_desc">Простой магический посох для магов-учеников.</string>
+    <string name="item_apprentice_staff_name">Посох ученика</string>
+    <string name="item_apprentice_staff_desc">Улучшенный посох для развивающихся магов.</string>
+    <string name="item_staff_of_air_name">Посох воздуха</string>
+    <string name="item_staff_of_air_desc">Элементальный посох, наделённый силой воздуха.</string>
+    <string name="item_staff_of_water_name">Посох воды</string>
+    <string name="item_staff_of_water_desc">Элементальный посох, наделённый силой воды.</string>
+    <string name="item_staff_of_earth_name">Посох земли</string>
+    <string name="item_staff_of_earth_desc">Элементальный посох, наделённый силой земли.</string>
+    <string name="item_staff_of_fire_name">Посох огня</string>
+    <string name="item_staff_of_fire_desc">Элементальный посох, наделённый силой огня.</string>
+    <string name="item_staff_of_mind_name">Посох разума</string>
+    <string name="item_staff_of_mind_desc">Посох, наделённый психической энергией.</string>
+    <string name="item_staff_of_chaos_name">Посох хаоса</string>
+    <string name="item_staff_of_chaos_desc">Хаотический посох, пульсирующий дикой магической энергией.</string>
+    <string name="item_staff_of_death_name">Посох смерти</string>
+    <string name="item_staff_of_death_desc">Тёмный посох, окутанный силой смерти.</string>
+    <string name="item_staff_of_blood_name">Посох крови</string>
+    <string name="item_staff_of_blood_desc">Могущественный посох, питаемый магией крови.</string>
+
+    <!-- ===== Armour — bronze ===== -->
+    <string name="item_bronze_helmet_name">Бронзовый шлем</string>
+    <string name="item_bronze_helmet_desc">Базовая бронзовая защита головы.</string>
+    <string name="item_bronze_platebody_name">Бронзовый нагрудник</string>
+    <string name="item_bronze_platebody_desc">Базовая бронзовая броня тела.</string>
+    <string name="item_bronze_platelegs_name">Бронзовые поножи</string>
+    <string name="item_bronze_platelegs_desc">Базовая бронзовая защита ног.</string>
+    <string name="item_bronze_shield_name">Бронзовый щит</string>
+    <string name="item_bronze_shield_desc">Базовый бронзовый щит.</string>
+
+    <!-- Armour — iron -->
+    <string name="item_iron_helmet_name">Железный шлем</string>
+    <string name="item_iron_helmet_desc">Железная защита головы.</string>
+    <string name="item_iron_platebody_name">Железный нагрудник</string>
+    <string name="item_iron_platebody_desc">Железная броня тела.</string>
+    <string name="item_iron_platelegs_name">Железные поножи</string>
+    <string name="item_iron_platelegs_desc">Железная защита ног.</string>
+    <string name="item_iron_shield_name">Железный щит</string>
+    <string name="item_iron_shield_desc">Железный щит.</string>
+
+    <!-- Armour — steel -->
+    <string name="item_steel_helmet_name">Стальной шлем</string>
+    <string name="item_steel_helmet_desc">Прочная стальная защита головы.</string>
+    <string name="item_steel_platebody_name">Стальной нагрудник</string>
+    <string name="item_steel_platebody_desc">Прочная стальная броня тела.</string>
+    <string name="item_steel_platelegs_name">Стальные поножи</string>
+    <string name="item_steel_platelegs_desc">Прочная стальная защита ног.</string>
+    <string name="item_steel_shield_name">Стальной щит</string>
+    <string name="item_steel_shield_desc">Прочный стальной щит.</string>
+
+    <!-- Armour — mithril -->
+    <string name="item_mithril_helmet_name">Мифриловый шлем</string>
+    <string name="item_mithril_helmet_desc">Легковесная магическая защита головы.</string>
+    <string name="item_mithril_platebody_name">Мифриловый нагрудник</string>
+    <string name="item_mithril_platebody_desc">Легковесная магическая броня тела.</string>
+    <string name="item_mithril_platelegs_name">Мифриловые поножи</string>
+    <string name="item_mithril_platelegs_desc">Легковесная магическая защита ног.</string>
+    <string name="item_mithril_shield_name">Мифриловый щит</string>
+    <string name="item_mithril_shield_desc">Легковесный магический щит.</string>
+
+    <!-- Armour — adamantite -->
+    <string name="item_adamantite_helmet_name">Адамантитовый шлем</string>
+    <string name="item_adamantite_helmet_desc">Экстремально твёрдая защита головы.</string>
+    <string name="item_adamantite_platebody_name">Адамантитовый нагрудник</string>
+    <string name="item_adamantite_platebody_desc">Экстремально твёрдая броня тела.</string>
+    <string name="item_adamantite_platelegs_name">Адамантитовые поножи</string>
+    <string name="item_adamantite_platelegs_desc">Экстремально твёрдая защита ног.</string>
+    <string name="item_adamantite_shield_name">Адамантитовый щит</string>
+    <string name="item_adamantite_shield_desc">Экстремально твёрдый щит.</string>
+
+    <!-- Armour — runite -->
+    <string name="item_runite_helmet_name">Рунитовый шлем</string>
+    <string name="item_runite_helmet_desc">Лучшая доступная защита головы.</string>
+    <string name="item_runite_platebody_name">Рунитовый нагрудник</string>
+    <string name="item_runite_platebody_desc">Лучшая доступная броня тела.</string>
+    <string name="item_runite_platelegs_name">Рунитовые поножи</string>
+    <string name="item_runite_platelegs_desc">Лучшая доступная защита ног.</string>
+    <string name="item_runite_shield_name">Рунитовый щит</string>
+    <string name="item_runite_shield_desc">Лучший доступный щит.</string>
+
+    <!-- ===== Tools — pickaxes ===== -->
+    <string name="item_bronze_pickaxe_name">Бронзовая кирка</string>
+    <string name="item_bronze_pickaxe_desc">Базовая кирка для Добычи руды.</string>
+    <string name="item_iron_pickaxe_name">Железная кирка</string>
+    <string name="item_iron_pickaxe_desc">Надёжная кирка для Добычи руды.</string>
+    <string name="item_steel_pickaxe_name">Стальная кирка</string>
+    <string name="item_steel_pickaxe_desc">Прочная кирка для Добычи руды.</string>
+    <string name="item_mithril_pickaxe_name">Мифриловая кирка</string>
+    <string name="item_mithril_pickaxe_desc">Легковесная магическая кирка для Добычи руды.</string>
+    <string name="item_adamantite_pickaxe_name">Адамантитовая кирка</string>
+    <string name="item_adamantite_pickaxe_desc">Экстремально твёрдая кирка для Добычи руды.</string>
+    <string name="item_runite_pickaxe_name">Рунитовая кирка</string>
+    <string name="item_runite_pickaxe_desc">Лучшая доступная кирка для Добычи руды.</string>
+
+    <!-- Tools — axes -->
+    <string name="item_bronze_axe_name">Бронзовый топор</string>
+    <string name="item_bronze_axe_desc">Базовый топор для Рубки леса.</string>
+    <string name="item_iron_axe_name">Железный топор</string>
+    <string name="item_iron_axe_desc">Надёжный топор для Рубки леса.</string>
+    <string name="item_steel_axe_name">Стальной топор</string>
+    <string name="item_steel_axe_desc">Прочный топор для Рубки леса.</string>
+    <string name="item_mithril_axe_name">Мифриловый топор</string>
+    <string name="item_mithril_axe_desc">Легковесный магический топор для Рубки леса.</string>
+    <string name="item_adamantite_axe_name">Адамантитовый топор</string>
+    <string name="item_adamantite_axe_desc">Экстремально твёрдый топор для Рубки леса.</string>
+    <string name="item_runite_axe_name">Рунитовый топор</string>
+    <string name="item_runite_axe_desc">Лучший доступный топор для Рубки леса.</string>
+
+    <!-- Tools — fishing rods -->
+    <string name="item_bronze_fishing_rod_name">Бронзовая удочка</string>
+    <string name="item_bronze_fishing_rod_desc">Базовая удочка.</string>
+    <string name="item_iron_fishing_rod_name">Железная удочка</string>
+    <string name="item_iron_fishing_rod_desc">Надёжная удочка.</string>
+    <string name="item_steel_fishing_rod_name">Стальная удочка</string>
+    <string name="item_steel_fishing_rod_desc">Прочная удочка.</string>
+    <string name="item_mithril_fishing_rod_name">Мифриловая удочка</string>
+    <string name="item_mithril_fishing_rod_desc">Легковесная магическая удочка.</string>
+    <string name="item_adamantite_fishing_rod_name">Адамантитовая удочка</string>
+    <string name="item_adamantite_fishing_rod_desc">Экстремально прочная удочка.</string>
+    <string name="item_runite_fishing_rod_name">Рунитовая удочка</string>
+    <string name="item_runite_fishing_rod_desc">Лучшая доступная удочка.</string>
+
+    <!-- ===== Arrows ===== -->
+    <string name="item_bronze_arrow_name">Бронзовые стрелы</string>
+    <string name="item_bronze_arrow_desc">Базовые стрелы для дальнего боя.</string>
+    <string name="item_iron_arrow_name">Железные стрелы</string>
+    <string name="item_iron_arrow_desc">Железные стрелы для дальнего боя.</string>
+    <string name="item_steel_arrow_name">Стальные стрелы</string>
+    <string name="item_steel_arrow_desc">Стальные стрелы для дальнего боя.</string>
+    <string name="item_mithril_arrow_name">Мифриловые стрелы</string>
+    <string name="item_mithril_arrow_desc">Мифриловые стрелы для дальнего боя.</string>
+    <string name="item_adamantite_arrow_name">Адамантитовые стрелы</string>
+    <string name="item_adamantite_arrow_desc">Адамантитовые стрелы для дальнего боя.</string>
+    <string name="item_runite_arrow_name">Рунитовые стрелы</string>
+    <string name="item_runite_arrow_desc">Лучшие доступные стрелы.</string>
+
+    <!-- Arrow components -->
+    <string name="item_arrow_shaft_name">Древки стрел</string>
+    <string name="item_arrow_shaft_desc">Деревянные древки для создания стрел.</string>
+    <string name="item_bronze_arrow_tips_name">Бронзовые наконечники</string>
+    <string name="item_bronze_arrow_tips_desc">Бронзовые наконечники для создания бронзовых стрел.</string>
+    <string name="item_iron_arrow_tips_name">Железные наконечники</string>
+    <string name="item_iron_arrow_tips_desc">Железные наконечники для создания железных стрел.</string>
+    <string name="item_steel_arrow_tips_name">Стальные наконечники</string>
+    <string name="item_steel_arrow_tips_desc">Стальные наконечники для создания стальных стрел.</string>
+    <string name="item_mithril_arrow_tips_name">Мифриловые наконечники</string>
+    <string name="item_mithril_arrow_tips_desc">Мифриловые наконечники для создания мифриловых стрел.</string>
+    <string name="item_adamantite_arrow_tips_name">Адамантитовые наконечники</string>
+    <string name="item_adamantite_arrow_tips_desc">Адамантитовые наконечники для создания адамантитовых стрел.</string>
+    <string name="item_runite_arrow_tips_name">Рунитовые наконечники</string>
+    <string name="item_runite_arrow_tips_desc">Рунитовые наконечники для создания рунитовых стрел.</string>
+
+    <!-- ===== Jewellery — plain ===== -->
+    <string name="item_silver_ring_name">Серебряное кольцо</string>
+    <string name="item_silver_ring_desc">Простое серебряное кольцо.</string>
+    <string name="item_silver_necklace_name">Серебряное ожерелье</string>
+    <string name="item_silver_necklace_desc">Простое серебряное ожерелье.</string>
+    <string name="item_gold_ring_name">Золотое кольцо</string>
+    <string name="item_gold_ring_desc">Простое золотое кольцо.</string>
+    <string name="item_gold_necklace_name">Золотое ожерелье</string>
+    <string name="item_gold_necklace_desc">Простое золотое ожерелье.</string>
+    <string name="item_platinum_ring_name">Платиновое кольцо</string>
+    <string name="item_platinum_ring_desc">Простое платиновое кольцо.</string>
+    <string name="item_platinum_necklace_name">Платиновое ожерелье</string>
+    <string name="item_platinum_necklace_desc">Простое платиновое ожерелье.</string>
+
+    <!-- Jewellery — sapphire -->
+    <string name="item_silver_sapphire_ring_name">Серебряное кольцо с сапфиром</string>
+    <string name="item_silver_sapphire_ring_desc">Серебряное кольцо с сапфиром.</string>
+    <string name="item_silver_sapphire_necklace_name">Серебряное ожерелье с сапфиром</string>
+    <string name="item_silver_sapphire_necklace_desc">Серебряное ожерелье с сапфиром.</string>
+    <string name="item_gold_sapphire_ring_name">Золотое кольцо с сапфиром</string>
+    <string name="item_gold_sapphire_ring_desc">Золотое кольцо с сапфиром.</string>
+    <string name="item_gold_sapphire_necklace_name">Золотое ожерелье с сапфиром</string>
+    <string name="item_gold_sapphire_necklace_desc">Золотое ожерелье с сапфиром.</string>
+    <string name="item_platinum_sapphire_ring_name">Платиновое кольцо с сапфиром</string>
+    <string name="item_platinum_sapphire_ring_desc">Платиновое кольцо с сапфиром.</string>
+    <string name="item_platinum_sapphire_necklace_name">Платиновое ожерелье с сапфиром</string>
+    <string name="item_platinum_sapphire_necklace_desc">Платиновое ожерелье с сапфиром.</string>
+
+    <!-- Jewellery — emerald -->
+    <string name="item_gold_emerald_ring_name">Золотое кольцо с изумрудом</string>
+    <string name="item_gold_emerald_ring_desc">Золотое кольцо с изумрудом.</string>
+    <string name="item_gold_emerald_necklace_name">Золотое ожерелье с изумрудом</string>
+    <string name="item_gold_emerald_necklace_desc">Золотое ожерелье с изумрудом.</string>
+    <string name="item_platinum_emerald_ring_name">Платиновое кольцо с изумрудом</string>
+    <string name="item_platinum_emerald_ring_desc">Платиновое кольцо с изумрудом.</string>
+    <string name="item_platinum_emerald_necklace_name">Платиновое ожерелье с изумрудом</string>
+    <string name="item_platinum_emerald_necklace_desc">Платиновое ожерелье с изумрудом.</string>
+
+    <!-- Jewellery — ruby -->
+    <string name="item_gold_ruby_ring_name">Золотое кольцо с рубином</string>
+    <string name="item_gold_ruby_ring_desc">Золотое кольцо с рубином.</string>
+    <string name="item_gold_ruby_necklace_name">Золотое ожерелье с рубином</string>
+    <string name="item_gold_ruby_necklace_desc">Золотое ожерелье с рубином.</string>
+    <string name="item_platinum_ruby_ring_name">Платиновое кольцо с рубином</string>
+    <string name="item_platinum_ruby_ring_desc">Платиновое кольцо с рубином.</string>
+    <string name="item_platinum_ruby_necklace_name">Платиновое ожерелье с рубином</string>
+    <string name="item_platinum_ruby_necklace_desc">Платиновое ожерелье с рубином.</string>
+
+    <!-- Jewellery — diamond -->
+    <string name="item_gold_diamond_ring_name">Золотое кольцо с алмазом</string>
+    <string name="item_gold_diamond_ring_desc">Золотое кольцо с алмазом.</string>
+    <string name="item_gold_diamond_necklace_name">Золотое ожерелье с алмазом</string>
+    <string name="item_gold_diamond_necklace_desc">Золотое ожерелье с алмазом.</string>
+    <string name="item_platinum_diamond_ring_name">Платиновое кольцо с алмазом</string>
+    <string name="item_platinum_diamond_ring_desc">Платиновое кольцо с алмазом.</string>
+    <string name="item_platinum_diamond_necklace_name">Платиновое ожерелье с алмазом</string>
+    <string name="item_platinum_diamond_necklace_desc">Платиновое ожерелье с алмазом.</string>
+
+    <!-- ===== Miscellaneous drops ===== -->
+    <string name="item_ashes_name">Пепел</string>
+    <string name="item_ashes_desc">Пепел от обычных брёвен. Развейте в навыке Молитвы для бонусного опыта Молитвы.</string>
+    <string name="item_oak_ashes_name">Дубовый пепел</string>
+    <string name="item_oak_ashes_desc">Пепел от дубовых брёвен. Развейте для большего опыта Молитвы, чем обычный пепел.</string>
+    <string name="item_willow_ashes_name">Ивовый пепел</string>
+    <string name="item_willow_ashes_desc">Пепел от ивовых брёвен. Развейте для опыта Молитвы.</string>
+    <string name="item_maple_ashes_name">Кленовый пепел</string>
+    <string name="item_maple_ashes_desc">Пепел от кленовых брёвен. Развейте для опыта Молитвы.</string>
+    <string name="item_yew_ashes_name">Тисовый пепел</string>
+    <string name="item_yew_ashes_desc">Пепел от тисовых брёвен. Развейте для значительного опыта Молитвы.</string>
+    <string name="item_magic_ashes_name">Магический пепел</string>
+    <string name="item_magic_ashes_desc">Пепел от магических брёвен. Развейте для существенного опыта Молитвы.</string>
+    <string name="item_redwood_ashes_name">Пепел секвойи</string>
+    <string name="item_redwood_ashes_desc">Пепел от брёвен секвойи. Развейте для наибольшего опыта Молитвы из всех видов пепла.</string>
+    <string name="item_bones_name">Кости</string>
+    <string name="item_bones_desc">Кости мелкого существа. Захороните для опыта Молитвы.</string>
+    <string name="item_big_bones_name">Большие кости</string>
+    <string name="item_big_bones_desc">Кости побольше. Дают больше опыта Молитвы при захоронении.</string>
+    <string name="item_giant_bones_name">Гигантские кости</string>
+    <string name="item_giant_bones_desc">Огромные кости от могучих врагов. Дают значительный опыт Молитвы.</string>
+    <string name="item_dragon_bone_name">Кость дракона</string>
+    <string name="item_dragon_bone_desc">Древние кости дракона. Дают наибольший опыт Молитвы при захоронении.</string>
+    <string name="item_dragon_scale_name">Чешуя дракона</string>
+    <string name="item_dragon_scale_desc">Прочная чешуя зелёного дракона. Редкая и ценная.</string>
+    <string name="item_coins_name">Монеты</string>
+    <string name="item_coins_desc">Валюта королевства. Тратьте в магазине.</string>
+    <string name="item_goblin_mail_name">Почта гоблинов</string>
+    <string name="item_goblin_mail_desc">Побитая броня, выпадающая из гоблинов. Хорошо продаётся.</string>
+    <string name="item_imp_hide_name">Шкура беса</string>
+    <string name="item_imp_hide_desc">Кожистая шкура беса.</string>
+    <string name="item_spider_silk_name">Паучий шёлк</string>
+    <string name="item_spider_silk_desc">Тонкий шёлк, сплетённый гигантскими пауками. Ценится ремесленниками.</string>
+    <string name="item_spider_fang_name">Паучий клык</string>
+    <string name="item_spider_fang_desc">Ядовитый клык гигантского паука.</string>
+    <string name="item_cowhide_name">Коровья шкура</string>
+    <string name="item_cowhide_desc">Грубая шкура коровы. Используется в кожевенном ремесле.</string>
+    <string name="item_wool_name">Шерсть</string>
+    <string name="item_wool_desc">Мягкая шерсть овцы.</string>
+    <string name="item_feather_name">Перо</string>
+    <string name="item_feather_desc">Перо, используемое при создании стрел.</string>
+    <string name="item_rotten_flesh_name">Гнилая плоть</string>
+    <string name="item_rotten_flesh_desc">Гниющая плоть нежити. Ужасно пахнет.</string>
+    <string name="item_lockpick_name">Отмычка</string>
+    <string name="item_lockpick_desc">Отмычка, выпадающая из бродяг.</string>
+    <string name="item_magic_bean_name">Магический боб</string>
+    <string name="item_magic_bean_desc">Магический боб с загадочными свойствами.</string>
+    <string name="item_hellhound_fang_name">Клык адской гончей</string>
+    <string name="item_hellhound_fang_desc">Обожжённый клык адской гончей.</string>
+    <string name="item_demon_horn_name">Рог демона</string>
+    <string name="item_demon_horn_desc">Зазубренный рог, оторванный от малого демона.</string>
+    <string name="item_troll_bone_name">Кость тролля</string>
+    <string name="item_troll_bone_desc">Огромная, узловатая кость горного тролля.</string>
+
+    <!-- ===== Runes ===== -->
+    <string name="item_air_rune_name">Руна воздуха</string>
+    <string name="item_air_rune_desc">Руна, наделённая силой воздуха. Используется в заклинаниях воздуха.</string>
+    <string name="item_water_rune_name">Руна воды</string>
+    <string name="item_water_rune_desc">Руна, наделённая силой воды.</string>
+    <string name="item_earth_rune_name">Руна земли</string>
+    <string name="item_earth_rune_desc">Руна, наделённая силой земли.</string>
+    <string name="item_fire_rune_name">Руна огня</string>
+    <string name="item_fire_rune_desc">Руна, наделённая силой огня.</string>
+    <string name="item_mind_rune_name">Руна разума</string>
+    <string name="item_mind_rune_desc">Руна, направляющая психическую энергию.</string>
+    <string name="item_chaos_rune_name">Руна хаоса</string>
+    <string name="item_chaos_rune_desc">Руна дикой, хаотичной магии.</string>
+    <string name="item_death_rune_name">Руна смерти</string>
+    <string name="item_death_rune_desc">Руна, наполненная силой смерти.</string>
+    <string name="item_blood_rune_name">Руна крови</string>
+    <string name="item_blood_rune_desc">Редкая руна, питаемая магией крови.</string>
+
+    <!-- ===== Crops ===== -->
+    <string name="crop_potato_name">Картофель</string>
+    <string name="crop_onion_name">Лук</string>
+    <string name="crop_cabbage_name">Капуста</string>
+    <string name="crop_carrot_name">Морковь</string>
+    <string name="crop_tomato_name">Томат</string>
+    <string name="crop_corn_name">Кукуруза</string>
+    <string name="crop_pumpkin_name">Тыква</string>
+    <string name="crop_watermelon_name">Арбуз</string>
+    <string name="crop_strawberry_name">Клубника</string>
+    <string name="crop_magic_herb_name">Магическая трава</string>
+    <string name="crop_dragon_fruit_name">Драконий фрукт</string>
+    <string name="crop_golden_wheat_name">Золотая пшеница</string>
+    <string name="crop_spirit_herb_name">Духовная трава</string>
+    <string name="crop_celestial_bloom_name">Небесный цветок</string>
+    <string name="crop_starfruit_name">Звёздный плод</string>
+    <string name="crop_void_lotus_name">Лотос пустоты</string>
+
+    <!-- ===== Spells ===== -->
+    <string name="spell_wind_strike_name">Ветряной удар</string>
+    <string name="spell_wind_bolt_name">Ветряной заряд</string>
+    <string name="spell_wind_blast_name">Ветряной взрыв</string>
+    <string name="spell_wind_wave_name">Ветряная волна</string>
+    <string name="spell_water_strike_name">Водяной удар</string>
+    <string name="spell_water_bolt_name">Водяной заряд</string>
+    <string name="spell_water_blast_name">Водяной взрыв</string>
+    <string name="spell_water_wave_name">Водяная волна</string>
+    <string name="spell_earth_strike_name">Земляной удар</string>
+    <string name="spell_earth_bolt_name">Земляной заряд</string>
+    <string name="spell_earth_blast_name">Земляной взрыв</string>
+    <string name="spell_earth_wave_name">Земляная волна</string>
+    <string name="spell_fire_strike_name">Огненный удар</string>
+    <string name="spell_fire_bolt_name">Огненный заряд</string>
+    <string name="spell_fire_blast_name">Огненный взрыв</string>
+    <string name="spell_fire_wave_name">Огненная волна</string>
+    <string name="spell_mind_strike_name">Удар разума</string>
+    <string name="spell_mind_bolt_name">Заряд разума</string>
+    <string name="spell_mind_blast_name">Взрыв разума</string>
+    <string name="spell_mind_wave_name">Волна разума</string>
+    <string name="spell_chaos_strike_name">Удар хаоса</string>
+    <string name="spell_chaos_bolt_name">Заряд хаоса</string>
+    <string name="spell_chaos_blast_name">Взрыв хаоса</string>
+    <string name="spell_chaos_wave_name">Волна хаоса</string>
+    <string name="spell_death_strike_name">Удар смерти</string>
+    <string name="spell_death_bolt_name">Заряд смерти</string>
+    <string name="spell_death_blast_name">Взрыв смерти</string>
+    <string name="spell_death_wave_name">Волна смерти</string>
+    <string name="spell_blood_strike_name">Удар крови</string>
+    <string name="spell_blood_bolt_name">Заряд крови</string>
+    <string name="spell_blood_blast_name">Взрыв крови</string>
+    <string name="spell_blood_wave_name">Волна крови</string>
+
+    <!-- ===== Hoes ===== -->
+    <string name="item_bronze_hoe_name">Бронзовая мотыга</string>
+    <string name="item_iron_hoe_name">Железная мотыга</string>
+    <string name="item_steel_hoe_name">Стальная мотыга</string>
+    <string name="item_mithril_hoe_name">Мифриловая мотыга</string>
+    <string name="item_adamantite_hoe_name">Адамантитовая мотыга</string>
+    <string name="item_runite_hoe_name">Рунитовая мотыга</string>
+
+    <!-- Herblore potions -->
+    <string name="item_attack_brew_name">Отвар атаки</string>
+    <string name="item_defense_brew_name">Отвар защиты</string>
+    <string name="item_attack_potion_name">Зелье атаки</string>
+    <string name="item_defense_potion_name">Зелье защиты</string>
+    <string name="item_onion_brew_name">Луковый отвар</string>
+    <string name="item_carrot_brew_name">Морковный отвар</string>
+    <string name="item_strength_brew_name">Отвар силы</string>
+    <string name="item_strength_potion_name">Зелье силы</string>
+    <string name="item_ranging_potion_name">Зелье стрельбы</string>
+    <string name="item_magic_potion_name">Зелье магии</string>
+    <string name="item_super_strength_potion_name">Супер-зелье силы</string>
+    <string name="item_super_attack_potion_name">Супер-зелье атаки</string>
+    <string name="item_super_defense_potion_name">Супер-зелье защиты</string>
+    <string name="item_super_ranging_potion_name">Супер-зелье стрельбы</string>
+    <string name="item_super_magic_potion_name">Супер-зелье магии</string>
+    <string name="item_overload_potion_name">Зелье перегрузки</string>
+
+    <!-- Enhanced potions -->
+    <string name="item_enhanced_attack_brew_name">Отвар атаки</string>
+    <string name="item_enhanced_defense_brew_name">Отвар защиты</string>
+    <string name="item_enhanced_attack_potion_name">Зелье атаки</string>
+    <string name="item_enhanced_defense_potion_name">Зелье защиты</string>
+    <string name="item_enhanced_onion_brew_name">Луковый отвар</string>
+    <string name="item_enhanced_carrot_brew_name">Морковный отвар</string>
+    <string name="item_enhanced_strength_brew_name">Отвар силы</string>
+    <string name="item_enhanced_strength_potion_name">Зелье силы</string>
+    <string name="item_enhanced_ranging_potion_name">Зелье стрельбы</string>
+    <string name="item_enhanced_magic_potion_name">Зелье магии</string>
+    <string name="item_enhanced_super_strength_potion_name">Супер-зелье силы</string>
+    <string name="item_enhanced_super_attack_potion_name">Супер-зелье атаки</string>
+    <string name="item_enhanced_super_defense_potion_name">Супер-зелье защиты</string>
+    <string name="item_enhanced_super_ranging_potion_name">Супер-зелье стрельбы</string>
+    <string name="item_enhanced_super_magic_potion_name">Супер-зелье магии</string>
+    <string name="item_enhanced_overload_potion_name">Зелье перегрузки</string>
+</resources>

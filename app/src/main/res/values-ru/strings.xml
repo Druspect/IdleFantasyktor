@@ -1,0 +1,1005 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Idle Fantasy</string>
+
+    <!-- ===== Bottom navigation ===== -->
+    <string name="nav_skills">Навыки</string>
+    <string name="nav_combat">Бой</string>
+    <string name="nav_home">Домой</string>
+    <string name="nav_crafting">Крафт</string>
+    <string name="nav_quests">Квесты</string>
+    <string name="nav_profile">Профиль</string>
+
+    <!-- ===== Common buttons ===== -->
+    <string name="btn_start">Начать</string>
+    <string name="btn_start_session">Начать сессию</string>
+    <string name="btn_abandon_session">Прервать сессию</string>
+    <string name="btn_collect_results">Собрать результаты</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_craft">Скрафтить</string>
+    <string name="btn_confirm">Подтвердить</string>
+    <string name="btn_abandon">Прервать</string>
+    <string name="btn_repeat_action">Повторить</string>
+    <string name="btn_collect">Собрать награды</string>
+    <string name="btn_equip">Экипировать</string>
+    <string name="btn_unequip">Снять</string>
+    <string name="btn_buy">Купить</string>
+    <string name="btn_sell">Продать</string>
+    <string name="btn_plant">Посадить</string>
+    <string name="btn_harvest">Собрать</string>
+    <string name="btn_harvest_all">Собрать всё</string>
+    <string name="btn_clear">Очистить</string>
+    <string name="btn_clear_all">Очистить всё</string>
+    <string name="btn_inspect">Осмотреть</string>
+    <string name="btn_view_drops">Добыча</string>
+    <string name="btn_start_quest">Начать квест</string>
+    <string name="btn_abandon_quest">Прервать квест</string>
+    <string name="btn_enter_dungeon">Войти в подземелье</string>
+    <string name="btn_enter_arena">Войти на арену</string>
+    <string name="btn_activate">Активировать</string>
+    <string name="btn_deactivate">Деактивировать</string>
+    <string name="btn_close">Закрыть</string>
+    <string name="btn_back">Назад</string>
+
+    <!-- ===== Common labels ===== -->
+    <string name="label_level">Уровень</string>
+    <string name="label_xp">Опыт</string>
+    <string name="label_coins">Монеты</string>
+    <string name="label_hp">Здоровье</string>
+    <string name="label_attack">Атака</string>
+    <string name="label_strength">Сила</string>
+    <string name="label_defense">Защита</string>
+    <string name="label_ranged">Стрельба</string>
+    <string name="label_magic">Магия</string>
+    <string name="label_prayer">Молитва</string>
+    <string name="label_hitpoints">Здоровье</string>
+    <string name="label_inventory">Инвентарь</string>
+    <string name="label_equipment">Снаряжение</string>
+    <string name="label_pets">Питомцы</string>
+    <string name="label_achievements">Достижения</string>
+    <string name="label_session_in_progress">Сессия в процессе</string>
+    <string name="label_session_active">Сессия активна</string>
+    <string name="label_no_active_session">Нет активной сессии</string>
+    <string name="label_session_complete">Сессия завершена!</string>
+    <string name="label_training">Тренировка</string>
+    <string name="label_gathering_skills">Добыча</string>
+    <string name="label_crafting_skills">Крафт</string>
+    <string name="label_choose_activity">Выберите занятие</string>
+    <string name="label_coming_soon">Скоро</string>
+    <string name="label_time_remaining">Осталось времени</string>
+    <string name="label_session_results">Результаты сессии</string>
+    <string name="label_xp_gained">Получено опыта</string>
+    <string name="label_items_collected">Предметов собрано</string>
+    <string name="label_level_ups">Уровней получено</string>
+    <string name="label_requirements">Требования</string>
+    <string name="label_rewards">Награды</string>
+    <string name="label_your_level">Ваш уровень</string>
+    <string name="label_xp_to_next">Опыта до следующего уровня</string>
+    <string name="label_total_xp">Всего опыта</string>
+    <string name="label_quantity">Количество</string>
+    <string name="label_price">Цена</string>
+    <string name="label_available">Доступно</string>
+    <string name="label_patch">Участок</string>
+    <string name="label_growth_time">Время роста</string>
+    <string name="label_ready_to_harvest">Готово к сбору</string>
+    <string name="label_empty">Пусто</string>
+    <string name="inventory_sort_quantity">Количество</string>
+    <string name="inventory_sort_az">А-Я</string>
+    <string name="inventory_cat_weapons">Оружие</string>
+    <string name="inventory_cat_armour">Броня</string>
+    <string name="inventory_cat_tools">Инструменты</string>
+    <string name="inventory_cat_food">Еда</string>
+    <string name="inventory_cat_potions">Зелья</string>
+    <string name="inventory_cat_materials">Материалы</string>
+    <string name="inventory_cat_other">Прочее</string>
+    <string name="label_combat_style">Стиль боя</string>
+    <string name="label_active_spell">Активное заклинание</string>
+    <string name="label_drops">Добыча</string>
+    <string name="label_boss">Босс</string>
+    <string name="label_dungeon">Подземелье</string>
+    <string name="label_difficulty">Сложность</string>
+    <string name="label_completed">Завершено</string>
+    <string name="label_in_progress">В процессе</string>
+    <string name="label_available_quests">Доступно</string>
+    <string name="label_stats">Характеристики</string>
+    <string name="label_skills">Навыки</string>
+    <string name="label_shop">Магазин</string>
+    <string name="label_sell_items">Продать предметы</string>
+    <string name="label_total_level">Общий уровень</string>
+    <string name="label_wins">Победы</string>
+    <string name="label_losses">Поражения</string>
+    <string name="label_active">Активно</string>
+    <string name="label_inactive">Неактивно</string>
+    <string name="label_boost">Бонус</string>
+    <string name="label_xp_boost">Бонус опыта</string>
+    <string name="label_weapon">Оружие</string>
+    <string name="label_armour">Броня</string>
+    <string name="label_food">Еда</string>
+    <string name="label_arrows_consumed">Стрел потрачено</string>
+    <string name="label_arrows_reclaimed">Стрел возвращено</string>
+    <string name="label_runes_consumed">Рун потрачено</string>
+    <string name="label_runes_reclaimed">Рун возвращено</string>
+    <string name="label_arrows">Стрелы</string>
+    <string name="label_runes">Руны</string>
+    <string name="label_spell">Заклинание</string>
+    <string name="label_none">Нет</string>
+    <string name="label_melee">Ближний бой</string>
+    <string name="label_ranged_style">Стрельба</string>
+    <string name="label_magic_style">Магия</string>
+    <string name="label_gathering">Добыча</string>
+    <string name="label_crafting">Крафт</string>
+    <string name="label_jewellery">Ювелирные изделия</string>
+    <string name="label_combat">Бой</string>
+    <string name="label_recipe">Рецепт</string>
+    <string name="label_recipes">Рецепты</string>
+    <string name="label_ingredients">Ингредиенты</string>
+    <string name="label_output">Результат</string>
+    <string name="label_xp_per_action">Опыта за действие</string>
+    <string name="label_unlocked_at">Открывается на уровне</string>
+    <string name="label_kills">Убийств</string>
+    <string name="label_personal_best">Личный рекорд</string>
+    <string name="label_daily_dig">Ежедневный раскоп</string>
+    <string name="label_dig_depth">Глубина ямы</string>
+    <string name="label_version">Версия</string>
+    <string name="label_open_source">Открытый исходный код</string>
+
+    <!-- ===== Format strings — all use positional args for Weblate ===== -->
+    <!-- Translator note: %1$d = level number, %2$s = formatted XP string -->
+    <string name="format_level_xp">Уровень %1$d — %2$s опыта</string>
+    <!-- Translator note: %1$s = formatted XP amount, %2$d = target level number -->
+    <string name="format_xp_to_next">%1$s опыта до уровня %2$d</string>
+    <!-- Translator note: %1$s = time string (e.g. "42m 10s") -->
+    <string name="format_time_remaining">Осталось %1$s</string>
+    <!-- Translator note: %1$s = relative time (e.g. "5m ago") -->
+    <string name="format_started_ago">Начато %1$s назад</string>
+    <!-- Translator note: %1$s = item display name, %2$d = quantity -->
+    <string name="format_item_quantity">%1$s ×%2$d</string>
+    <!-- Translator note: %1$d = coin amount -->
+    <string name="format_price_coins">%1$d монет</string>
+    <!-- Translator note: %1$d = required level, %2$s = skill display name -->
+    <string name="format_level_requirement">Требуется %2$s уровня %1$d</string>
+    <!-- Translator note: %1$s = formatted XP amount -->
+    <string name="format_xp_per_action">%1$s опыта за действие</string>
+    <!-- Translator note: %1$d = patch number -->
+    <string name="format_patch_number">Участок %1$d</string>
+    <!-- Translator note: %1$d = wins, %2$d = losses -->
+    <string name="format_arena_record">%1$d побед / %2$d поражений</string>
+    <!-- Translator note: %1$s = skill display name, %2$d = level number -->
+    <string name="format_skill_level">%1$s: Уровень %2$d</string>
+    <!-- Translator note: %1$d = boost percentage -->
+    <string name="format_xp_boost_percent">+%1$d%% опыта</string>
+    <!-- Translator note: %1$s = item/resource name, %2$d = quantity drop amount -->
+    <string name="format_drop_chance">%1$s: %2$d</string>
+    <!-- Translator note: %1$d = minutes remaining -->
+    <string name="format_minutes_remaining">Осталось %1$d мин</string>
+    <!-- Translator note: %1$s = version string (e.g. "0.1.0") -->
+    <string name="format_version">Версия %1$s</string>
+
+    <!-- ===== Plurals ===== -->
+    <plurals name="plural_level_ups">
+        <item quantity="one">%1$d уровень получен</item>
+        <item quantity="few">%1$d уровня получено</item>
+        <item quantity="many">%1$d уровней получено</item>
+        <item quantity="other">%1$d уровней получено</item>
+    </plurals>
+    <plurals name="plural_items">
+        <item quantity="one">%1$d предмет</item>
+        <item quantity="few">%1$d предмета</item>
+        <item quantity="many">%1$d предметов</item>
+        <item quantity="other">%1$d предметов</item>
+    </plurals>
+    <plurals name="plural_minutes">
+        <item quantity="one">%1$d минута</item>
+        <item quantity="few">%1$d минуты</item>
+        <item quantity="many">%1$d минут</item>
+        <item quantity="other">%1$d минут</item>
+    </plurals>
+    <plurals name="plural_hours">
+        <item quantity="one">%1$d час</item>
+        <item quantity="few">%1$d часа</item>
+        <item quantity="many">%1$d часов</item>
+        <item quantity="other">%1$d часов</item>
+    </plurals>
+    <plurals name="plural_patches">
+        <item quantity="one">%1$d участок</item>
+        <item quantity="few">%1$d участка</item>
+        <item quantity="many">%1$d участков</item>
+        <item quantity="other">%1$d участков</item>
+    </plurals>
+    <plurals name="plural_kills">
+        <item quantity="one">%1$d убийство</item>
+        <item quantity="few">%1$d убийства</item>
+        <item quantity="many">%1$d убийств</item>
+        <item quantity="other">%1$d убийств</item>
+    </plurals>
+    <plurals name="plural_quests_completed">
+        <item quantity="one">%1$d квест завершён</item>
+        <item quantity="few">%1$d квеста завершено</item>
+        <item quantity="many">%1$d квестов завершено</item>
+        <item quantity="other">%1$d квестов завершено</item>
+    </plurals>
+
+    <!-- ===== Error messages ===== -->
+    <string name="error_no_player">Не удалось загрузить данные игрока. Пожалуйста, перезапустите приложение.</string>
+    <string name="error_session_already_active">У вас уже есть активная сессия. Завершите или прервите её сначала.</string>
+    <string name="error_not_enough_coins">Недостаточно монет.</string>
+    <!-- Translator note: %1$s = item display name -->
+    <string name="error_not_enough_items">Недостаточно %1$s.</string>
+    <!-- Translator note: %1$s = skill display name -->
+    <string name="error_level_too_low">Ваш уровень %1$s слишком низкий.</string>
+    <!-- Translator note: %1$s = item display name -->
+    <string name="error_inventory_required">Вам нужен %1$s для этого.</string>
+    <string name="error_patch_occupied">Этот участок уже засажен.</string>
+    <string name="error_patch_empty">Этот участок пуст.</string>
+    <string name="error_crop_not_ready">Этот урожай ещё не готов.</string>
+    <string name="error_quest_active">У вас уже есть активный квест.</string>
+    <string name="error_quest_requirements_not_met">Вы не соответствуете требованиям этого квеста.</string>
+    <string name="error_dungeon_level_too_low">Ваш боевой уровень слишком низкий для этого подземелья.</string>
+    <string name="error_unknown">Что-то пошло не так. Пожалуйста, попробуйте снова.</string>
+
+    <!-- ===== Session dialogs ===== -->
+    <string name="session_abandon_title">Прервать сессию?</string>
+    <string name="session_abandon_body">Весь прогресс этой сессии будет потерян.</string>
+
+    <!-- ===== Onboarding ===== -->
+    <string name="onboarding_welcome_title">Добро пожаловать в Idle Fantasy</string>
+    <string name="onboarding_welcome_body">Начните сессию тренировки навыка и наблюдайте за ростом персонажа. Сессии длятся один час, даже когда приложение закрыто.</string>
+    <string name="onboarding_first_session_hint">Нажмите на любой навык, чтобы начать.</string>
+
+    <!-- ===== Settings ===== -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_notifications">Уведомления о сессиях</string>
+    <string name="settings_notifications_desc">Показывать уведомление по завершении сессии</string>
+    <string name="settings_battery_optimization">Оптимизация батареи</string>
+    <string name="settings_battery_optimization_desc">Отключите оптимизацию батареи для Idle Fantasy, чтобы получать своевременные уведомления</string>
+    <string name="settings_battery_optimization_btn">Изменить настройку</string>
+    <string name="settings_language">Язык</string>
+    <string name="settings_about">О приложении</string>
+    <string name="settings_open_source_licenses">Лицензии открытого ПО</string>
+
+    <!-- ===== HomeScreen ===== -->
+    <string name="label_player_stats">Характеристики игрока</string>
+    <string name="label_combat_level">Боевой уровень</string>
+    <string name="label_shop_desc">Покупайте снаряжение и продавайте добычу</string>
+    <string name="label_no_session_hint">Перейдите в Навыки или Бой, чтобы начать тренировку.</string>
+    <string name="label_recent_activity">Последняя активность</string>
+    <string name="settings_recent_activity_desc">Показывать кнопку «Последняя активность» на главном экране</string>
+    <string name="label_no_sessions_yet">Сессий ещё не завершено.</string>
+
+    <!-- ===== CombatScreen ===== -->
+    <string name="label_dungeons_tab">Подземелья</string>
+    <string name="btn_fight">Сражаться!</string>
+
+    <!-- ===== SkillsScreen ===== -->
+    <string name="btn_back_arrow">← Назад</string>
+    <string name="btn_start_burying">Начать захоронение</string>
+    <string name="btn_start_crafting">Начать крафт</string>
+    <string name="btn_select">Выбрать</string>
+    <string name="label_special">Особое</string>
+
+    <!-- ===== QuestsScreen ===== -->
+    <string name="label_claim_reward">Получить награду</string>
+    <string name="label_daily">Ежедневные</string>
+    <string name="label_daily_quests">Ежедневные квесты</string>
+    <string name="label_daily_reset">Обновление в 6:00</string>
+    <string name="label_daily_reward">2 000 монет (1/100: дварфское снаряжение)</string>
+    <string name="msg_daily_claimed_coins">Ежедневный квест выполнен! +2 000 монет.</string>
+    <string name="msg_daily_claimed_dwarven">Ежедневный квест выполнен! Вы нашли %1$s!</string>
+    <string name="label_hide_completed">Скрыть завершённые</string>
+
+    <!-- ===== OnboardingScreen ===== -->
+    <string name="onboarding_lets_go">Вперёд!</string>
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_next">Далее</string>
+
+    <!-- ===== Settings (continued) ===== -->
+    <string name="settings_notifications_header">Уведомления</string>
+    <string name="settings_performance_header">Производительность</string>
+    <string name="settings_general_header">Общие</string>
+    <string name="settings_tutorial_title">Обучение</string>
+    <string name="settings_tutorial_desc">Показать введение ещё раз</string>
+    <string name="settings_reopen">Открыть</string>
+    <string name="settings_changelog_title">Что нового</string>
+    <string name="settings_changelog_desc">Посмотреть последние изменения</string>
+    <string name="settings_changelog_btn">Просмотр</string>
+    <string name="settings_foss_desc">Idle Fantasy — свободное программное обеспечение с открытым исходным кодом.</string>
+    <string name="settings_reset_title">Сбросить прогресс</string>
+    <string name="settings_reset_desc">Удалить все навыки, предметы, квесты и монеты</string>
+    <string name="settings_reset_btn">Сбросить</string>
+    <string name="reset_confirm1_title">Сбросить весь прогресс?</string>
+    <string name="reset_confirm1_body">Это удалит весь опыт навыков, предметы, монеты и прогресс квестов. Это нельзя отменить.</string>
+    <string name="reset_confirm2_title">Вы уверены?</string>
+    <string name="reset_confirm2_body">Всё будет потеряно. Вы начнёте с самого начала.</string>
+    <string name="reset_confirm2_btn">Да, сбросить всё</string>
+
+    <!-- ===== Battery prompt dialog ===== -->
+    <string name="battery_prompt_title">Держите сессии активными</string>
+    <string name="battery_prompt_body">Для лучшего опыта разрешите Idle Fantasy работать в фоновом режиме, чтобы получать своевременные уведомления о сессиях.</string>
+    <string name="battery_prompt_open_settings">Открыть настройки</string>
+    <string name="battery_prompt_dismiss">Не сейчас</string>
+
+    <!-- ===== Easter egg ===== -->
+    <string name="dig_action">Копать</string>
+    <string name="dig_result">Вы копаете глубже в землю…</string>
+    <!-- Translator note: %1$d = total hole depth in metres -->
+    <string name="dig_depth_format">Яма глубиной %1$d метров.</string>
+
+    <!-- ===== Settings — appearance / language / save data ===== -->
+    <string name="settings_appearance">Внешний вид</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_theme_desc">Выберите цветовую схему</string>
+    <string name="settings_theme_dark">Тёмная</string>
+    <string name="settings_theme_light">Светлая</string>
+    <string name="settings_theme_system">Системная</string>
+    <string name="settings_font_size">Размер шрифта</string>
+    <string name="settings_font_tiny">Крошечный</string>
+    <string name="settings_font_small">Маленький</string>
+    <string name="settings_font_normal">Обычный</string>
+    <string name="settings_font_large">Большой</string>
+    <string name="settings_font_huge">Огромный</string>
+    <string name="settings_language_desc">Изменить язык приложения</string>
+    <string name="settings_lang_english">English</string>
+    <string name="settings_lang_deutsch">Deutsch</string>
+    <string name="settings_lang_français">Français</string>
+    <string name="settings_lang_dutch">Nederlands</string>
+    <string name="settings_lang_español">Español</string>
+    <string name="settings_lang_español_españa">Español (España)</string>
+    <string name="settings_lang_turkish">Türkçe</string>
+    <string name="settings_lang_italiano">Italiano</string>
+    <string name="settings_lang_russian">Русский</string>
+    <string name="settings_lang_system">Системный</string>
+    <string name="settings_save_data">Сохранение данных</string>
+    <string name="settings_export">Экспорт сохранения</string>
+    <string name="settings_export_desc">Сохранить прогресс в файл</string>
+    <string name="settings_export_btn">Экспорт</string>
+    <string name="settings_import">Импорт сохранения</string>
+    <string name="settings_import_desc">Восстановить прогресс из файла</string>
+    <string name="settings_import_btn">Импорт</string>
+    <string name="settings_source_code">Исходный код</string>
+    <string name="settings_source_url" translatable="false">github.com/tristinbaker/IdleFantasy</string>
+    <string name="settings_source_open">Открыть</string>
+    <string name="settings_exported_ok">Сохранение экспортировано</string>
+    <string name="settings_imported_ok">Сохранение успешно импортировано</string>
+    <string name="settings_imported_fail">Ошибка импорта — недействительный файл</string>
+    <string name="settings_backup_title">Автоматическое резервное копирование</string>
+    <string name="settings_backup_folder">Папка резервных копий</string>
+    <string name="settings_backup_no_folder">Папка не выбрана</string>
+    <string name="settings_backup_choose">Выбрать</string>
+    <string name="settings_backup_frequency">Частота</string>
+    <string name="settings_backup_off">Выкл</string>
+    <string name="settings_backup_hourly">Каждый час</string>
+    <string name="settings_backup_daily">Ежедневно</string>
+    <string name="settings_backup_weekly">Еженедельно</string>
+    <string name="settings_backup_at_5am">в 5:00</string>
+    <string name="settings_backup_now">Создать копию сейчас</string>
+    <string name="settings_backup_success">Резервная копия сохранена.</string>
+    <string name="settings_backup_failed">Ошибка создания резервной копии.</string>
+    <string name="settings_backup_folder_set">Папка резервных копий установлена.</string>
+
+    <!-- ===== HomeScreen (continued) ===== -->
+    <string name="home_town_title">Город</string>
+    <string name="home_town_desc">Посетите магазин, таверну, гильдию, церковь и мастера убийств</string>
+    <string name="guild_dailies_available">Ежедневные доступны</string>
+    <string name="guild_do_dailies_hint">Выполняйте ежедневные квесты для роста репутации</string>
+    <string name="guild_quest_gate_blocked">Завершите квесты для повышения ранга</string>
+    <string name="guild_quest_required">Квест необходим для повышения</string>
+    <string name="home_died_message">Вы погибли и потеряли большую часть добычи.</string>
+    <string name="home_xp_boost_was_active">Бонус ×2 опыта был активен</string>
+    <string name="home_xp_boost_active">Бонус ×2 опыта активен — %1$s осталось</string>
+    <string name="home_loot">Добыча</string>
+    <string name="home_food_consumed">Еда использована</string>
+    <string name="home_bones_buried">Кости захоронены</string>
+    <string name="home_whats_new">Что нового</string>
+    <string name="home_got_it">Понятно</string>
+    <!-- Translator note: %1$s = player name or "Adventurer" -->
+    <string name="home_welcome">С возвращением, %1$s!</string>
+    <string name="home_adventurer">Авантюрист</string>
+    <!-- Translator note: %1$d = queue size (always 3 max) -->
+    <string name="home_up_next">Следующая (%1$d/3)</string>
+    <!-- Translator note: %1$s = formatted duration string (e.g. "2h 15m") -->
+    <string name="home_queue_ends_in">Очередь завершится через %1$s</string>
+    <!-- Translator note: %1$d = number of sessions to collect -->
+    <plurals name="plural_collect_sessions">
+        <item quantity="one">Собрать награды за %1$d сессию</item>
+        <item quantity="few">Собрать награды за %1$d сессии</item>
+        <item quantity="many">Собрать награды за %1$d сессий</item>
+        <item quantity="other">Собрать награды за %1$d сессий</item>
+    </plurals>
+
+    <!-- ===== CombatScreen (continued) ===== -->
+    <string name="combat_level_label">Боевой ур.</string>
+    <string name="combat_log_label">Журнал боя</string>
+    <string name="combat_solo_bosses">Одиночные боссы</string>
+    <!-- Translator note: %1$d = number of completed dungeon runs -->
+    <string name="combat_dungeon_runs">%1$d заходов</string>
+    <string name="combat_atk">АТК</string>
+    <string name="combat_str">СИЛ</string>
+    <string name="combat_def">ЗАЩ</string>
+    <!-- Translator note: %1$d = HP healed -->
+    <string name="combat_heals_hp">лечит %1$d здоровья</string>
+    <string name="combat_defeated_so_far">уже побеждено.</string>
+    <string name="combat_fighting">Сражение…</string>
+    <string name="combat_log_you_hit">Вы попали</string>
+    <string name="combat_log_hit_you">попал по вам</string>
+    <string name="combat_log_dmg">урон</string>
+    <string name="combat_log_missed">промах</string>
+    <string name="combat_log_you_missed">Вы промахнулись</string>
+    <string name="combat_rec_level">Рекомендуемый боевой уровень</string>
+    <string name="combat_your_level">Ваш боевой уровень</string>
+    <string name="combat_no_strength_bonus">Нет (бонус силы отсутствует)</string>
+    <string name="combat_best_arrow">Лучшая стрела</string>
+    <string name="combat_arrow_auto">Авто (лучшая доступная)</string>
+    <string name="combat_label_arrow">Стрела</string>
+    <string name="combat_enemies">Враги</string>
+    <string name="combat_no_spells">Нет доступных заклинаний на вашем уровне магии.</string>
+    <string name="combat_only_castable">Только доступные</string>
+    <string name="combat_max_hit">макс. удар</string>
+    <string name="combat_no_potion">Без зелья</string>
+    <string name="combat_req_level">Требуемый боевой уровень</string>
+    <string name="combat_duration">Длительность</string>
+    <!-- Translator note: %1$d = minutes -->
+    <string name="combat_duration_min">%1$d мин</string>
+    <string name="combat_xp_on_victory">Опыт за победу</string>
+    <string name="combat_you_died">Вы погибли!</string>
+    <string name="combat_died_reward">Вы получили 10% наград.</string>
+    <!-- Translator note: %1$d = gear bonus value -->
+    <string name="combat_gear_bonus">+%1$d снаряжение</string>
+
+    <!-- ===== ProfileScreen ===== -->
+    <string name="profile_unnamed">Безымянный авантюрист</string>
+    <string name="profile_no_pets">Нет доступных питомцев</string>
+    <string name="profile_pet_collected">Найден</string>
+    <string name="profile_pet_not_found">Ещё не найден</string>
+    <string name="profile_equip_best">Надеть лучшее снаряжение</string>
+    <string name="profile_weapons">Оружие</string>
+    <string name="profile_combat_gear">Боевое снаряжение</string>
+    <string name="profile_view_combat_gear">Просмотр боевого снаряжения</string>
+    <string name="profile_gathering_tools">Инструменты добычи</string>
+    <string name="profile_food_dungeon">Еда (подземелье)</string>
+    <string name="profile_no_food">Нет приготовленной еды в инвентаре</string>
+    <!-- Translator note: %1$d = quantity, %2$d = heal value -->
+    <string name="profile_food_desc">×%1$d  •  лечит %2$d здоровья</string>
+    <!-- Translator note: %1$s = slot display name (e.g. "Weapon") -->
+    <string name="profile_choose_slot">Выбрать %1$s</string>
+    <string name="profile_no_items">Нет подходящих предметов в инвентаре</string>
+    <string name="profile_stat_atk">Атк</string>
+    <string name="profile_stat_str">Сил</string>
+    <string name="profile_stat_ranged">Стрельба</string>
+    <string name="profile_stat_magic">Магия</string>
+    <string name="profile_stat_mining">Добыча руды</string>
+    <string name="profile_stat_wc">Рубка</string>
+    <string name="profile_stat_fishing">Рыбалка</string>
+    <string name="profile_stat_farming">Фермерство</string>
+    <string name="profile_stat_def">Защ</string>
+    <string name="profile_req_lv">Треб. ур.</string>
+
+    <!-- ===== SkillsScreen (continued) ===== -->
+    <!-- Translator note: %1$d = session duration in minutes -->
+    <string name="skills_session_duration">Сессия: %1$d мин</string>
+    <string name="skills_only_craftable">Только крафтовые</string>
+    <string name="skills_filter_all">Все</string>
+    <string name="skills_add_to_queue">Добавить в очередь сессий</string>
+    <string name="skills_add_queue_short">В очередь</string>
+    <!-- Translator note: %1$d = level required, %2$s = XP per action -->
+    <string name="skills_level_req_xp">Ур. %1$d  •  %2$s опыта/руда</string>
+    <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
+    <string name="skills_tool_bonus">×%1$s бонус инструмента</string>
+    <!-- Translator note: %1$d = fishing level -->
+    <string name="skills_fishing_desc">Уровень %1$d  •  Улов по уровню</string>
+    <!-- Translator note: %1$d = prayer level -->
+    <string name="skills_prayer_desc">Уровень %1$d  •  Захороните кости или рассейте прах для опыта молитвы</string>
+    <string name="skills_no_bones">Нет костей или праха в инвентаре</string>
+    <!-- Translator note: %1$d = XP per bone, %2$d = quantity in inventory -->
+    <string name="skills_bone_qty">%1$d опыта за шт.  •  %2$d в инвентаре</string>
+    <!-- Translator note: %1$d = XP per bone, %2$d = quantity available -->
+    <string name="skills_bone_selected">%1$d опыта за шт.  •  %2$d доступно</string>
+    <!-- Translator note: %1$d = total XP -->
+    <string name="skills_xp_total">+%1$d опыта всего</string>
+    <string name="skills_no_essence">Нет рунической эссенции в инвентаре — добыйте сначала</string>
+    <string name="skills_no_runes">Руны ещё не открыты</string>
+    <!-- Translator note: %1$d = essence quantity -->
+    <string name="skills_essence_qty">%1$d рунической эссенции в инвентаре</string>
+    <!-- Translator note: %1$d = XP per rune, %2$d = level required -->
+    <string name="skills_rune_desc">%1$d опыта/руна  •  Ур. %2$d</string>
+    <!-- Translator note: %1$d = XP per rune, %2$d = essence available -->
+    <string name="skills_rune_selected">%1$d опыта/руна  •  %2$d эссенции доступно</string>
+    <!-- Translator note: %1$d = level reached -->
+    <string name="skills_level_reached">Достигнут уровень %1$d!</string>
+    <string name="skills_no_logs">Нет брёвен в инвентаре</string>
+    <!-- Translator note: %1$d = level required, %2$s = XP per log -->
+    <string name="skills_log_desc">Ур. %1$d  •  %2$s опыта/бревно</string>
+    <!-- Translator note: %1$d = level required, %2$s = XP per catch -->
+    <string name="skills_fish_desc">Ур. %1$d  •  %2$s опыта/улов</string>
+    <!-- Translator note: %1$d = required level, %2$s = skill name, %3$d = player level, %4$s = skill name again -->
+    <string name="skills_req_with_have">Требуется %1$d %2$s (У вас %3$d %4$s)</string>
+
+    <!-- ===== ShopScreen ===== -->
+    <string name="shop_active">АКТИВНО</string>
+    <string name="shop_sell_junk">Продать хлам</string>
+    <string name="shop_sell_old_gear">Продать старое снаряжение</string>
+    <string name="shop_equipped_label">(надето)</string>
+    <!-- Translator note: %1$d = quantity -->
+    <string name="shop_qty_in_inv">×%1$d в инвентаре</string>
+    <!-- Translator note: %1$s = formatted coin amount -->
+    <string name="shop_price_each">%1$s монет шт.</string>
+    <!-- Translator note: %1$s = item name -->
+    <string name="shop_buy_prefix">Купить: %1$s</string>
+    <string name="shop_sell_prefix">Продать: %1$s</string>
+    <!-- Translator note: %1$s = formatted coin amount -->
+    <string name="shop_price_each_long">%1$s монет за шт.</string>
+    <string name="shop_total_cost">Итого</string>
+    <string name="shop_youll_receive">Вы получите</string>
+    <!-- Translator note: %1$s = formatted coin amount -->
+    <string name="shop_total_amount">%1$s монет</string>
+
+    <!-- ===== CraftingScreen ===== -->
+    <string name="crafting_no_mats">Нет материалов</string>
+    <!-- Translator note: %1$d = total quantity, %2$s = item name -->
+    <string name="crafting_produces">= %1$d %2$s</string>
+    <string name="crafting_effects">Эффекты</string>
+    <!-- Translator note: %1$d = total XP -->
+    <string name="crafting_xp_total">+%1$d опыта всего</string>
+    <string name="crafting_decrease">Уменьшить</string>
+    <string name="crafting_increase">Увеличить</string>
+    <!-- Translator note: %1$d = needed, %2$d = have -->
+    <string name="crafting_needed_have">%1$d (есть %2$d)</string>
+    <!-- Translator note: %1$d = quantity in inventory -->
+    <string name="crafting_in_inventory">В инвентаре: ×%1$d</string>
+
+    <!-- ===== FarmingScreen ===== -->
+    <!-- Translator note: %1$s = crop name -->
+    <string name="farming_harvested">Собрано: %1$s</string>
+    <!-- Translator note: %1$d = farming level -->
+    <string name="farming_title">Фермерство — Уровень %1$d</string>
+    <!-- Translator note: %1$d = patch count -->
+    <string name="farming_patches">%1$d участков открыто</string>
+    <string name="farming_clear_patch">Очистить участок</string>
+    <string name="farming_clear_desc">Удалить культуру без награды?</string>
+    <string name="farming_harvest_and_plant">Собрать и посадить всё</string>
+    <string name="farming_no_crops_ready">Нет готовых к сбору культур</string>
+    <string name="farming_no_empty_patches">Нет свободных участков</string>
+    <!-- Translator note: %1$s = seed name -->
+    <string name="farming_no_seeds_inventory">Недостаточно %1$s в инвентаре</string>
+    <!-- Translator note: %1$d = count, %2$s = seed name -->
+    <string name="farming_planted">Посажено %1$d %2$s</string>
+
+    <!-- ===== QuestsScreen ===== -->
+    <string name="quests_none_in_category">Нет квестов в этой категории.</string>
+
+    <!-- ===== CharacterSetupSheet ===== -->
+    <string name="character_create_title">Создайте персонажа</string>
+    <string name="character_edit_title">Редактировать персонажа</string>
+    <string name="character_name_label">Имя персонажа</string>
+    <string name="character_gender">Пол</string>
+    <string name="character_gender_male">Мужской</string>
+    <string name="character_gender_female">Женский</string>
+    <string name="character_gender_other">Другой</string>
+    <string name="character_race">Раса</string>
+    <string name="character_race_human">Человек</string>
+    <string name="character_race_elf">Эльф</string>
+    <string name="character_race_dwarf">Дварф</string>
+    <string name="character_race_orc">Орк</string>
+    <string name="character_race_halfling">Полурослик</string>
+    <string name="character_race_gnome">Гном</string>
+
+    <!-- ===== OnboardingScreen ===== -->
+    <string name="onboarding_sessions_title">Сессии</string>
+    <string name="onboarding_sessions_desc">Выберите навык и начните тренировочную сессию. Сессии работают в фоне, даже когда приложение закрыто. Возвращайтесь, чтобы забрать добычу и опыт.</string>
+    <string name="onboarding_progress_title">Поднимайтесь выше</string>
+    <string name="onboarding_progress_desc">Добывайте руду, чтобы плавить слитки, затем куйте лучшее оружие и броню. Надевайте крепкое снаряжение, чтобы проходить подземелья и боссов. Лучшие инструменты ускоряют добычу, а снаряжение высокого уровня открывает контент, где слабое не выживет.</string>
+    <string name="onboarding_quests_title">Квесты и питомцы</string>
+    <string name="onboarding_quests_desc">Выполняйте квесты за опыт. Редкие питомцы могут появиться при тренировке навыков и дают постоянный бонус опыта.</string>
+    <string name="onboarding_welcome_desc">РПГ в стиле покоя, вдохновлённая классическими MMORPG. Тренируйте навыки, сражайтесь в подземельях, крафтите снаряжение. Всё офлайн, без аккаунтов и рекламы.</string>
+
+    <!-- Quantity picker quick buttons -->
+    <string name="qty_max">Макс</string>
+
+    <!-- ===== Inn / Worker ===== -->
+    <string-array name="worker_names">
+        <item>Aldric</item>
+        <item>Brenna</item>
+        <item>Calder</item>
+        <item>Dwyn</item>
+        <item>Elara</item>
+        <item>Finn</item>
+        <item>Gwenna</item>
+        <item>Hadwin</item>
+        <item>Isla</item>
+        <item>Jorvik</item>
+        <item>Kira</item>
+        <item>Leofwin</item>
+        <item>Maren</item>
+        <item>Nessa</item>
+        <item>Oswin</item>
+        <item>Petra</item>
+        <item>Quill</item>
+        <item>Rowena</item>
+        <item>Sven</item>
+        <item>Tilda</item>
+        <item>Urick</item>
+        <item>Veda</item>
+        <item>Wren</item>
+        <item>Xander</item>
+        <item>Yara</item>
+    </string-array>
+    <string name="inn_title">Таверна</string>
+    <string name="inn_desc">Наймите работника для тренировки навыков или купите еду из ежедневного меню.</string>
+    <string name="inn_worker_already_hired">Работник уже нанят.</string>
+    <string name="inn_not_enough_coins">Недостаточно монет.</string>
+    <string name="inn_hire">Нанять</string>
+    <string name="inn_worker_active">Работник нанят и тренирует</string>
+    <string name="inn_hire_cost">%1$s монет</string>
+    <string name="worker_long_laborer">Долгий чернорабочий</string>
+    <string name="worker_apprentice">Подмастерье</string>
+    <string name="worker_journeyman">Умелец</string>
+    <string name="worker_master">Мастер</string>
+    <string name="inn_long_laborer_desc">8ч добыча, ×0.5 эффективность. Без ограничений на крафт, молитву и руническое ремесло. Ставьте в очередь сколько хотите. Он медленный, но сделает что угодно.</string>
+    <string name="inn_apprentice_desc">8ч добыча, ×1 эффективность. Крафт, молитва и руническое ремесло — лимит 480 предметов за сессию.</string>
+    <string name="inn_journeyman_desc">6ч добыча, ×1.25 эффективность. Крафт, молитва и руническое ремесло — лимит 360 предметов за сессию.</string>
+    <string name="inn_master_desc">4ч добыча, ×2 эффективность. Крафт, молитва и руническое ремесло — лимит 240 предметов за сессию.</string>
+    <string name="inn_gathering_note">Добыча: часы сессии × множитель эффективности применяется к луту и опыту</string>
+    <string name="inn_crafting_note">Крафт/молитва/руническое ремесло: количество ограничено по уровню; у Долгого чернорабочего нет лимита</string>
+    <string name="worker_skills_title">Работник: %1$s</string>
+    <string name="worker_session_active">Сессия работника активна</string>
+    <string name="worker_session_complete">Сессия работника завершена</string>
+    <string name="worker_manage_from_home">Заберите на главном экране</string>
+    <string name="worker_card_title">Работник</string>
+    <string name="worker_idle">Работник свободен — сессии в очереди начнутся автоматически</string>
+    <string name="worker_collect_btn">Забрать сессию работника</string>
+    <string name="worker_dismiss_btn">Уволить работника</string>
+    <string name="worker_dismiss_confirm_title">Уволить работника?</string>
+    <string name="worker_dismiss_confirm_body">Активная сессия и очередь будут отменены. Стоимость найма и материалы из очереди будут возвращены.</string>
+    <string name="inn_daily_menu">Ежедневное меню</string>
+    <string name="inn_laborers_header">Рабочие</string>
+    <string name="inn_slot1_header">Долгий чернорабочий</string>
+    <string name="inn_slot2_header">Квалифицированный работник</string>
+
+    <!-- ===== Combat difficulty ratings ===== -->
+    <string name="combat_difficulty_likely">Посильный противник</string>
+    <string name="combat_difficulty_risky">Рискованно при текущей экипировке</string>
+    <string name="combat_difficulty_unlikely">Скорее всего погибнете</string>
+
+    <!-- ===== Achievements ===== -->
+    <string name="achievement_group_levelling">Уровни</string>
+    <string name="achievement_group_combat">Бой</string>
+    <string name="achievement_group_quests">Квесты</string>
+    <string name="achievement_group_collection">Коллекция</string>
+
+    <string name="achievement_total_50_name">Авантюрист</string>
+    <string name="achievement_total_50_desc">Достичь суммарного уровня 50</string>
+    <string name="achievement_total_100_name">Умелец</string>
+    <string name="achievement_total_100_desc">Достичь суммарного уровня 100</string>
+    <string name="achievement_total_250_name">Опытный</string>
+    <string name="achievement_total_250_desc">Достичь суммарного уровня 250</string>
+    <string name="achievement_total_500_name">Ветеран</string>
+    <string name="achievement_total_500_desc">Достичь суммарного уровня 500</string>
+    <string name="achievement_total_750_name">Мастер</string>
+    <string name="achievement_total_750_desc">Достичь суммарного уровня 750</string>
+    <string name="achievement_total_1000_name">Легенда</string>
+    <string name="achievement_total_1000_desc">Достичь суммарного уровня 1000</string>
+    <string name="achievement_total_1500_name">Чемпион</string>
+    <string name="achievement_total_1500_desc">Достичь суммарного уровня 1500</string>
+    <string name="achievement_skill_99_name">Первая мастерство</string>
+    <string name="achievement_skill_99_desc">Прокачать любой навык до 99 уровня</string>
+    <string name="achievement_all_99_name">Комплексист</string>
+    <string name="achievement_all_99_desc">Прокачать все навыки до 99 уровня</string>
+
+    <string name="achievement_combat_10_name">Боец</string>
+    <string name="achievement_combat_10_desc">Достичь боевого уровня 10</string>
+    <string name="achievement_combat_30_name">Воин</string>
+    <string name="achievement_combat_30_desc">Достичь боевого уровня 30</string>
+    <string name="achievement_combat_50_name">Чемпион</string>
+    <string name="achievement_combat_50_desc">Достичь боевого уровня 50</string>
+    <string name="achievement_combat_75_name">Элита</string>
+    <string name="achievement_combat_75_desc">Достичь боевого уровня 75</string>
+    <string name="achievement_combat_99_name">Макс. бой</string>
+    <string name="achievement_combat_99_desc">Достичь боевого уровня 99</string>
+
+    <string name="achievement_quest_1_name">Квестер</string>
+    <string name="achievement_quest_1_desc">Выполнить 1 квест</string>
+    <string name="achievement_quest_5_name">Усердный</string>
+    <string name="achievement_quest_5_desc">Выполнить 5 квестов</string>
+    <string name="achievement_quest_25_name">Охотник за квестами</string>
+    <string name="achievement_quest_25_desc">Выполнить 25 квестов</string>
+    <string name="achievement_quest_50_name">Мастер квестов</string>
+    <string name="achievement_quest_50_desc">Выполнить 50 квестов</string>
+    <string name="achievement_quest_all_name">Чемпион квестов</string>
+    <string name="achievement_quest_all_desc">Выполнить все квесты</string>
+
+    <string name="achievement_pet_first_name">Друг животных</string>
+    <string name="achievement_pet_first_desc">Найти первого питомца</string>
+    <string name="achievement_pet_all_name">Зверинец</string>
+    <string name="achievement_pet_all_desc">Собрать всех 7 питомцев</string>
+
+    <!-- ===== Quest display names ===== -->
+    <string name="quest_kbd_slayer_1_name">Убийца Короля Чёрных Драконов I</string>
+    <string name="quest_kbd_slayer_2_name">Убийца Короля Чёрных Драконов II</string>
+    <string name="quest_kbd_slayer_3_name">Убийца Короля Чёрных Драконов III</string>
+    <string name="inn_daily_resets">Обновляется ежедневно в 6:00</string>
+    <string name="inn_food_heal">+%1$d здоровья</string>
+    <string name="inn_food_purchased">Еда куплена.</string>
+    <string name="inn_buy_qty">Количество</string>
+    <string name="inn_buy_total">Итого: %1$s</string>
+    <string name="inn_card_desc">Нанимайте работников и покупайте еду</string>
+    <string name="worker_no_active_session">Работник свободен — нет сессий в очереди</string>
+    <string name="worker_add_sessions">Добавить сессии</string>
+    <string name="inn_worker_tier">%1$s работник</string>
+    <string name="worker_skills_title_nav">Навыки работника</string>
+
+    <!-- Guild Hall -->
+    <string name="guild_hall_title">Зал гильдий</string>
+    <string name="guild_hall_desc">Вступайте в гильдии и получайте награды за репутацию</string>
+    <string name="guild_hall_intro">Гильдии награждают за действия, которые вы уже выполняете. Завершайте квесты и ежедневные поручения, чтобы получать межнавыковые материалы, монеты и опыт — специалисты получат ресурсы даже от навыков, которые не тренируют.</string>
+    <string name="guild_level_label">Уровень %1$d</string>
+    <string name="guild_level_max">Уровень 10 (Макс.)</string>
+    <string name="guild_tab_quests">Квесты</string>
+    <string name="guild_tab_dailies">Ежедневные поручения</string>
+    <string name="guild_daily_resets_in">Обновляется ежедневно в 6:00</string>
+    <string name="guild_locked_hint">Требуется уровень гильдии %1$d</string>
+    <string name="guild_no_dailies">Завершайте квесты гильдии, чтобы зарабатывать репутацию и открывать ежедневные поручения.</string>
+    <string name="guild_contribute_inventory">Передать из инвентаря (%1$d доступно)</string>
+    <string name="guild_quest_desc_gather">Собрать %1$d %2$s для %3$s.</string>
+    <string name="guild_quest_desc_craft">Скрафтить %1$d %2$s для %3$s.</string>
+    <string name="guild_quest_desc_kill">Победить %1$d врагов в ближнем бою (%2$s).</string>
+    <string name="guild_quest_desc_prayer">Захоронить %1$d костей для %2$s.</string>
+    <string name="guild_quest_desc_sessions">Завершить %1$d сессий %2$s для %3$s.</string>
+    <string name="guild_quest_desc_trade">Завершить %1$d торговых маршрутов для %2$s.</string>
+    <string name="guild_quest_desc_earn_coins">Заработать %1$s монет через торговые маршруты для %2$s.</string>
+    <string name="guild_combat_melee">ближний бой</string>
+    <string name="guild_combat_ranged">дальний бой</string>
+    <string name="guild_combat_magic">магия</string>
+    <string name="guild_rep_label">%1$d / %2$d реп.</string>
+    <string name="guild_quest_complete">Квест завершён: %1$s</string>
+    <string name="guild_daily_complete">Награда за ежедневное поручение получена!</string>
+    <string name="guild_name_mining">Гильдия рудокопов</string>
+    <string name="guild_name_fishing">Гильдия рыболовов</string>
+    <string name="guild_name_woodcutting">Гильдия лесорубов</string>
+    <string name="guild_name_farming">Гильдия фермеров</string>
+    <string name="guild_name_firemaking">Гильдия костёров</string>
+    <string name="guild_name_agility">Гильдия ловкости</string>
+    <string name="guild_name_smithing">Гильдия кузнецов</string>
+    <string name="guild_name_cooking">Гильдия поваров</string>
+    <string name="guild_name_fletching">Гильдия лучников</string>
+    <string name="guild_name_crafting">Гильдия ремесленников</string>
+    <string name="guild_name_runecrafting">Гильдия руноделов</string>
+    <string name="guild_name_herblore">Гильдия травников</string>
+    <string name="guild_name_warriors">Гильдия воинов</string>
+    <string name="guild_name_archers">Гильдия стрелков</string>
+    <string name="guild_name_mages">Гильдия магов</string>
+    <string name="guild_name_prayer">Гильдия молитвы</string>
+    <string name="guild_name_mercantile">Гильдия торговцев</string>
+
+    <!-- Mercantile skill -->
+    <string name="skill_mercantile">Торговля</string>
+    <string name="label_support_skills">Поддержка</string>
+    <string name="mercantile_routes_label">Торговые маршруты</string>
+    <string name="mercantile_level_label">Уровень %1$d Торговли</string>
+    <string name="mercantile_xp_label">Опыт: %1$s</string>
+    <string name="mercantile_coins_label">Монеты: %1$s</string>
+    <string name="mercantile_cost_label">Стоимость: %1$s</string>
+    <string name="mercantile_return_range">Доход: %1$s – %2$s</string>
+    <string name="mercantile_dispatch_label">Отправить</string>
+    <string name="mercantile_queue_label">В очередь</string>
+
+    <!-- Church -->
+    <string name="church_title">Церковь</string>
+    <string name="church_desc">Благословения для опыта, защиты и монет</string>
+    <string name="church_no_active_blessing">Нет активного благословения — посетите Церковь для молитвы.</string>
+    <string name="church_active_label">Активное благословение</string>
+    <string name="church_expires_in">Истекает через %1$s</string>
+    <string name="church_blessing_active_fmt">%1$s • %2$s осталось</string>
+    <string name="church_section_xp">Благословения опыта</string>
+    <string name="church_section_defense">Благословения защиты</string>
+    <string name="church_section_coins">Благословения монет</string>
+    <string name="church_locked_level">Требуется уровень Молитвы %1$d</string>
+    <string name="church_active_chip">Активно</string>
+    <string name="church_activate">Активировать</string>
+    <string name="church_blessing_bonus">+%1$s от благословения</string>
+    <string name="church_blessing_suffix">от благословения</string>
+    <string name="church_effect_xp">×%1$.2f опыта на 24 часа</string>
+    <string name="church_effect_def">+%1$d Защиты на 24 часа</string>
+    <string name="church_effect_coins">+%1$d%% монет с добычи на 24 часа</string>
+    <string name="church_cost_bones">Стоимость: %1$d костей</string>
+    <string name="church_confirm_title">Активировать благословение?</string>
+    <string name="church_bones_available">У вас %1$d костей (все виды)</string>
+    <string name="church_not_enough_bones">Недостаточно костей (нужно %1$d)</string>
+    <string name="church_already_active">Благословение уже активно</string>
+
+    <!-- Blessing names -->
+    <string name="blessing_blessed_focus_name">Благословенный фокус</string>
+    <string name="blessing_stone_skin_name">Каменная кожа</string>
+    <string name="blessing_blessed_focus_ii_name">Благословенный фокус II</string>
+    <string name="blessing_stone_skin_ii_name">Каменная кожа II</string>
+    <string name="blessing_blessed_focus_iii_name">Благословенный фокус III</string>
+    <string name="blessing_stone_skin_iii_name">Каменная кожа III</string>
+    <string name="blessing_tithe_blessing_name">Десятина</string>
+    <string name="blessing_stone_skin_iv_name">Каменная кожа IV</string>
+    <string name="blessing_fortune_i_name">Удача I</string>
+    <string name="blessing_tithe_blessing_ii_name">Десятина II</string>
+    <string name="blessing_iron_ward_name">Железный оберег</string>
+    <string name="blessing_fortune_ii_name">Удача II</string>
+    <string name="blessing_tithe_blessing_iii_name">Десятина III</string>
+    <string name="blessing_iron_ward_ii_name">Железный оберег II</string>
+    <string name="blessing_fortune_iii_name">Удача III</string>
+    <string name="blessing_divine_focus_name">Божественный фокус</string>
+    <string name="blessing_diamond_skin_name">Алмазная кожа</string>
+    <string name="blessing_fortune_iv_name">Удача IV</string>
+    <string name="blessing_divine_focus_ii_name">Божественный фокус II</string>
+    <string name="blessing_diamond_skin_ii_name">Алмазная кожа II</string>
+    <string name="blessing_fortune_v_name">Удача V</string>
+    <string name="blessing_divine_grace_name">Божественная благодать</string>
+    <string name="blessing_holy_shield_name">Священный щит</string>
+    <string name="blessing_abundance_name">Изобилие</string>
+    <string name="blessing_divine_grace_ii_name">Божественная благодать II</string>
+    <string name="blessing_holy_shield_ii_name">Священный щит II</string>
+    <string name="blessing_abundance_ii_name">Изобилие II</string>
+    <string name="blessing_sacred_grace_name">Священная благодать</string>
+    <string name="blessing_aegis_name">Эгида</string>
+    <string name="blessing_abundance_iii_name">Изобилие III</string>
+
+    <!-- Skilling dungeon names and descriptions -->
+    <string name="skilling_dungeon_copper_caverns_name">Медные пещеры</string>
+    <string name="skilling_dungeon_copper_caverns_desc">Заброшенная шахта под предгорьями. Медные жилы всё ещё мерцают во тьме.</string>
+    <string name="skilling_dungeon_dwarven_depths_name">Дварфские глубины</string>
+    <string name="skilling_dungeon_dwarven_depths_desc">Глубочайший уровень древней дварфской выработки. Богатые жилы редкого металла скрыты за костями своих строителей.</string>
+    <string name="skilling_dungeon_whispering_grove_name">Шепчущая роща</string>
+    <string name="skilling_dungeon_whispering_grove_desc">Первобытный лес, где деревья росли тысячи лет безмятежно. Что-то шепчет между ветвей.</string>
+    <string name="skilling_dungeon_corrupted_canopy_name">Осквернённая крона</string>
+    <string name="skilling_dungeon_corrupted_canopy_desc">Лес, где тень заменила солнечный свет. Деревья кровоточат чёрным соком, а воздух отдаёт старой магией.</string>
+    <string name="skilling_dungeon_sunken_grotto_name">Затопленный грот</string>
+    <string name="skilling_dungeon_sunken_grotto_desc">Морская пещера, выточенная веками приливов. Странные каменные столбы поднимаются из воды.</string>
+    <string name="skilling_dungeon_abyssal_lagoon_name">Бездонная лагуна</string>
+    <string name="skilling_dungeon_abyssal_lagoon_desc">Чёрная неподвижная лагуна без видимого дна. Рыбы здесь слабо мерцают и растворяются через минуты после ловли.</string>
+    <string name="skilling_dungeon_crumbling_watchtower_name">Руинная башня</string>
+    <string name="skilling_dungeon_crumbling_watchtower_desc">Обветшалая каменная башня на краю предгорий. Что-то всё ещё охраняет то, что когда-то хранилось внутри.</string>
+    <string name="skilling_dungeon_shattered_spire_name">Разрушенный шпиль</string>
+    <string name="skilling_dungeon_shattered_spire_desc">Останки башни мага, превращённые в поле обломков. Воздух всё ещё потрескивает от остаточной магии.</string>
+
+    <!-- Expeditions -->
+    <string name="nav_expeditions">Экспедиции</string>
+    <string name="expeditions_title">Экспедиции</string>
+    <string name="expedition_explore_button">Исследовать</string>
+    <string name="expedition_dungeon_unlocked">Боевое подземелье открыто!</string>
+    <string name="expedition_discover_hint">Откройте через Экспедиции</string>
+    <string name="expedition_loading">Загрузка…</string>
+    <string name="expedition_lore_notes">%1$d / %2$d заметок</string>
+    <string name="expedition_lock_level">Требуется %1$s уровень %2$d</string>
+    <string name="expedition_lock_notes">Найдите все заметки в %1$s, чтобы открыть</string>
+    <string name="expedition_lock_prerequisite">Выполните предварительное условие для открытия</string>
+    <string name="label_notes">Заметки</string>
+
+    <!-- Slayer -->
+    <string name="skill_slayer_name">Убийца</string>
+    <string name="skill_slayer_desc">Получайте задания от Мастера убийц в Городе.</string>
+    <string name="slayer_title">Мастер убийств</string>
+    <string name="slayer_card_desc">Задания и награды для убийц</string>
+    <string name="slayer_desc">Выполняйте задания для опыта Убийцы и очков. Тратьте очки в магазине за эксклюзивное снаряжение.</string>
+    <string name="slayer_level_label">Уровень %1$d</string>
+    <string name="slayer_xp_label">%1$s опыта</string>
+    <string name="slayer_points">%1$d очков</string>
+    <string name="slayer_active_task">Активное задание</string>
+    <string name="slayer_kills_remaining">%1$d / %2$d убийств</string>
+    <string name="slayer_get_task">Получить задание</string>
+    <string name="slayer_skip_task">Пропустить (30 очков)</string>
+    <string name="slayer_no_task">Нет активного задания. Нажмите «Получить задание».</string>
+    <string name="slayer_task_stuck">Этот враг обитает только в подземелье Экспедиций, которое вы ещё не открыли. Переназначить бесплатно.</string>
+    <string name="slayer_reroll_free">Переназначить (бесплатно)</string>
+    <string name="slayer_no_eligible_tasks">Нет доступных заданий на вашем уровне Убийцы.</string>
+    <string name="slayer_task_complete">Задание выполнено! Посетите Мастера убийств за новым.</string>
+    <string name="slayer_xp_per_kill">%1$d опыта/убийство</string>
+    <string name="slayer_points_on_complete">+%1$d очков за выполнение</string>
+    <string name="slayer_shop_title">Магазин убийц</string>
+    <string name="slayer_shop_cost">%1$d очков</string>
+    <string name="slayer_not_enough_points">Недостаточно очков Убийцы.</string>
+    <string name="slayer_already_owned">Уже приобретено.</string>
+    <string name="slayer_purchased">Добавлено в инвентарь.</string>
+    <string name="slayer_owned">Куплено</string>
+    <string name="slayer_lamp_purchased">Опыт добавлен в %1$s!</string>
+    <string name="slayer_lamp_pick_skill">Выберите навык</string>
+    <string name="slayer_lamp_small">Лампа опыта (малая)</string>
+    <string name="slayer_lamp_large">Лампа опыта (большая)</string>
+    <string name="slayer_lamp_small_desc">+10 000 опыта в любой навык</string>
+    <string name="slayer_lamp_large_desc">+50 000 опыта в любой навык</string>
+    <string name="slayer_found_in">Где найти: %1$s</string>
+    <string name="slayer_requires">Требуется: %1$s</string>
+
+    <!-- Prestige system -->
+    <string name="prestige">Престиж</string>
+    <string name="prestige_max">Макс. престиж</string>
+    <string name="prestige_confirm_title">Престиж %s?</string>
+    <string name="prestige_confirm_message_xp">Ваш уровень %1$s сбросится до 1, но вы получите постоянный бонус +%2$d%% опыта для этого навыка.</string>
+    <string name="prestige_confirm_message_stat">Ваш уровень %1$s сбросится до 1, но вы получите постоянный бонус +%2$d к характеристикам.</string>
+
+    <!-- Prestige achievements -->
+    <string name="achievement_prestige_first_name">Первый сброс</string>
+    <string name="achievement_prestige_first_desc">Сделать престиж любого навыка впервые</string>
+    <string name="achievement_prestige_any_3_name">Мастер</string>
+    <string name="achievement_prestige_any_3_desc">Достичь Престижа 3 на любом навыке</string>
+    <string name="achievement_prestige_all_1_name">Чистый лист</string>
+    <string name="achievement_prestige_all_1_desc">Сделать престиж всех навыков хотя бы один раз</string>
+    <string name="achievement_prestige_all_3_name">Истинный престиж</string>
+    <string name="achievement_prestige_all_3_desc">Достичь Престижа 3 на каждом навыке</string>
+
+    <!-- Slayer gear item names/descs -->
+    <string name="item_slayer_helm_name">Шлем убийцы</string>
+    <string name="item_slayer_helm_desc">Крепкий шлем, носимый ветеранами убийц.</string>
+    <string name="item_abyssal_whip_name">Бездонный кнут</string>
+    <string name="item_abyssal_whip_desc">Кнут, выкованный из бездонной энергии. Отличен для тренировки силы.</string>
+    <string name="item_slayer_platebody_name">Нагрудник убийцы</string>
+    <string name="item_slayer_platebody_desc">Тяжёлая броня, покрытая рунами убийц.</string>
+    <string name="item_slayer_platelegs_name">Поножи убийцы</string>
+    <string name="item_slayer_platelegs_desc">Защитные поножи, созданные для длительных походов в подземелья.</string>
+
+    <!-- Shop categories -->
+    <string name="shop_cat_ores_and_materials">Руды и материалы</string>
+    <string name="shop_cat_logs_and_wood">Брёвна и дерево</string>
+    <string name="shop_cat_seeds_and_farming">Семена и фермерство</string>
+    <string name="shop_cat_merchants_guild">Гильдия торговцев</string>
+    <string name="shop_cat_equipment">Снаряжение</string>
+    <string name="shop_cat_special">Особое</string>
+    <string name="shop_cat_weapons">Оружие</string>
+    <string name="shop_cat_armor">Броня</string>
+    <string name="shop_cat_tools">Инструменты</string>
+    <string name="shop_cat_food">Еда</string>
+    <string name="shop_cat_materials">Материалы</string>
+    <string name="shop_cat_misc">Разное</string>
+
+    <string name="crafting_per_craft">×%1$d за крафт</string>
+
+    <!-- Skills screen localisation -->
+    <string name="farming_ready_in">Готово через %1$s</string>
+    <string name="trade_route_local_market_name">Местный рынок</string>
+    <string name="trade_route_river_trading_post_name">Речной торговый пост</string>
+    <string name="trade_route_eastern_caravan_name">Восточный караван</string>
+    <string name="trade_route_grand_exchange_name">Великая биржа</string>
+    <string name="trade_route_merchants_quarter_name">Торговый квартал</string>
+    <string name="trade_route_northern_ports_name">Северные порты</string>
+    <string name="trade_route_local_market_desc">Торгуйте обычными товарами на местном рынке. Доход скромный, но непредсказуемый.</string>
+    <string name="trade_route_river_trading_post_desc">Везите товары по речному маршруту. Прибыль переменчива, но часто worthwhile.</string>
+    <string name="trade_route_eastern_caravan_desc">Присоединитесь к торговому каравану на восток. Долгий путь окупается, когда сделка проходит.</string>
+    <string name="trade_route_grand_exchange_desc">Торгуйте на легендарной Великой бирже, где состояния обретаются и теряются.</string>
+    <string name="trade_route_merchants_quarter_desc">Торгуйте редкими товарами в престижном торговом квартале.</string>
+    <string name="trade_route_northern_ports_desc">Доставьте ценный груз в северные портовые города. Высокий риск, высокая награда.</string>
+    <string name="crafting_cat_bar">Слиток</string>
+    <string name="crafting_cat_component">Компонент</string>
+    <string name="crafting_cat_tool">Инструмент</string>
+    <string name="crafting_cat_weapon">Оружие</string>
+    <string name="crafting_cat_armour">Броня</string>
+    <string name="crafting_cat_equipment">Снаряжение</string>
+    <string name="crafting_cat_food">Еда</string>
+    <string name="crafting_cat_ammunition">Боеприпасы</string>
+    <string name="crafting_cat_jewellery">Ювелирные изделия</string>
+    <string name="crafting_cat_potion">Зелье</string>
+
+    <!-- Crafting tier filter chips -->
+    <string name="crafting_tier_adamantite">Адамантит</string>
+    <string name="crafting_tier_arrow">Стрелы</string>
+    <string name="crafting_tier_bronze">Бронза</string>
+    <string name="crafting_tier_gold">Золото</string>
+    <string name="crafting_tier_iron">Железо</string>
+    <string name="crafting_tier_magic">Магия</string>
+    <string name="crafting_tier_maple">Клён</string>
+    <string name="crafting_tier_mithril">Мифрил</string>
+    <string name="crafting_tier_oak">Дуб</string>
+    <string name="crafting_tier_platinum">Платина</string>
+    <string name="crafting_tier_runite">Рунит</string>
+    <string name="crafting_tier_shortbow">Короткий лук</string>
+    <string name="crafting_tier_silver">Серебро</string>
+    <string name="crafting_tier_staff">Посох</string>
+    <string name="crafting_tier_steel">Сталь</string>
+    <string name="crafting_tier_willow">Ива</string>
+    <string name="crafting_tier_yew">Тис</string>
+
+    <!-- Firemaking rework + ash catalyst + fertilizer -->
+    <string name="firemaking_logs_in_inventory">в инвентаре</string>
+    <string name="firemaking_burns_to">Сгорает в %1$s</string>
+    <string name="firemaking_burn">Сжечь</string>
+    <string name="farming_fertilizer">Удобрение</string>
+    <string name="farming_fertilizer_optional">Добавить удобрение (необязательно)</string>
+    <string name="farming_fertilizer_yield">+%1$d%% урожай</string>
+    <string name="farming_fertilized">Удобрено</string>
+    <string name="catalyst_optional">Пепельный катализатор (необязательно)</string>
+    <string name="catalyst_enhanced_output">Производит усиленное зелье</string>
+    <string name="catalyst_rune_bonus">%1$d рун за эссенцию</string>
+    <string name="catalyst_none">Без катализатора</string>
+</resources>

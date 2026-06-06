@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ===== Enemy names ===== -->
+    <string name="enemy_giant_rat_name">Гигантская крыса</string>
+    <string name="enemy_goblin_name">Гоблин</string>
+    <string name="enemy_skeleton_name">Скелет</string>
+    <string name="enemy_zombie_name">Зомби</string>
+    <string name="enemy_bandit_name">Бандит</string>
+    <string name="enemy_guard_name">Стражник</string>
+    <string name="enemy_dark_wizard_name">Тёмный маг</string>
+    <string name="enemy_orc_warrior_name">Орк-воин</string>
+    <string name="enemy_spider_name">Гигантский паук</string>
+    <string name="enemy_wild_dog_name">Дикая собака</string>
+    <string name="enemy_rogue_name">Бродяга</string>
+    <string name="enemy_knight_name">Рыцарь</string>
+    <string name="enemy_hellhound_name">Адская гончая</string>
+    <string name="enemy_troll_name">Горный тролль</string>
+    <string name="enemy_demon_name">Малый демон</string>
+    <string name="enemy_dragon_name">Зелёный дракон</string>
+    <string name="enemy_imp_name">Бес</string>
+    <string name="enemy_chicken_name">Курица</string>
+    <string name="enemy_sheep_name">Овца</string>
+    <string name="enemy_cow_name">Корова</string>
+
+    <!-- ===== Dungeon names and descriptions ===== -->
+    <string name="dungeon_imp_cavern_name">Пещера бесов</string>
+    <string name="dungeon_imp_cavern_desc">Мелкая пещера, полная озорных бесов. Идеально для абсолютных новичков!</string>
+    <string name="dungeon_goblin_cave_name">Пещера гоблинов</string>
+    <string name="dungeon_goblin_cave_desc">Тёмная пещера, кишащая гоблинами и гигантскими крысами. Хорошее место для тренировки начинающих искателей приключений.</string>
+    <string name="dungeon_spider_den_name">Логово пауков</string>
+    <string name="dungeon_spider_den_desc">Пещера, затянутая паутиной, где ползают ядовитые пауки. Захватите противоядие!</string>
+    <string name="dungeon_bandit_camp_name">Лагерь бандитов</string>
+    <string name="dungeon_bandit_camp_desc">Укрытие воров и бродяг в глуши. Следите за своим кошельком!</string>
+    <string name="dungeon_undead_crypt_name">Крипта нежити</string>
+    <string name="dungeon_undead_crypt_desc">Древнее кладбище, где мёртвые отказываются упокоиться. Остерегайтесь тёмной магии!</string>
+    <string name="dungeon_fortress_ruins_name">Руины крепости</string>
+    <string name="dungeon_fortress_ruins_desc">Разрушенные остатки древнего замка, ныне охраняемого рыцарями и солдатами.</string>
+    <string name="dungeon_orc_stronghold_name">Крепость орков</string>
+    <string name="dungeon_orc_stronghold_desc">Укреплённое поселение орков глубоко в горах. Только смельчаки осмеливаются войти.</string>
+    <string name="dungeon_volcanic_depths_name">Вулканические глубины</string>
+    <string name="dungeon_volcanic_depths_desc">Обжигающая пещера, населённая адскими гончими и малыми демонами. Жара невыносима!</string>
+    <string name="dungeon_dragon_lair_name">Логово дракона</string>
+    <string name="dungeon_dragon_lair_desc">Легендарное обиталище зелёных драконов. Только воины-мастера выживают в этом испытании.</string>
+    <string name="dungeon_farm_name">Ферма</string>
+    <string name="dungeon_farm_desc">Мирная ферма со скотом. Отлично для новичков, желающих собрать еду!</string>
+    <string name="dungeon_infernal_stronghold_name">Инфернальная цитадель</string>
+    <string name="dungeon_infernal_stronghold_desc">Крепость огня и серы, управляемая демонами и адскими гончими. Одна лишь жара может убить неподготовленного.</string>
+    <string name="dungeon_ancient_temple_name">Древний храм</string>
+    <string name="dungeon_ancient_temple_desc">Древний храм, охраняемый самыми могущественными существами в мире. Только сильнейшие воины осмеливаются войти.</string>
+
+    <!-- ===== Solo boss names (raid bosses retargeted for solo play) ===== -->
+    <string name="boss_king_black_dragon_name">Чёрный король-дракон</string>
+    <string name="boss_demon_lord_name">Повелитель демонов</string>
+    <string name="boss_kraken_name">Кракен</string>
+    <string name="boss_balrog_name">Балрог</string>
+
+    <!-- ===== Pet names and descriptions ===== -->
+    <string name="pet_dragon_whelp_name">Дракончик</string>
+    <string name="pet_dragon_whelp_desc">Молодой дракон, увеличивающий ваш боевой опыт.</string>
+    <string name="pet_imp_pet_name">Бес-питомец</string>
+    <string name="pet_imp_pet_desc">Озорной бес, усиливающий вашу тренировку Молитвы.</string>
+    <string name="pet_baby_kraken_name">Кракенчик</string>
+    <string name="pet_baby_kraken_desc">Крошечный кракен, улучшающий ваш опыт Кулинарии.</string>
+    <string name="pet_rock_golem_name">Каменный голем</string>
+    <string name="pet_rock_golem_desc">Живая скальная формация, усиливающая ваш опыт Добычи руды.</string>
+    <string name="pet_ent_name">Энт</string>
+    <string name="pet_ent_desc">Древний дух дерева, увеличивающий ваш опыт Рубки леса.</string>
+    <string name="pet_tiny_templar_name">Крошечный храмовник</string>
+    <string name="pet_tiny_templar_desc">Маленький рыбный спутник, увеличивающий ваш опыт Рыбалки.</string>
+    <string name="pet_tangleroot_name">Путаник</string>
+    <string name="pet_tangleroot_desc">Магическое растение, усиливающее ваш опыт Фермерства.</string>
+
+    <!-- Missing dungeons -->
+    <string name="dungeon_collapsed_mine_name">Обвалившаяся шахта</string>
+    <string name="dungeon_collapsed_mine_desc">Обширная пещера под медными рудниками. Пещерные тролли и каменные големы бродят среди обломков, а гигантские пауки плетут сети в обвалившихся штольнях.</string>
+    <string name="dungeon_shadow_den_name">Теневое логово</string>
+    <string name="dungeon_shadow_den_desc">Сеть подземных камер, используемых гильдией воров региона. Бродяги, убийцы и теневые существа скрываются в каждом углу.</string>
+    <string name="dungeon_abyssal_ruins_name">Бездонные руины</string>
+    <string name="dungeon_abyssal_ruins_desc">Древние руины, существующие одновременно над и под смертной плоскостью. Странные бездонные существа то появляются, то исчезают из реальности.</string>
+    <string name="dungeon_ancient_forest_ruins_name">Руины древнего леса</string>
+    <string name="dungeon_ancient_forest_ruins_desc">Каменные руины, поглощённые первобытным лесом, ныне населённые дикими существами и мстительными духами друидов.</string>
+    <string name="dungeon_ancient_forge_name">Древняя кузня</string>
+    <string name="dungeon_ancient_forge_desc">Обширная гномья кузня, горящая веками без остановки. Огненные элементали и стражи кузни охраняют её секреты.</string>
+    <string name="dungeon_arcane_ruins_name">Тайные руины</string>
+    <string name="dungeon_arcane_ruins_desc">Действующие подземные камеры разрушенной башни мага. Магические конструкты и зачарованные стражи всё ещё патрулируют её залы.</string>
+    <string name="dungeon_corrupted_sanctum_name">Осквернённое святилище</string>
+    <string name="dungeon_corrupted_sanctum_desc">Святилище, пропитанное тьмой, в центре осквернённого полога. Тёмные жрецы и осквернённые твари охраняют древнее зло.</string>
+    <string name="dungeon_drowned_temple_name">Затопленный храм</string>
+    <string name="dungeon_drowned_temple_desc">Затонувший храм под морским гротом, его залы заполнены водой и морскими существами, сделавшими его своим домом.</string>
+</resources>
