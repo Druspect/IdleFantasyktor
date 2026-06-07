@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Guild quest names — translate per locale, falls back to JSON name if absent -->
+    <!-- TODO Guild quest names — translate per locale, falls back to JSON name if absent -->
     <string name="quest_agility_guild_1_name">First Laps</string>
     <string name="quest_agility_guild_10_name">Master of Movement</string>
     <string name="quest_agility_guild_2_name">Dedicated Runner</string>

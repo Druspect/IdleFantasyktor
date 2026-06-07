@@ -70,13 +70,12 @@
     <string name="pet_tangleroot_name">Wurzelgewirr</string>
     <string name="pet_tangleroot_desc">Ein magisches Pflanzenwesen, das Eure Landwirtschafts-Erfahrungspunkte erhöht.</string>
 
-    <!-- TODO Missing dungeons -->
     <string name="dungeon_collapsed_mine_name">Eingestürzte Mine</string>
     <string name="dungeon_collapsed_mine_desc">Eine riesige Höhle unter den Kupferminen. Höhlentrolle und Steingolem heimsuchen das Trümmerfeld, und Riesenspinnen spinnen Netze in den eingestürzten Schächten.</string>
     <string name="dungeon_shadow_den_name">Schattenhöhle</string>
     <string name="dungeon_shadow_den_desc">Ein Netz unterirdischer Kammern, das von der Diebesgilde der Region genutzt wird. Schurken, Assassinen und Schattenwesen lauern in jeder Ecke.</string>
-    <string name="dungeon_abyssal_ruins_name">Abyssale Ruinen</string>
-    <string name="dungeon_abyssal_ruins_desc">Alte Ruinen, die gleichzeitig ober- und unterhalb der Sterblichkeitsebene existieren. Seltsame abyssale Kreaturen tauchen in die Realität ein und verschwinden wieder.</string>
+    <string name="dungeon_abyssal_ruins_name">Abgrundtiefe Ruinen</string>
+    <string name="dungeon_abyssal_ruins_desc">Alte Ruinen, die gleichzeitig ober- und unterhalb der Sterblichkeitsebene existieren. Seltsame, abgründige Kreaturen tauchen in die Realität ein und verschwinden wieder.</string>
     <string name="dungeon_ancient_forest_ruins_name">Alte Waldruinen</string>
     <string name="dungeon_ancient_forest_ruins_desc">Steinruinen, die vom Urwald verschluckt wurden, jetzt von wilden Kreaturen und rachsüchtigen Geistern der Druiden heimgesucht.</string>
     <string name="dungeon_ancient_forge_name">Alte Schmiede</string>
@@ -86,5 +85,5 @@
     <string name="dungeon_corrupted_sanctum_name">Verdorbenes Heiligtum</string>
     <string name="dungeon_corrupted_sanctum_desc">Ein schattendurchtränktes Heiligtum im Herzen des verdorbenen Waldes. Dunkle Priester und verdorbene Bestien bewachen ein altes Böses.</string>
     <string name="dungeon_drowned_temple_name">Ertrunkener Tempel</string>
-    <string name="dungeon_drowned_temple_desc">Ein versunkener Tempel unter der Meereshöhle, seine Hallen mit Wasser und Meereskreaturen gefüllt, die ihn zu ihrem Zuhause gemacht haben.</string>
+    <string name="dungeon_drowned_temple_desc">Ein versunkener Tempel unter einer Meereshöhle, dessen Hallen mit Wasser gefüllt sind und von allerlei Meereskreaturen heimgesucht werden.</string>
 </resources>
