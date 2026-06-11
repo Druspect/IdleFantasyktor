@@ -66,6 +66,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.fantasyidler.BuildConfig
 import com.fantasyidler.R
+import com.fantasyidler.data.model.EquipSlot
 import com.fantasyidler.data.model.HiredWorker
 import com.fantasyidler.data.model.QueuedAction
 import com.fantasyidler.data.model.SkillSession
@@ -942,6 +943,29 @@ private fun QueueCard(
                             style = MaterialTheme.typography.bodyMedium,
                             fontWeight = FontWeight.Medium,
                         )
+                        val subtitle: String? = when {
+                            action.skillName == "combat" || action.skillName == "boss" -> {
+                                val style = action.weaponSlot
+                                    ?.let { EquipSlot.combatStyleForSlot(it) }
+                                    ?: "attack"
+                                when (style) {
+                                    "attack"   -> stringResource(R.string.label_attack)
+                                    "strength" -> stringResource(R.string.label_strength)
+                                    "ranged"   -> stringResource(R.string.label_ranged)
+                                    "magic"    -> stringResource(R.string.label_magic)
+                                    else       -> null
+                                }
+                            }
+                            action.qty > 0 -> stringResource(R.string.queue_item_qty, action.qty)
+                            else -> null
+                        }
+                        if (subtitle != null) {
+                            Text(
+                                text  = subtitle,
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
                     }
                     if (queue.size > 1) {
                         IconButton(

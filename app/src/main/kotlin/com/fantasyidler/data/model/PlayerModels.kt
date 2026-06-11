@@ -88,6 +88,8 @@ data class PlayerFlags(
     @SerialName("active_potion_key") val activePotionKey: String? = null,
     /** Town building upgrade tiers: building key ("inn"|"guild_hall"|"church") → tier (1-3). Absent = tier 0 (not upgraded). */
     @SerialName("town_building_tiers") val townBuildingTiers: Map<String, Int> = emptyMap(),
+    /** Ash item key last used as fertilizer when planting crops; pre-selected in the plant sheet. */
+    @SerialName("last_fertilizer_key") val lastFertilizerKey: String? = null,
 )
 
 /** A single entry in the recent sessions log. */

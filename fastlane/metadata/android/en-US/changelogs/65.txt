@@ -1,0 +1,4 @@
+• Fix: Guild Hall discount now correctly applies to the "Claim Reward" button and progress display on guild quests
+• Fix: Daily fishing quests for lobster and swordfish now only appear when you have the required fishing level to catch them
+• Queue items now show a subtitle: combat style (Attack/Strength/Ranged/Magic) for dungeon and boss sessions, and quantity (×40) for crafting, firemaking, prayer, and runecrafting sessions
+• Farming: the plant sheet now remembers your last-used fertilizer and pre-selects it (only if you still have it in inventory)

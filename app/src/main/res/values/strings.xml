@@ -384,6 +384,8 @@
     <string name="home_up_next">Up Next (%1$d/3)</string>
     <!-- Translator note: %1$s = formatted duration string (e.g. "2h 15m") -->
     <string name="home_queue_ends_in">Queue ends in %1$s</string>
+    <!-- Translator note: %1$d = item quantity (e.g. ×40) -->
+    <string name="queue_item_qty">×%1$d</string>
     <!-- Translator note: %1$d = number of sessions to collect -->
     <plurals name="plural_collect_sessions">
         <item quantity="one">Collect %1$d Session\'s Rewards</item>

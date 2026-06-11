@@ -81,9 +81,10 @@ class GuildDetailViewModel @Inject constructor(
             .map { quest ->
                 val row = progressMap[quest.id]
                 GuildQuestWithProgress(
-                    quest     = quest,
-                    progress  = row?.progress ?: 0,
-                    completed = row?.completed ?: false,
+                    quest           = quest,
+                    progress        = row?.progress ?: 0,
+                    completed       = row?.completed ?: false,
+                    effectiveAmount = guildRepo.effectiveQuestAmountFromFlags(quest, flags),
                 )
             }
 

@@ -57,7 +57,7 @@
     "target": "raw_lobster",
     "amount": 60,
     "description": "Catch 60 lobsters.",
-    "level_required": 40
+    "level_required": 50
   },
   {
     "id": "daily_fish_swordfish",
@@ -67,7 +67,7 @@
     "target": "raw_swordfish",
     "amount": 30,
     "description": "Catch 30 swordfish.",
-    "level_required": 50
+    "level_required": 55
   },
   {
     "id": "daily_fish_shark",

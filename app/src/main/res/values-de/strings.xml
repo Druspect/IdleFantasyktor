@@ -377,6 +377,7 @@
     <string name="home_adventurer">Abenteurer</string>
     <string name="home_up_next">Als Nächstes (%1$d/3)</string>
     <string name="home_queue_ends_in">Alles erledigt in %1$s</string>
+    <string name="queue_item_qty">×%1$d</string>
     <plurals name="plural_collect_sessions">
         <item quantity="one">Sammelt %1$d Belohnung für Eure Aktivität ein</item>
         <item quantity="other">Sammelt %1$d Belohnungen für Eure Aktivitäten ein</item>

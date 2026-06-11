@@ -334,6 +334,7 @@
     <string name="home_up_next">Sıradaki (%1$d/3)</string>
     <!-- Translator note: %1$s = formatted duration string (e.g. "2h 15m") -->
     <string name="home_queue_ends_in">Kuyruk %1$s içinde bitiyor</string>
+    <string name="queue_item_qty">×%1$d</string>
     <!-- Translator note: %1$d = number of sessions to collect -->
     <plurals name="plural_collect_sessions">
         <item quantity="one">%1$d Oturumun Ödüllerini Topla</item>

@@ -17,6 +17,7 @@ data class GuildQuestWithProgress(
     val quest: GuildQuestData,
     val progress: Int,
     val completed: Boolean,
+    val effectiveAmount: Int,
 )
 
 data class GuildDailyWithProgress(
@@ -103,9 +104,10 @@ class GuildRepository @Inject constructor(
         return guildQuestsForGuild(guild).map { quest ->
             val row = allProgress[quest.id]
             GuildQuestWithProgress(
-                quest     = quest,
-                progress  = row?.progress ?: 0,
-                completed = row?.completed ?: false,
+                quest           = quest,
+                progress        = row?.progress ?: 0,
+                completed       = row?.completed ?: false,
+                effectiveAmount = effectiveQuestAmount(quest),
             )
         }
     }

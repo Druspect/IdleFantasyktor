@@ -124,7 +124,7 @@ fun GuildDetailScreen(
 
         val pagerState     = rememberPagerState(pageCount = { 2 })
         val scope          = rememberCoroutineScope()
-        val claimableQuests = state.quests.count { !it.completed && it.progress >= it.quest.amount && state.guildLevel >= it.quest.guildLevelRequired }
+        val claimableQuests = state.quests.count { !it.completed && it.progress >= it.effectiveAmount && state.guildLevel >= it.quest.guildLevelRequired }
         val claimableDailies = state.dailies.count { !it.claimed && it.progress >= it.template.amount }
 
         Column(Modifier.fillMaxSize().padding(padding)) {
@@ -297,7 +297,7 @@ private fun GuildQuestRow(
         }
         Spacer(Modifier.height(2.dp))
         Text(
-            text  = localizedQuestDesc(qwp.quest.type, qwp.quest.target, qwp.quest.amount, qwp.quest.guild),
+            text  = localizedQuestDesc(qwp.quest.type, qwp.quest.target, qwp.effectiveAmount, qwp.quest.guild),
             style = MaterialTheme.typography.bodySmall,
             color = if (locked) dimColor else MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -331,7 +331,7 @@ private fun GuildQuestRow(
             }
         } else {
             Spacer(Modifier.height(8.dp))
-            val fraction = (qwp.progress.toFloat() / qwp.quest.amount.toFloat()).coerceIn(0f, 1f)
+            val fraction = (qwp.progress.toFloat() / qwp.effectiveAmount.toFloat()).coerceIn(0f, 1f)
             LinearProgressIndicator(
                 progress = { fraction },
                 modifier = Modifier.fillMaxWidth(),
@@ -339,11 +339,11 @@ private fun GuildQuestRow(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text  = "${qwp.progress.coerceAtMost(qwp.quest.amount)} / ${qwp.quest.amount}",
+                text  = "${qwp.progress.coerceAtMost(qwp.effectiveAmount)} / ${qwp.effectiveAmount}",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
-            if (qwp.progress >= qwp.quest.amount) {
+            if (qwp.progress >= qwp.effectiveAmount) {
                 Spacer(Modifier.height(8.dp))
                 Button(onClick = onClaim, modifier = Modifier.fillMaxWidth()) {
                     Text(stringResource(R.string.label_claim_reward))
