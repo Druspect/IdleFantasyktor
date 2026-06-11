@@ -398,6 +398,7 @@
     <string name="home_up_next">Следующая (%1$d/3)</string>
     <!-- Translator note: %1$s = formatted duration string (e.g. "2h 15m") -->
     <string name="home_queue_ends_in">Очередь завершится через %1$s</string>
+    <string name="queue_item_qty">×%1$d</string>
     <!-- Translator note: %1$d = number of sessions to collect -->
     <plurals name="plural_collect_sessions">
         <item quantity="one">Собрать награды за %1$d сессию</item>

@@ -57,6 +57,8 @@ PAGE_DIRECTORY: dict[str, PageInfo] = {
     # Town
     "shop": PageInfo("Shop", "Shop.md"),
     "workers": PageInfo("Workers", "Workers.md"),
+    "guilds": PageInfo("Guilds", "Guilds.md"),
+    "buildings": PageInfo("Buildings", "Buildings.md"),
     # Miscellaneous
     "pets": PageInfo("Pets", "Pets.md"),
     "quests": PageInfo("Quests", "Quests.md")
@@ -103,6 +105,8 @@ PAGE_HIERARCHY = (
     ("Town", (
         "shop",
         "workers",
+        "guilds",
+        "buildings",
     )),
     ("Miscellaneous", (
         "pets",
@@ -143,6 +147,8 @@ def _get_page_to_content() -> dict[str, str]:
         # Town
         "shop": gen_shop(),
         "workers": gen_workers(),
+        "guilds": gen_guilds(),
+        "buildings": gen_buildings(),
         # Miscellaneous
         "pets": gen_pets(),
         "quests": gen_quests(),
@@ -908,6 +914,102 @@ def gen_workers() -> str:
         tier_table=tier_table,
         skill_table=skill_table,
         inn_bonus_table=inn_bonus_table,
+    )
+
+
+def gen_guilds() -> str:
+    guild_quests = load("guild_quests.json")
+    assert isinstance(guild_quests, dict)
+
+    # Reputation thresholds (mirrored from GuildRepository.REP_THRESHOLDS)
+    rep_thresholds = [500, 1_500, 4_000, 9_000, 20_000, 40_000, 75_000, 140_000, 250_000, 450_000]
+    rep_rows = [[lvl, f"{rep_thresholds[lvl - 1]:,}"] for lvl in range(1, 11)]
+    rep_table = table(["Guild Level", "Reputation Required"], rep_rows)
+
+    # Guild Hall reduction table (tier 0-3)
+    reduction_rows = [
+        [0, "No reduction (100%)"],
+        [1, "10% fewer required (90%)"],
+        [2, "20% fewer required (80%)"],
+        [3, "30% fewer required (70%)"],
+    ]
+    reduction_table = table(["Guild Hall Tier", "Quest Requirement"], reduction_rows)
+
+    # One section per guild, ordered to match ALL_GUILDS
+    guild_order = [
+        "mining", "fishing", "woodcutting", "farming", "firemaking", "agility",
+        "smithing", "cooking", "fletching", "crafting", "runecrafting", "herblore",
+        "warriors", "archers", "mages", "prayer", "mercantile",
+    ]
+    guild_section_tpl = get_template("town/guild_section")
+    sections = []
+    for guild in guild_order:
+        quests = sorted(
+            [q for q in guild_quests.values() if q["guild"] == guild],
+            key=lambda q: q["guild_level_required"],
+        )
+        rows = []
+        for q in quests:
+            r = q["rewards"]
+            reward_parts = []
+            if r.get("coins"):
+                reward_parts.append(f"{r['coins']:,} coins")
+            if r.get("xp"):
+                reward_parts.append(f"{r['xp']:,} XP")
+            if r.get("reputation"):
+                reward_parts.append(f"{r['reputation']:,} rep")
+            for item, qty in r.get("items", {}).items():
+                reward_parts.append(f"{qty}x {title(item)}")
+            rows.append([
+                q["name"],
+                q["guild_level_required"],
+                title(q.get("target", "")),
+                f"{q['amount']:,}",
+                ", ".join(reward_parts),
+            ])
+        quest_table = table(["Quest", "Guild Level", "Target", "Amount", "Rewards"], rows)
+        sections.append(guild_section_tpl.format(
+            guild_name=title(guild),
+            quest_table=quest_table,
+        ))
+
+    return get_template("town/guilds").format(
+        rep_table=rep_table,
+        reduction_table=reduction_table,
+        guild_sections="\n\n".join(sections),
+    )
+
+
+def gen_buildings() -> str:
+    # Building tiers mirrored from TownBuildingDef / TownRepository
+    def building_table(tiers: list, bonus_col: str, bonuses: list[str]) -> str:
+        rows = []
+        rows.append([0, "—", "—", "—", "No bonus"])
+        for i, (con_lvl, coins, mats, bonus) in enumerate(tiers, start=1):
+            mat_str = ", ".join(f"{qty:,}x {title(item)}" for item, qty in mats.items())
+            rows.append([i, con_lvl, f"{coins:,}", mat_str, bonus])
+        return table(["Tier", "Construction Level", "Coin Cost", "Materials", bonus_col], rows)
+
+    inn_tiers = [
+        (20,   50_000,  {"plank": 200, "oak_plank": 100, "iron_nail": 500},        "Worker XP x1.10"),
+        (45,  250_000,  {"oak_plank": 500, "willow_plank": 200, "steel_nail": 1500}, "Worker XP x1.20"),
+        (70, 1_000_000, {"willow_plank": 1000, "maple_plank": 1000, "mithril_nail": 3000}, "Worker XP x1.30"),
+    ]
+    guild_hall_tiers = [
+        (25,    75_000, {"oak_plank": 300, "iron_nail": 600},                          "Quest req. -10%"),
+        (50,   350_000, {"willow_plank": 600, "steel_nail": 1500},                     "Quest req. -20%"),
+        (75, 1_500_000, {"maple_plank": 1500, "yew_plank": 500, "mithril_nail": 3000}, "Quest req. -30%"),
+    ]
+    church_tiers = [
+        (30,   100_000, {"oak_plank": 200, "carved_stone": 400, "steel_nail": 500},        "Blessing 30h"),
+        (55,   500_000, {"willow_plank": 500, "stone_block": 600, "steel_nail": 1500},     "Blessing 36h"),
+        (80, 2_000_000, {"yew_plank": 800, "stone_block": 1000, "mithril_nail": 3000},     "Blessing 48h"),
+    ]
+
+    return get_template("town/buildings").format(
+        inn_table=building_table(inn_tiers, "Bonus", []),
+        guild_hall_table=building_table(guild_hall_tiers, "Bonus", []),
+        church_table=building_table(church_tiers, "Bonus", []),
     )
 
 
