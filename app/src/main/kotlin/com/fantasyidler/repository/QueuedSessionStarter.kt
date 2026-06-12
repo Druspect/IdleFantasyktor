@@ -260,20 +260,22 @@ class QueuedSessionStarter @Inject constructor(
                 val bone    = gameData.bones[boneKey] ?: return
                 val qty     = action.qty.takeIf { it > 0 } ?: return
                 val currentXp = xpMap[Skills.PRAYER] ?: 0L
+                val frameCount = minOf(qty, 60)
                 val frames = buildList {
                     var xp = currentXp
-                    for (i in 1..qty) {
+                    for (bucket in 0 until frameCount) {
+                        val bonesInBucket = ((bucket.toLong() + 1) * qty / frameCount - bucket.toLong() * qty / frameCount).toInt()
                         val before = XpTable.levelForXp(xp)
-                        val gain   = bone.xpPerBone.toInt()
+                        val gain   = bone.xpPerBone.toInt() * bonesInBucket
                         xp        += gain
                         add(SessionFrame(
-                            minute      = i,
+                            minute      = bucket + 1,
                             xpGain      = gain,
                             xpBefore    = xp - gain,
                             xpAfter     = xp,
                             levelBefore = before,
                             levelAfter  = XpTable.levelForXp(xp),
-                            kills       = 1,
+                            kills       = bonesInBucket,
                         ))
                     }
                 }
@@ -407,15 +409,19 @@ class QueuedSessionStarter @Inject constructor(
                 )
                 val frameMs        = SkillSimulator.sessionDurationMs(agilityLevel) / 60L
                 val bossDurationMs = boss.durationMinutes * frameMs
-                val animPerFrameMs = bossDurationMs / 60L
                 sessionRepo.startSession(
                     skillName         = "boss",
                     activityKey       = bossKey,
                     frames            = encodeFrames(bossFrames),
                     durationMs        = bossDurationMs,
                     skillDisplayName  = action.skillDisplayName,
-                    alarmOffsetMs     = if (bossFrames.size < boss.durationMinutes)
-                        (bossFrames.size - 1) * animPerFrameMs + 5_000L else null,
+                    // endsAt is cosmetic (full duration, no outcome spoiler); the alarm
+                    // ends the session at the exact death tick within the final frame.
+                    alarmOffsetMs     = if (bossFrames.size < boss.durationMinutes) {
+                        val lastTicks   = bossFrames.lastOrNull()?.let { maxOf(it.playerHits.size, it.enemyHits.size) } ?: 0
+                        val lastFrameMs = if (lastTicks > 0) minOf(lastTicks * 2_400L, frameMs) else frameMs
+                        (bossFrames.size - 1).coerceAtLeast(0) * frameMs + lastFrameMs + 2_000L
+                    } else null,
                     insertAsCompleted = offline,
                     backdateMs        = backdateMs,
                 )
@@ -567,18 +573,20 @@ class QueuedSessionStarter @Inject constructor(
 
     private fun buildCraftFrames(startXp: Long, qty: Int, xpPerItem: Double, outputQty: Int, outputKey: String): List<SessionFrame> {
         var xp = startXp
+        val frameCount = minOf(qty, 60)
         return buildList {
-            for (i in 1..qty) {
+            for (bucket in 0 until frameCount) {
+                val itemsInBucket = ((bucket.toLong() + 1) * qty / frameCount - bucket.toLong() * qty / frameCount).toInt()
                 val levelBefore = XpTable.levelForXp(xp)
-                val gain = xpPerItem.toInt()
+                val gain = (xpPerItem * itemsInBucket).toInt()
                 xp += gain
                 val levelAfter = XpTable.levelForXp(xp)
                 add(SessionFrame(
-                    minute = i, xpGain = gain, xpBefore = xp - gain, xpAfter = xp,
+                    minute = bucket + 1, xpGain = gain, xpBefore = xp - gain, xpAfter = xp,
                     levelBefore = levelBefore, levelAfter = levelAfter,
-                    items = mapOf(outputKey to outputQty),
+                    items = mapOf(outputKey to outputQty * itemsInBucket),
                     leveledUp = levelAfter > levelBefore,
-                    kills = 1,
+                    kills = itemsInBucket,
                 ))
             }
         }

@@ -1189,7 +1189,7 @@ internal fun buildEquipDetail(item: com.fantasyidler.data.json.EquipmentData, co
     item.miningEfficiency?.let      { parts.add("${context.getString(R.string.profile_stat_mining)} ×${"%.2f".format(it)}") }
     item.woodcuttingEfficiency?.let { parts.add("${context.getString(R.string.profile_stat_wc)} ×${"%.2f".format(it)}") }
     item.fishingEfficiency?.let     { parts.add("${context.getString(R.string.profile_stat_fishing)} ×${"%.2f".format(it)}") }
-    item.farmingEfficiency?.let     { parts.add("${context.getString(R.string.profile_stat_farming)} +${(it * 100).roundToInt()}%") }
+    item.farmingEfficiency?.let     { parts.add("${context.getString(R.string.profile_stat_farming)} ×${"%.2f".format(1f + it)}") }
     if (parts.isEmpty()) {
         if (item.attackBonus   != 0) parts.add("${context.getString(R.string.profile_stat_atk)} +${item.attackBonus}")
         if (item.strengthBonus != 0) parts.add("${context.getString(R.string.profile_stat_str)} +${item.strengthBonus}")

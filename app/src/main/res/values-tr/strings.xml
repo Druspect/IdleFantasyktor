@@ -239,6 +239,7 @@
     <string name="label_shop_desc">Eşyaları al ve sat</string>
     <string name="label_no_session_hint">Eğitime başlamak için Yeteneklere veya Savaşa git.</string>
     <string name="label_recent_activity">Son Aktivite</string>
+    <string name="settings_recent_activity">Son Aktivite Günlüğü</string>
     <string name="settings_recent_activity_desc">Ana ekran başlığında Son Aktivite düğmesini göster</string>
     <string name="label_no_sessions_yet">Henüz tamamlanan oturum yok.</string>
 

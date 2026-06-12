@@ -40,6 +40,7 @@ data class FarmingUiState(
     /** patchNumber.toString() → ash key applied as fertilizer. */
     val fertilizer:     Map<String, String>    = emptyMap(),
     val availableCrops: List<CropData>         = emptyList(),
+    val allCrops:       Map<String, CropData>  = emptyMap(),
     /** Epoch-ms "now" updated every 10 seconds for time-remaining calculations. */
     val now:            Long                   = System.currentTimeMillis(),
     val snackbarMessage: String?               = null,
@@ -111,6 +112,7 @@ class FarmingViewModel @Inject constructor(
             patches          = patches,
             inventory        = inv,
             availableCrops   = availableCrops,
+            allCrops         = gameData.crops,
             fertilizer       = flags.farmingFertilizer,
             lastFertilizerKey = flags.lastFertilizerKey,
             now              = now,

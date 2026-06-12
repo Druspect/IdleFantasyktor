@@ -68,5 +68,15 @@
     "effect_type": "xp_boost",
     "boosted_skill": "farming",
     "boost_percent": 10
+  },
+  "baby_balrog": {
+    "id": "baby_balrog",
+    "display_name": "Baby Balrog",
+    "emoji": "🔥",
+    "description": "A tiny demon of fire and shadow that enhances your magic.",
+    "source": "Balrog raid (1/200 per player)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "magic",
+    "boost_percent": 5
   }
 }

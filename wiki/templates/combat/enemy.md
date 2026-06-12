@@ -20,8 +20,12 @@
             <td>{attack} ⚔️</td>
         </tr>
         <tr>
-            <th>Def. (Melee)</th>
-            <td>{melee_defence} 🛡️️</td>
+            <th>Def. (Attack)</th>
+            <td>{attack_defence} 🛡️️</td>
+        </tr>
+        <tr>
+            <th>Def. (Strength)</th>
+            <td>{strength_defence} 🛡️</td>
         </tr>
         <tr>
             <th>Def. (Ranged)</th>

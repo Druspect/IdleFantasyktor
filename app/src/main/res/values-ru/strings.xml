@@ -263,6 +263,7 @@
     <string name="label_shop_desc">Покупайте снаряжение и продавайте добычу</string>
     <string name="label_no_session_hint">Перейдите в Навыки или Бой, чтобы начать тренировку.</string>
     <string name="label_recent_activity">Последняя активность</string>
+    <string name="settings_recent_activity">Журнал последней активности</string>
     <string name="settings_recent_activity_desc">Показывать кнопку «Последняя активность» на главном экране</string>
     <string name="label_no_sessions_yet">Сессий ещё не завершено.</string>
 

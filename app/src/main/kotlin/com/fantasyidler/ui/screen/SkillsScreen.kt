@@ -24,6 +24,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Badge
 import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
@@ -370,6 +371,7 @@ private fun SkillsTabContent(
                 toolEfficiency = efficiency,
                 prestigeLevel  = state.skillPrestige[key] ?: 0,
                 onPrestige     = { viewModel.prestigeSkill(key) },
+                cropsReady     = if (key == Skills.FARMING) state.cropsReadyCount else 0,
             )
         }
 
@@ -524,6 +526,7 @@ internal fun SkillRow(
     toolEfficiency: Float = 1.0f,
     prestigeLevel: Int = 0,
     onPrestige: (() -> Unit)? = null,
+    cropsReady: Int = 0,
 ) {
     val context  = LocalContext.current
     val name     = GameStrings.skillName(context, skillKey)
@@ -589,6 +592,9 @@ internal fun SkillRow(
                         )
                         .padding(horizontal = 3.dp, vertical = 1.dp),
                 )
+                if (cropsReady > 0) {
+                    Badge(modifier = Modifier.align(Alignment.TopEnd))
+                }
             }
 
             Spacer(Modifier.width(12.dp))

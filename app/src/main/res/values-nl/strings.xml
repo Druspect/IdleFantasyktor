@@ -249,6 +249,7 @@
     <string name="label_shop_desc">Koop uitrusting en verkoop buit</string>
     <string name="label_no_session_hint">Ga naar Vaardigheden of Gevecht om te beginnen met trainen.</string>
     <string name="label_recent_activity">Recente activiteit</string>
+    <string name="settings_recent_activity">Logboek recente activiteit</string>
     <string name="settings_recent_activity_desc">Knop Recente activiteit weergeven in de koptekst van het startscherm</string>
     <string name="label_no_sessions_yet">Nog geen sessies voltooid.</string>
 

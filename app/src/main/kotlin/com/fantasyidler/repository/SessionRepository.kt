@@ -10,6 +10,8 @@ import com.fantasyidler.data.model.SkillSession
 import com.fantasyidler.receiver.SessionAlarmReceiver
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.json.Json
 import java.util.UUID
 import javax.inject.Inject
@@ -20,6 +22,7 @@ class SessionRepository @Inject constructor(
     private val sessionDao: SkillSessionDao,
     @ApplicationContext private val context: Context,
     private val json: Json,
+    private val gameData: GameDataRepository,
 ) {
     val activeSessionFlow: Flow<SkillSession?> = sessionDao.observeActiveSession()
     val completedCountFlow: Flow<Int> = sessionDao.observeCompletedCount()
@@ -110,6 +113,58 @@ class SessionRepository @Inject constructor(
         sessionDao.markCompleted(sessionId)
     }
 
+    /**
+     * Wall-clock moment a boss fight is actually over (boss or player dead), derived
+     * from the pre-simulated frames. endsAt is only the cosmetic full-duration end.
+     */
+    fun bossFightEndMs(session: SkillSession): Long = try {
+        val frames: List<SessionFrame> = json.decodeFromString(session.frames)
+        val durMin      = (gameData.bosses[session.activityKey]?.durationMinutes ?: 60).coerceAtLeast(1)
+        val perFrameMs  = ((session.endsAt - session.startedAt) / durMin).coerceAtLeast(1L)
+        val lastTicks   = frames.lastOrNull()?.let { maxOf(it.playerHits.size, it.enemyHits.size) } ?: 0
+        val lastFrameMs = if (lastTicks > 0) minOf(lastTicks * 2_400L, perFrameMs) else perFrameMs
+        minOf(session.endsAt, session.startedAt + (frames.size - 1).coerceAtLeast(0) * perFrameMs + lastFrameMs + 2_000L)
+    } catch (_: Exception) { session.endsAt }
+
+    private val watchdogMutex = Mutex()
+
+    /**
+     * In-app watchdog: completes any overdue session (main and workers) without
+     * depending on AlarmManager delivery, which Doze can defer for hours. Boss
+     * sessions end at their simulated death moment; everything else at endsAt.
+     * Overdue time is fed to the queue as offline catch-up, same as recovery.
+     * Safe to call repeatedly from any ViewModel ticker.
+     */
+    suspend fun completeOverdueSessions(
+        starter: QueuedSessionStarter,
+        workerStarter: WorkerQueuedSessionStarter? = null,
+    ): Unit = watchdogMutex.withLock {
+        val now = System.currentTimeMillis()
+        val session = getActiveSession()
+        if (session != null && !session.completed) {
+            val endMs = if (session.skillName == "boss") bossFightEndMs(session) else session.endsAt
+            if (now >= endMs) {
+                markCompleted(session.sessionId)
+                var catchUpMs = now - endMs
+                while (catchUpMs > 0) {
+                    val used = try { starter.insertNextQueuedAsOffline(catchUpMs) } catch (_: Exception) { 0L }
+                    if (used == 0L) break
+                    catchUpMs -= used
+                }
+                try { starter.startNextQueued(backdateMs = catchUpMs.coerceAtLeast(0L)) } catch (_: Exception) {}
+            }
+        }
+        if (workerStarter != null) {
+            for (slot in 1..2) {
+                val ws = getActiveWorkerSession(slot)
+                if (ws != null && !ws.completed && now >= ws.endsAt) {
+                    markCompleted(ws.sessionId)
+                    try { workerStarter.startNextQueued(slot) } catch (_: Exception) {}
+                }
+            }
+        }
+    }
+
     suspend fun markAllExpiredWorkerSessions() {
         sessionDao.markAllExpiredWorkerSessions(System.currentTimeMillis())
     }
@@ -130,21 +185,18 @@ class SessionRepository @Inject constructor(
             try { starter.startNextQueued(backdateMs = backdateMs) } catch (_: Exception) { markCompleted(session.sessionId) }
             return
         }
-        // For boss sessions: if the boss was already defeated in the pre-simulated frames,
-        // mark complete immediately regardless of endsAt so the session is collectable.
+        // Boss sessions: endsAt is cosmetic (full duration). The session really ends
+        // at bossFightEndMs — complete or re-arm the alarm based on that moment,
+        // never on endsAt.
         if (session.skillName == "boss") {
-            try {
-                val frames: List<SessionFrame> = json.decodeFromString(session.frames)
-                if ((frames.lastOrNull()?.kills ?: 0) > 0 && System.currentTimeMillis() >= session.endsAt) {
-                    markCompleted(session.sessionId)
-                    starter.startNextQueued()
-                    return
-                }
-            } catch (_: Exception) {
+            val fightEndMs = bossFightEndMs(session)
+            if (System.currentTimeMillis() >= fightEndMs) {
                 markCompleted(session.sessionId)
                 starter.startNextQueued()
-                return
+            } else {
+                scheduleAlarm(session.sessionId, fightEndMs, session.skillName)
             }
+            return
         }
         val now = System.currentTimeMillis()
         try {

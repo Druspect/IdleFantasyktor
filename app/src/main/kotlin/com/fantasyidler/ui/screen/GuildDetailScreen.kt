@@ -339,7 +339,7 @@ private fun GuildQuestRow(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text  = "${qwp.progress.coerceAtMost(qwp.effectiveAmount)} / ${qwp.effectiveAmount}",
+                text  = "${qwp.progress} / ${qwp.effectiveAmount}",
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

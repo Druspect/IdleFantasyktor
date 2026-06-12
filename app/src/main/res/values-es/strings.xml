@@ -238,6 +238,7 @@
     <string name="label_shop_desc">Compra y vende artículos</string>
     <string name="label_no_session_hint">Dirígete a Habilidades o Combate para comenzar a entrenar.</string>
     <string name="label_recent_activity">Actividad Reciente</string>
+    <string name="settings_recent_activity">Registro de actividad reciente</string>
     <string name="settings_recent_activity_desc">Mostrar el botón de Actividad Reciente en el encabezado de la pantalla de inicio</string>
     <string name="label_no_sessions_yet">Aún no se han completado sesiones.</string>
 

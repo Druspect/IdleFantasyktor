@@ -932,7 +932,10 @@ private fun CombatSessionBanner(
     val frames = remember(session.sessionId) {
         runCatching { Json.decodeFromString<List<SessionFrame>>(session.frames) }.getOrElse { emptyList() }
     }
-    val perFrameMs = ((session.endsAt - session.startedAt) / 60L).coerceAtLeast(1L)
+    val frameCount = if (session.skillName == "boss")
+        (bosses.firstOrNull { it.id == session.activityKey }?.durationMinutes ?: 60).coerceAtLeast(1)
+    else 60
+    val perFrameMs = ((session.endsAt - session.startedAt) / frameCount.toLong()).coerceAtLeast(1L)
     val currentFrameIdx = remember(now) {
         ((now - session.startedAt) / perFrameMs).toInt()
             .coerceIn(0, (frames.size - 1).coerceAtLeast(0))

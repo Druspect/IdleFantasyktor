@@ -25,6 +25,7 @@ import com.fantasyidler.repository.SlayerRepository
 import com.fantasyidler.simulator.CombatSimulator
 import com.fantasyidler.simulator.SkillSimulator
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -109,6 +110,17 @@ class CombatViewModel @Inject constructor(
     val potionEffects: Map<String, Map<String, Int>> = gameData.potionEffects
 
     private val _extra = MutableStateFlow(CombatUiState())
+
+    init {
+        // AlarmManager delivery can be deferred by Doze; while the app is open this
+        // ticker ends overdue sessions on time regardless of the alarm.
+        viewModelScope.launch {
+            while (true) {
+                try { sessionRepo.completeOverdueSessions(queuedSessionStarter) } catch (_: Exception) {}
+                delay(1_000L)
+            }
+        }
+    }
 
     val uiState: StateFlow<CombatUiState> = combine(
         playerRepo.playerFlow,
@@ -604,16 +616,19 @@ class CombatViewModel @Inject constructor(
                 val agilityLevel   = levels[Skills.AGILITY] ?: 1
                 val frameMs        = SkillSimulator.sessionDurationMs(agilityLevel) / 60L
                 val bossDurationMs = boss.durationMinutes * frameMs
-                val animPerFrameMs = bossDurationMs / 60L
-                val bossAlarmMs    = if (bossFrames.size < boss.durationMinutes)
-                    (bossFrames.size - 1) * animPerFrameMs + 5_000L else null
                 sessionRepo.startSession(
                     skillName        = "boss",
                     activityKey      = bossKey,
                     frames           = framesJson,
                     durationMs       = bossDurationMs,
                     skillDisplayName = boss.displayName,
-                    alarmOffsetMs    = bossAlarmMs,
+                    // endsAt is cosmetic (full duration, no outcome spoiler); the alarm
+                    // ends the session at the exact death tick within the final frame.
+                    alarmOffsetMs    = if (bossFrames.size < boss.durationMinutes) {
+                        val lastTicks   = bossFrames.lastOrNull()?.let { maxOf(it.playerHits.size, it.enemyHits.size) } ?: 0
+                        val lastFrameMs = if (lastTicks > 0) minOf(lastTicks * 2_400L, frameMs) else frameMs
+                        (bossFrames.size - 1).coerceAtLeast(0) * frameMs + lastFrameMs + 2_000L
+                    } else null,
                 )
             } catch (e: Exception) {
                 _extra.update { it.copy(snackbarMessage = "Could not start boss fight: ${e.message}") }

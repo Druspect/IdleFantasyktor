@@ -249,6 +249,7 @@
     <string name="label_shop_desc">Artikel kaufen und verkaufen</string>
     <string name="label_no_session_hint">Begebt Euch zu Fähigkeiten oder Kampf, um mit dem Training zu beginnen.</string>
     <string name="label_recent_activity">Letzte Aktivität</string>
+    <string name="settings_recent_activity">Protokoll der letzten Aktivitäten</string>
     <string name="settings_recent_activity_desc">Schaltfläche „Letzte Aktivität" in der Kopfzeile der Startseite anzeigen</string>
     <string name="label_no_sessions_yet">Noch keine Aktivitäten abgeschlossen.</string>
 

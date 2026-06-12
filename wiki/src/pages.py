@@ -956,7 +956,8 @@ def gen_enemy(enemy: dict) -> str:
         hp=f"{hp:,}" if isinstance(hp, int) else hp,
         xp=f"{xp:,}" if isinstance(xp, int) else xp,
         attack=combat_stats.get("attack_level", 0) + combat_stats.get("attack_bonus", 0),
-        melee_defence=defensive_stats.get("attack_defense", "—"),
+        attack_defence=defensive_stats.get("attack_defense", "—"),
+        strength_defence=defensive_stats.get("strength_defense", "—"),
         ranged_defence=defensive_stats.get("ranged_defense", "—"),
         magic_defence=defensive_stats.get("magic_defense", "—"),
         loot_table=table(["Item", "Chance", "Qty"], drop_rows) if drop_rows else "_No drops._",
@@ -1231,7 +1232,8 @@ def gen_boss(boss: dict) -> str:
         rare_loot_rows.append([f"[{pet_name}](Pets)", fmt_pct(pet.get("chance", 0.005))])
 
     defensive_rows = [
-        ["Melee (Attack or Strength)", defensive_stats.get("attack_defense", "—")],
+        ["Attack", defensive_stats.get("attack_defense", "—")],
+        ["Strength", defensive_stats.get("strength_defense", "—")],
         ["Ranged", defensive_stats.get("ranged_defense", "—")],
         ["Magic", defensive_stats.get("magic_defense", "—")],
     ]

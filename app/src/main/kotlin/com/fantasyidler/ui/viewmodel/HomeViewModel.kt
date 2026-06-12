@@ -143,6 +143,15 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch { sessionRepo.recoverActiveWorkerSession(1, workerStarter) }
         viewModelScope.launch { sessionRepo.recoverActiveWorkerSession(2, workerStarter) }
         viewModelScope.launch { playerRepo.awardMissingCapes() }
+        // AlarmManager delivery can be deferred by Doze for hours (issue 517: overnight
+        // sessions frozen until their late alarms fire). While the app is open this
+        // ticker completes overdue sessions and workers within a second.
+        viewModelScope.launch {
+            while (true) {
+                try { sessionRepo.completeOverdueSessions(queuedSessionStarter, workerStarter) } catch (_: Exception) {}
+                kotlinx.coroutines.delay(1_000L)
+            }
+        }
     }
 
     private data class WorkerFlowData(
@@ -689,12 +698,38 @@ class HomeViewModel @Inject constructor(
                     return@launch
                 }
             }
+            val isCombat = session.skillName == "combat" || session.skillName == "boss"
+            val weaponSlot = if (isCombat) {
+                val totalXpBySkill = frames.fold(mutableMapOf<String, Long>()) { acc, f ->
+                    f.xpBySkill.forEach { (k, v) -> acc[k] = (acc[k] ?: 0L) + v }
+                    acc
+                }
+                val magicXp  = totalXpBySkill[Skills.MAGIC]   ?: 0L
+                val rangedXp = totalXpBySkill[Skills.RANGED]  ?: 0L
+                val strXp    = totalXpBySkill[Skills.STRENGTH] ?: 0L
+                val atkXp    = totalXpBySkill[Skills.ATTACK]  ?: 0L
+                when {
+                    magicXp  > atkXp && magicXp  > strXp -> EquipSlot.WEAPON_MAGIC
+                    rangedXp > atkXp && rangedXp > strXp -> EquipSlot.WEAPON_RANGED
+                    strXp    > atkXp                     -> EquipSlot.WEAPON_STR
+                    else                                 -> EquipSlot.WEAPON_ATK
+                }
+            } else null
+            val flags = playerRepo.getFlags()
+            val xpQueueMult = (if (flags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(flags)
+            val rawXpGain = frames.sumOf { it.xpGain }
+            val player = if (isCombat) playerRepo.getOrCreatePlayer() else null
             val enqueued = playerRepo.enqueueAction(QueuedAction(
                 skillName           = session.skillName,
                 activityKey         = session.activityKey,
                 skillDisplayName    = displayName,
                 qty                 = qty,
                 estimatedDurationMs = session.endsAt - session.startedAt,
+                estimatedXpGain     = (rawXpGain * xpQueueMult).toLong(),
+                weaponSlot          = weaponSlot,
+                equippedSnapshot    = player?.equipped,
+                spellName           = flags.activeSpell,
+                arrowsKey           = flags.equippedArrows,
             ))
             if (!enqueued) {
                 if (coinCostForRepeat > 0) playerRepo.addCoins(coinCostForRepeat)

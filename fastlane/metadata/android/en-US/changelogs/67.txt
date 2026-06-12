@@ -1,0 +1,17 @@
+• Fix: crash loop on startup when a very large quantity of bones or crafting items was queued (e.g. 5,000+ bones)
+• Fix: guild hall upgrade appeared to reduce your quest progress instead of just lowering the target
+• Fix: boss sessions now end the moment the boss or player dies instead of sitting at 0 HP for the rest of the timer; the countdown still shows the full duration so the outcome is not spoiled
+• Fix: Baby Balrog pet was obtainable from the Balrog raid but did nothing when received
+• Fix: hoe efficiency displayed as a percentage (e.g. +125%) instead of a multiplier (e.g. x2.25) in equipment stats, inconsistent with other tools
+• Fix: repeating a magic or ranged combat session would restart it using attack style instead
+• Fix: queued session XP projection did not account for active XP boost or church blessing
+• Fix: XP projection was missing entirely from sessions added via the Repeat button
+• Fix: farming patches planted before a prestige reset showed a harvest time of trillions of hours
+• Fix: overnight sessions and worker sessions could freeze instead of completing when the system delayed their alarms; the app now completes overdue sessions itself within a second of being opened
+• Fix: session completion alarms now fire exactly on time in the background without needing the Alarms and Reminders permission toggle
+• Fix: runite hoe farming efficiency corrected from 2.25 to 1.25 (data error)
+• Fix: construction quests showed "construction 50 Wooden Rack" instead of "Build 50 Wooden Rack"
+• Fix: strength-style melee attacks now roll against the enemy strength defense stat instead of attack defense
+• Fix: backup frequency selector no longer overflows the settings screen in some languages; now a dropdown
+• New: farming skill shows a red dot on the Skills screen when crops are ready to harvest
+• Translations: French fixes for the Russian language label, combat difficulty text, and the Recent Activity Log setting (now translatable in all languages)

@@ -17,6 +17,7 @@ import com.fantasyidler.data.model.SessionFrame
 import com.fantasyidler.data.model.SkillSession
 import com.fantasyidler.data.model.Skills
 import com.fantasyidler.repository.ChurchRepository
+import com.fantasyidler.repository.FarmingRepository
 import com.fantasyidler.repository.GameDataRepository
 import com.fantasyidler.repository.GuildRepository
 import com.fantasyidler.repository.PlayerRepository
@@ -69,6 +70,7 @@ data class SkillsUiState(
     val woodcuttingEfficiency: Float = 1.0f,
     val fishingEfficiency: Float = 1.0f,
     val farmingEfficiency: Float = 1.0f,
+    val cropsReadyCount: Int = 0,
     val xpBonusMult: Float = 1.0f,
     val sessionDurationMs: Long = 0L,
     val skillPrestige: Map<String, Int> = emptyMap(),
@@ -111,6 +113,7 @@ class SkillsViewModel @Inject constructor(
     private val gameData: GameDataRepository,
     private val questRepo: QuestRepository,
     private val guildRepo: GuildRepository,
+    private val farmingRepo: FarmingRepository,
     private val queuedSessionStarter: QueuedSessionStarter,
     private val json: Json,
 ) : ViewModel() {
@@ -121,11 +124,14 @@ class SkillsViewModel @Inject constructor(
         playerRepo.playerFlow,
         sessionRepo.activeSessionFlow,
         _uiState,
-    ) { player, session, extra ->
+        farmingRepo.observePatches(),
+    ) { player, session, extra, patches ->
         // Combat sessions are managed by CombatViewModel; hide them here.
         val nonCombatSession = session?.takeIf { it.skillName != "combat" }
+        val now = System.currentTimeMillis()
+        val cropsReady = patches.count { it.remainingMs(gameData.crops, now) <= 0 }
         if (player == null) {
-            extra.copy(isLoading = true, activeSession = nonCombatSession, anySessionActive = session != null)
+            extra.copy(isLoading = true, activeSession = nonCombatSession, anySessionActive = session != null, cropsReadyCount = cropsReady)
         } else {
             val levels:   Map<String, Int>     = json.decodeFromString(player.skillLevels)
             val xp:       Map<String, Long>    = json.decodeFromString(player.skillXp)
@@ -147,6 +153,7 @@ class SkillsViewModel @Inject constructor(
                 sessionDurationMs     = SkillSimulator.sessionDurationMs(levels[Skills.AGILITY] ?: 1),
                 skillPrestige         = flags.skillPrestige,
                 inventory             = inv,
+                cropsReadyCount       = cropsReady,
             )
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SkillsUiState())
@@ -320,12 +327,14 @@ class SkillsViewModel @Inject constructor(
             val agility = levels[Skills.AGILITY] ?: 1
             val perLogMs = SkillSimulator.sessionDurationMs(agility) / 60L
             val logXp = gameData.logs[logKey]?.xpPerLog?.toLong() ?: 0L
+            val flags = try { json.decodeFromString<PlayerFlags>(player.flags) } catch (_: Exception) { PlayerFlags() }
+            val xpQueueMult = (if (flags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(flags)
             val action = QueuedAction(
                 skillName           = Skills.FIREMAKING,
                 activityKey         = logKey,
                 skillDisplayName    = "Firemaking",
                 qty                 = actualQty,
-                estimatedXpGain     = actualQty.toLong() * logXp,
+                estimatedXpGain     = (actualQty.toLong() * logXp * xpQueueMult).toLong(),
                 estimatedDurationMs = actualQty.toLong() * perLogMs,
             )
 
@@ -372,13 +381,15 @@ class SkillsViewModel @Inject constructor(
                 val perItemMs  = SkillSimulator.sessionDurationMs(agility) / 60
                 val ashBon     = catalystKey?.let { ashRuneBonusForKey(it) } ?: 0
                 val mult       = when { rcLevel >= 75 -> 3; rcLevel >= 50 -> 2; else -> 1 } + ashBon
+                val rcFlags = try { json.decodeFromString<PlayerFlags>(player.flags) } catch (_: Exception) { PlayerFlags() }
+                val xpQueueMult = (if (rcFlags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(rcFlags)
                 val enqueued = playerRepo.enqueueAction(
                     QueuedAction(
                         skillName           = Skills.RUNECRAFTING,
                         activityKey         = runeKey,
                         skillDisplayName    = "Runecrafting",
                         qty                 = qty,
-                        estimatedXpGain     = qty.toLong() * (runeData.xpPerRune * mult).toLong(),
+                        estimatedXpGain     = (qty.toLong() * (runeData.xpPerRune * mult).toLong() * xpQueueMult).toLong(),
                         estimatedDurationMs = qty.toLong() * perItemMs,
                         catalystKey         = catalystKey,
                     )
@@ -476,13 +487,15 @@ class SkillsViewModel @Inject constructor(
             if (sessionRepo.getActiveSession() != null) {
                 val agility   = (json.decodeFromString<Map<String, Int>>(player.skillLevels))[Skills.AGILITY] ?: 1
                 val perBoneMs = SkillSimulator.sessionDurationMs(agility) / 60
+                val prayerFlags = try { json.decodeFromString<PlayerFlags>(player.flags) } catch (_: Exception) { PlayerFlags() }
+                val xpQueueMult = (if (prayerFlags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(prayerFlags)
                 val enqueued = playerRepo.enqueueAction(
                     QueuedAction(
                         skillName           = Skills.PRAYER,
                         activityKey         = boneKey,
                         skillDisplayName    = "Prayer",
                         qty                 = qty,
-                        estimatedXpGain     = qty.toLong() * bone.xpPerBone.toLong(),
+                        estimatedXpGain     = (qty.toLong() * bone.xpPerBone.toLong() * xpQueueMult).toLong(),
                         estimatedDurationMs = qty.toLong() * perBoneMs,
                     )
                 )
@@ -632,13 +645,15 @@ class SkillsViewModel @Inject constructor(
                 val actDisplay   = activityKey.replace('_', ' ').replaceFirstChar { it.uppercase() }
                 val player       = playerRepo.getOrCreatePlayer()
                 val agility      = (json.decodeFromString<Map<String, Int>>(player.skillLevels))[Skills.AGILITY] ?: 1
-                val estimatedXpGain = when (skillName) {
+                val gatherFlags = try { json.decodeFromString<PlayerFlags>(player.flags) } catch (_: Exception) { PlayerFlags() }
+                val xpQueueMult = (if (gatherFlags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(gatherFlags)
+                val estimatedXpGain = (when (skillName) {
                     Skills.MINING      -> (gameData.ores[activityKey]?.xpPerOre?.toLong()            ?: 0L) * 60L
                     Skills.WOODCUTTING -> (gameData.trees[activityKey]?.xpPerLog?.toLong()           ?: 0L) * 60L
                     Skills.FISHING     -> (gameData.fish[activityKey]?.xpPerCatch?.toLong()          ?: 0L) * 60L
                     Skills.AGILITY     -> (gameData.agilityCourses[activityKey]?.xpPerSuccess?.toLong() ?: 0L) * 60L
                     else               -> 0L
-                }
+                } * xpQueueMult).toLong()
                 val enqueued = playerRepo.enqueueAction(
                     QueuedAction(
                         skillName           = skillName,

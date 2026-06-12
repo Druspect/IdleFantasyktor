@@ -249,6 +249,7 @@
     <string name="label_shop_desc">Acquista equipaggiamento e vendi il tuo bottino</string>
     <string name="label_no_session_hint">Tocca Abilità o Battaglia per iniziare l\'addestramento.</string>
     <string name="label_recent_activity">Ultime Attività</string>
+    <string name="settings_recent_activity">Registro delle ultime attività</string>
     <string name="settings_recent_activity_desc">Mostra il pulsante Ultime Attività nell\'intestazione della schermata principale</string>
     <string name="label_no_sessions_yet">Nessuna sessione completata.</string>
 

@@ -106,7 +106,8 @@ object CombatSimulator {
                     val effStr   = effStrength + weaponStrengthBonus
                     playerMaxHit = max(1, 1 + effStr * (weaponStrengthBonus + 64) / 640)
                     playerEffAtk = effAttack + weaponAttackBonus
-                    enemyDefStat = enemy.defensiveStats.attackDefense
+                    enemyDefStat = if (combatStyle == "strength") enemy.defensiveStats.strengthDefense
+                                   else enemy.defensiveStats.attackDefense
                 }
             }
 
@@ -321,7 +322,8 @@ object CombatSimulator {
                 val effStr = playerStrength + weaponStrBonus
                 playerMax  = max(1, 1 + effStr * (weaponStrBonus + 64) / 640)
                 effAtk     = playerAttack + weaponAttackBonus
-                bossDefence = boss.defensiveStats.attackDefense
+                bossDefence = if (combatStyle == "strength") boss.defensiveStats.strengthDefense
+                              else boss.defensiveStats.attackDefense
             }
         }
         val arrowKey   = availableArrows.keys.firstOrNull()
@@ -381,7 +383,6 @@ object CombatSimulator {
 
                 if (currentBossHp <= 0) {
                     won = true
-                    repeat(TICKS_PER_FRAME - tick - 1) { pHits.add(0); eHits.add(0) }
                     frames.add(SessionFrame(
                         minute = frames.size, xpGain = 0, xpBefore = 0L, xpAfter = 0L,
                         levelBefore = 0, levelAfter = 0,
@@ -417,7 +418,6 @@ object CombatSimulator {
                 }
 
                 if (currentHp <= 0) {
-                    repeat(TICKS_PER_FRAME - tick - 1) { pHits.add(0); eHits.add(0) }
                     frames.add(SessionFrame(
                         minute = frames.size, xpGain = 0, xpBefore = 0L, xpAfter = 0L,
                         levelBefore = 0, levelAfter = 0,

@@ -3,6 +3,8 @@ package com.fantasyidler.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fantasyidler.data.model.EquipSlot
+import com.fantasyidler.data.model.PlayerFlags
+import com.fantasyidler.repository.ChurchRepository
 import com.fantasyidler.data.model.QueuedAction
 import com.fantasyidler.data.model.SessionFrame
 import com.fantasyidler.data.model.Skills
@@ -322,13 +324,15 @@ class CraftingViewModel @Inject constructor(
                 val agility   = state.skillLevels[Skills.AGILITY] ?: 1
                 val perItemMs = SkillSimulator.sessionDurationMs(agility) / 60
                 val totalOutput = qty * recipe.outputQty
+                val craftFlags = playerRepo.getFlags()
+                val xpQueueMult = (if (craftFlags.xpBoostExpiresAt > System.currentTimeMillis()) 2.0 else 1.0) * ChurchRepository.xpMultiplier(craftFlags)
                 val action = QueuedAction(
                     skillName           = recipe.skillName,
                     activityKey         = recipe.key,
                     skillDisplayName    = recipe.skillName.replaceFirstChar { it.uppercase() },
                     qty                 = qty,
                     outputQty           = if (totalOutput != qty) totalOutput else 0,
-                    estimatedXpGain     = (qty * recipe.xpPerItem).toLong(),
+                    estimatedXpGain     = (qty * recipe.xpPerItem * xpQueueMult).toLong(),
                     estimatedDurationMs = qty.toLong() * perItemMs,
                     catalystKey         = ashKey,
                 )

@@ -135,7 +135,7 @@ fun FarmingScreen(
                 PatchCard(
                     patchNumber = patchNumber,
                     patch       = patch,
-                    crops       = state.availableCrops.associateBy { it.id },
+                    crops       = state.allCrops,
                     now         = state.now,
                     ashKey      = state.fertilizer[patchNumber.toString()],
                     onPlant     = { viewModel.openPlantSheet(patchNumber) },
@@ -246,7 +246,7 @@ fun FarmingSheetContent(
                 PatchCard(
                     patchNumber = patchNumber,
                     patch       = patches[patchNumber],
-                    crops       = state.availableCrops.associateBy { it.id },
+                    crops       = state.allCrops,
                     now         = state.now,
                     ashKey      = state.fertilizer[patchNumber.toString()],
                     onPlant     = { viewModel.openPlantSheet(patchNumber) },
