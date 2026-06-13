@@ -305,6 +305,8 @@ object SkillSimulator {
         startXp: Long,
         agilityLevel: Int = 1,
         petBoostPct: Int = 0,
+        petDropKey: String? = null,
+        petDropChance: Double = 0.0,
         random: Random = Random.Default,
     ): Result {
         var currentXp = startXp
@@ -324,6 +326,11 @@ object SkillSimulator {
             currentXp += xpGain
             val levelAfter = XpTable.levelForXp(currentXp)
 
+            val items = mutableMapOf<String, Int>()
+            if (petDropKey != null && petDropChance > 0.0 && random.nextDouble() < petDropChance) {
+                items[petDropKey] = 1
+            }
+
             frames.add(
                 SessionFrame(
                     minute      = minute,
@@ -332,6 +339,7 @@ object SkillSimulator {
                     xpAfter     = currentXp,
                     levelBefore = levelBefore,
                     levelAfter  = levelAfter,
+                    items       = items,
                     leveledUp   = levelAfter > levelBefore,
                     success     = successfulLaps > 0,
                 )

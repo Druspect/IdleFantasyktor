@@ -88,5 +88,105 @@
     "effect_type": "xp_boost",
     "boosted_skill": "combat",
     "boost_percent": 5
+  },
+  "graceling_sprite": {
+    "id": "graceling_sprite",
+    "display_name": "Graceling Sprite",
+    "emoji": "🧚",
+    "description": "A nimble fairy born from thousands of laps run in silence. Guides your feet with uncanny grace.",
+    "source": "Agility (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "agility",
+    "boost_percent": 10
+  },
+  "shadow_fox": {
+    "id": "shadow_fox",
+    "display_name": "Shadow Fox",
+    "emoji": "🦊",
+    "description": "A cunning fox that materialised from the shadows of a thousand pickpocket attempts.",
+    "source": "Thieving (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "thieving",
+    "boost_percent": 10
+  },
+  "ember_moth": {
+    "id": "ember_moth",
+    "display_name": "Ember Moth",
+    "emoji": "🦋",
+    "description": "Drawn to flame for so long it became one. Its wings shimmer with residual heat.",
+    "source": "Firemaking (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "firemaking",
+    "boost_percent": 10
+  },
+  "herb_wisp": {
+    "id": "herb_wisp",
+    "display_name": "Herb Wisp",
+    "emoji": "🌿",
+    "description": "A spirit born from the vapour of a thousand brewed potions. Its presence sharpens the mind.",
+    "source": "Herblore (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "herblore",
+    "boost_percent": 10
+  },
+  "rune_sprite": {
+    "id": "rune_sprite",
+    "display_name": "Rune Sprite",
+    "emoji": "🔮",
+    "description": "A crystallised fragment of magical energy that escaped the Runecrafting altar.",
+    "source": "Runecrafting (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "runecrafting",
+    "boost_percent": 10
+  },
+  "gem_golem": {
+    "id": "gem_golem",
+    "display_name": "Gem Golem",
+    "emoji": "💎",
+    "description": "A tiny creature sculpted from gem shards and polishing dust. Keeps your tools sharp.",
+    "source": "Crafting (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "crafting",
+    "boost_percent": 10
+  },
+  "feather_drake": {
+    "id": "feather_drake",
+    "display_name": "Feather Drake",
+    "emoji": "🪶",
+    "description": "A miniature dragon made entirely of arrow fletching. Surprisingly aerodynamic.",
+    "source": "Fletching (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "fletching",
+    "boost_percent": 10
+  },
+  "forge_imp": {
+    "id": "forge_imp",
+    "display_name": "Forge Imp",
+    "emoji": "⚒️",
+    "description": "A mischievous imp that lives inside the forge. Its heat-hardened hide is impervious to burns.",
+    "source": "Smithing (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "smithing",
+    "boost_percent": 10
+  },
+  "coin_drake": {
+    "id": "coin_drake",
+    "display_name": "Coin Drake",
+    "emoji": "🪙",
+    "description": "A dragon hatchling raised on a diet of gold coins. It has an uncanny nose for profit.",
+    "source": "Mercantile (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "mercantile",
+    "boost_percent": 10
+  },
+  "timber_sprite": {
+    "id": "timber_sprite",
+    "display_name": "Timber Sprite",
+    "emoji": "🪵",
+    "description": "A wood spirit awakened from sawdust and lumber. It knows exactly where every nail should go.",
+    "source": "Construction (1/1000 per session)",
+    "effect_type": "xp_boost",
+    "boosted_skill": "construction",
+    "boost_percent": 10
   }
 }

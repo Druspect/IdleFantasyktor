@@ -17,6 +17,8 @@ object MercantileSimulator {
         route: TradeRouteData,
         startXp: Long,
         agilityLevel: Int = 1,
+        petDropKey: String? = null,
+        petDropChance: Double = 0.0,
         random: Random = Random.Default,
     ): Result {
         var currentXp = startXp
@@ -33,6 +35,10 @@ object MercantileSimulator {
             val levelAfter = XpTable.levelForXp(currentXp)
 
             val coinReturn = random.nextInt(coinRange.min, coinRange.max + 1)
+            val items = mutableMapOf("_coins" to coinReturn)
+            if (petDropKey != null && petDropChance > 0.0 && random.nextDouble() < petDropChance) {
+                items[petDropKey] = 1
+            }
 
             frames += SessionFrame(
                 minute      = minute,
@@ -42,7 +48,7 @@ object MercantileSimulator {
                 levelBefore = levelBefore,
                 levelAfter  = levelAfter,
                 leveledUp   = levelAfter > levelBefore,
-                items       = mapOf("_coins" to coinReturn),
+                items       = items,
             )
         }
 

@@ -17,6 +17,7 @@ import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.serializer
+import kotlin.random.Random
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -178,6 +179,8 @@ class QueuedSessionStarter @Inject constructor(
                     startXp      = xpMap[Skills.AGILITY] ?: 0L,
                     agilityLevel = agilityLevel,
                     petBoostPct  = gatheringPetBoost(player.pets, Skills.AGILITY),
+                    petDropKey   = petDropKey(Skills.AGILITY),
+                    petDropChance = petDropChance(Skills.AGILITY),
                 )
                 startSession(action, result, offline, backdateMs)
             }
@@ -209,7 +212,8 @@ class QueuedSessionStarter @Inject constructor(
                 val logData = gameData.logs[logKey] ?: return
                 val qty     = action.qty.takeIf { it > 0 } ?: return
                 val ashKey  = ashForLog(logKey)
-                val frames  = buildCraftFrames(xpMap[Skills.FIREMAKING] ?: 0L, qty, logData.xpPerLog.toDouble(), 1, ashKey)
+                val frames  = buildCraftFrames(xpMap[Skills.FIREMAKING] ?: 0L, qty, logData.xpPerLog.toDouble(), 1, ashKey,
+                    petDropKey = petDropKey(Skills.FIREMAKING), petDropChance = petDropChance(Skills.FIREMAKING))
                 val perLogMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60L
                 sessionRepo.startSession(
                     skillName         = Skills.FIREMAKING,
@@ -293,35 +297,40 @@ class QueuedSessionStarter @Inject constructor(
             Skills.SMITHING -> {
                 val r   = gameData.smithingRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.SMITHING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey)
+                val frames = buildCraftFrames(xpMap[Skills.SMITHING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey,
+                    petDropKey = petDropKey(Skills.SMITHING), petDropChance = petDropChance(Skills.SMITHING))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.SMITHING, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
             Skills.COOKING -> {
                 val r: CookingRecipe = gameData.cookingRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.COOKING] ?: 0L, qty, r.xpPerItem, 1, r.cookedItem)
+                val frames = buildCraftFrames(xpMap[Skills.COOKING] ?: 0L, qty, r.xpPerItem, 1, r.cookedItem,
+                    petDropKey = petDropKey(Skills.COOKING), petDropChance = petDropChance(Skills.COOKING))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.COOKING, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
             Skills.FLETCHING -> {
                 val r   = gameData.fletchingRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.FLETCHING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, r.itemName)
+                val frames = buildCraftFrames(xpMap[Skills.FLETCHING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, r.itemName,
+                    petDropKey = petDropKey(Skills.FLETCHING), petDropChance = petDropChance(Skills.FLETCHING))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.FLETCHING, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
             Skills.CRAFTING -> {
                 val r   = gameData.craftingRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.CRAFTING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey)
+                val frames = buildCraftFrames(xpMap[Skills.CRAFTING] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey,
+                    petDropKey = petDropKey(Skills.CRAFTING), petDropChance = petDropChance(Skills.CRAFTING))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.CRAFTING, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
             Skills.CONSTRUCTION -> {
                 val r   = gameData.constructionRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.CONSTRUCTION] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey)
+                val frames = buildCraftFrames(xpMap[Skills.CONSTRUCTION] ?: 0L, qty, r.xpPerItem, r.outputQuantity, action.activityKey,
+                    petDropKey = petDropKey(Skills.CONSTRUCTION), petDropChance = petDropChance(Skills.CONSTRUCTION))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.CONSTRUCTION, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
@@ -331,16 +340,19 @@ class QueuedSessionStarter @Inject constructor(
                 val catalystKey = action.catalystKey
                 val outputKey   = if (catalystKey != null) "enhanced_${action.activityKey}" else action.activityKey
                 if (catalystKey != null) playerRepo.consumeItems(mapOf(catalystKey to qty))
-                val frames    = buildCraftFrames(xpMap[Skills.HERBLORE] ?: 0L, qty, r.xpPerItem, r.outputQuantity, outputKey)
+                val frames    = buildCraftFrames(xpMap[Skills.HERBLORE] ?: 0L, qty, r.xpPerItem, r.outputQuantity, outputKey,
+                    petDropKey = petDropKey(Skills.HERBLORE), petDropChance = petDropChance(Skills.HERBLORE))
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.HERBLORE, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
             Skills.MERCANTILE -> {
                 val route = gameData.tradeRoutes.firstOrNull { it.id == action.activityKey } ?: return
                 val result = MercantileSimulator.simulate(
-                    route        = route,
-                    startXp      = xpMap[Skills.MERCANTILE] ?: 0L,
-                    agilityLevel = agilityLevel,
+                    route         = route,
+                    startXp       = xpMap[Skills.MERCANTILE] ?: 0L,
+                    agilityLevel  = agilityLevel,
+                    petDropKey    = petDropKey(Skills.MERCANTILE),
+                    petDropChance = petDropChance(Skills.MERCANTILE),
                 )
                 sessionRepo.startSession(
                     skillName         = action.skillName,
@@ -571,7 +583,16 @@ class QueuedSessionStarter @Inject constructor(
         return if (tierDiff > 0) base * (1.0f + 0.25f * tierDiff) else base
     }
 
-    private fun buildCraftFrames(startXp: Long, qty: Int, xpPerItem: Double, outputQty: Int, outputKey: String): List<SessionFrame> {
+    private fun buildCraftFrames(
+        startXp: Long,
+        qty: Int,
+        xpPerItem: Double,
+        outputQty: Int,
+        outputKey: String,
+        petDropKey: String? = null,
+        petDropChance: Double = 0.0,
+        random: Random = Random.Default,
+    ): List<SessionFrame> {
         var xp = startXp
         val frameCount = minOf(qty, 60)
         return buildList {
@@ -581,10 +602,14 @@ class QueuedSessionStarter @Inject constructor(
                 val gain = (xpPerItem * itemsInBucket).toInt()
                 xp += gain
                 val levelAfter = XpTable.levelForXp(xp)
+                val items = mutableMapOf(outputKey to outputQty * itemsInBucket)
+                if (petDropKey != null && petDropChance > 0.0 && random.nextDouble() < petDropChance) {
+                    items[petDropKey] = 1
+                }
                 add(SessionFrame(
                     minute = bucket + 1, xpGain = gain, xpBefore = xp - gain, xpAfter = xp,
                     levelBefore = levelBefore, levelAfter = levelAfter,
-                    items = mapOf(outputKey to outputQty * itemsInBucket),
+                    items = items,
                     leveledUp = levelAfter > levelBefore,
                     kills = itemsInBucket,
                 ))
