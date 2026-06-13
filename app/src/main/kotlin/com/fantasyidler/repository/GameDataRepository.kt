@@ -76,6 +76,17 @@ class GameDataRepository @Inject constructor(
         asset("data/enemies.json")
     }
 
+    /** Maps each enemy key to the dungeon display names it appears in. */
+    val enemyLocations: Map<String, List<String>> by lazy {
+        val map = mutableMapOf<String, MutableList<String>>()
+        dungeons.values.forEach { dungeon ->
+            dungeon.enemySpawns.forEach { spawn ->
+                map.getOrPut(spawn.enemy) { mutableListOf() }.add(dungeon.displayName)
+            }
+        }
+        map.mapValues { (_, v) -> v.sorted() }
+    }
+
     // ------------------------------------------------------------------ dungeons
 
     /** All dungeon files in assets/data/dungeons/, keyed by dungeon name. */

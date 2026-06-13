@@ -529,6 +529,7 @@ class HomeViewModel @Inject constructor(
                             Skills.THIEVING    -> {
                                 val successCount = frames.count { it.success }
                                 questRepo.recordThieving(session.activityKey, successCount, regular.filterKeys { it != "coins" })
+                                guildRepo.recordGuildThieving(session.activityKey, successCount)
                             }
                             Skills.PRAYER      -> {
                                 val buried = frames.sumOf { it.kills }

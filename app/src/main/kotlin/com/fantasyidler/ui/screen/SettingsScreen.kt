@@ -78,6 +78,7 @@ fun SettingsScreen(
     val themePreference        by viewModel.themePreference.collectAsState()
     val fontScale              by viewModel.fontScale.collectAsState()
     val showRecentActivityLog  by viewModel.showRecentActivityLog.collectAsState()
+    val profileLayout          by viewModel.profileLayout.collectAsState()
     val backupFolderUri  by viewModel.backupFolderUri.collectAsState()
     val backupFrequency  by viewModel.backupFrequency.collectAsState()
     var notificationsEnabled by remember { mutableStateOf(false) }
@@ -321,6 +322,24 @@ fun SettingsScreen(
                         checked         = showRecentActivityLog,
                         onCheckedChange = { viewModel.setShowRecentActivityLog(it) },
                     )
+                }
+            )
+            SettingsRow(
+                title    = stringResource(R.string.settings_profile_layout),
+                subtitle = stringResource(R.string.settings_profile_layout_desc),
+                trailing = {
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        FilterChip(
+                            selected = profileLayout == "rail",
+                            onClick  = { viewModel.setProfileLayout("rail") },
+                            label    = { Text(stringResource(R.string.settings_profile_layout_rail)) },
+                        )
+                        FilterChip(
+                            selected = profileLayout == "tabs",
+                            onClick  = { viewModel.setProfileLayout("tabs") },
+                            label    = { Text(stringResource(R.string.settings_profile_layout_tabs)) },
+                        )
+                    }
                 }
             )
 

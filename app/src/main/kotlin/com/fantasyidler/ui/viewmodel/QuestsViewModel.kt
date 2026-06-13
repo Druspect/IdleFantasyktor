@@ -12,6 +12,8 @@ import com.fantasyidler.repository.DailyReward
 import com.fantasyidler.repository.GameDataRepository
 import com.fantasyidler.repository.PlayerRepository
 import com.fantasyidler.repository.QuestRepository
+import com.fantasyidler.repository.WeeklyBonusReward
+import com.fantasyidler.repository.WeeklyQuestRepository
 import com.fantasyidler.repository.WeeklyQuestWithProgress
 import com.fantasyidler.util.formatCoins
 import com.fantasyidler.util.formatXp
@@ -245,14 +247,23 @@ class QuestsViewModel @Inject constructor(
         viewModelScope.launch {
             val flags = playerRepo.getFlags()
             if (flags.weeklyQuestClaimed.size < 5 || flags.weeklyBonusClaimed) return@launch
-            
-            val newFlags = weeklyQuestRepo.claimWeeklyBonus(flags)
+
+            val ownedItems = playerRepo.getInventory().keys +
+                playerRepo.getEquipped().values.filterNotNull()
+            val (newFlags, reward) = weeklyQuestRepo.claimWeeklyBonus(flags, ownedItems.toSet())
             playerRepo.updateFlags(newFlags)
-            
-            // Grand prize for completing all 5 weekly quests
-            val coins = 100_000L
-            playerRepo.addCoins(coins)
-            _extra.update { it.copy(snackbarMessage = "All weekly challenges complete! +${coins.formatCoins()} coins") }
+
+            val message = when (reward) {
+                is WeeklyBonusReward.CoinsReward -> {
+                    playerRepo.addCoins(reward.amount)
+                    "All weekly challenges complete! +${reward.amount.formatCoins()} coins"
+                }
+                is WeeklyBonusReward.DivineItemReward -> {
+                    playerRepo.addItem(reward.itemKey, 1)
+                    "All weekly challenges complete! You found divine gear!"
+                }
+            }
+            _extra.update { it.copy(snackbarMessage = message) }
         }
     }
 

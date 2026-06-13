@@ -26,6 +26,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRow
 import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -61,7 +62,7 @@ import com.fantasyidler.util.GameStrings
 import com.fantasyidler.util.formatCoins
 import com.fantasyidler.util.formatXp
 
-private val TAB_GROUPS = listOf("Daily", "Weekly", "Gathering", "Crafting", "Combat", "Special")
+private val TAB_GROUPS = listOf("Timed", "Gathering", "Crafting", "Combat", "Special")
 
 @Composable
 private fun tabGroupLabel(group: String): String = when (group) {
@@ -69,8 +70,9 @@ private fun tabGroupLabel(group: String): String = when (group) {
     "Crafting"  -> stringResource(R.string.label_crafting_skills)
     "Combat"    -> stringResource(R.string.label_combat)
     "Special"   -> stringResource(R.string.label_special)
+    "Timed"     -> stringResource(R.string.label_timed)
     "Daily"     -> stringResource(R.string.label_daily)
-    "Weekly"    -> "Weekly"
+    "Weekly"    -> stringResource(R.string.label_weekly)
     else        -> group
 }
 
@@ -137,9 +139,8 @@ fun QuestsScreen(
         ) {
             ScrollableTabRow(selectedTabIndex = pagerState.currentPage, edgePadding = 0.dp) {
                 TAB_GROUPS.forEachIndexed { index, group ->
-                    val claimableInGroup = if (group == "Daily") {
-                        state.dailyQuests.count { it.progress >= it.template.amount && !it.claimed }
-                    } else if (group == "Weekly") {
+                    val claimableInGroup = if (group == "Timed") {
+                        state.dailyQuests.count { it.progress >= it.template.amount && !it.claimed } +
                         state.weeklyQuests.count { it.progress >= it.template.amount && !it.claimed }
                     } else {
                         (state.questsByGroup[group] ?: emptyList()).count { it.isClaimable }
@@ -161,20 +162,16 @@ fun QuestsScreen(
 
             HorizontalPager(state = pagerState, modifier = Modifier.weight(1f)) { page ->
                 val currentGroup = TAB_GROUPS[page]
-                if (currentGroup == "Daily") {
-                    DailyQuestsContent(
-                        quests        = state.dailyQuests,
-                        nextReset     = state.nextDailyReset,
-                        hideCompleted = state.hideCompleted,
-                        onClaimQuest  = { viewModel.claimDailyQuest(it) },
-                    )
-                } else if (currentGroup == "Weekly") {
-                    WeeklyQuestsContent(
-                        quests        = state.weeklyQuests,
-                        nextReset     = state.nextWeeklyReset,
-                        hideCompleted = state.hideCompleted,
-                        onClaimQuest  = { viewModel.claimWeeklyQuest(it) },
-                        onClaimBonus  = { viewModel.claimWeeklyBonus() },
+                if (currentGroup == "Timed") {
+                    TimedQuestsContent(
+                        dailyQuests         = state.dailyQuests,
+                        weeklyQuests        = state.weeklyQuests,
+                        nextDailyReset      = state.nextDailyReset,
+                        nextWeeklyReset     = state.nextWeeklyReset,
+                        hideCompleted       = state.hideCompleted,
+                        onClaimDailyQuest   = { viewModel.claimDailyQuest(it) },
+                        onClaimWeeklyQuest  = { viewModel.claimWeeklyQuest(it) },
+                        onClaimWeeklyBonus  = { viewModel.claimWeeklyBonus() },
                     )
                 } else {
                     val quests = state.questsByGroup[currentGroup] ?: emptyList()
@@ -210,6 +207,61 @@ fun QuestsScreen(
 }
 
 // ---------------------------------------------------------------------------
+// Timed quests container (Daily + Weekly sub-tabs)
+// ---------------------------------------------------------------------------
+
+@Composable
+private fun TimedQuestsContent(
+    dailyQuests: List<DailyQuestWithProgress>,
+    weeklyQuests: List<WeeklyQuestWithProgress>,
+    nextDailyReset: Long,
+    nextWeeklyReset: Long,
+    hideCompleted: Boolean,
+    onClaimDailyQuest: (String) -> Unit,
+    onClaimWeeklyQuest: (String) -> Unit,
+    onClaimWeeklyBonus: () -> Unit,
+) {
+    val dailyLabel  = stringResource(R.string.label_daily)
+    val weeklyLabel = stringResource(R.string.label_weekly)
+    var selectedSubTab by remember { mutableIntStateOf(0) }
+
+    Column(Modifier.fillMaxSize()) {
+        TabRow(selectedTabIndex = selectedSubTab) {
+            listOf(dailyLabel, weeklyLabel).forEachIndexed { index, title ->
+                val claimable = when (index) {
+                    0 -> dailyQuests.count { it.progress >= it.template.amount && !it.claimed }
+                    1 -> weeklyQuests.count { it.progress >= it.template.amount && !it.claimed }
+                    else -> 0
+                }
+                Tab(
+                    selected = selectedSubTab == index,
+                    onClick  = { selectedSubTab = index },
+                    text = {
+                        val label = if (claimable > 0) "$title ($claimable)" else title
+                        Text(text = label, style = MaterialTheme.typography.labelMedium)
+                    },
+                )
+            }
+        }
+        when (selectedSubTab) {
+            0 -> DailyQuestsContent(
+                quests        = dailyQuests,
+                nextReset     = nextDailyReset,
+                hideCompleted = hideCompleted,
+                onClaimQuest  = onClaimDailyQuest,
+            )
+            1 -> WeeklyQuestsContent(
+                quests        = weeklyQuests,
+                nextReset     = nextWeeklyReset,
+                hideCompleted = hideCompleted,
+                onClaimQuest  = onClaimWeeklyQuest,
+                onClaimBonus  = onClaimWeeklyBonus,
+            )
+        }
+    }
+}
+
+// ---------------------------------------------------------------------------
 // Daily quests content
 // ---------------------------------------------------------------------------
 
@@ -222,6 +274,15 @@ private fun DailyQuestsContent(
 ) {
     val visibleQuests = if (hideCompleted) quests.filter { !it.claimed } else quests
     LazyColumn(Modifier.fillMaxSize()) {
+        item {
+            Text(
+                text     = stringResource(R.string.label_daily_info),
+                style    = MaterialTheme.typography.bodySmall,
+                color    = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+            )
+            HorizontalDivider()
+        }
         if (visibleQuests.isEmpty()) {
             item {
                 Box(
@@ -270,8 +331,17 @@ private fun WeeklyQuestsContent(
 ) {
     val visibleQuests = if (hideCompleted) quests.filter { !it.claimed } else quests
     val allQuestsClaimed = quests.isNotEmpty() && quests.all { it.claimed }
-    
+
     LazyColumn(Modifier.fillMaxSize()) {
+        item {
+            Text(
+                text     = stringResource(R.string.label_weekly_info),
+                style    = MaterialTheme.typography.bodySmall,
+                color    = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+            )
+            HorizontalDivider()
+        }
         if (visibleQuests.isEmpty()) {
             item {
                 Box(
@@ -297,20 +367,20 @@ private fun WeeklyQuestsContent(
             item {
                 Column(Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
                     Text(
-                        text = "Weekly Bonus!",
+                        text = stringResource(R.string.weekly_bonus_title),
                         style = MaterialTheme.typography.bodyLarge,
                         color = GoldPrimary,
                     )
                     Spacer(Modifier.height(8.dp))
                     Button(onClick = onClaimBonus, modifier = Modifier.fillMaxWidth()) {
-                        Text("Claim Weekly Bonus")
+                        Text(stringResource(R.string.weekly_bonus_claim))
                     }
                 }
             }
         }
         item {
             Text(
-                text     = "Resets Monday at 6am",
+                text     = stringResource(R.string.label_weekly_reset),
                 style    = MaterialTheme.typography.labelSmall,
                 color    = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier

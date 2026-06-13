@@ -7,6 +7,11 @@ import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.random.Random
 
+sealed class WeeklyBonusReward {
+    data class CoinsReward(val amount: Long = 100_000L) : WeeklyBonusReward()
+    data class DivineItemReward(val itemKey: String) : WeeklyBonusReward()
+}
+
 data class WeeklyQuestWithProgress(
     val template: WeeklyQuestTemplate,
     val progress: Int,
@@ -17,6 +22,12 @@ data class WeeklyQuestWithProgress(
 class WeeklyQuestRepository @Inject constructor(
     private val gameData: GameDataRepository,
 ) {
+
+    private val divineDropPool = listOf(
+        "divine_sword", "divine_greatblade",
+        "divine_helm", "divine_platebody", "divine_platelegs", "divine_shield", "divine_boots",
+        "divine_pickaxe", "divine_axe", "divine_fishing_rod",
+    )
 
     /** Returns epoch ms of the next Monday 6am in local time after [fromMs]. */
     fun nextResetMs(fromMs: Long = System.currentTimeMillis()): Long {
@@ -165,18 +176,30 @@ class WeeklyQuestRepository @Inject constructor(
         check(progress >= template.amount) { "Quest not complete yet" }
         check(templateId !in flags.weeklyQuestClaimed) { "Quest already claimed" }
 
+        val reward = (5 + template.levelRequired / 5) * 1_000L
+
         val newFlags = flags.copy(
             weeklyQuestClaimed = flags.weeklyQuestClaimed + templateId,
         )
-        return newFlags to 10_000L
+        return newFlags to reward
     }
 
-    fun claimWeeklyBonus(flags: PlayerFlags): PlayerFlags {
+    fun claimWeeklyBonus(
+        flags: PlayerFlags,
+        ownedItems: Set<String> = emptySet(),
+    ): Pair<PlayerFlags, WeeklyBonusReward> {
         check(flags.weeklyQuestClaimed.size == 5) { "Not all weekly quests claimed" }
         check(!flags.weeklyBonusClaimed) { "Weekly bonus already claimed" }
 
-        return flags.copy(
-            weeklyBonusClaimed = true,
-        )
+        val newFlags = flags.copy(weeklyBonusClaimed = true)
+
+        val missingPieces = divineDropPool.filter { it !in ownedItems }
+        val reward: WeeklyBonusReward = if (missingPieces.isNotEmpty() && Random.nextInt(26) == 0) {
+            WeeklyBonusReward.DivineItemReward(missingPieces.random())
+        } else {
+            WeeklyBonusReward.CoinsReward()
+        }
+
+        return newFlags to reward
     }
 }

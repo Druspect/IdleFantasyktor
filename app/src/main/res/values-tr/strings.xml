@@ -56,6 +56,20 @@
     <string name="label_equipment">Ekipman</string>
     <string name="label_pets">Evcil Hayvanlar</string>
     <string name="label_achievements">Başarımlar</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Yaratık Rehberi</string>
+    <string name="label_enemies">Düşmanlar</string>
+    <string name="label_bosses">Bosslar</string>
+    <string name="label_by_location">Konuma Göre</string>
+    <string name="bestiary_not_encountered">Henüz karşılaşılmadı</string>
+    <string name="bestiary_always_drops">Her zaman düşer</string>
+    <string name="bestiary_rare_drops">Nadir düşüşler</string>
+    <string name="bestiary_common_loot">Yaygın ganimet</string>
+    <string name="bestiary_pet_drop">Evcil hayvan düşüşü</string>
+    <string name="bestiary_atk_def">Atk Sav</string>
+    <string name="bestiary_str_def">Güç Sav</string>
+    <string name="bestiary_rng_def">Mzr Sav</string>
+    <string name="bestiary_mag_def">Büy Sav</string>
     <string name="label_session_in_progress">Oturum Devam Ediyor</string>
     <string name="label_session_active">Aktif Oturum</string>
     <string name="label_no_active_session">Aktif Oturum Yok</string>
@@ -239,6 +253,10 @@
     <string name="label_shop_desc">Eşyaları al ve sat</string>
     <string name="label_no_session_hint">Eğitime başlamak için Yeteneklere veya Savaşa git.</string>
     <string name="label_recent_activity">Son Aktivite</string>
+    <string name="settings_profile_layout">Profil Duzeni</string>
+    <string name="settings_profile_layout_desc">Kenar cubugu veya ust sekmeler</string>
+    <string name="settings_profile_layout_rail">Cubuk</string>
+    <string name="settings_profile_layout_tabs">Sekmeler</string>
     <string name="settings_recent_activity">Son Aktivite Günlüğü</string>
     <string name="settings_recent_activity_desc">Ana ekran başlığında Son Aktivite düğmesini göster</string>
     <string name="label_no_sessions_yet">Henüz tamamlanan oturum yok.</string>
@@ -599,7 +617,7 @@
     <string name="achievement_pet_first_name">Animal Friend</string>
     <string name="achievement_pet_first_desc">Collect your first pet</string>
     <string name="achievement_pet_all_name">Menagerie</string>
-    <string name="achievement_pet_all_desc">Collect all 7 pets</string>
+    <string name="achievement_pet_all_desc">Collect all pets</string>
 
     <string name="btn_repeat_action">Repeat Action</string>
     <string name="inventory_sort_quantity">Quantity</string>
@@ -612,8 +630,15 @@
     <string name="inventory_cat_materials">Materials</string>
     <string name="inventory_cat_other">Other</string>
     <string name="label_daily">Daily</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Süreli</string>
     <string name="label_daily_quests">Daily Quests</string>
     <string name="label_daily_reset">Resets at 6:00 AM</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2,000 coins (1/100: Dwarven gear)</string>
     <string name="msg_daily_claimed_coins">Daily quest complete! +2,000 coins.</string>
     <string name="msg_daily_claimed_dwarven">Daily quest complete! You found %1$s!</string>
@@ -834,6 +859,7 @@
     <string name="home_town_desc">Dükkanı, hanı, loncayı, kiliseyi, usta atölyesini, avcı ustasını ve oyun köşesini ziyaret edin</string>
     <string name="guild_dailies_available">Dailies available</string>
     <string name="guild_do_dailies_hint">Do dailies to increase your reputation</string>
+    <string name="guild_name_thieving">Hirsizlar Loncasi</string>
     <string name="guild_name_mercantile">Merchants Guild</string>
     <string name="skill_mercantile">Mercantile</string>
     <string name="label_support_skills">Support</string>

@@ -46,7 +46,7 @@ private data class GuildGroup(val headerRes: Int, val keys: List<String>)
 private val GUILD_GROUPS = listOf(
     GuildGroup(
         headerRes = R.string.label_gathering_skills,
-        keys = listOf("mining", "fishing", "woodcutting", "farming", "agility"),
+        keys = listOf("mining", "fishing", "woodcutting", "farming", "thieving"),
     ),
     GuildGroup(
         headerRes = R.string.label_crafting_skills,
@@ -58,7 +58,7 @@ private val GUILD_GROUPS = listOf(
     ),
     GuildGroup(
         headerRes = R.string.label_support_skills,
-        keys = listOf("prayer", "mercantile"),
+        keys = listOf("prayer", "mercantile", "agility"),
     ),
 )
 
@@ -81,6 +81,7 @@ fun guildDisplayName(guildKey: String): String = when (guildKey) {
     "mages"       -> stringResource(R.string.guild_name_mages)
     "prayer"      -> stringResource(R.string.guild_name_prayer)
     "mercantile"  -> stringResource(R.string.guild_name_mercantile)
+    "thieving"    -> stringResource(R.string.guild_name_thieving)
     else          -> guildKey
 }
 

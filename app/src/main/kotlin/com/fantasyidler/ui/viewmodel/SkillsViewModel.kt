@@ -770,6 +770,7 @@ class SkillsViewModel @Inject constructor(
                 Skills.THIEVING -> {
                     val successCount = frames.count { it.success }
                     questRepo.recordThieving(session.activityKey, successCount, inventoryItems)
+                    guildRepo.recordGuildThieving(session.activityKey, successCount)
                 }
                 Skills.PRAYER -> {
                     val buried = frames.sumOf { it.kills }

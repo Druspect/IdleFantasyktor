@@ -737,6 +737,11 @@ class PlayerRepository @Inject constructor(
             flags = dailyQuestRepo.recordProgress(flags, "kill_enemy", enemy, count)
             flags = weeklyQuestRepo.recordProgress(flags, "kill_enemy", enemy, count)
         }
+        if (killsByEnemy.isNotEmpty()) {
+            val updated = flags.enemyKills.toMutableMap()
+            for ((enemy, count) in killsByEnemy) updated[enemy] = (updated[enemy] ?: 0) + count
+            flags = flags.copy(enemyKills = updated)
+        }
         updateFlags(flags)
     }
 

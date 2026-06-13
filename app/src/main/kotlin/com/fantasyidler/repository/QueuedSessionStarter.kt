@@ -233,7 +233,9 @@ class QueuedSessionStarter @Inject constructor(
                 val ashCost  = if (ashBonus > 0) (qty + 9) / 10 else 0
                 if (ashCost > 0) playerRepo.consumeItems(mapOf(action.catalystKey!! to ashCost))
                 val currentXp = xpMap[Skills.RUNECRAFTING] ?: 0L
-                val frames = buildList {
+                val rcPetDropKey = petDropKey(Skills.RUNECRAFTING)
+                val rcPetDropChance = petDropChance(Skills.RUNECRAFTING)
+                val frames = mutableListOf<SessionFrame>().also { list ->
                     var xp = currentXp
                     for (i in 1..qty) {
                         val before = XpTable.levelForXp(xp)
@@ -244,7 +246,7 @@ class QueuedSessionStarter @Inject constructor(
                         } + ashBonus
                         val gain = (runeData.xpPerRune * multiplier).toInt()
                         xp += gain
-                        add(SessionFrame(
+                        list.add(SessionFrame(
                             minute      = i,
                             xpGain      = gain,
                             xpBefore    = xp - gain,
@@ -254,6 +256,13 @@ class QueuedSessionStarter @Inject constructor(
                             items       = mapOf(runeKey to multiplier),
                             kills       = 1,
                         ))
+                    }
+                }
+                if (rcPetDropKey != null && rcPetDropChance > 0.0 && frames.isNotEmpty()) {
+                    val dropped = (0 until 60).any { Random.nextDouble() < rcPetDropChance }
+                    if (dropped) {
+                        val last = frames.last()
+                        frames[frames.size - 1] = last.copy(items = last.items + (rcPetDropKey to 1))
                     }
                 }
                 val perEssenceMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
@@ -305,8 +314,7 @@ class QueuedSessionStarter @Inject constructor(
             Skills.COOKING -> {
                 val r: CookingRecipe = gameData.cookingRecipes[action.activityKey] ?: return
                 val qty = action.qty.takeIf { it > 0 } ?: return
-                val frames = buildCraftFrames(xpMap[Skills.COOKING] ?: 0L, qty, r.xpPerItem, 1, r.cookedItem,
-                    petDropKey = petDropKey(Skills.COOKING), petDropChance = petDropChance(Skills.COOKING))
+                val frames = buildCraftFrames(xpMap[Skills.COOKING] ?: 0L, qty, r.xpPerItem, 1, r.cookedItem)
                 val perItemMs = SkillSimulator.sessionDurationMs(agilityLevel) / 60
                 sessionRepo.startSession(Skills.COOKING, action.activityKey, encodeFrames(frames), qty * perItemMs, action.skillDisplayName, insertAsCompleted = offline, backdateMs = backdateMs)
             }
@@ -595,26 +603,29 @@ class QueuedSessionStarter @Inject constructor(
     ): List<SessionFrame> {
         var xp = startXp
         val frameCount = minOf(qty, 60)
-        return buildList {
-            for (bucket in 0 until frameCount) {
-                val itemsInBucket = ((bucket.toLong() + 1) * qty / frameCount - bucket.toLong() * qty / frameCount).toInt()
-                val levelBefore = XpTable.levelForXp(xp)
-                val gain = (xpPerItem * itemsInBucket).toInt()
-                xp += gain
-                val levelAfter = XpTable.levelForXp(xp)
-                val items = mutableMapOf(outputKey to outputQty * itemsInBucket)
-                if (petDropKey != null && petDropChance > 0.0 && random.nextDouble() < petDropChance) {
-                    items[petDropKey] = 1
-                }
-                add(SessionFrame(
-                    minute = bucket + 1, xpGain = gain, xpBefore = xp - gain, xpAfter = xp,
-                    levelBefore = levelBefore, levelAfter = levelAfter,
-                    items = items,
-                    leveledUp = levelAfter > levelBefore,
-                    kills = itemsInBucket,
-                ))
+        val frames = mutableListOf<SessionFrame>()
+        for (bucket in 0 until frameCount) {
+            val itemsInBucket = ((bucket.toLong() + 1) * qty / frameCount - bucket.toLong() * qty / frameCount).toInt()
+            val levelBefore = XpTable.levelForXp(xp)
+            val gain = (xpPerItem * itemsInBucket).toInt()
+            xp += gain
+            val levelAfter = XpTable.levelForXp(xp)
+            frames.add(SessionFrame(
+                minute = bucket + 1, xpGain = gain, xpBefore = xp - gain, xpAfter = xp,
+                levelBefore = levelBefore, levelAfter = levelAfter,
+                items = mapOf(outputKey to outputQty * itemsInBucket),
+                leveledUp = levelAfter > levelBefore,
+                kills = itemsInBucket,
+            ))
+        }
+        if (petDropKey != null && petDropChance > 0.0 && frames.isNotEmpty()) {
+            val dropped = (0 until 60).any { random.nextDouble() < petDropChance }
+            if (dropped) {
+                val last = frames.last()
+                frames[frames.size - 1] = last.copy(items = last.items + (petDropKey to 1))
             }
         }
+        return frames
     }
 
     private fun ashForLog(logKey: String): String = when (logKey) {

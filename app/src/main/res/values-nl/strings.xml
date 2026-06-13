@@ -57,6 +57,20 @@
     <string name="label_equipment">Uitrusting</string>
     <string name="label_pets">Huisdieren</string>
     <string name="label_achievements">Prestaties</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiarium</string>
+    <string name="label_enemies">Vijanden</string>
+    <string name="label_bosses">Bazen</string>
+    <string name="label_by_location">Op locatie</string>
+    <string name="bestiary_not_encountered">Nog niet tegengekomen</string>
+    <string name="bestiary_always_drops">Altijd dropt</string>
+    <string name="bestiary_rare_drops">Zeldzame drops</string>
+    <string name="bestiary_common_loot">Gewone buit</string>
+    <string name="bestiary_pet_drop">Huisdier drop</string>
+    <string name="bestiary_atk_def">Atk Vrd</string>
+    <string name="bestiary_str_def">Str Vrd</string>
+    <string name="bestiary_rng_def">Afs Vrd</string>
+    <string name="bestiary_mag_def">Mag Vrd</string>
     <string name="label_session_in_progress">Sessie bezig</string>
     <string name="label_session_active">Sessie actief</string>
     <string name="label_no_active_session">Geen actieve sessie</string>
@@ -249,6 +263,10 @@
     <string name="label_shop_desc">Koop uitrusting en verkoop buit</string>
     <string name="label_no_session_hint">Ga naar Vaardigheden of Gevecht om te beginnen met trainen.</string>
     <string name="label_recent_activity">Recente activiteit</string>
+    <string name="settings_profile_layout">Profielindeling</string>
+    <string name="settings_profile_layout_desc">Zijbalk of bovenste tabbladen</string>
+    <string name="settings_profile_layout_rail">Balk</string>
+    <string name="settings_profile_layout_tabs">Tabbladen</string>
     <string name="settings_recent_activity">Logboek recente activiteit</string>
     <string name="settings_recent_activity_desc">Knop Recente activiteit weergeven in de koptekst van het startscherm</string>
     <string name="label_no_sessions_yet">Nog geen sessies voltooid.</string>
@@ -267,8 +285,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Beloning claimen</string>
     <string name="label_daily">Per Dag</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Tijdelijk</string>
     <string name="label_daily_quests">Dagelijkse Quests</string>
     <string name="label_daily_reset">Reset om 06:00</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2000 ducaten (1/100: Dwergenuitrusting)</string>
     <string name="msg_daily_claimed_coins">Dagelijkse quest voltooid! +2000 ducaten.</string>
     <string name="msg_daily_claimed_dwarven">Dagelijkse quest voltooid! Je hebt %1$s gevonden!</string>
@@ -706,7 +731,7 @@
     <string name="achievement_pet_first_name">Dierenvriend</string>
     <string name="achievement_pet_first_desc">Verzamel je eerste huisdier</string>
     <string name="achievement_pet_all_name">Dierentuin</string>
-    <string name="achievement_pet_all_desc">Verzamel alle 7 huisdieren</string>
+    <string name="achievement_pet_all_desc">Verzamel alle huisdieren</string>
 
     <!-- ===== Quest display names (override toTitleCase fallback) ===== -->
     <string name="quest_kbd_slayer_1_name">Koning der Zwarte Draken Slachter I</string>
@@ -762,6 +787,7 @@
     <string name="guild_name_archers">Boogschutters Gilde</string>
     <string name="guild_name_mages">Tovenaars Gilde</string>
     <string name="guild_name_prayer">Gebed Gilde</string>
+    <string name="guild_name_thieving">Dieven Gilde</string>
     <string name="guild_name_mercantile">Kooplieden Gilde</string>
 
     <!-- Mercantile skill -->

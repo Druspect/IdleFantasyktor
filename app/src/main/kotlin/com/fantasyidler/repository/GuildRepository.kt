@@ -222,6 +222,22 @@ class GuildRepository @Inject constructor(
         playerRepo.updateFlags(flags)
     }
 
+    /** Called when a thieving session is collected. Tracks pickpocket count per NPC. */
+    suspend fun recordGuildThieving(npcKey: String, successCount: Int) {
+        if (successCount <= 0) return
+        var flags = playerRepo.getFlags()
+        val completedIds = loadCompletedQuestIds()
+        val currentLevel = guildLevel("thieving", flags.guildReputation["thieving"] ?: 0L, completedIds)
+        for ((questId, quest) in gameData.guildQuests) {
+            if (quest.guild != "thieving" || quest.type != "pickpocket") continue
+            if (quest.guildLevelRequired > currentLevel) continue
+            if (quest.target != npcKey) continue
+            addQuestProgress(questId, successCount)
+        }
+        flags = applyDailyThieving(flags, npcKey, successCount)
+        playerRepo.updateFlags(flags)
+    }
+
     /** Called when an agility session is collected (counts completed sessions, not items). */
     suspend fun recordGuildSessions() {
         var flags = playerRepo.getFlags()
@@ -595,6 +611,25 @@ class GuildRepository @Inject constructor(
             val cur = updated[id] ?: 0
             if (cur >= t.amount) continue
             updated[id] = minOf(cur + 1, t.amount)
+            changed = true
+        }
+        return if (changed) flags.copy(guildDailyProgress = updated) else flags
+    }
+
+    private fun applyDailyThieving(flags: PlayerFlags, npcKey: String, successCount: Int): PlayerFlags {
+        if (successCount <= 0) return flags
+        val unclaimed = flags.guildDailyIds.filter { it !in flags.guildDailyClaimed }
+        if (unclaimed.isEmpty()) return flags
+        val pool = gameData.guildDailyPool.associateBy { it.id }
+        val updated = flags.guildDailyProgress.toMutableMap()
+        var changed = false
+        for (id in unclaimed) {
+            val t = pool[id] ?: continue
+            if (t.guild != "thieving" || t.type != "pickpocket") continue
+            if (t.target != npcKey) continue
+            val cur = updated[id] ?: 0
+            if (cur >= t.amount) continue
+            updated[id] = minOf(cur + successCount, t.amount)
             changed = true
         }
         return if (changed) flags.copy(guildDailyProgress = updated) else flags

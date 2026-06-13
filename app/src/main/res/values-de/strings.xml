@@ -57,6 +57,20 @@
     <string name="label_equipment">Ausrüstung</string>
     <string name="label_pets">Haustiere</string>
     <string name="label_achievements">Erfolge</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiarium</string>
+    <string name="label_enemies">Gegner</string>
+    <string name="label_bosses">Bosse</string>
+    <string name="label_by_location">Nach Ort</string>
+    <string name="bestiary_not_encountered">Noch nicht angetroffen</string>
+    <string name="bestiary_always_drops">Immer fallen lässt</string>
+    <string name="bestiary_rare_drops">Seltene Drops</string>
+    <string name="bestiary_common_loot">Gewöhnliche Beute</string>
+    <string name="bestiary_pet_drop">Haustier-Drop</string>
+    <string name="bestiary_atk_def">Atk Abw</string>
+    <string name="bestiary_str_def">Str Abw</string>
+    <string name="bestiary_rng_def">Fern Abw</string>
+    <string name="bestiary_mag_def">Mag Abw</string>
     <string name="label_session_in_progress">Laufende Aktivität</string>
     <string name="label_session_active">Derzeitige Aktivität</string>
     <string name="label_no_active_session">Keine Aktivitäten</string>
@@ -249,6 +263,10 @@
     <string name="label_shop_desc">Artikel kaufen und verkaufen</string>
     <string name="label_no_session_hint">Begebt Euch zu Fähigkeiten oder Kampf, um mit dem Training zu beginnen.</string>
     <string name="label_recent_activity">Letzte Aktivität</string>
+    <string name="settings_profile_layout">Profil-Layout</string>
+    <string name="settings_profile_layout_desc">Seitenleiste oder obere Tabs</string>
+    <string name="settings_profile_layout_rail">Leiste</string>
+    <string name="settings_profile_layout_tabs">Tabs</string>
     <string name="settings_recent_activity">Protokoll der letzten Aktivitäten</string>
     <string name="settings_recent_activity_desc">Schaltfläche „Letzte Aktivität" in der Kopfzeile der Startseite anzeigen</string>
     <string name="label_no_sessions_yet">Noch keine Aktivitäten abgeschlossen.</string>
@@ -267,8 +285,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Prämie einlösen</string>
     <string name="label_daily">Täglich</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Zeitlich</string>
     <string name="label_daily_quests">Tagesaufgaben</string>
     <string name="label_daily_reset">Wird um 06:00 Uhr zurückgesetzt</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2.000 Münzen (1/100: Zwergenausrüstung)</string>
     <string name="msg_daily_claimed_coins">Tagesaufgabe abgeschlossen! +2.000 Münzen.</string>
     <string name="msg_daily_claimed_dwarven">Tagesaufgabe abgeschlossen! Ihr habt %1$s gefunden!</string>
@@ -678,7 +703,7 @@
     <string name="achievement_pet_first_name">Tierfreund</string>
     <string name="achievement_pet_first_desc">Sammelt Euer erstes Haustier</string>
     <string name="achievement_pet_all_name">Wanderzirkus</string>
-    <string name="achievement_pet_all_desc">Sammelt alle 7 Haustiere</string>
+    <string name="achievement_pet_all_desc">Sammelt alle Haustiere</string>
 
     <!-- Guild Hall -->
     <string name="guild_hall_title">Zunfthaus</string>
@@ -721,6 +746,7 @@
     <string name="guild_name_archers">Gilde der Bogenschützen</string>
     <string name="guild_name_mages">Magiergilde</string>
     <string name="guild_name_prayer">Gilde der Betenden</string>
+    <string name="guild_name_thieving">Diebesgilde</string>
     <string name="guild_name_mercantile">Handelsgilde</string>
 
     <!-- Mercantile skill -->

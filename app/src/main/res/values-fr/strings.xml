@@ -56,6 +56,20 @@
     <string name="label_equipment">Équipement</string>
     <string name="label_pets">Animaux de compagnie</string>
     <string name="label_achievements">Réalisations</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiaire</string>
+    <string name="label_enemies">Ennemis</string>
+    <string name="label_bosses">Boss</string>
+    <string name="label_by_location">Par lieu</string>
+    <string name="bestiary_not_encountered">Pas encore rencontré</string>
+    <string name="bestiary_always_drops">Toujours lâché</string>
+    <string name="bestiary_rare_drops">Drops rares</string>
+    <string name="bestiary_common_loot">Butin commun</string>
+    <string name="bestiary_pet_drop">Drop familier</string>
+    <string name="bestiary_atk_def">Déf Atq</string>
+    <string name="bestiary_str_def">Déf For</string>
+    <string name="bestiary_rng_def">Déf Dis</string>
+    <string name="bestiary_mag_def">Déf Mag</string>
     <string name="label_session_in_progress">Session en cours</string>
     <string name="label_session_active">Session active</string>
     <string name="label_no_active_session">Aucune session active</string>
@@ -240,6 +254,10 @@
     <string name="label_shop_desc">Acheter et vendre des objets</string>
     <string name="label_no_session_hint">Allez dans Compétences ou Combat pour commencer l’entraînement.</string>
     <string name="label_recent_activity">Activité Récente</string>
+    <string name="settings_profile_layout">Mise en page du profil</string>
+    <string name="settings_profile_layout_desc">Barre latérale ou onglets en haut</string>
+    <string name="settings_profile_layout_rail">Barre</string>
+    <string name="settings_profile_layout_tabs">Onglets</string>
     <string name="settings_recent_activity">Journal d’activité récente</string>
     <string name="settings_recent_activity_desc">Afficher le bouton Activité Récente dans l’en-tête de l’écran d’accueil</string>
     <string name="label_no_sessions_yet">Aucune session terminée pour l’instant.</string>
@@ -258,8 +276,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Réclamer une récompense</string>
     <string name="label_daily">Quotidien</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Temporaire</string>
     <string name="label_daily_quests">Quêtes quotidiennes</string>
     <string name="label_daily_reset">Se réinitialise à 6 heures</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2 000 pièces (1/100 : équipement nanique)</string>
     <string name="msg_daily_claimed_coins">Quête quotidienne terminée ! +2 000 pièces.</string>
     <string name="msg_daily_claimed_dwarven">Quête quotidienne terminée ! Vous avez trouvé %1$s !</string>
@@ -613,7 +638,7 @@
     <string name="achievement_pet_first_name">Ami des animaux</string>
     <string name="achievement_pet_first_desc">Adopte ton premier animal de compagnie</string>
     <string name="achievement_pet_all_name">Ménagerie</string>
-    <string name="achievement_pet_all_desc">Réunit les 7 animaux de compagnie</string>
+    <string name="achievement_pet_all_desc">Réunit tous les animaux de compagnie</string>
 
     <string name="btn_repeat_action">Répéter l’action</string>
     <string name="inventory_sort_quantity">Quantité</string>
@@ -842,6 +867,7 @@
     <string name="guild_do_dailies_hint">Faites des quêtes pour augmenter votre réputation</string>
     <string name="guild_quest_gate_blocked">Accomplir des quêtes pour monter en grade</string>
     <string name="guild_quest_required">Quête nécessaire pour progresser</string>
+    <string name="guild_name_thieving">Guilde des Voleurs</string>
     <string name="guild_name_mercantile">Guilde des Marchands</string>
     <string name="skill_mercantile">Marchandage</string>
     <string name="label_support_skills">Support</string>

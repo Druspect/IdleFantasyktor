@@ -3370,5 +3370,150 @@
       "attack": 80,
       "defense": 80
     }
+  },
+  "divine_sword": {
+    "name": "divine_sword",
+    "display_name": "Divine Sword",
+    "slot": "weapon",
+    "combat_style": "attack",
+    "description": "A blade of pure divine light, said to be wielded only by the chosen.",
+    "attack_bonus": 82,
+    "strength_bonus": 65,
+    "defense_bonus": 0,
+    "requirements": {
+      "attack": 85
+    }
+  },
+  "divine_greatblade": {
+    "name": "divine_greatblade",
+    "display_name": "Divine Greatblade",
+    "slot": "weapon",
+    "combat_style": "strength",
+    "description": "A massive divine blade that channels raw power into every swing.",
+    "attack_bonus": 70,
+    "strength_bonus": 88,
+    "defense_bonus": 0,
+    "requirements": {
+      "strength": 85
+    }
+  },
+  "divine_helm": {
+    "name": "divine_helm",
+    "display_name": "Divine Helm",
+    "slot": "head",
+    "combat_style": null,
+    "description": "A radiant helm blessed by the gods. Turns aside blows that would fell any mortal.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 73,
+    "requirements": {
+      "defense": 85
+    }
+  },
+  "divine_platebody": {
+    "name": "divine_platebody",
+    "display_name": "Divine Platebody",
+    "slot": "body",
+    "combat_style": null,
+    "description": "Armour forged from celestial metal. Said to be nearly indestructible.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 150,
+    "requirements": {
+      "defense": 85
+    }
+  },
+  "divine_platelegs": {
+    "name": "divine_platelegs",
+    "display_name": "Divine Platelegs",
+    "slot": "legs",
+    "combat_style": null,
+    "description": "Leg armour of divine craft. Heavier than it looks, lighter than it should be.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 138,
+    "requirements": {
+      "defense": 85
+    }
+  },
+  "divine_shield": {
+    "name": "divine_shield",
+    "display_name": "Divine Shield",
+    "slot": "shield",
+    "combat_style": null,
+    "description": "A blessed shield that radiates a faint golden light.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 85,
+    "requirements": {
+      "defense": 85
+    }
+  },
+  "divine_boots": {
+    "name": "divine_boots",
+    "display_name": "Divine Boots",
+    "slot": "boots",
+    "combat_style": null,
+    "description": "Boots of divine make. Leave no footprints.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 63,
+    "requirements": {
+      "defense": 85
+    }
+  },
+  "divine_pickaxe": {
+    "name": "divine_pickaxe",
+    "display_name": "Divine Pickaxe",
+    "slot": "pickaxe",
+    "combat_style": null,
+    "description": "A pickaxe touched by divine light. Stone parts before it like water.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 0,
+    "mining_efficiency": 3.25,
+    "requirements": {
+      "mining": 85
+    }
+  },
+  "divine_axe": {
+    "name": "divine_axe",
+    "display_name": "Divine Axe",
+    "slot": "axe",
+    "combat_style": null,
+    "description": "An axe that fells even the oldest trees with a single blow.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 0,
+    "woodcutting_efficiency": 3.25,
+    "requirements": {
+      "woodcutting": 85
+    }
+  },
+  "divine_fishing_rod": {
+    "name": "divine_fishing_rod",
+    "display_name": "Divine Fishing Rod",
+    "slot": "fishing_rod",
+    "combat_style": null,
+    "description": "A rod blessed by the sea gods. Fish practically leap onto it.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 0,
+    "fishing_efficiency": 3.5,
+    "requirements": {
+      "fishing": 85
+    }
+  },
+  "thieving_guild_cape": {
+    "name": "thieving_guild_cape",
+    "display_name": "Thieves Guild Cape",
+    "slot": "cape",
+    "description": "Awarded for reaching Thieves Guild level 10. Grants 5% more successful pickpockets per session.",
+    "attack_bonus": 0,
+    "strength_bonus": 0,
+    "defense_bonus": 5,
+    "cape_skill": "thieving",
+    "cape_bonus": 0.05,
+    "requirements": {}
   }
 }

@@ -76,6 +76,21 @@ class SettingsViewModel @Inject constructor(
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), true)
 
+    val profileLayout: StateFlow<String> = playerRepo.playerFlow
+        .map { player ->
+            if (player == null) return@map "rail"
+            try { json.decodeFromString<PlayerFlags>(player.flags).profileLayout }
+            catch (_: Exception) { "rail" }
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), "rail")
+
+    fun setProfileLayout(mode: String) {
+        viewModelScope.launch {
+            val flags = playerRepo.getFlags()
+            playerRepo.updateFlags(flags.copy(profileLayout = mode))
+        }
+    }
+
     fun setShowRecentActivityLog(enabled: Boolean) {
         viewModelScope.launch {
             val flags = playerRepo.getFlags()

@@ -92,6 +92,8 @@ data class PlayerFlags(
     @SerialName("recent_sessions") val recentSessions: List<RecentSession> = emptyList(),
     /** Whether to show the recent activity log FAB on the home screen. */
     @SerialName("show_recent_activity_log") val showRecentActivityLog: Boolean = true,
+    /** Profile screen layout: "rail" (sidebar) or "tabs" (horizontal tab bar). */
+    @SerialName("profile_layout") val profileLayout: String = "rail",
     /** Prestige level per skill: skill key → 0–3. */
     @SerialName("skill_prestige") val skillPrestige: Map<String, Int> = emptyMap(),
     /** Ash fertilizer per farming patch: patchNumber.toString() → ash item key. */
@@ -102,6 +104,8 @@ data class PlayerFlags(
     @SerialName("town_building_tiers") val townBuildingTiers: Map<String, Int> = emptyMap(),
     /** Ash item key last used as fertilizer when planting crops; pre-selected in the plant sheet. */
     @SerialName("last_fertilizer_key") val lastFertilizerKey: String? = null,
+    /** Lifetime kill count per enemy/boss key; absent = never encountered. */
+    @SerialName("enemy_kills") val enemyKills: Map<String, Int> = emptyMap(),
 )
 
 /** A single entry in the recent sessions log. */

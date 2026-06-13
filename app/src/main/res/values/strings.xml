@@ -57,6 +57,20 @@
     <string name="label_equipment">Gear</string>
     <string name="label_pets">Pets</string>
     <string name="label_achievements">Achievements</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiary</string>
+    <string name="label_enemies">Enemies</string>
+    <string name="label_bosses">Bosses</string>
+    <string name="label_by_location">By Location</string>
+    <string name="bestiary_not_encountered">Not yet encountered</string>
+    <string name="bestiary_always_drops">Always Drops</string>
+    <string name="bestiary_rare_drops">Rare Drops</string>
+    <string name="bestiary_common_loot">Common Loot</string>
+    <string name="bestiary_pet_drop">Pet Drop</string>
+    <string name="bestiary_atk_def">Atk Def</string>
+    <string name="bestiary_str_def">Str Def</string>
+    <string name="bestiary_rng_def">Rng Def</string>
+    <string name="bestiary_mag_def">Mag Def</string>
     <string name="label_session_in_progress">Session in Progress</string>
     <string name="label_session_active">Session Active</string>
     <string name="label_no_active_session">No Active Session</string>
@@ -249,6 +263,10 @@
     <string name="label_shop_desc">Buy equipment and sell loot</string>
     <string name="label_no_session_hint">Head to Skills or Combat to start training.</string>
     <string name="label_recent_activity">Recent Activity</string>
+    <string name="settings_profile_layout">Profile Layout</string>
+    <string name="settings_profile_layout_desc">Choose between a sidebar rail or top tabs</string>
+    <string name="settings_profile_layout_rail">Rail</string>
+    <string name="settings_profile_layout_tabs">Tabs</string>
     <string name="settings_recent_activity">Recent Activity Log</string>
     <string name="settings_recent_activity_desc">Show Recent Activity button in the home screen header</string>
     <string name="label_no_sessions_yet">No sessions completed yet.</string>
@@ -267,8 +285,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Claim Reward</string>
     <string name="label_daily">Daily</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Timed</string>
     <string name="label_daily_quests">Daily Quests</string>
     <string name="label_daily_reset">Resets at 6:00 AM</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2,000 coins (1/100: Dwarven gear)</string>
     <string name="msg_daily_claimed_coins">Daily quest complete! +2,000 coins.</string>
     <string name="msg_daily_claimed_dwarven">Daily quest complete! You found %1$s!</string>
@@ -720,7 +745,7 @@
     <string name="achievement_pet_first_name">Animal Friend</string>
     <string name="achievement_pet_first_desc">Collect your first pet</string>
     <string name="achievement_pet_all_name">Menagerie</string>
-    <string name="achievement_pet_all_desc">Collect all 7 pets</string>
+    <string name="achievement_pet_all_desc">Collect all pets</string>
 
     <!-- ===== Quest display names (override toTitleCase fallback) ===== -->
     <string name="quest_kbd_slayer_1_name">King Black Dragon Slayer I</string>
@@ -778,6 +803,7 @@
     <string name="guild_name_archers">Archers Guild</string>
     <string name="guild_name_mages">Mages Guild</string>
     <string name="guild_name_prayer">Prayer Guild</string>
+    <string name="guild_name_thieving">Thieves Guild</string>
     <string name="guild_name_mercantile">Merchants Guild</string>
 
     <!-- Mercantile skill -->

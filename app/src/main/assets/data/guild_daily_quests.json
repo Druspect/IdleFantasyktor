@@ -4485,5 +4485,320 @@
       "items": {},
       "reputation": 30000
     }
+  },
+  {
+    "id": "thieving_daily_1a",
+    "guild": "thieving",
+    "guild_level_min": 1,
+    "guild_level_max": 3,
+    "name": "Easy Pickings",
+    "type": "pickpocket",
+    "target": "peasant",
+    "amount": 20,
+    "description": "Pickpocket the peasant 20 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 1500,
+      "xp": 4000,
+      "xp_skill": "thieving",
+      "items": {
+        "air_rune": 15,
+        "bread": 5
+      },
+      "reputation": 700
+    }
+  },
+  {
+    "id": "thieving_daily_1b",
+    "guild": "thieving",
+    "guild_level_min": 1,
+    "guild_level_max": 3,
+    "name": "Market Round",
+    "type": "pickpocket",
+    "target": "merchant",
+    "amount": 30,
+    "description": "Pickpocket the merchant 30 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 2500,
+      "xp": 7000,
+      "xp_skill": "thieving",
+      "items": {
+        "water_rune": 20,
+        "mind_rune": 15
+      },
+      "reputation": 1100
+    }
+  },
+  {
+    "id": "thieving_daily_1c",
+    "guild": "thieving",
+    "guild_level_min": 1,
+    "guild_level_max": 3,
+    "name": "Apprentice Thief",
+    "type": "pickpocket",
+    "target": "peasant",
+    "amount": 40,
+    "description": "Pickpocket the peasant 40 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 3500,
+      "xp": 9000,
+      "xp_skill": "thieving",
+      "items": {
+        "air_rune": 25,
+        "water_rune": 20
+      },
+      "reputation": 1500
+    }
+  },
+  {
+    "id": "thieving_daily_2a",
+    "guild": "thieving",
+    "guild_level_min": 2,
+    "guild_level_max": 5,
+    "name": "Guard Duty",
+    "type": "pickpocket",
+    "target": "guardsman",
+    "amount": 40,
+    "description": "Pickpocket the guardsman 40 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 5000,
+      "xp": 14000,
+      "xp_skill": "thieving",
+      "items": {
+        "chaos_rune": 15,
+        "iron_arrow": 30
+      },
+      "reputation": 2500
+    }
+  },
+  {
+    "id": "thieving_daily_2b",
+    "guild": "thieving",
+    "guild_level_min": 2,
+    "guild_level_max": 5,
+    "name": "Artisan Quarter",
+    "type": "pickpocket",
+    "target": "artisan",
+    "amount": 50,
+    "description": "Pickpocket the artisan 50 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 7000,
+      "xp": 18000,
+      "xp_skill": "thieving",
+      "items": {
+        "sapphire": 2,
+        "leather": 15
+      },
+      "reputation": 3500
+    }
+  },
+  {
+    "id": "thieving_daily_2c",
+    "guild": "thieving",
+    "guild_level_min": 2,
+    "guild_level_max": 5,
+    "name": "Double Round",
+    "type": "pickpocket",
+    "target": "guardsman",
+    "amount": 70,
+    "description": "Pickpocket the guardsman 70 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 9000,
+      "xp": 22000,
+      "xp_skill": "thieving",
+      "items": {
+        "chaos_rune": 25,
+        "iron_arrow": 50
+      },
+      "reputation": 4500
+    }
+  },
+  {
+    "id": "thieving_daily_3a",
+    "guild": "thieving",
+    "guild_level_min": 4,
+    "guild_level_max": 6,
+    "name": "Noble Errand",
+    "type": "pickpocket",
+    "target": "noble",
+    "amount": 60,
+    "description": "Pickpocket the noble 60 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 14000,
+      "xp": 35000,
+      "xp_skill": "thieving",
+      "items": {
+        "death_rune": 20,
+        "ruby": 1
+      },
+      "reputation": 7000
+    }
+  },
+  {
+    "id": "thieving_daily_3b",
+    "guild": "thieving",
+    "guild_level_min": 4,
+    "guild_level_max": 6,
+    "name": "City Patrol",
+    "type": "pickpocket",
+    "target": "city_guard",
+    "amount": 60,
+    "description": "Pickpocket the city guard 60 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 18000,
+      "xp": 45000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 15,
+        "death_rune": 20
+      },
+      "reputation": 9000
+    }
+  },
+  {
+    "id": "thieving_daily_3c",
+    "guild": "thieving",
+    "guild_level_min": 4,
+    "guild_level_max": 6,
+    "name": "Grand Haul",
+    "type": "pickpocket",
+    "target": "noble",
+    "amount": 100,
+    "description": "Pickpocket the noble 100 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 22000,
+      "xp": 55000,
+      "xp_skill": "thieving",
+      "items": {
+        "death_rune": 35,
+        "ruby": 2
+      },
+      "reputation": 11000
+    }
+  },
+  {
+    "id": "thieving_daily_4a",
+    "guild": "thieving",
+    "guild_level_min": 6,
+    "guild_level_max": 8,
+    "name": "Iron Nerve",
+    "type": "pickpocket",
+    "target": "city_guard",
+    "amount": 100,
+    "description": "Pickpocket the city guard 100 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 35000,
+      "xp": 85000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 30,
+        "diamond": 1
+      },
+      "reputation": 16000
+    }
+  },
+  {
+    "id": "thieving_daily_4b",
+    "guild": "thieving",
+    "guild_level_min": 6,
+    "guild_level_max": 8,
+    "name": "Knights Haul",
+    "type": "pickpocket",
+    "target": "knight",
+    "amount": 80,
+    "description": "Pickpocket the knight 80 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 45000,
+      "xp": 110000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 50,
+        "diamond": 2
+      },
+      "reputation": 20000
+    }
+  },
+  {
+    "id": "thieving_daily_4c",
+    "guild": "thieving",
+    "guild_level_min": 6,
+    "guild_level_max": 8,
+    "name": "Blade and Hand",
+    "type": "pickpocket",
+    "target": "knight",
+    "amount": 120,
+    "description": "Pickpocket the knight 120 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 55000,
+      "xp": 130000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 70,
+        "diamond": 3
+      },
+      "reputation": 25000
+    }
+  },
+  {
+    "id": "thieving_daily_5a",
+    "guild": "thieving",
+    "guild_level_min": 8,
+    "guild_level_max": 10,
+    "name": "Blessed Pockets",
+    "type": "pickpocket",
+    "target": "high_priest",
+    "amount": 80,
+    "description": "Pickpocket the high priest 80 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 70000,
+      "xp": 175000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 80,
+        "diamond": 4
+      },
+      "reputation": 35000
+    }
+  },
+  {
+    "id": "thieving_daily_5b",
+    "guild": "thieving",
+    "guild_level_min": 8,
+    "guild_level_max": 10,
+    "name": "Divine Heist",
+    "type": "pickpocket",
+    "target": "high_priest",
+    "amount": 120,
+    "description": "Pickpocket the high priest 120 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 90000,
+      "xp": 220000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 100,
+        "diamond": 6
+      },
+      "reputation": 45000
+    }
+  },
+  {
+    "id": "thieving_daily_5c",
+    "guild": "thieving",
+    "guild_level_min": 8,
+    "guild_level_max": 10,
+    "name": "Sanctum Sweep",
+    "type": "pickpocket",
+    "target": "high_priest",
+    "amount": 160,
+    "description": "Pickpocket the high priest 160 times for the Thieves Guild.",
+    "rewards": {
+      "coins": 110000,
+      "xp": 270000,
+      "xp_skill": "thieving",
+      "items": {
+        "blood_rune": 120,
+        "diamond": 8
+      },
+      "reputation": 55000
+    }
   }
 ]

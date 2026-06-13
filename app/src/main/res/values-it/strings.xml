@@ -57,6 +57,20 @@
     <string name="label_equipment">Armamenti</string>
     <string name="label_pets">Compagno</string>
     <string name="label_achievements">Obbiettivi</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiario</string>
+    <string name="label_enemies">Nemici</string>
+    <string name="label_bosses">Boss</string>
+    <string name="label_by_location">Per luogo</string>
+    <string name="bestiary_not_encountered">Non ancora incontrato</string>
+    <string name="bestiary_always_drops">Caduta garantita</string>
+    <string name="bestiary_rare_drops">Drop rari</string>
+    <string name="bestiary_common_loot">Bottino comune</string>
+    <string name="bestiary_pet_drop">Drop animale</string>
+    <string name="bestiary_atk_def">Dif Atq</string>
+    <string name="bestiary_str_def">Dif For</string>
+    <string name="bestiary_rng_def">Dif Dis</string>
+    <string name="bestiary_mag_def">Dif Mag</string>
     <string name="label_session_in_progress">Sessione in Corso</string>
     <string name="label_session_active">Sessione Attiva</string>
     <string name="label_no_active_session">Nessuna Sessione Attiva</string>
@@ -249,6 +263,10 @@
     <string name="label_shop_desc">Acquista equipaggiamento e vendi il tuo bottino</string>
     <string name="label_no_session_hint">Tocca Abilità o Battaglia per iniziare l\'addestramento.</string>
     <string name="label_recent_activity">Ultime Attività</string>
+    <string name="settings_profile_layout">Layout profilo</string>
+    <string name="settings_profile_layout_desc">Barra laterale o schede in alto</string>
+    <string name="settings_profile_layout_rail">Barra</string>
+    <string name="settings_profile_layout_tabs">Schede</string>
     <string name="settings_recent_activity">Registro delle ultime attività</string>
     <string name="settings_recent_activity_desc">Mostra il pulsante Ultime Attività nell\'intestazione della schermata principale</string>
     <string name="label_no_sessions_yet">Nessuna sessione completata.</string>
@@ -267,8 +285,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Riscuoti Ricompensa</string>
     <string name="label_daily">Giornaliere</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Temporali</string>
     <string name="label_daily_quests">Missioni Del Giorno</string>
     <string name="label_daily_reset">Nuove missioni alle 06:00</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2000 monete (1/100: equipaggiamento Nanico)</string>
     <string name="msg_daily_claimed_coins">Missione completata! +2000 coins.</string>
     <string name="msg_daily_claimed_dwarven">Missione completata! Hai trovato %1$s!</string>
@@ -717,7 +742,7 @@
     <string name="achievement_pet_first_name">Amico degli Animali</string>
     <string name="achievement_pet_first_desc">Adotta il tuo primo pet</string>
     <string name="achievement_pet_all_name">Ammaestratore</string>
-    <string name="achievement_pet_all_desc">Adotta tutti e 7 i pet</string>
+    <string name="achievement_pet_all_desc">Adotta tutti i pet</string>
 
     <!-- ===== Quest display names (override toTitleCase fallback) ===== -->
     <string name="quest_kbd_slayer_1_name">Sgozzatore di Draghi Neri Regali I</string>
@@ -775,6 +800,7 @@
     <string name="guild_name_archers">Gilda degli Arcieri</string>
     <string name="guild_name_mages">Gilda dei Maghi</string>
     <string name="guild_name_prayer">Gilda degli Adepti</string>
+    <string name="guild_name_thieving">Gilda dei Ladri</string>
     <string name="guild_name_mercantile">Gilda dei Mercanti</string>
 
     <!-- Mercantile skill -->

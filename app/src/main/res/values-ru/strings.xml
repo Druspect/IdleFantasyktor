@@ -57,6 +57,20 @@
     <string name="label_equipment">Снаряжение</string>
     <string name="label_pets">Питомцы</string>
     <string name="label_achievements">Достижения</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Бестиарий</string>
+    <string name="label_enemies">Враги</string>
+    <string name="label_bosses">Боссы</string>
+    <string name="label_by_location">По месту</string>
+    <string name="bestiary_not_encountered">Ещё не встречен</string>
+    <string name="bestiary_always_drops">Всегда выпадает</string>
+    <string name="bestiary_rare_drops">Редкие дропы</string>
+    <string name="bestiary_common_loot">Обычная добыча</string>
+    <string name="bestiary_pet_drop">Дроп питомца</string>
+    <string name="bestiary_atk_def">Защ Ат</string>
+    <string name="bestiary_str_def">Защ Си</string>
+    <string name="bestiary_rng_def">Защ Ст</string>
+    <string name="bestiary_mag_def">Защ Ма</string>
     <string name="label_session_in_progress">Сессия в процессе</string>
     <string name="label_session_active">Сессия активна</string>
     <string name="label_no_active_session">Нет активной сессии</string>
@@ -263,6 +277,10 @@
     <string name="label_shop_desc">Покупайте снаряжение и продавайте добычу</string>
     <string name="label_no_session_hint">Перейдите в Навыки или Бой, чтобы начать тренировку.</string>
     <string name="label_recent_activity">Последняя активность</string>
+    <string name="settings_profile_layout">Макет профиля</string>
+    <string name="settings_profile_layout_desc">Боковая панель или верхние вкладки</string>
+    <string name="settings_profile_layout_rail">Панель</string>
+    <string name="settings_profile_layout_tabs">Вкладки</string>
     <string name="settings_recent_activity">Журнал последней активности</string>
     <string name="settings_recent_activity_desc">Показывать кнопку «Последняя активность» на главном экране</string>
     <string name="label_no_sessions_yet">Сессий ещё не завершено.</string>
@@ -281,8 +299,15 @@
     <!-- ===== QuestsScreen ===== -->
     <string name="label_claim_reward">Получить награду</string>
     <string name="label_daily">Ежедневные</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Временные</string>
     <string name="label_daily_quests">Ежедневные квесты</string>
     <string name="label_daily_reset">Обновление в 6:00</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2 000 монет (1/100: дварфское снаряжение)</string>
     <string name="msg_daily_claimed_coins">Ежедневный квест выполнен! +2 000 монет.</string>
     <string name="msg_daily_claimed_dwarven">Ежедневный квест выполнен! Вы нашли %1$s!</string>
@@ -720,7 +745,7 @@
     <string name="achievement_pet_first_name">Друг животных</string>
     <string name="achievement_pet_first_desc">Найти первого питомца</string>
     <string name="achievement_pet_all_name">Зверинец</string>
-    <string name="achievement_pet_all_desc">Собрать всех 7 питомцев</string>
+    <string name="achievement_pet_all_desc">Собрать всех питомцев</string>
 
     <!-- ===== Quest display names ===== -->
     <string name="quest_kbd_slayer_1_name">Убийца Короля Чёрных Драконов I</string>
@@ -778,6 +803,7 @@
     <string name="guild_name_archers">Гильдия стрелков</string>
     <string name="guild_name_mages">Гильдия магов</string>
     <string name="guild_name_prayer">Гильдия молитвы</string>
+    <string name="guild_name_thieving">Гильдия воров</string>
     <string name="guild_name_mercantile">Гильдия торговцев</string>
 
     <!-- Mercantile skill -->

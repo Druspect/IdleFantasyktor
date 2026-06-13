@@ -56,6 +56,20 @@
     <string name="label_equipment">Equipamiento</string>
     <string name="label_pets">Pets</string>
     <string name="label_achievements">Logros</string>
+    <string name="label_locations">Locations</string>
+    <string name="label_bestiary">Bestiario</string>
+    <string name="label_enemies">Enemigos</string>
+    <string name="label_bosses">Jefes</string>
+    <string name="label_by_location">Por Lugar</string>
+    <string name="bestiary_not_encountered">Aún no encontrado</string>
+    <string name="bestiary_always_drops">Siempre cae</string>
+    <string name="bestiary_rare_drops">Objetos raros</string>
+    <string name="bestiary_common_loot">Botín común</string>
+    <string name="bestiary_pet_drop">Mascota</string>
+    <string name="bestiary_atk_def">Def Atq</string>
+    <string name="bestiary_str_def">Def Fue</string>
+    <string name="bestiary_rng_def">Def Dis</string>
+    <string name="bestiary_mag_def">Def Mag</string>
     <string name="label_session_in_progress">Sesión en Progresó</string>
     <string name="label_session_active">Sesión Activa</string>
     <string name="label_no_active_session">Sin Sesión Activa</string>
@@ -518,8 +532,15 @@
     <string name="inventory_cat_other">Other</string>
     <string name="error_unknown">Something went wrong. Please try again.</string>
     <string name="label_daily">Daily</string>
+    <string name="label_weekly">Weekly</string>
+    <string name="label_timed">Temporal</string>
     <string name="label_daily_quests">Daily Quests</string>
     <string name="label_daily_reset">Resets at 6:00 AM</string>
+    <string name="label_weekly_reset">Resets Monday at 6am</string>
+    <string name="weekly_bonus_title">Weekly Bonus!</string>
+    <string name="weekly_bonus_claim">Claim Weekly Bonus</string>
+    <string name="label_daily_info">Each daily quest rewards coins. Every quest also has a 1 in 100 chance to drop a piece of Dwarven gear.</string>
+    <string name="label_weekly_info">Each weekly challenge rewards coins based on its level requirement. Complete all 5 to earn a bonus: 100,000 coins, or a 1 in 26 chance at a piece of Divine gear.</string>
     <string name="label_daily_reward">2,000 coins (1/100: Dwarven gear)</string>
     <string name="msg_daily_claimed_coins">Daily quest complete! +2,000 coins.</string>
     <string name="msg_daily_claimed_dwarven">Daily quest complete! You found %1$s!</string>
@@ -646,7 +667,7 @@
     <string name="achievement_pet_first_name">Animal Friend</string>
     <string name="achievement_pet_first_desc">Collect your first pet</string>
     <string name="achievement_pet_all_name">Menagerie</string>
-    <string name="achievement_pet_all_desc">Collect all 7 pets</string>
+    <string name="achievement_pet_all_desc">Collect all pets</string>
     <string name="quest_kbd_slayer_1_name">King Black Dragon Slayer I</string>
     <string name="quest_kbd_slayer_2_name">King Black Dragon Slayer II</string>
     <string name="quest_kbd_slayer_3_name">King Black Dragon Slayer III</string>
@@ -712,6 +733,7 @@
     <string name="home_town_desc">Visita la tienda, la posada, el gremio, la iglesia, el taller del constructor, el maestro cazador y el salón de juegos</string>
     <string name="guild_dailies_available">Dailies available</string>
     <string name="guild_do_dailies_hint">Do dailies to increase your reputation</string>
+    <string name="guild_name_thieving">Gremio de Ladrones</string>
     <string name="guild_name_mercantile">Merchants Guild</string>
     <string name="skill_mercantile">Mercantile</string>
     <string name="label_support_skills">Support</string>
@@ -1054,6 +1076,10 @@
     <string name="town_building_church_name">Church</string>
     <string name="queue_item_qty">×%1$d</string>
     <string name="queue_item_qty_with_output">×%1$d → %2$d objetos</string>
+    <string name="settings_profile_layout">Diseño del perfil</string>
+    <string name="settings_profile_layout_desc">Elige entre barra lateral o pestanas superiores</string>
+    <string name="settings_profile_layout_rail">Barra</string>
+    <string name="settings_profile_layout_tabs">Pestanas</string>
     <string name="settings_recent_activity">Recent Activity Log</string>
 
 

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -38,26 +39,22 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Tab
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
-import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -80,8 +77,10 @@ import com.fantasyidler.data.model.EquipSlot
 import com.fantasyidler.ui.theme.GoldPrimary
 import com.fantasyidler.ui.viewmodel.Achievement
 import com.fantasyidler.ui.viewmodel.AchievementsViewModel
+import com.fantasyidler.ui.viewmodel.BestiaryViewModel
 import com.fantasyidler.ui.viewmodel.InventoryCategory
 import com.fantasyidler.ui.viewmodel.InventoryViewModel
+import com.fantasyidler.ui.viewmodel.SettingsViewModel
 import com.fantasyidler.ui.viewmodel.slotDisplayName
 import com.fantasyidler.ui.viewmodel.xpProgressFraction
 import com.fantasyidler.util.GameStrings
@@ -90,9 +89,9 @@ import com.fantasyidler.util.stringByName
 import com.fantasyidler.util.toTitleCase
 
 private val SKILL_CATEGORY_GROUPS: List<Pair<Int, List<String>>> = listOf(
-    R.string.label_gathering      to listOf("mining", "fishing", "woodcutting", "farming", "agility", "thieving"),
+    R.string.label_gathering      to listOf("mining", "fishing", "woodcutting", "farming", "thieving"),
     R.string.label_crafting       to listOf("smithing", "cooking", "fletching", "crafting", "runecrafting", "herblore", "firemaking", "construction"),
-    R.string.label_support_skills to listOf("prayer", "mercantile", "slayer"),
+    R.string.label_support_skills to listOf("prayer", "mercantile", "agility", "slayer"),
     R.string.label_combat         to listOf("attack", "strength", "defense", "ranged", "magic", "hitpoints"),
 )
 
@@ -103,10 +102,13 @@ private data class UnlockMilestone(val level: Int, val description: String)
 fun ProfileScreen(
     viewModel:           InventoryViewModel    = hiltViewModel(),
     achievementsVm:      AchievementsViewModel = hiltViewModel(),
+    bestiaryVm:          BestiaryViewModel     = hiltViewModel(),
+    settingsVm:          SettingsViewModel     = hiltViewModel(),
     onNavigateToCombat:  () -> Unit            = {},
 ) {
-    val state    by viewModel.uiState.collectAsState()
-    val achState by achievementsVm.uiState.collectAsState()
+    val state         by viewModel.uiState.collectAsState()
+    val achState      by achievementsVm.uiState.collectAsState()
+    val profileLayout by settingsVm.profileLayout.collectAsState()
     val context   = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
     LaunchedEffect(state.snackbarMessage) {
@@ -122,9 +124,9 @@ fun ProfileScreen(
         stringResource(R.string.label_pets),
         stringResource(R.string.label_achievements),
         stringResource(R.string.label_notes),
+        stringResource(R.string.label_bestiary),
     )
-    val pagerState   = rememberPagerState(pageCount = { tabs.size })
-    val scope        = rememberCoroutineScope()
+    var selectedTab  by remember { mutableIntStateOf(0) }
     var showEditSheet by remember { mutableStateOf(false) }
 
     Scaffold(
@@ -205,38 +207,46 @@ fun ProfileScreen(
                 }
             }
 
-            ScrollableTabRow(selectedTabIndex = pagerState.currentPage, edgePadding = 0.dp) {
-                tabs.forEachIndexed { index, title ->
-                    Tab(
-                        selected = pagerState.currentPage == index,
-                        onClick  = { scope.launch { pagerState.animateScrollToPage(index) } },
-                        text     = { Text(title) },
-                    )
-                }
-            }
+            HorizontalDivider()
 
-            HorizontalPager(state = pagerState, modifier = Modifier.weight(1f)) { page ->
-                when (page) {
-                    0 -> SkillsTab(state.skillLevels, state.skillXp, context, viewModel)
-                    1 -> InventoryTab(state.inventory, context, viewModel::categoryFor)
-                    2 -> EquipmentTab(
-                        equipped            = state.equipped,
-                        context             = context,
-                        onSlotTap           = viewModel::openSlotPicker,
-                        onUnequip           = viewModel::unequip,
-                        onNavigateToCombat  = onNavigateToCombat,
+            val tabContent: @Composable (Int) -> Unit = { tab ->
+                when (tab) {
+                    0    -> SkillsTab(state.skillLevels, state.skillXp, context, viewModel)
+                    1    -> InventoryTab(state.inventory, context, viewModel::categoryFor)
+                    2    -> EquipmentTab(
+                        equipped           = state.equipped,
+                        context            = context,
+                        onSlotTap          = viewModel::openSlotPicker,
+                        onUnequip          = viewModel::unequip,
+                        onNavigateToCombat = onNavigateToCombat,
                     )
-                    3 -> PetsTab(
-                        allPets     = viewModel.allPets,
-                        ownedPetIds = state.ownedPetIds,
-                    )
-                    4 -> AchievementsTab(achState.byGroup, achState.unlockedCount, achState.totalCount)
-                    else -> NotesTab(
+                    3    -> PetsTab(allPets = viewModel.allPets, ownedPetIds = state.ownedPetIds)
+                    4    -> AchievementsTab(achState.byGroup, achState.unlockedCount, achState.totalCount)
+                    5    -> NotesTab(
                         skillingDungeons     = viewModel.allSkillingDungeons,
                         skillingDungeonNotes = state.skillingDungeonNotes,
                         unlockedDungeons     = state.unlockedDungeons,
                     )
+                    else -> BestiaryTab(viewModel = bestiaryVm)
                 }
+            }
+
+            if (profileLayout == "tabs") {
+                TabsLayout(
+                    tabs        = tabs,
+                    selectedTab = selectedTab,
+                    onTabSelect = { selectedTab = it },
+                    modifier    = Modifier.weight(1f),
+                    content     = tabContent,
+                )
+            } else {
+                RailLayout(
+                    tabs        = tabs,
+                    selectedTab = selectedTab,
+                    onTabSelect = { selectedTab = it },
+                    modifier    = Modifier.weight(1f),
+                    content     = tabContent,
+                )
             }
         }
     }
@@ -274,6 +284,79 @@ fun ProfileScreen(
         )
     }
 
+}
+
+// ---------------------------------------------------------------------------
+// Profile layout composables
+// ---------------------------------------------------------------------------
+
+@Composable
+private fun RailLayout(
+    tabs: List<String>,
+    selectedTab: Int,
+    onTabSelect: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable (Int) -> Unit,
+) {
+    Row(modifier) {
+        Column(
+            Modifier
+                .width(110.dp)
+                .fillMaxHeight()
+                .background(MaterialTheme.colorScheme.surfaceVariant)
+                .verticalScroll(rememberScrollState()),
+        ) {
+            tabs.forEachIndexed { index, title ->
+                val selected = selectedTab == index
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { onTabSelect(index) }
+                        .then(
+                            if (selected) Modifier.background(MaterialTheme.colorScheme.primaryContainer)
+                            else Modifier
+                        )
+                        .padding(horizontal = 12.dp, vertical = 14.dp),
+                ) {
+                    Text(
+                        text       = title,
+                        style      = MaterialTheme.typography.bodySmall,
+                        fontWeight = if (selected) FontWeight.Bold else FontWeight.Normal,
+                        color      = if (selected) MaterialTheme.colorScheme.onPrimaryContainer
+                                     else MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                }
+            }
+        }
+        Box(Modifier.width(1.dp).fillMaxHeight().background(MaterialTheme.colorScheme.outlineVariant))
+        Box(Modifier.weight(1f).fillMaxHeight()) {
+            content(selectedTab)
+        }
+    }
+}
+
+@Composable
+private fun TabsLayout(
+    tabs: List<String>,
+    selectedTab: Int,
+    onTabSelect: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable (Int) -> Unit,
+) {
+    Column(modifier) {
+        ScrollableTabRow(selectedTabIndex = selectedTab, edgePadding = 0.dp) {
+            tabs.forEachIndexed { index, title ->
+                Tab(
+                    selected = selectedTab == index,
+                    onClick  = { onTabSelect(index) },
+                    text     = { Text(title) },
+                )
+            }
+        }
+        Box(Modifier.weight(1f).fillMaxSize()) {
+            content(selectedTab)
+        }
+    }
 }
 
 // ---------------------------------------------------------------------------

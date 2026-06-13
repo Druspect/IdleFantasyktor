@@ -91,7 +91,7 @@ class AchievementsViewModel @Inject constructor(
 
         groups["Collection"] = listOf(
             ach("pet_first", R.string.achievement_pet_first_name, R.string.achievement_pet_first_desc, "🐾", pets.isNotEmpty()),
-            ach("pet_all",   R.string.achievement_pet_all_name,   R.string.achievement_pet_all_desc,   "🦁", pets.size >= 7),
+            ach("pet_all",   R.string.achievement_pet_all_name,   R.string.achievement_pet_all_desc,   "🦁", pets.size >= gameData.pets.size),
         )
 
         groups["Prestige"] = listOf(
