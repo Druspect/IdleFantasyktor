@@ -725,8 +725,10 @@
     <string name="achievement_combat_50_desc">Raggiungi un livello di combattimento di 50</string>
     <string name="achievement_combat_75_name">Elite</string>
     <string name="achievement_combat_75_desc">Raggiungi un livello di combattimento di 75</string>
-    <string name="achievement_combat_99_name">Maciste</string>
+    <string name="achievement_combat_99_name">Champion</string>
     <string name="achievement_combat_99_desc">Raggiungi un livello di combattimento di 99</string>
+    <string name="achievement_combat_113_name">Maciste</string>
+    <string name="achievement_combat_113_desc">Raggiungi il livello massimo di combattimento di 113</string>
 
     <string name="achievement_quest_1_name">Dilettante</string>
     <string name="achievement_quest_1_desc">Completa 1 missione</string>

@@ -297,6 +297,7 @@ fun WorkerSkillsScreen(
                     sessionDurationMs = state.sessionDurationMs,
                     onStart           = { logKey, qty -> viewModel.startFiremakingSession(logKey, qty) },
                     context           = context,
+                    craftLimit        = state.maxCraftQty,
                 )
                 is SheetState.Runecrafting -> RunecraftingSheet(
                     sheet             = sheet,

@@ -688,8 +688,10 @@
     <string name="achievement_combat_50_desc">Erreicht Kampflevel 50</string>
     <string name="achievement_combat_75_name">Elite</string>
     <string name="achievement_combat_75_desc">Erreicht Kampflevel 75</string>
-    <string name="achievement_combat_99_name">Höchstes Kampflevel</string>
+    <string name="achievement_combat_99_name">Champion</string>
     <string name="achievement_combat_99_desc">Erreicht Kampflevel 99</string>
+    <string name="achievement_combat_113_name">Höchstes Kampflevel</string>
+    <string name="achievement_combat_113_desc">Erreicht das maximale Kampflevel von 113</string>
     <string name="achievement_quest_1_name">Missionar</string>
     <string name="achievement_quest_1_desc">Beendet 1 Mission</string>
     <string name="achievement_quest_5_name">Passioniert</string>

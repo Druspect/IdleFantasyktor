@@ -1123,4 +1123,6 @@
     <string name="guild_quest_desc_pickpocket">Pickpocket the %2$s %1$d times for the %3$s.</string>
     <string name="thieving_npc_royal_guard_name">Royal Guard</string>
     <string name="thieving_npc_bishop_name">Bishop</string>
+    <string name="achievement_combat_113_name">Max Combat</string>
+    <string name="achievement_combat_113_desc">Reach the maximum combat level of 113</string>
 </resources>

@@ -602,8 +602,10 @@
     <string name="achievement_combat_50_desc">Reach combat level 50</string>
     <string name="achievement_combat_75_name">Elite</string>
     <string name="achievement_combat_75_desc">Reach combat level 75</string>
-    <string name="achievement_combat_99_name">Max Combat</string>
+    <string name="achievement_combat_99_name">Champion</string>
     <string name="achievement_combat_99_desc">Reach combat level 99</string>
+    <string name="achievement_combat_113_name">Max Combat</string>
+    <string name="achievement_combat_113_desc">Reach the maximum combat level of 113</string>
     <string name="achievement_quest_1_name">Quester</string>
     <string name="achievement_quest_1_desc">Complete 1 quest</string>
     <string name="achievement_quest_5_name">Dedicated</string>

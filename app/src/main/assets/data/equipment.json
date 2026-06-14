@@ -30,7 +30,8 @@
     "attack_bonus": 4,
     "strength_bonus": 0,
     "defense_bonus": 0,
-    "requirements": {}
+    "requirements": {},
+    "ranged_strength_bonus": 0
   },
   "basic_staff": {
     "name": "basic_staff",
@@ -80,7 +81,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 5
-    }
+    },
+    "ranged_strength_bonus": 7
   },
   "apprentice_staff": {
     "name": "apprentice_staff",
@@ -614,7 +616,8 @@
     "attack_bonus": 8,
     "strength_bonus": 0,
     "defense_bonus": 0,
-    "requirements": {}
+    "requirements": {},
+    "ranged_strength_bonus": 3
   },
   "oak_shortbow": {
     "name": "oak_shortbow",
@@ -627,7 +630,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 5
-    }
+    },
+    "ranged_strength_bonus": 9
   },
   "willow_shortbow": {
     "name": "willow_shortbow",
@@ -640,7 +644,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 20
-    }
+    },
+    "ranged_strength_bonus": 18
   },
   "maple_shortbow": {
     "name": "maple_shortbow",
@@ -653,7 +658,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 30
-    }
+    },
+    "ranged_strength_bonus": 26
   },
   "yew_shortbow": {
     "name": "yew_shortbow",
@@ -666,7 +672,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 40
-    }
+    },
+    "ranged_strength_bonus": 34
   },
   "magic_shortbow": {
     "name": "magic_shortbow",
@@ -679,7 +686,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 50
-    }
+    },
+    "ranged_strength_bonus": 42
   },
   "yew_longbow": {
     "name": "yew_longbow",
@@ -692,7 +700,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 50
-    }
+    },
+    "ranged_strength_bonus": 42
   },
   "magic_longbow": {
     "name": "magic_longbow",
@@ -705,7 +714,8 @@
     "defense_bonus": 0,
     "requirements": {
       "ranged": 60
-    }
+    },
+    "ranged_strength_bonus": 52
   },
   "bronze_med_helmet": {
     "name": "bronze_med_helmet",

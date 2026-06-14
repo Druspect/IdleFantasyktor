@@ -1103,6 +1103,7 @@ internal fun FiremakingSheet(
     sessionDurationMs: Long,
     onStart: (logKey: String, qty: Int) -> Unit,
     context: android.content.Context,
+    craftLimit: Int = Int.MAX_VALUE,
 ) {
     var selectedKey by remember { mutableStateOf<String?>(null) }
     val selectedLog = selectedKey?.let { availableLogs[it] }
@@ -1163,7 +1164,7 @@ internal fun FiremakingSheet(
             }
         } else {
             val key      = selectedKey!!
-            val maxQty   = inventory[key] ?: 0
+            val maxQty   = (inventory[key] ?: 0).coerceAtMost(craftLimit)
             var qty      by remember(key) { androidx.compose.runtime.mutableIntStateOf(maxQty.coerceAtLeast(1)) }
             var textValue by remember(key) { mutableStateOf(maxQty.coerceAtLeast(1).toString()) }
             val totalXp = selectedLog.xpPerLog * qty

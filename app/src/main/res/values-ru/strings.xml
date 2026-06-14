@@ -728,8 +728,10 @@
     <string name="achievement_combat_50_desc">Достичь боевого уровня 50</string>
     <string name="achievement_combat_75_name">Элита</string>
     <string name="achievement_combat_75_desc">Достичь боевого уровня 75</string>
-    <string name="achievement_combat_99_name">Макс. бой</string>
+    <string name="achievement_combat_99_name">Чемпион</string>
     <string name="achievement_combat_99_desc">Достичь боевого уровня 99</string>
+    <string name="achievement_combat_113_name">Макс. бой</string>
+    <string name="achievement_combat_113_desc">Достичь максимального боевого уровня 113</string>
 
     <string name="achievement_quest_1_name">Квестер</string>
     <string name="achievement_quest_1_desc">Выполнить 1 квест</string>

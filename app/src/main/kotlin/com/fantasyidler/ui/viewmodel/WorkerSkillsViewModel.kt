@@ -362,6 +362,7 @@ class WorkerSkillsViewModel @Inject constructor(
         viewModelScope.launch {
             val slot = _uiState.value.selectedSlot
             val tier = uiState.value.currentWorker?.tier ?: return@launch
+            val qty = qty.coerceAtMost(tier.maxCraftQty)
             if (!playerRepo.consumeItems(mapOf(logKey to qty))) {
                 _uiState.update { it.copy(snackbarMessage = "Not enough logs.", sheetSkill = null) }
                 return@launch

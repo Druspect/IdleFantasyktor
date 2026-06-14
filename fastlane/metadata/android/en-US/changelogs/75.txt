@@ -1,0 +1,4 @@
+• Fix: Workers (Apprentice, Journeyman, Master) could queue more Firemaking logs than their craft limit; UI now also caps the quantity selector to the worker's limit
+• New: Max Combat (level 113) achievement added as the true combat cap; level 99 achievement renamed to Champion
+• Fix: Combat style and spell selection not remembered between dungeons; weapon slot and spell choices are now persisted and pre-selected when reopening the dungeon dialog
+• Fix: Ranged combat damage too low; bows now provide a ranged strength bonus scaled to their tier, making ranged damage comparable to melee at equivalent levels

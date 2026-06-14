@@ -235,11 +235,23 @@ class CombatViewModel @Inject constructor(
     fun selectBoss(boss: BossData?) =
         _extra.update { it.copy(selectedBoss = boss) }
 
-    fun selectWeaponSlot(slot: String) =
+    fun selectWeaponSlot(slot: String) {
         _extra.update { it.copy(selectedWeaponSlot = slot) }
+        viewModelScope.launch {
+            val player = playerRepo.getOrCreatePlayer()
+            val flags: PlayerFlags = try { json.decodeFromString(player.flags) } catch (_: Exception) { PlayerFlags() }
+            playerRepo.updateFlags(flags.copy(activeWeaponSlot = slot))
+        }
+    }
 
-    fun selectSpell(spell: SpellData?) =
+    fun selectSpell(spell: SpellData?) {
         _extra.update { it.copy(selectedSpell = spell) }
+        viewModelScope.launch {
+            val player = playerRepo.getOrCreatePlayer()
+            val flags: PlayerFlags = try { json.decodeFromString(player.flags) } catch (_: Exception) { PlayerFlags() }
+            playerRepo.updateFlags(flags.copy(activeSpell = spell?.name))
+        }
+    }
 
     fun selectArrow(key: String?) {
         _extra.update { it.copy(selectedArrowKey = key) }
@@ -300,8 +312,6 @@ class CombatViewModel @Inject constructor(
                     it.copy(
                         snackbarMessage    = if (enqueued) "Added to queue: $dungeonName." else "Queue is full (3/3).",
                         selectedDungeon    = null,
-                        selectedWeaponSlot = null,
-                        selectedSpell      = null,
                         selectedArrowKey   = null,
                         selectedPotionKey  = null,
                     )
@@ -466,7 +476,7 @@ class CombatViewModel @Inject constructor(
             } catch (e: Exception) {
                 _extra.update { it.copy(snackbarMessage = "Failed to start session: ${e.message}") }
             } finally {
-                _extra.update { it.copy(startingSession = false, selectedPotionKey = null, selectedWeaponSlot = null) }
+                _extra.update { it.copy(startingSession = false, selectedPotionKey = null) }
             }
         }
     }
@@ -501,8 +511,6 @@ class CombatViewModel @Inject constructor(
                     it.copy(
                         snackbarMessage    = if (enqueued) "Added to queue: $bossName." else "Queue is full (3/3).",
                         selectedBoss       = null,
-                        selectedWeaponSlot = null,
-                        selectedSpell      = null,
                         selectedArrowKey   = null,
                         selectedPotionKey  = null,
                     )

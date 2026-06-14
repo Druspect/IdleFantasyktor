@@ -623,8 +623,10 @@
     <string name="achievement_combat_50_desc">Atteindre le niveau de combat 50</string>
     <string name="achievement_combat_75_name">Élite</string>
     <string name="achievement_combat_75_desc">Atteindre le niveau de combat 75</string>
-    <string name="achievement_combat_99_name">Inarretâble</string>
+    <string name="achievement_combat_99_name">Champion</string>
     <string name="achievement_combat_99_desc">Atteindre le niveau de combat 99</string>
+    <string name="achievement_combat_113_name">Inarrêtable</string>
+    <string name="achievement_combat_113_desc">Atteindre le niveau de combat maximum de 113</string>
     <string name="achievement_quest_1_name">Chercheur de quête</string>
     <string name="achievement_quest_1_desc">Terminez 1 quête</string>
     <string name="achievement_quest_5_name">Spécialiste</string>

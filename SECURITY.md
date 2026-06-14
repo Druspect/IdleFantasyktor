@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Please review the following table to see which versions of Idle Fantasy are currently being supported with security updates.
+Only the latest release of Idle Fantasy receives security updates.
 
 | Version  | Supported          |
 | -------- | ------------------ |
@@ -11,29 +11,30 @@ Please review the following table to see which versions of Idle Fantasy are curr
 
 ## Reporting a Vulnerability
 
-We take the security of Idle Fantasy seriously. If you discover a security vulnerability, we would appreciate it if you could report it to us privately so we can address it promptly.
+If you discover a security vulnerability, please report it privately so it can be addressed before public disclosure.
 
 **Please do not report security vulnerabilities through public GitHub issues.**
 
-Instead, please report them by emailing:
-**[Insert Security Contact Email Here]**
+Email: tristinbaker@protonmail.com
 
-### What to include in your report:
-*   A description of the vulnerability and its potential impact.
-*   Detailed steps to reproduce the issue.
-*   Any proof-of-concept code or screenshots.
-*   Your name or handle for acknowledgment (optional).
+### What to include
 
-### What you can expect from us:
-1.  **Acknowledgment:** We will acknowledge receipt of your vulnerability report within **[Insert Response Timeframe, e.g., 48 hours]**.
-2.  **Triage:** We will investigate the issue and determine its severity and validity.
-3.  **Resolution:** If the vulnerability is confirmed, we will work on a fix. We will keep you updated on our progress.
-4.  **Disclosure:** Once a patch is released and the community is reasonably protected, we may publicly disclose the vulnerability.
+- A description of the vulnerability and its potential impact
+- Steps to reproduce the issue
+- Any proof-of-concept code or screenshots
+- Your name or handle for acknowledgment (optional)
+
+### What to expect
+
+1. **Acknowledgment** within 24 hours of your report
+2. **Triage** to determine severity and validity
+3. **Resolution** with progress updates if the vulnerability is confirmed
+4. **Disclosure** once a patch is released and users are protected
 
 ## Bug Bounty
 
-Currently, we **do not** offer a paid bug bounty program. However, we are happy to offer public acknowledgment in our release notes for responsible disclosures that lead to a fix.
+There is no paid bug bounty program. Responsible disclosures that lead to a fix will be acknowledged in release notes.
 
 ## Contact
 
-For any non-security related issues, please open an issue on our GitHub repository or contact **[Insert General Contact Name/Email Here]**.
+For non-security issues, open a GitHub issue or email tristinbaker@protonmail.com

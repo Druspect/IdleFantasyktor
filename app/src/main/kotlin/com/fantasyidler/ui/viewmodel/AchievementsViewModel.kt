@@ -77,8 +77,9 @@ class AchievementsViewModel @Inject constructor(
             ach("combat_10", R.string.achievement_combat_10_name, R.string.achievement_combat_10_desc, "🗡️", combatLevel >= 10),
             ach("combat_30", R.string.achievement_combat_30_name, R.string.achievement_combat_30_desc, "⚔️", combatLevel >= 30),
             ach("combat_50", R.string.achievement_combat_50_name, R.string.achievement_combat_50_desc, "🛡️", combatLevel >= 50),
-            ach("combat_75", R.string.achievement_combat_75_name, R.string.achievement_combat_75_desc, "💀", combatLevel >= 75),
-            ach("combat_99", R.string.achievement_combat_99_name, R.string.achievement_combat_99_desc, "👹", combatLevel >= 99),
+            ach("combat_75",  R.string.achievement_combat_75_name,  R.string.achievement_combat_75_desc,  "💀", combatLevel >= 75),
+            ach("combat_99",  R.string.achievement_combat_99_name,  R.string.achievement_combat_99_desc,  "👹", combatLevel >= 99),
+            ach("combat_113", R.string.achievement_combat_113_name, R.string.achievement_combat_113_desc, "🏆", combatLevel >= 113),
         )
 
         groups["Quests"] = listOf(
