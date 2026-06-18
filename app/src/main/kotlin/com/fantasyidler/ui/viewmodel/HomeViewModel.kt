@@ -38,6 +38,11 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
+private val COMBAT_CAPE_SKILLS = setOf(
+    "attack", "strength", "defense", "ranged", "magic", "hp",
+    "warriors", "archers", "mages",
+)
+
 // ---------------------------------------------------------------------------
 // Session summary shown in the collect dialog
 // ---------------------------------------------------------------------------
@@ -188,8 +193,9 @@ class HomeViewModel @Inject constructor(
         else {
             val flags: PlayerFlags = json.decodeFromString(player.flags)
             val levels: Map<String, Int> = json.decodeFromString(player.skillLevels)
-            val agilityLevel = levels[Skills.AGILITY] ?: 1
-            val sessionMs    = SkillSimulator.sessionDurationMs(agilityLevel)
+            val agilityLevel    = levels[Skills.AGILITY] ?: 1
+            val agilityPrestige = flags.skillPrestige[Skills.AGILITY] ?: 0
+            val sessionMs       = SkillSimulator.sessionDurationMs(agilityLevel, agilityPrestige)
             val perItemMs    = sessionMs / 60
             val queueStart   = session?.endsAt ?: System.currentTimeMillis()
             val queueEndsAt  = if (flags.sessionQueue.isEmpty()) 0L
@@ -282,6 +288,7 @@ class HomeViewModel @Inject constructor(
             val petIds = gameData.pets.keys
             val player = playerRepo.getOrCreatePlayer()
             val flags: PlayerFlags = json.decodeFromString(player.flags)
+            val skillPrestige = flags.skillPrestige
             val equipped: Map<String, String?> = json.decodeFromString(player.equipped)
             val equippedCape = equipped[EquipSlot.CAPE]?.let { gameData.equipment[it] }
             val capeSkill    = equippedCape?.capeSkill
@@ -495,8 +502,9 @@ class HomeViewModel @Inject constructor(
                     Skills.MERCANTILE -> {
                         val totalXp    = frames.sumOf { it.xpGain.toLong() }
                         val coinReturn = frames.sumOf { (it.items["_coins"] ?: 0).toLong() }
-                        val mercantileCapeMult = if (capeSkill == "mercantile") 1f + capeBonus else 1f
-                        val coinReturnBoosted = (coinReturn * blessingCoinMult * mercantileCapeMult).toLong()
+                        val mercantileCapeMult    = if (capeSkill == "mercantile") 1f + capeBonus else 1f
+                        val mercantilePrestigeMult = 1f + (skillPrestige[Skills.MERCANTILE] ?: 0) * 0.10f
+                        val coinReturnBoosted = (coinReturn * blessingCoinMult * mercantileCapeMult * mercantilePrestigeMult).toLong()
                         awardedCapes += playerRepo.applySessionResults(Skills.MERCANTILE, totalXp, emptyMap())
                         playerRepo.addCoins(coinReturnBoosted)
                         guildRepo.recordGuildTrade(coinReturnBoosted)
@@ -510,7 +518,11 @@ class HomeViewModel @Inject constructor(
                         for (frame in frames) for ((item, qty) in frame.items) its[item] = (its[item] ?: 0) + qty
                         val pets       = its.filterKeys { it in petIds }
                         val rawRegular = its.filterKeys { it !in petIds }
-                        val capeMult   = if (capeSkill == session.skillName) 1f + capeBonus else 1f
+                        val prestige   = skillPrestige[session.skillName] ?: 0
+                        val capeMult   = if (capeSkill == session.skillName)
+                            if (capeSkill in COMBAT_CAPE_SKILLS) 1f + capeBonus
+                            else 1f + capeBonus * (prestige + 1)
+                        else 1f
                         val effectiveXp = if (capeMult > 1f && rawRegular.isEmpty()) (totalXp * capeMult).toLong() else totalXp
                         val regular     = if (capeMult > 1f && rawRegular.isNotEmpty()) rawRegular.mapValues { (_, qty) -> (qty * capeMult).roundToInt() } else rawRegular
                         awardedCapes += playerRepo.applySessionResults(session.skillName, effectiveXp, regular)

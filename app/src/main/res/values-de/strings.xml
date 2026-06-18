@@ -107,6 +107,12 @@
     <string name="inventory_cat_potions">Tränke</string>
     <string name="inventory_cat_materials">Materialien</string>
     <string name="inventory_cat_other">Sonstiges</string>
+    <string name="inventory_cat_raw_food">Rohes Essen</string>
+    <string name="inventory_cat_ammunition">Munition</string>
+    <string name="inventory_cat_ores">Erze &amp; Edelsteine</string>
+    <string name="inventory_cat_construction">Konstruktion</string>
+    <string name="inventory_cat_seeds">Samen &amp; Ernte</string>
+    <string name="inventory_cat_filter_all">Alle</string>
     <string name="label_combat_style">Kampfstil</string>
     <string name="label_active_spell">Aktiver Zauber</string>
     <string name="label_drops">Drops</string>
@@ -1212,6 +1218,28 @@
     <string name="armory_filter_armor">Rüstung</string>
     <string name="armory_filter_accessories">Accessoires</string>
     <string name="armory_filter_tools">Werkzeuge</string>
+    <string name="armory_progress_bar">erhalten</string>
+    <string name="armory_stat_mining">Bergbau-Effizienz</string>
+    <string name="armory_stat_woodcutting">Holzfäller-Effizienz</string>
+    <string name="armory_stat_fishing">Angel-Effizienz</string>
+    <string name="armory_stat_farming">Landwirtschafts-Effizienz</string>
+    <string name="armory_stat_attack">Angriffsbonus</string>
+    <string name="armory_stat_strength">Stärkebonus</string>
+    <string name="armory_stat_defense">Verteidigungsbonus</string>
+    <string name="armory_stat_ranged_atk">Fernkampf-Angriff</string>
+    <string name="armory_stat_ranged_str">Fernkampf-Stärke</string>
+    <string name="armory_stat_magic_atk">Magie-Angriff</string>
+    <string name="armory_stat_magic_dmg">Magieschaden</string>
+    <string name="armory_stat_cape">EP-Bonus</string>
+    <string name="armory_stat_cape_yield">Ertragsbonus</string>
+    <string name="armory_source_carnival">Karnevals-Preisladen</string>
+    <string name="armory_source_smithing">Schmieden</string>
+    <string name="armory_source_crafting">Handwerk</string>
+    <string name="armory_source_fletching">Bogenbau</string>
+    <string name="armory_source_drop_always">Fallengelassen von %1$s (Immer)</string>
+    <string name="armory_source_drop_chance">Fallengelassen von %1$s (%2$s)</string>
+    <string name="armory_source_drop">Fallengelassen von %1$s</string>
+    <string name="armory_source_shop">Geschäft</string>
 
     <!-- Session / queue messages (issue #596) -->
     <string name="skill_no_logs">Keine Holzscheite im Inventar</string>

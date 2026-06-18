@@ -105,4 +105,5 @@
     <string name="equip_slot_pickaxe">Pico</string>
     <string name="equip_slot_axe">Hacha</string>
     <string name="equip_slot_fishing_rod">Caña de pescar</string>
+    <string name="equip_slot_hoe">Hoe</string>
 </resources>

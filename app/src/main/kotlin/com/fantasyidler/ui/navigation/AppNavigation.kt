@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBar
@@ -51,6 +53,7 @@ import com.fantasyidler.ui.screen.ShopScreen
 import com.fantasyidler.ui.screen.SkillsScreen
 import com.fantasyidler.ui.screen.SlayerScreen
 import com.fantasyidler.ui.screen.WorkerSkillsScreen
+import com.fantasyidler.ui.viewmodel.NavBadgeViewModel
 import com.fantasyidler.ui.viewmodel.OnboardingViewModel
 
 @Composable
@@ -60,6 +63,8 @@ fun AppNavigation(
 ) {
     val onboardingVm: OnboardingViewModel = hiltViewModel()
     val showOnboarding by onboardingVm.showOnboarding.collectAsState()
+    val navBadgeVm: NavBadgeViewModel = hiltViewModel()
+    val questsClaimable by navBadgeVm.questsClaimableCount.collectAsState()
 
     // Show onboarding as a full-screen overlay until complete.
     // null = still loading from DB; don't flash the overlay.
@@ -137,10 +142,20 @@ fun AppNavigation(
                                     }
                                 }
                             } else {
-                                Icon(
-                                    imageVector        = if (selected) screen.selectedIcon else screen.icon,
-                                    contentDescription = stringResource(screen.labelRes),
-                                )
+                                val showQuestBadge = screen is Screen.Quests && questsClaimable > 0
+                                if (showQuestBadge) {
+                                    BadgedBox(badge = { Badge() }) {
+                                        Icon(
+                                            imageVector        = if (selected) screen.selectedIcon else screen.icon,
+                                            contentDescription = stringResource(screen.labelRes),
+                                        )
+                                    }
+                                } else {
+                                    Icon(
+                                        imageVector        = if (selected) screen.selectedIcon else screen.icon,
+                                        contentDescription = stringResource(screen.labelRes),
+                                    )
+                                }
                             }
                         },
                         label = { Text(stringResource(screen.labelRes), maxLines = 1, overflow = TextOverflow.Ellipsis, fontSize = 10.sp) },

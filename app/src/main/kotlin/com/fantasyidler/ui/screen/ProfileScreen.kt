@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -736,8 +737,9 @@ private fun InventoryTab(
     categoryFor: (String) -> InventoryCategory,
 ) {
     var sortAlpha by remember { mutableStateOf(false) }
+    var selectedCategory by remember { mutableStateOf<InventoryCategory?>(null) }
 
-    val groups: List<Pair<InventoryCategory, List<Map.Entry<String, Int>>>> =
+    val allGroups: List<Pair<InventoryCategory, List<Map.Entry<String, Int>>>> =
         remember(inventory, sortAlpha) {
             val grouped = inventory.entries.groupBy { categoryFor(it.key) }
             InventoryCategory.values().mapNotNull { cat ->
@@ -749,6 +751,11 @@ private fun InventoryTab(
                 cat to sorted
             }
         }
+
+    val groups = remember(allGroups, selectedCategory) {
+        if (selectedCategory == null) allGroups
+        else allGroups.filter { (cat, _) -> cat == selectedCategory }
+    }
 
     Column(modifier = Modifier.fillMaxSize()) {
         Row(
@@ -765,6 +772,25 @@ private fun InventoryTab(
                 onClick  = { sortAlpha = true },
                 label    = { Text(stringResource(R.string.inventory_sort_az), style = MaterialTheme.typography.labelSmall) },
             )
+        }
+        Row(
+            modifier              = Modifier
+                .horizontalScroll(rememberScrollState())
+                .padding(horizontal = 16.dp, vertical = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            FilterChip(
+                selected = selectedCategory == null,
+                onClick  = { selectedCategory = null },
+                label    = { Text(stringResource(R.string.inventory_cat_filter_all), style = MaterialTheme.typography.labelSmall) },
+            )
+            allGroups.forEach { (cat, _) ->
+                FilterChip(
+                    selected = selectedCategory == cat,
+                    onClick  = { selectedCategory = if (selectedCategory == cat) null else cat },
+                    label    = { Text(categoryLabel(cat), style = MaterialTheme.typography.labelSmall) },
+                )
+            }
         }
         if (groups.isEmpty()) {
             Box(
@@ -803,13 +829,18 @@ private fun InventoryTab(
 
 @Composable
 private fun categoryLabel(cat: InventoryCategory): String = stringResource(when (cat) {
-    InventoryCategory.WEAPONS   -> R.string.inventory_cat_weapons
-    InventoryCategory.ARMOUR    -> R.string.inventory_cat_armour
-    InventoryCategory.TOOLS     -> R.string.inventory_cat_tools
-    InventoryCategory.FOOD      -> R.string.inventory_cat_food
-    InventoryCategory.POTIONS   -> R.string.inventory_cat_potions
-    InventoryCategory.MATERIALS -> R.string.inventory_cat_materials
-    InventoryCategory.OTHER     -> R.string.inventory_cat_other
+    InventoryCategory.WEAPONS      -> R.string.inventory_cat_weapons
+    InventoryCategory.ARMOUR       -> R.string.inventory_cat_armour
+    InventoryCategory.TOOLS        -> R.string.inventory_cat_tools
+    InventoryCategory.FOOD         -> R.string.inventory_cat_food
+    InventoryCategory.RAW_FOOD     -> R.string.inventory_cat_raw_food
+    InventoryCategory.POTIONS      -> R.string.inventory_cat_potions
+    InventoryCategory.AMMUNITION   -> R.string.inventory_cat_ammunition
+    InventoryCategory.ORES         -> R.string.inventory_cat_ores
+    InventoryCategory.CONSTRUCTION -> R.string.inventory_cat_construction
+    InventoryCategory.SEEDS        -> R.string.inventory_cat_seeds
+    InventoryCategory.MATERIALS    -> R.string.inventory_cat_materials
+    InventoryCategory.OTHER        -> R.string.inventory_cat_other
 })
 
 @Composable

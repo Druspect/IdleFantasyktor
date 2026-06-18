@@ -25,3 +25,11 @@ Idle Fantasy is a free and open source offline idle RPG inspired by classic MMOR
 • <b>No ads. No accounts. No internet required.</b> Your save data stays on your device.
 
 Idle Fantasy is free software released under the GPL-3.0 licence. Source code is available on the project repository.
+
+<b>Get updates faster</b>
+
+Add the official Idle Fantasy repository to F-Droid to receive updates as soon as they are released, instead of waiting for the main F-Droid index to catch up.
+
+1. Open F-Droid and go to Settings → Repositories
+2. Tap + and paste: https://idlefantasy.tristinbaker.xyz/fdroid/repo
+3. Search for Idle Fantasy, open the app page, and under Repositories set Idle Fantasy as the preferred source.

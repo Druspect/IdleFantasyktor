@@ -450,7 +450,9 @@ class CraftingViewModel @Inject constructor(
             }
             if (matches) {
                 val remaining = quest.amount - progress
-                if (remaining > 0)
+                val prereqDone = quest.requiresPrevious == null ||
+                        progressById[quest.requiresPrevious]?.completed == true
+                if (remaining > 0 && prereqDone)
                     fills += QuestFillSuggestion(quest.name, ceilDiv(remaining, recipe.outputQty))
             }
         }

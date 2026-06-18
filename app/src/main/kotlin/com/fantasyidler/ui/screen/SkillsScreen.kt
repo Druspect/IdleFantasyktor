@@ -2047,6 +2047,7 @@ private fun CraftQuantityContent(
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp)
             .padding(bottom = 40.dp),
     ) {

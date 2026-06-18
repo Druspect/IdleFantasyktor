@@ -27,6 +27,7 @@ object ThievingSimulator {
         startXp: Long,
         thievingLevel: Int,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         petDropKey: String? = null,
         petDropChance: Double = 0.0,
@@ -119,6 +120,6 @@ object ThievingSimulator {
             )
         }
 
-        return Result(frames, SkillSimulator.sessionDurationMs(agilityLevel))
+        return Result(frames, SkillSimulator.sessionDurationMs(agilityLevel, agilityPrestige))
     }
 }

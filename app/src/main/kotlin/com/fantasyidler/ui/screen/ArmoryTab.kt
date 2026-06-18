@@ -45,6 +45,11 @@ import com.fantasyidler.ui.viewmodel.ArmoryFilter
 import com.fantasyidler.ui.viewmodel.ArmoryViewModel
 import com.fantasyidler.util.GameStrings
 
+private val COMBAT_CAPE_SKILLS = setOf(
+    "attack", "strength", "defense", "ranged", "magic", "hp",
+    "warriors", "archers", "mages",
+)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArmoryTab(viewModel: ArmoryViewModel = hiltViewModel()) {
@@ -301,7 +306,10 @@ private fun armoryStatSummary(item: EquipmentData): String {
         if (item.defenseBonus  != 0) parts.add("Def +${item.defenseBonus}")
         if ((item.rangedAttackBonus  ?: 0) != 0) parts.add("Rng +${item.rangedAttackBonus}")
         if ((item.magicAttackBonus   ?: 0) != 0) parts.add("Mag +${item.magicAttackBonus}")
-        if (item.capeBonus != 0f) parts.add("+${(item.capeBonus * 100).toInt()}% XP")
+        if (item.capeBonus != 0f) {
+            val label = if (item.capeSkill in COMBAT_CAPE_SKILLS) "XP" else "yield"
+            parts.add("+${(item.capeBonus * 100).toInt()}% $label")
+        }
     }
     return parts.joinToString("  •  ")
 }
@@ -321,7 +329,11 @@ private fun armoryStatRows(item: EquipmentData): List<Pair<String, String>> {
         if ((item.rangedStrengthBonus?: 0) != 0) rows.add(stringResource(R.string.armory_stat_ranged_str) to "+${item.rangedStrengthBonus}")
         if ((item.magicAttackBonus   ?: 0) != 0) rows.add(stringResource(R.string.armory_stat_magic_atk) to "+${item.magicAttackBonus}")
         if ((item.magicDamageBonus   ?: 0) != 0) rows.add(stringResource(R.string.armory_stat_magic_dmg) to "+${item.magicDamageBonus}")
-        if (item.capeBonus != 0f) rows.add(stringResource(R.string.armory_stat_cape) to "+${(item.capeBonus * 100).toInt()}%")
+        if (item.capeBonus != 0f) {
+            val label = if (item.capeSkill in COMBAT_CAPE_SKILLS) stringResource(R.string.armory_stat_cape)
+                        else stringResource(R.string.armory_stat_cape_yield)
+            rows.add(label to "+${(item.capeBonus * 100).toInt()}%")
+        }
     }
     return rows
 }

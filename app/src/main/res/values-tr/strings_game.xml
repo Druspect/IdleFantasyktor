@@ -105,4 +105,5 @@
     <string name="equip_slot_pickaxe">Kazma</string>
     <string name="equip_slot_axe">Balta</string>
     <string name="equip_slot_fishing_rod">Olta</string>
+    <string name="equip_slot_hoe">Hoe</string>
 </resources>

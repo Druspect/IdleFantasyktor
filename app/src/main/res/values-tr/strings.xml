@@ -636,6 +636,12 @@
     <string name="inventory_cat_potions">Potions</string>
     <string name="inventory_cat_materials">Materials</string>
     <string name="inventory_cat_other">Other</string>
+    <string name="inventory_cat_raw_food">Ham Yiyecek</string>
+    <string name="inventory_cat_ammunition">Mühimmat</string>
+    <string name="inventory_cat_ores">Madenler &amp; Taşlar</string>
+    <string name="inventory_cat_construction">İnşaat</string>
+    <string name="inventory_cat_seeds">Tohumlar &amp; Ürünler</string>
+    <string name="inventory_cat_filter_all">Tümü</string>
     <string name="label_daily">Daily</string>
     <string name="label_weekly">Weekly</string>
     <string name="label_timed">Süreli</string>
@@ -1243,6 +1249,28 @@
     <string name="armory_filter_armor">Zırh</string>
     <string name="armory_filter_accessories">Aksesuarlar</string>
     <string name="armory_filter_tools">Aletler</string>
+    <string name="armory_progress_bar">edinildi</string>
+    <string name="armory_stat_mining">Madencilik verimliliği</string>
+    <string name="armory_stat_woodcutting">Odunculuk verimliliği</string>
+    <string name="armory_stat_fishing">Balıkçılık verimliliği</string>
+    <string name="armory_stat_farming">Çiftçilik verimliliği</string>
+    <string name="armory_stat_attack">Saldırı bonusu</string>
+    <string name="armory_stat_strength">Güç bonusu</string>
+    <string name="armory_stat_defense">Savunma bonusu</string>
+    <string name="armory_stat_ranged_atk">Menzilli saldırı</string>
+    <string name="armory_stat_ranged_str">Menzilli güç</string>
+    <string name="armory_stat_magic_atk">Sihirli saldırı</string>
+    <string name="armory_stat_magic_dmg">Sihirli hasar</string>
+    <string name="armory_stat_cape">XP bonusu</string>
+    <string name="armory_stat_cape_yield">Verim Bonusu</string>
+    <string name="armory_source_carnival">Karnaval ödül mağazası</string>
+    <string name="armory_source_smithing">Demircilik</string>
+    <string name="armory_source_crafting">El sanatları</string>
+    <string name="armory_source_fletching">Ok yapımı</string>
+    <string name="armory_source_drop_always">%1$s tarafından düşürüldü (Her zaman)</string>
+    <string name="armory_source_drop_chance">%1$s tarafından düşürüldü (%2$s)</string>
+    <string name="armory_source_drop">%1$s tarafından düşürüldü</string>
+    <string name="armory_source_shop">Mağaza</string>
 
     <!-- Session / queue messages (issue #596) -->
     <string name="skill_no_logs">Envanterde kütük yok</string>

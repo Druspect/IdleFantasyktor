@@ -72,13 +72,14 @@ internal fun BonusesTab(
     }
 
     val skillEntries: List<SkillBonusEntry> = specificSkillKeys.sorted().map { skillKey ->
-        val capePct        = if (isGatheringCape && cape?.capeSkill == skillKey) (cape.capeBonus * 100 + 0.5f).toInt() else 0
+        val capePrestige   = state.skillPrestige[skillKey] ?: 0
+        val capePct        = if (isGatheringCape && cape?.capeSkill == skillKey) (cape.capeBonus * (capePrestige + 1) * 100 + 0.5f).toInt() else 0
         val specificPetPct = specificBonusPets.filter { it.boostedSkill == skillKey }.sumOf { it.boostPercent }
         val totalPetPct    = specificPetPct + allPetBoostPct
         val prestigePct    = (state.skillPrestige[skillKey] ?: 0) * 10
 
         val sources = buildList {
-            if (capePct > 0)      add(cape!!.displayName to capePct)
+            if (capePct > 0)      add("${cape!!.displayName} (yield)" to capePct)
             if (totalPetPct > 0)  add(context.getString(R.string.label_pets) to totalPetPct)
             if (prestigePct > 0)  add(context.getString(R.string.prestige) to prestigePct)
         }

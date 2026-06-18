@@ -107,6 +107,12 @@
     <string name="inventory_cat_potions">Pozioni</string>
     <string name="inventory_cat_materials">Materiali</string>
     <string name="inventory_cat_other">Altro</string>
+    <string name="inventory_cat_raw_food">Cibo Crudo</string>
+    <string name="inventory_cat_ammunition">Munizioni</string>
+    <string name="inventory_cat_ores">Minerali &amp; Gemme</string>
+    <string name="inventory_cat_construction">Costruzione</string>
+    <string name="inventory_cat_seeds">Semi &amp; Raccolti</string>
+    <string name="inventory_cat_filter_all">Tutto</string>
     <string name="label_combat_style">Stile di Combattimento</string>
     <string name="label_active_spell">Incantesimo in Uso</string>
     <string name="label_drops">Ricompense</string>
@@ -1288,6 +1294,28 @@
     <string name="armory_filter_armor">Armatura</string>
     <string name="armory_filter_accessories">Accessori</string>
     <string name="armory_filter_tools">Strumenti</string>
+    <string name="armory_progress_bar">ottenuti</string>
+    <string name="armory_stat_mining">Efficienza miniera</string>
+    <string name="armory_stat_woodcutting">Efficienza taglio legna</string>
+    <string name="armory_stat_fishing">Efficienza pesca</string>
+    <string name="armory_stat_farming">Efficienza agricoltura</string>
+    <string name="armory_stat_attack">Bonus attacco</string>
+    <string name="armory_stat_strength">Bonus forza</string>
+    <string name="armory_stat_defense">Bonus difesa</string>
+    <string name="armory_stat_ranged_atk">Attacco a distanza</string>
+    <string name="armory_stat_ranged_str">Forza a distanza</string>
+    <string name="armory_stat_magic_atk">Attacco magico</string>
+    <string name="armory_stat_magic_dmg">Danno magico</string>
+    <string name="armory_stat_cape">Bonus XP</string>
+    <string name="armory_stat_cape_yield">Bonus rendimento</string>
+    <string name="armory_source_carnival">Negozio premi carnevale</string>
+    <string name="armory_source_smithing">Forgiatura</string>
+    <string name="armory_source_crafting">Artigianato</string>
+    <string name="armory_source_fletching">Frecciatura</string>
+    <string name="armory_source_drop_always">Lasciato da %1$s (Sempre)</string>
+    <string name="armory_source_drop_chance">Lasciato da %1$s (%2$s)</string>
+    <string name="armory_source_drop">Lasciato da %1$s</string>
+    <string name="armory_source_shop">Negozio</string>
 
     <!-- Session / queue messages (issue #596) -->
     <string name="skill_no_logs">Nessun tronco nell\'inventario</string>

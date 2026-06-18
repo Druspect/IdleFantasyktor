@@ -107,6 +107,12 @@
     <string name="inventory_cat_potions">Зелья</string>
     <string name="inventory_cat_materials">Материалы</string>
     <string name="inventory_cat_other">Прочее</string>
+    <string name="inventory_cat_raw_food">Сырая еда</string>
+    <string name="inventory_cat_ammunition">Боеприпасы</string>
+    <string name="inventory_cat_ores">Руды &amp; Самоцветы</string>
+    <string name="inventory_cat_construction">Строительство</string>
+    <string name="inventory_cat_seeds">Семена &amp; Урожай</string>
+    <string name="inventory_cat_filter_all">Все</string>
     <string name="label_combat_style">Стиль боя</string>
     <string name="label_active_spell">Активное заклинание</string>
     <string name="label_drops">Добыча</string>
@@ -1268,6 +1274,28 @@
     <string name="armory_filter_armor">Броня</string>
     <string name="armory_filter_accessories">Аксессуары</string>
     <string name="armory_filter_tools">Инструменты</string>
+    <string name="armory_progress_bar">получено</string>
+    <string name="armory_stat_mining">Эффективность горного дела</string>
+    <string name="armory_stat_woodcutting">Эффективность лесозаготовки</string>
+    <string name="armory_stat_fishing">Эффективность рыбалки</string>
+    <string name="armory_stat_farming">Эффективность фермерства</string>
+    <string name="armory_stat_attack">Бонус атаки</string>
+    <string name="armory_stat_strength">Бонус силы</string>
+    <string name="armory_stat_defense">Бонус защиты</string>
+    <string name="armory_stat_ranged_atk">Дальняя атака</string>
+    <string name="armory_stat_ranged_str">Дальняя сила</string>
+    <string name="armory_stat_magic_atk">Магическая атака</string>
+    <string name="armory_stat_magic_dmg">Магический урон</string>
+    <string name="armory_stat_cape">Бонус опыта</string>
+    <string name="armory_stat_cape_yield">Бонус урожайности</string>
+    <string name="armory_source_carnival">Магазин призов карнавала</string>
+    <string name="armory_source_smithing">Кузнечное дело</string>
+    <string name="armory_source_crafting">Ремесло</string>
+    <string name="armory_source_fletching">Оперение стрел</string>
+    <string name="armory_source_drop_always">Выпало от %1$s (Всегда)</string>
+    <string name="armory_source_drop_chance">Выпало от %1$s (%2$s)</string>
+    <string name="armory_source_drop">Выпало от %1$s</string>
+    <string name="armory_source_shop">Магазин</string>
 
     <!-- Session / queue messages (issue #596) -->
     <string name="skill_no_logs">Нет брёвен в инвентаре</string>

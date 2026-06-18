@@ -105,4 +105,5 @@
     <string name="equip_slot_pickaxe">Spitzhacke</string>
     <string name="equip_slot_axe">Axt</string>
     <string name="equip_slot_fishing_rod">Angelrute</string>
+    <string name="equip_slot_hoe">Hoe</string>
 </resources>

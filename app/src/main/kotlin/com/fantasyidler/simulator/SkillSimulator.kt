@@ -50,6 +50,7 @@ object SkillSimulator {
         gems: Map<String, GemData>,
         startXp: Long,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         toolEfficiency: Float = 1.0f,
         petDropKey: String? = null,
@@ -99,7 +100,7 @@ object SkillSimulator {
             )
         }
 
-        return Result(frames, sessionDurationMs(agilityLevel))
+        return Result(frames, sessionDurationMs(agilityLevel, agilityPrestige))
     }
 
     // ------------------------------------------------------------------
@@ -115,6 +116,7 @@ object SkillSimulator {
         treeData: TreeData,
         startXp: Long,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         toolEfficiency: Float = 1.0f,
         petDropKey: String? = null,
@@ -154,7 +156,7 @@ object SkillSimulator {
             )
         }
 
-        return Result(frames, sessionDurationMs(agilityLevel))
+        return Result(frames, sessionDurationMs(agilityLevel, agilityPrestige))
     }
 
     // ------------------------------------------------------------------
@@ -166,6 +168,7 @@ object SkillSimulator {
         fishData: FishData,
         startXp: Long,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         rodEfficiency: Float = 1.0f,
         petDropKey: String? = null,
@@ -217,7 +220,7 @@ object SkillSimulator {
             )
         }
 
-        return Result(frames, sessionDurationMs(agilityLevel))
+        return Result(frames, sessionDurationMs(agilityLevel, agilityPrestige))
     }
 
     // ------------------------------------------------------------------
@@ -233,6 +236,7 @@ object SkillSimulator {
         skillData: GatheringSkillData,
         startXp: Long,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         toolEfficiency: Float = 1.0f,
         petDropKey: String? = null,
@@ -284,7 +288,7 @@ object SkillSimulator {
             )
         }
 
-        return Result(frames, sessionDurationMs(agilityLevel))
+        return Result(frames, sessionDurationMs(agilityLevel, agilityPrestige))
     }
 
     // ------------------------------------------------------------------
@@ -304,6 +308,7 @@ object SkillSimulator {
         courseData: AgilityCourseData,
         startXp: Long,
         agilityLevel: Int = 1,
+        agilityPrestige: Int = 0,
         petBoostPct: Int = 0,
         petDropKey: String? = null,
         petDropChance: Double = 0.0,
@@ -346,7 +351,7 @@ object SkillSimulator {
             )
         }
 
-        return Result(frames, sessionDurationMs(agilityLevel))
+        return Result(frames, sessionDurationMs(agilityLevel, agilityPrestige))
     }
 
     // ------------------------------------------------------------------
@@ -376,17 +381,19 @@ object SkillSimulator {
     /**
      * Returns the duration of a session in milliseconds, applying the agility
      * speed bonus. Sessions scale linearly from 60 min at level 1 to 40 min at level 99.
+     * Each agility prestige level reduces the level-99 floor by ~3.33 min (P3 = 30 min).
      *
-     * Examples:
+     * Examples (agilityPrestige=0):
      *   level  1 → 60 min
      *   level 25 → 55 min
      *   level 50 → 50 min
      *   level 75 → 45 min
      *   level 99 → 40 min
      */
-    fun sessionDurationMs(agilityLevel: Int): Long {
+    fun sessionDurationMs(agilityLevel: Int, agilityPrestige: Int = 0): Long {
         val fraction = (agilityLevel - 1).coerceIn(0, 98) / 98.0
-        val minutes = (60.0 - 20.0 * fraction).roundToInt()
+        val maxReduction = 20.0 + agilityPrestige.coerceIn(0, 3) * (10.0 / 3.0)
+        val minutes = (60.0 - maxReduction * fraction).roundToInt()
         return minutes * 60_000L
     }
 

@@ -611,8 +611,9 @@ private fun PlantSheet(
         HorizontalDivider()
         Column(Modifier.verticalScroll(rememberScrollState())) {
             crops.forEach { crop ->
-                val seedCount = inventory[crop.seedName] ?: 0
-                val enabled   = seedCount > 0
+                val seedCount  = inventory[crop.seedName] ?: 0
+                val ownedCount = inventory[crop.id] ?: 0
+                val enabled    = seedCount > 0
                 Row(
                     modifier             = Modifier
                         .fillMaxWidth()
@@ -634,7 +635,7 @@ private fun PlantSheet(
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
                         )
                         Text(
-                            text  = "Seeds: $seedCount",
+                            text  = "Seeds: $seedCount  •  Owned: $ownedCount",
                             style = MaterialTheme.typography.labelSmall,
                             color = if (enabled) GoldPrimary else MaterialTheme.colorScheme.error,
                         )

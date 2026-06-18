@@ -107,6 +107,12 @@
     <string name="inventory_cat_potions">Potions</string>
     <string name="inventory_cat_materials">Materials</string>
     <string name="inventory_cat_other">Other</string>
+    <string name="inventory_cat_raw_food">Raw Food</string>
+    <string name="inventory_cat_ammunition">Ammunition</string>
+    <string name="inventory_cat_ores">Ores &amp; Gems</string>
+    <string name="inventory_cat_construction">Construction</string>
+    <string name="inventory_cat_seeds">Seeds &amp; Crops</string>
+    <string name="inventory_cat_filter_all">All</string>
     <string name="label_combat_style">Combat Style</string>
     <string name="label_active_spell">Active Spell</string>
     <string name="label_drops">Drops</string>
@@ -1289,8 +1295,9 @@
     <string name="armory_stat_ranged_atk">Ranged Attack</string>
     <string name="armory_stat_ranged_str">Ranged Strength</string>
     <string name="armory_stat_magic_atk">Magic Attack</string>
-    <string name="armory_stat_magic_dmg">Magic Dégat</string>
+    <string name="armory_stat_magic_dmg">Magic Damage</string>
     <string name="armory_stat_cape">XP Bonus</string>
+    <string name="armory_stat_cape_yield">Yield Bonus</string>
     <string name="armory_source_carnival">Carnival Prize Shop</string>
     <string name="armory_source_smithing">Smithing</string>
     <string name="armory_source_crafting">Crafting</string>

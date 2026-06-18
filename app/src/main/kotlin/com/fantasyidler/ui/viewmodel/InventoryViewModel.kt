@@ -278,19 +278,38 @@ class InventoryViewModel @Inject constructor(
             EquipSlot.PICKAXE, EquipSlot.AXE, EquipSlot.FISHING_ROD, EquipSlot.HOE -> InventoryCategory.TOOLS
             else                                                                     -> InventoryCategory.ARMOUR
         }
-        if (key in gameData.foodHealValues) return InventoryCategory.FOOD
-        if (key in gameData.potionEffects)  return InventoryCategory.POTIONS
-        if (key in gameData.ores || key in gameData.gems || key in gameData.logs ||
-            key in gameData.bones || key in gameData.runes || key == "rune_essence" ||
-            key.endsWith("_bar") || key.endsWith("_arrow") || key.startsWith("raw_") ||
-            key.endsWith("_ashes") || key == "ashes" || key.endsWith("_herb") || key.endsWith("_seed")
+        if (key in gameData.foodHealValues)  return InventoryCategory.FOOD
+        if (key in gameData.potionEffects)   return InventoryCategory.POTIONS
+        if (key.endsWith("_arrow"))          return InventoryCategory.AMMUNITION
+        if (key in gameData.ores || key in gameData.gems || key.endsWith("_bar"))
+                                             return InventoryCategory.ORES
+        if (key in constructionItemKeys)     return InventoryCategory.CONSTRUCTION
+        if (key.startsWith("raw_"))          return InventoryCategory.RAW_FOOD
+        if (key.endsWith("_seed") || key in cropProduceKeys)
+                                             return InventoryCategory.SEEDS
+        if (key in gameData.logs || key in gameData.bones || key in gameData.runes ||
+            key == "rune_essence" || key.endsWith("_ashes") || key == "ashes" ||
+            key.endsWith("_herb")
         ) return InventoryCategory.MATERIALS
         return InventoryCategory.OTHER
+    }
+
+    private val constructionItemKeys: Set<String> by lazy {
+        val keys = mutableSetOf<String>()
+        gameData.constructionRecipes.forEach { (outputKey, recipe) ->
+            keys.add(outputKey)
+            keys.addAll(recipe.materials.keys)
+        }
+        keys
+    }
+
+    private val cropProduceKeys: Set<String> by lazy {
+        gameData.crops.keys.toSet()
     }
 }
 
 enum class InventoryCategory {
-    WEAPONS, ARMOUR, TOOLS, FOOD, POTIONS, MATERIALS, OTHER
+    WEAPONS, ARMOUR, TOOLS, FOOD, RAW_FOOD, POTIONS, AMMUNITION, ORES, CONSTRUCTION, SEEDS, MATERIALS, OTHER
 }
 
 /** Ordered list of all skills for display (gathering → crafting → combat). */

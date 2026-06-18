@@ -1,3 +1,13 @@
+v1.9.6
+• Fix worker Runecrafting activity sheet showing wrong level prediction by correctly using the player's current Runecrafting XP instead of always starting from level 1
+• Fix crafting/cooking start button pushed off screen when many quest goal chips are visible by making the quantity picker sheet scrollable
+• Quest goal chips in crafting now only show the current quest in a chain — future quests are hidden until their prerequisite is complete (e.g. Cooking Fish IV won't appear while you're still on Cooking Fish III)
+• Red dot badge now appears on the Quests nav bar button whenever a quest is ready to be claimed
+• Inventory now has separate categories for Raw Food, Ammunition, Ores & Gems, Construction, and Seeds & Crops; tap the category filter chips at the top of the inventory to quickly filter to a single type
+• Fix skill cape bonus displaying as XP in the Armory and Bonuses tab for gathering and crafting capes; the bonus is correctly 10% more items per session, not XP
+• Crop planting picker now shows how many of each crop you already own alongside the seed count
+• Prestige system improvements: gathering and crafting skill capes now scale with prestige (Prestige 1 = +20% yield, Prestige 2 = +30%, Prestige 3 = +40%); agility prestige reduces session time further toward 30 min at level 99 Prestige 3; mercantile prestige grants +10% coin return per level from Grand Exchange sessions
+
 v1.9.5
 • Replaced the collapsible Town menu on the home screen with an always-visible grid: four equal-width buttons (Shop, Inn, Guild Hall, Church) on the top row, three centre-aligned buttons (Builder, Slayer, Carnival) on the bottom row.
 • Fix boss fights always counting as magic combat for guild quests — combat style is now tracked correctly so attack/strength bosses credit Warriors Guild and magic bosses credit Mages Guild

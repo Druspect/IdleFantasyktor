@@ -307,6 +307,7 @@ fun WorkerSkillsScreen(
                     isQueueFull       = isQueueFull,
                     sessionDurationMs = state.sessionDurationMs,
                     onStart           = { runeKey, qty, _ -> viewModel.startRunecraftingSession(runeKey, qty) },
+                    currentXp         = state.skillXp[Skills.RUNECRAFTING] ?: 0L,
                     tierMaxQty        = state.maxCraftQty,
                 )
                 is SheetState.Prayer -> PrayerSheet(
