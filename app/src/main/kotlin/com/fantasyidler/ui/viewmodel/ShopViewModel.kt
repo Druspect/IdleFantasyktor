@@ -524,8 +524,8 @@ class ShopViewModel @Inject constructor(
             "ore"     in itemKey || "bar"     in itemKey ||
             "gem"     in itemKey || "log"     in itemKey ||
             "bone"    in itemKey || "essence" in itemKey ||
-            "arrow"   in itemKey || "raw_"    in itemKey ||
-            "cooked"  in itemKey              -> "Materials"
+            "arrow"   in itemKey ||
+            "raw_"    in itemKey || "cooked"  in itemKey -> "Materials"
             else                              -> "Misc"
         }
     }

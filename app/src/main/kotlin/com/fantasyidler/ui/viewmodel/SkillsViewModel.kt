@@ -83,6 +83,7 @@ data class SkillsUiState(
     val sessionDurationMs: Long = 0L,
     val skillPrestige: Map<String, Int> = emptyMap(),
     val inventory: Map<String, Int> = emptyMap(),
+    val petBoostBySkill: Map<String, Int> = emptyMap(),
 )
 
 sealed class SheetState {
@@ -166,6 +167,9 @@ class SkillsViewModel @Inject constructor(
                 skillPrestige         = flags.skillPrestige,
                 inventory             = inv,
                 cropsReadyCount       = cropsReady,
+                petBoostBySkill       = (Skills.GATHERING + Skills.CRAFTING_SKILLS + Skills.SUPPORT + listOf(Skills.AGILITY, Skills.SLAYER))
+                    .associateWith { key -> petBoostFor(player.pets, key) }
+                    .filterValues { it > 0 },
             )
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SkillsUiState())

@@ -1,0 +1,9 @@
+• Fix: Forge Demons in the Ancient Forge now count toward demon kill quests
+• Fix: Enemy kills in the Infinite Tower now count toward quests (kill quests, guild quests, slayer tasks)
+• Fix: Tower now correctly uses your selected weapon style — previously it could start with the style from a previous floor if you hadn't re-tapped the selector
+• Carnival: Pick-a-Cup is now a skill game — watch the cups swap and track the gem (community contribution)
+• Carnival: Higher or Lower now shows you the last card number after your run ends, so you can see what you missed
+• Skills screen: your pet's XP bonus is now shown under the skill it affects
+• Armory: you can now sort equipment by Attack, Strength, Defense, or Level requirement
+• Builder's Workshop: new Garden building adds extra farm plots (up to +2 at tier 2, Construction level 55 required)
+• Fix: "Town Improver" and "Town of Legend" achievements now correctly reference five buildings instead of four

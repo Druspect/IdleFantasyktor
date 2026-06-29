@@ -54,6 +54,7 @@ fun BuildingUpgradeCard(
                 "guild_hall"   -> R.string.town_building_guild_hall_name
                 "church"       -> R.string.town_building_church_name
                 "fairgrounds"  -> R.string.town_building_fairgrounds_name
+                "garden"       -> R.string.town_building_garden_name
                 else           -> R.string.town_upgrade_section_title
             }
             Text(
@@ -162,6 +163,11 @@ fun buildingBonusText(buildingKey: String, tier: Int): String = when (buildingKe
         1    -> stringResource(R.string.town_fairgrounds_t1_bonus)
         2    -> stringResource(R.string.town_fairgrounds_t2_bonus)
         else -> stringResource(R.string.town_fairgrounds_t3_bonus)
+    }
+    "garden" -> when (tier) {
+        0    -> stringResource(R.string.town_garden_no_bonus)
+        1    -> stringResource(R.string.town_garden_t1_bonus)
+        else -> stringResource(R.string.town_garden_t2_bonus)
     }
     else -> ""
 }

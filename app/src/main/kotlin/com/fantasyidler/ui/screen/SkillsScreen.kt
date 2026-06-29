@@ -385,6 +385,7 @@ private fun SkillsTabContent(
                 isActive       = state.activeSession?.skillName == key && state.activeSession?.completed == false,
                 onClick        = { viewModel.onSkillTapped(key) },
                 toolEfficiency = efficiency,
+                petBoostPct    = state.petBoostBySkill[key] ?: 0,
                 prestigeLevel  = state.skillPrestige[key] ?: 0,
                 onPrestige     = { viewModel.prestigeSkill(key) },
                 cropsReady     = if (key == Skills.FARMING) state.cropsReadyCount else 0,
@@ -399,6 +400,7 @@ private fun SkillsTabContent(
                 xp            = state.skillXp[key] ?: 0L,
                 isActive      = state.activeSession?.skillName == key && state.activeSession?.completed == false,
                 onClick       = { viewModel.onSkillTapped(key) },
+                petBoostPct   = state.petBoostBySkill[key] ?: 0,
                 prestigeLevel = state.skillPrestige[key] ?: 0,
                 onPrestige    = { viewModel.prestigeSkill(key) },
             )
@@ -412,6 +414,7 @@ private fun SkillsTabContent(
                 xp            = state.skillXp[key] ?: 0L,
                 isActive      = state.activeSession?.skillName == key && state.activeSession?.completed == false,
                 onClick       = { viewModel.onSkillTapped(key) },
+                petBoostPct   = state.petBoostBySkill[key] ?: 0,
                 prestigeLevel = state.skillPrestige[key] ?: 0,
                 onPrestige    = { viewModel.prestigeSkill(key) },
             )
@@ -425,6 +428,7 @@ private fun SkillsTabContent(
                 xp            = state.skillXp[Skills.SLAYER] ?: 0L,
                 isActive      = false,
                 onClick       = onNavigateToSlayer,
+                petBoostPct   = state.petBoostBySkill[Skills.SLAYER] ?: 0,
                 prestigeLevel = state.skillPrestige[Skills.SLAYER] ?: 0,
                 onPrestige    = { viewModel.prestigeSkill(Skills.SLAYER) },
             )
@@ -540,6 +544,7 @@ internal fun SkillRow(
     isActive: Boolean,
     onClick: () -> Unit,
     toolEfficiency: Float = 1.0f,
+    petBoostPct: Int = 0,
     prestigeLevel: Int = 0,
     onPrestige: (() -> Unit)? = null,
     cropsReady: Int = 0,
@@ -658,6 +663,14 @@ internal fun SkillRow(
                         text  = stringResource(R.string.skills_tool_bonus, "%.2f".format(toolEfficiency)),
                         style = MaterialTheme.typography.labelSmall,
                         color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+                if (petBoostPct > 0) {
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        text  = stringResource(R.string.skills_pet_bonus, petBoostPct),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.tertiary,
                     )
                 }
             }

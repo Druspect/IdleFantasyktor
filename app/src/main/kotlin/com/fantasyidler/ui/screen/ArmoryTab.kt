@@ -42,6 +42,7 @@ import com.fantasyidler.data.json.EquipmentData
 import com.fantasyidler.ui.theme.GoldPrimary
 import com.fantasyidler.ui.viewmodel.ArmoryEntry
 import com.fantasyidler.ui.viewmodel.ArmoryFilter
+import com.fantasyidler.ui.viewmodel.ArmorySort
 import com.fantasyidler.ui.viewmodel.ArmoryViewModel
 import com.fantasyidler.util.GameStrings
 
@@ -76,6 +77,20 @@ fun ArmoryTab(viewModel: ArmoryViewModel = hiltViewModel()) {
                     selected = state.filter == f,
                     onClick  = { viewModel.setFilter(f) },
                     label    = { Text(filterLabel(f)) },
+                )
+            }
+        }
+        Row(
+            modifier = Modifier
+                .horizontalScroll(rememberScrollState())
+                .padding(start = 12.dp, end = 12.dp, bottom = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            ArmorySort.entries.forEach { s ->
+                FilterChip(
+                    selected = state.sort == s,
+                    onClick  = { viewModel.setSort(s) },
+                    label    = { Text(sortLabel(s)) },
                 )
             }
         }
@@ -408,4 +423,13 @@ private fun filterLabel(filter: ArmoryFilter): String = when (filter) {
     ArmoryFilter.ARMOR       -> stringResource(R.string.armory_filter_armor)
     ArmoryFilter.ACCESSORIES -> stringResource(R.string.armory_filter_accessories)
     ArmoryFilter.TOOLS       -> stringResource(R.string.armory_filter_tools)
+}
+
+@Composable
+private fun sortLabel(sort: ArmorySort): String = when (sort) {
+    ArmorySort.DEFAULT     -> stringResource(R.string.armory_sort_default)
+    ArmorySort.ATTACK      -> stringResource(R.string.armory_sort_attack)
+    ArmorySort.STRENGTH    -> stringResource(R.string.armory_sort_strength)
+    ArmorySort.DEFENSE     -> stringResource(R.string.armory_sort_defense)
+    ArmorySort.REQUIREMENT -> stringResource(R.string.armory_sort_requirement)
 }

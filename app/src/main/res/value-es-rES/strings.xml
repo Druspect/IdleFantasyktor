@@ -1369,4 +1369,17 @@
     <string name="enemy_abyssal_guardian_name">Abyssal Guardian</string>
     <string name="enemy_shadow_thief_name">Shadow Thief</string>
     <string name="enemy_elder_lich_name">Elder Lich</string>
+    <string name="skills_pet_bonus">+%1$d%% XP (pet)</string>
+    <string name="town_building_garden_name">Garden</string>
+    <string name="town_garden_no_bonus">No extra farm plots yet</string>
+    <string name="town_garden_t1_bonus">+1 extra farm plot</string>
+    <string name="town_garden_t2_bonus">+2 extra farm plots</string>
+    <string name="carnival_shell_watch">Watch closely...</string>
+    <string name="carnival_higher_lower_last_card">Last card: %1$d</string>
+    <string name="carnival_higher_lower_continue">Continue</string>
+    <string name="armory_sort_default">Default</string>
+    <string name="armory_sort_attack">Attack</string>
+    <string name="armory_sort_strength">Strength</string>
+    <string name="armory_sort_defense">Defense</string>
+    <string name="armory_sort_requirement">Requirement</string>
 </resources>

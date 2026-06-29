@@ -1347,7 +1347,8 @@
         "quantity_max": 15
       }
     ],
-    "always_drops": []
+    "always_drops": [],
+    "tags": ["demon"]
   },
   "dwarven_guardian": {
     "name": "dwarven_guardian",

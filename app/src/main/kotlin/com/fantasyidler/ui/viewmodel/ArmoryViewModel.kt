@@ -22,6 +22,7 @@ import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
 enum class ArmoryFilter { ALL, WEAPONS, ARMOR, ACCESSORIES, TOOLS }
+enum class ArmorySort   { DEFAULT, ATTACK, STRENGTH, DEFENSE, REQUIREMENT }
 
 data class ArmoryEntry(
     val key: String,
@@ -33,6 +34,7 @@ data class ArmoryEntry(
 data class ArmoryUiState(
     val entries: List<ArmoryEntry> = emptyList(),
     val filter: ArmoryFilter = ArmoryFilter.ALL,
+    val sort: ArmorySort = ArmorySort.DEFAULT,
     val totalOwned: Int = 0,
     val totalCount: Int = 0,
     val isLoading: Boolean = true,
@@ -52,14 +54,16 @@ class ArmoryViewModel @Inject constructor(
     }
 
     private val _filter = MutableStateFlow(ArmoryFilter.ALL)
+    private val _sort   = MutableStateFlow(ArmorySort.DEFAULT)
 
     private val sourceMap: Map<String, String> by lazy { buildSourceMap() }
 
     val uiState: StateFlow<ArmoryUiState> = combine(
         playerRepo.playerFlow,
         _filter,
-    ) { player, filter ->
-        if (player == null) return@combine ArmoryUiState(filter = filter)
+        _sort,
+    ) { player, filter, sort ->
+        if (player == null) return@combine ArmoryUiState(filter = filter, sort = sort)
 
         val inventory: Map<String, Int> = json.decodeFromString(player.inventory)
         val equipped: Map<String, String?> = json.decodeFromString(player.equipped)
@@ -83,9 +87,18 @@ class ArmoryViewModel @Inject constructor(
             ArmoryFilter.TOOLS       -> allEntries.filter { it.item.slot in TOOL_SLOTS }
         }
 
+        val sorted = when (sort) {
+            ArmorySort.DEFAULT     -> filtered
+            ArmorySort.ATTACK      -> filtered.sortedByDescending { it.item.attackBonus }
+            ArmorySort.STRENGTH    -> filtered.sortedByDescending { it.item.strengthBonus }
+            ArmorySort.DEFENSE     -> filtered.sortedByDescending { it.item.defenseBonus }
+            ArmorySort.REQUIREMENT -> filtered.sortedByDescending { it.item.requirements.values.maxOrNull() ?: 0 }
+        }
+
         ArmoryUiState(
-            entries    = filtered,
+            entries    = sorted,
             filter     = filter,
+            sort       = sort,
             totalOwned = allEntries.count { it.owned },
             totalCount = allEntries.size,
             isLoading  = false,
@@ -93,6 +106,7 @@ class ArmoryViewModel @Inject constructor(
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), ArmoryUiState())
 
     fun setFilter(filter: ArmoryFilter) { _filter.value = filter }
+    fun setSort(sort: ArmorySort) { _sort.value = sort }
 
     private fun buildSourceMap(): Map<String, String> {
         val map = mutableMapOf<String, String>()

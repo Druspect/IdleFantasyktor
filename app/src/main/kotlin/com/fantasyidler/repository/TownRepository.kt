@@ -37,6 +37,9 @@ class TownRepository @Inject constructor(
         return 1.0f - tier * 0.10f
     }
 
+    /** Extra farm plots from the Garden building (+1 per tier). */
+    fun extraFarmPlots(flags: PlayerFlags): Int = flags.townBuildingTiers["garden"] ?: 0
+
     /** Number of active carnival minigames (4 base + 1 at fairgrounds T1 + 1 at T2). */
     fun carnivalGameCount(flags: PlayerFlags): Int {
         val tier = flags.townBuildingTiers["fairgrounds"] ?: 0

@@ -19,6 +19,7 @@ import com.fantasyidler.repository.ChurchRepository
 import com.fantasyidler.repository.GameDataRepository
 import com.fantasyidler.repository.PlayerRepository
 import com.fantasyidler.repository.QueuedSessionStarter
+import com.fantasyidler.repository.QuestRepository
 import com.fantasyidler.repository.SessionRepository
 import com.fantasyidler.simulator.CombatSimulator
 import com.fantasyidler.simulator.SkillSimulator
@@ -59,6 +60,7 @@ class TowerViewModel @Inject constructor(
     private val sessionRepo: SessionRepository,
     private val gameData: GameDataRepository,
     private val queuedSessionStarter: QueuedSessionStarter,
+    private val questRepo: QuestRepository,
     private val json: Json,
 ) : ViewModel() {
 
@@ -143,6 +145,7 @@ class TowerViewModel @Inject constructor(
                 claimableMilestones = claimable,
                 claimedMilestones   = flags.towerMilestonesClaimed,
                 equippedWeapons     = equippedWeapons,
+                selectedWeaponSlot  = extra.selectedWeaponSlot ?: flags.activeWeaponSlot,
             )
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), TowerUiState())
@@ -343,10 +346,12 @@ class TowerViewModel @Inject constructor(
             val totalXpPerSkill = mutableMapOf<String, Long>()
             val allItems        = mutableMapOf<String, Int>()
             val allFoodConsumed = mutableMapOf<String, Int>()
+            val allKillsByEnemy = mutableMapOf<String, Int>()
             for (frame in frames) {
-                for ((skill, xp) in frame.xpBySkill)    totalXpPerSkill[skill] = (totalXpPerSkill[skill] ?: 0L) + xp
-                for ((item,  qty) in frame.items)        allItems[item]         = (allItems[item] ?: 0) + qty
-                for ((food,  qty) in frame.foodConsumed) allFoodConsumed[food]  = (allFoodConsumed[food] ?: 0) + qty
+                for ((skill, xp) in frame.xpBySkill)      totalXpPerSkill[skill] = (totalXpPerSkill[skill] ?: 0L) + xp
+                for ((item,  qty) in frame.items)          allItems[item]         = (allItems[item] ?: 0) + qty
+                for ((food,  qty) in frame.foodConsumed)   allFoodConsumed[food]  = (allFoodConsumed[food] ?: 0) + qty
+                for ((enemy, qty) in frame.killsByEnemy)   allKillsByEnemy[enemy] = (allKillsByEnemy[enemy] ?: 0) + qty
             }
 
             if (playerDied) {
@@ -369,6 +374,18 @@ class TowerViewModel @Inject constructor(
             if (allFoodConsumed.isNotEmpty()) playerRepo.consumeItems(allFoodConsumed)
 
             val floor = session.activityKey.removePrefix("tower_floor_").toIntOrNull() ?: 1
+
+            if (allKillsByEnemy.isNotEmpty()) {
+                val combatStyle = detectCombatStyle(totalXpPerSkill)
+                val foodConsumedTotal = allFoodConsumed.values.sum()
+                questRepo.recordCombat(
+                    dungeonKey        = session.activityKey,
+                    killsByEnemy      = allKillsByEnemy,
+                    loot              = allItems,
+                    combatStyle       = combatStyle,
+                    foodConsumedTotal = foodConsumedTotal,
+                )
+            }
 
             val updatedFlags = playerRepo.getFlags()
             if (playerDied) {

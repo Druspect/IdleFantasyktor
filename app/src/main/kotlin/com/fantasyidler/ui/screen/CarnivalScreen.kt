@@ -77,6 +77,11 @@ import com.fantasyidler.ui.viewmodel.AppraisalQuad
 import com.fantasyidler.ui.viewmodel.CarnivalViewModel
 import com.fantasyidler.ui.viewmodel.Difficulty
 import com.fantasyidler.util.GameStrings
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.tween
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalDensity
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.rememberCoroutineScope
@@ -764,39 +769,47 @@ private fun ShellGameCard(gameState: ActiveGameState, difficulty: Difficulty, vi
                 }
             }
             is ActiveGameState.ShellGameSwapping -> {
-                val cupCount = gameState.cupCount
-                val delayMs = if (difficulty == Difficulty.HARD) 350L else 600L
-
-                LaunchedEffect(gameState.swaps.size) {
-                    delay(delayMs)
-                    viewModel.executeNextShellSwap()
+                val cupCount  = gameState.cupCount
+                val swaps     = gameState.swaps
+                val isHard    = cupCount == 4
+                val animMs    = if (isHard) 160 else 340
+                val pauseMs   = if (isHard) 50L  else 130L
+                val density   = LocalDensity.current
+                val stepPx    = with(density) { 64.dp.toPx() }
+                val offsets   = remember(gameState) { Array(cupCount) { Animatable(0f) } }
+                LaunchedEffect(swaps) {
+                    var gemSlot = gameState.gemPos
+                    for ((a, b) in swaps) {
+                        val dist = (b - a) * stepPx
+                        coroutineScope {
+                            launch { offsets[a].animateTo( dist, animationSpec = tween(animMs)) }
+                            launch { offsets[b].animateTo(-dist, animationSpec = tween(animMs)) }
+                        }
+                        offsets[a].snapTo(0f)
+                        offsets[b].snapTo(0f)
+                        if (gemSlot == a) gemSlot = b else if (gemSlot == b) gemSlot = a
+                        delay(pauseMs)
+                    }
+                    viewModel.finishShellGame(gemSlot)
                 }
-
                 Column(
                     modifier            = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     Text(
-                        text  = stringResource(R.string.carnival_active_shell_desc),
-                        style = MaterialTheme.typography.bodyMedium,
+                        text       = stringResource(R.string.carnival_shell_watch),
+                        style      = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.SemiBold,
                     )
-                    Box(modifier = Modifier.width((cupCount * 56 + (cupCount - 1) * 8).dp).height(56.dp)) {
-                        (0 until cupCount).forEach { c ->
-                            val visualIndex = gameState.positions.indexOf(c)
-                            val targetOffsetX = (visualIndex * 64).dp
-                            val animatedOffsetX by animateDpAsState(
-                                targetValue = targetOffsetX,
-                                animationSpec = tween(durationMillis = (delayMs * 0.8).toInt(), easing = FastOutSlowInEasing),
-                                label = "cupOffset"
-                            )
+                    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                        (0 until cupCount).forEach { slotIdx ->
                             Surface(
-                                shape  = RoundedCornerShape(8.dp),
-                                color  = MaterialTheme.colorScheme.surface,
+                                shape    = RoundedCornerShape(8.dp),
+                                color    = MaterialTheme.colorScheme.surface,
                                 modifier = Modifier
-                                    .offset(x = animatedOffsetX)
                                     .size(56.dp)
+                                    .graphicsLayer { translationX = offsets[slotIdx].value },
                             ) {
                                 Box(contentAlignment = Alignment.Center) {
                                     Text(text = "🥤", style = MaterialTheme.typography.bodyLarge)
@@ -890,6 +903,28 @@ private fun HigherOrLowerCard(gameState: ActiveGameState, difficulty: Difficulty
                         ) {
                             Text(stringResource(R.string.carnival_higher_lower_btn_lower))
                         }
+                    }
+                }
+            }
+            is ActiveGameState.HigherOrLowerResult -> {
+                Column(
+                    modifier            = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    Text(
+                        text  = stringResource(R.string.carnival_higher_lower_last_card, gameState.lastNumber),
+                        style = MaterialTheme.typography.headlineMedium,
+                        fontWeight = FontWeight.Bold,
+                        color = GoldPrimary,
+                    )
+                    Text(
+                        text  = stringResource(R.string.carnival_higher_lower_result, gameState.totalCorrect, gameState.totalRounds, gameState.tickets),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    )
+                    Button(onClick = viewModel::confirmHigherOrLowerResult, modifier = Modifier.fillMaxWidth()) {
+                        Text(stringResource(R.string.carnival_higher_lower_continue))
                     }
                 }
             }

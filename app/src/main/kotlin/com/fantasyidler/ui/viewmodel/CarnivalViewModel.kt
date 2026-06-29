@@ -38,9 +38,10 @@ sealed class ActiveGameState {
     data class AppraisalPlaying(val quadIndex: Int) : ActiveGameState()
     data class OnCooldown(val resumesAtMs: Long) : ActiveGameState()
     data class ShellGameShowing(val cupCount: Int, val gemPos: Int) : ActiveGameState()
-    data class ShellGameSwapping(val cupCount: Int, val gemPos: Int, val positions: List<Int>, val swaps: List<Pair<Int, Int>>) : ActiveGameState()
+    data class ShellGameSwapping(val cupCount: Int, val gemPos: Int, val swaps: List<Pair<Int,Int>>) : ActiveGameState()
     data class ShellGamePicking(val cupCount: Int, val gemPos: Int) : ActiveGameState()
     data class HigherOrLowerPlaying(val numbers: List<Int>, val currentIdx: Int, val correctCount: Int) : ActiveGameState()
+    data class HigherOrLowerResult(val lastNumber: Int, val totalCorrect: Int, val totalRounds: Int, val tickets: Int, val resumesAtMs: Long) : ActiveGameState()
 }
 
 data class AppraisalPair(val itemA: String, val itemB: String, val correctIsA: Boolean)
@@ -435,39 +436,19 @@ class CarnivalViewModel @Inject constructor(
     fun advanceShellGame() {
         val s = _extra.value.shellGameState
         if (s !is ActiveGameState.ShellGameShowing) return
-        val positions = (0 until s.cupCount).toMutableList()
-        val diff = _extra.value.shellGameDifficulty
-        val numSwaps = if (diff == Difficulty.HARD) 7 + Random.nextInt(4) else 4 + Random.nextInt(3)
-        
-        val swaps = mutableListOf<Pair<Int, Int>>()
-        var lastI = -1
-        var lastJ = -1
-        repeat(numSwaps) {
-            var i = Random.nextInt(positions.size)
-            var j = Random.nextInt(positions.size)
-            while (i == j || (i == lastI && j == lastJ) || (i == lastJ && j == lastI)) {
-                i = Random.nextInt(positions.size)
-                j = Random.nextInt(positions.size)
-            }
-            lastI = i
-            lastJ = j
-            swaps.add(i to j)
+        val swapCount = s.cupCount * 2 + Random.nextInt(s.cupCount)
+        val swapPairs = (0 until swapCount).map {
+            val a = Random.nextInt(s.cupCount)
+            val b = (a + 1 + Random.nextInt(s.cupCount - 1)) % s.cupCount
+            Pair(a, b)
         }
-        _extra.update { it.copy(shellGameState = ActiveGameState.ShellGameSwapping(s.cupCount, s.gemPos, positions, swaps)) }
+        _extra.update { it.copy(shellGameState = ActiveGameState.ShellGameSwapping(s.cupCount, s.gemPos, swapPairs)) }
     }
 
-    fun executeNextShellSwap() {
+    fun finishShellGame(newGemPos: Int) {
         val s = _extra.value.shellGameState
         if (s !is ActiveGameState.ShellGameSwapping) return
-        if (s.swaps.isEmpty()) {
-            val newGemPos = s.positions.indexOf(s.gemPos)
-            _extra.update { it.copy(shellGameState = ActiveGameState.ShellGamePicking(s.cupCount, newGemPos)) }
-            return
-        }
-        val (i, j) = s.swaps.first()
-        val newPositions = s.positions.toMutableList()
-        val tmp = newPositions[i]; newPositions[i] = newPositions[j]; newPositions[j] = tmp
-        _extra.update { it.copy(shellGameState = ActiveGameState.ShellGameSwapping(s.cupCount, s.gemPos, newPositions, s.swaps.drop(1))) }
+        _extra.update { it.copy(shellGameState = ActiveGameState.ShellGamePicking(s.cupCount, newGemPos)) }
     }
 
     fun submitShellGuess(pickedPos: Int) {
@@ -538,10 +519,7 @@ class CarnivalViewModel @Inject constructor(
                 val resumesAt = System.currentTimeMillis() + cooldownMs
                 playerRepo.updateFlags(playerRepo.getFlags().copy(carnivalHigherLowerCooldownAt = resumesAt))
                 _extra.update {
-                    it.copy(
-                        higherLowerState = ActiveGameState.OnCooldown(resumesAt),
-                        snackbarMessage  = context.withAppLocale().getString(R.string.carnival_higher_lower_result, newCorrect, totalRounds, tickets),
-                    )
+                    it.copy(higherLowerState = ActiveGameState.HigherOrLowerResult(next, newCorrect, totalRounds, tickets, resumesAt))
                 }
             }
         } else {
@@ -549,6 +527,12 @@ class CarnivalViewModel @Inject constructor(
                 it.copy(higherLowerState = ActiveGameState.HigherOrLowerPlaying(state.numbers, newIdx, newCorrect))
             }
         }
+    }
+
+    fun confirmHigherOrLowerResult() {
+        val s = _extra.value.higherLowerState
+        if (s !is ActiveGameState.HigherOrLowerResult) return
+        _extra.update { it.copy(higherLowerState = ActiveGameState.OnCooldown(s.resumesAtMs)) }
     }
 
     // Called by the Screen's periodic ticker when a cooldown has expired

@@ -1,0 +1,4 @@
+• Fix Repeat Action for Construction sessions not carrying the item quantity
+• Fix Repeat Action quantity calculation using only the first frame instead of the full session total
+• Fix arrow fallback in queued combat sessions: when one arrow tier runs out the next tier is now used correctly
+• Fix Fletching "Plank" filter chip: tapping Plank now shows all plank types instead of only the basic Plank

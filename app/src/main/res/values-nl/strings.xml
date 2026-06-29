@@ -518,6 +518,7 @@
     <string name="skills_level_req_xp">Lvl %1$d  •  %2$s XP/erts</string>
     <!-- Translator note: %1$s = formatted multiplier (e.g. "1.15") -->
     <string name="skills_tool_bonus">×%1$s Gereedschapsbonus</string>
+    <string name="skills_pet_bonus">+%1$d%% XP (pet)</string>
     <!-- Translator note: %1$d = fishing level -->
     <string name="skills_fishing_desc">Lvl %1$d  •  Level-geschikte vangsten</string>
     <!-- Translator note: %1$d = prayer level -->
@@ -1083,14 +1084,18 @@
     <string name="town_fairgrounds_t1_bonus">Unlocks Pick-a-Cup, cooldowns reduced to 7.5 minutes, +5% idle ticket chance</string>
     <string name="town_fairgrounds_t2_bonus">Unlocks Higher or Lower, +10% idle ticket chance</string>
     <string name="town_fairgrounds_t3_bonus">Cooldowns reduced to 5 minutes, +15% idle ticket chance</string>
+    <string name="town_building_garden_name">Garden</string>
+    <string name="town_garden_no_bonus">No extra farm plots yet</string>
+    <string name="town_garden_t1_bonus">+1 extra farm plot</string>
+    <string name="town_garden_t2_bonus">+2 extra farm plots</string>
     <string name="achievement_town_first_upgrade_name">Eerste Renovatie</string>
     <string name="achievement_town_first_upgrade_desc">Verbeter een stadsgebouw voor de eerste keer</string>
     <string name="achievement_town_all_tier1_name">Stadsverbeteraar</string>
-    <string name="achievement_town_all_tier1_desc">Verbeter alle vier stadsgebouwen naar minimaal Rang 1</string>
+    <string name="achievement_town_all_tier1_desc">Verbeter alle vijf stadsgebouwen naar minimaal Rang 1</string>
     <string name="achievement_town_one_maxed_name">Meesterbouwer</string>
     <string name="achievement_town_one_maxed_desc">Verbeter een stadsgebouw naar het maximum</string>
     <string name="achievement_town_all_maxed_name">Legendarische Stad</string>
-    <string name="achievement_town_all_maxed_desc">Verbeter alle vier stadsgebouwen naar het maximum</string>
+    <string name="achievement_town_all_maxed_desc">Verbeter alle vijf stadsgebouwen naar het maximum</string>
     <string name="achievement_tower_first_floor_name">First Step</string>
     <string name="achievement_tower_first_floor_desc">Clear your first Infinite Tower floor</string>
     <string name="achievement_tower_floor_10_name">Tower Initiate</string>
@@ -1209,6 +1214,7 @@
     <string name="carnival_shell_game">Pick-a-Cup</string>
     <string name="carnival_active_shell_desc">Watch which cup hides the gem, then pick it after the shuffle!</string>
     <string name="carnival_shell_showing">Watch carefully — gem is under cup %1$d</string>
+    <string name="carnival_shell_watch">Watch closely...</string>
     <string name="carnival_shell_pick">Which cup is it under?</string>
     <string name="carnival_shell_won">Correct! +%1$d tickets</string>
     <string name="carnival_shell_missed">Wrong! The gem was under cup %1$d.</string>
@@ -1222,6 +1228,8 @@
     <string name="carnival_higher_lower_btn_lower">Lower</string>
     <string name="carnival_higher_lower_result">%1$d/%2$d correct — +%3$d tickets</string>
     <string name="carnival_higher_lower_locked">Upgrade the Fairgrounds to Tier 2 to unlock</string>
+    <string name="carnival_higher_lower_last_card">Last card: %1$d</string>
+    <string name="carnival_higher_lower_continue">Continue</string>
     <string name="carnival_difficulty_label">Difficulty</string>
     <string name="carnival_difficulty_normal">Normal</string>
     <string name="carnival_difficulty_hard">Hard</string>
@@ -1268,6 +1276,11 @@
     <string name="armory_filter_armor">Pantser</string>
     <string name="armory_filter_accessories">Accessoires</string>
     <string name="armory_filter_tools">Gereedschap</string>
+    <string name="armory_sort_default">Default</string>
+    <string name="armory_sort_attack">Attack</string>
+    <string name="armory_sort_strength">Strength</string>
+    <string name="armory_sort_defense">Defense</string>
+    <string name="armory_sort_requirement">Requirement</string>
     <string name="armory_progress_bar">verkregen</string>
     <string name="armory_stat_mining">Mijnbouw-efficiëntie</string>
     <string name="armory_stat_woodcutting">Houthak-efficiëntie</string>

@@ -99,6 +99,17 @@ fun BuilderScreen(
                     inventory         = state.inventory,
                     onUpgrade         = { viewModel.upgrade("fairgrounds") },
                 )
+            }
+            item {
+                Spacer(Modifier.height(16.dp))
+                BuildingUpgradeCard(
+                    buildingKey       = "garden",
+                    currentTier       = state.gardenTier,
+                    constructionLevel = state.constructionLevel,
+                    coins             = state.coins,
+                    inventory         = state.inventory,
+                    onUpgrade         = { viewModel.upgrade("garden") },
+                )
                 Spacer(Modifier.height(16.dp))
             }
         }

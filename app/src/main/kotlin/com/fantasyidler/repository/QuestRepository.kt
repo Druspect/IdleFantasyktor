@@ -101,7 +101,11 @@ class QuestRepository @Inject constructor(
                     if (totalKills > 0) addProgress(questId, quest.amount, totalKills, quest.requiresPrevious)
                 }
                 "kill_enemy" -> {
-                    val count = killsByEnemy[quest.target] ?: continue
+                    val count = killsByEnemy.entries.sumOf { (enemyKey, kills) ->
+                        if (enemyKey == quest.target) kills
+                        else if (gameData.enemies[enemyKey]?.tags?.contains(quest.target) == true) kills
+                        else 0
+                    }
                     if (count > 0) addProgress(questId, quest.amount, count, quest.requiresPrevious)
                 }
                 "dungeon" -> {

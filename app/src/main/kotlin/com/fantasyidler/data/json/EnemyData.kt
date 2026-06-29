@@ -13,6 +13,7 @@ data class EnemyData(
     @SerialName("xp_drops") val xpDrops: Map<String, Int>,
     @SerialName("drop_table") val dropTable: List<DropEntry> = emptyList(),
     @SerialName("always_drops") val alwaysDrops: List<AlwaysDrop> = emptyList(),
+    val tags: List<String> = emptyList(),
 )
 
 @Serializable

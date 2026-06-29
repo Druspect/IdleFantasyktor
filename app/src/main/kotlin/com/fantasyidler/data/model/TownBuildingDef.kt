@@ -1,6 +1,6 @@
 package com.fantasyidler.data.model
 
-enum class TownBonusType { WORKER_XP, GUILD_QUEST_REDUCTION, BLESSING_DURATION, CARNIVAL_GAMES }
+enum class TownBonusType { WORKER_XP, GUILD_QUEST_REDUCTION, BLESSING_DURATION, CARNIVAL_GAMES, FARM_PLOTS }
 
 data class TownBuildingTier(
     val constructionLevelRequired: Int,
@@ -55,7 +55,16 @@ object TownBuildings {
         ),
     )
 
-    val ALL = listOf(INN, GUILD_HALL, CHURCH, FAIRGROUNDS)
+    val GARDEN = TownBuildingDef(
+        key = "garden",
+        bonusType = TownBonusType.FARM_PLOTS,
+        tiers = listOf(
+            TownBuildingTier(30,   80_000, mapOf("plank" to 100, "oak_plank" to 200, "iron_nail" to 400)),
+            TownBuildingTier(55,  400_000, mapOf("oak_plank" to 400, "willow_plank" to 200, "steel_nail" to 1_000)),
+        ),
+    )
+
+    val ALL = listOf(INN, GUILD_HALL, CHURCH, FAIRGROUNDS, GARDEN)
     private val BY_KEY = ALL.associateBy { it.key }
     fun byKey(key: String): TownBuildingDef? = BY_KEY[key]
 }

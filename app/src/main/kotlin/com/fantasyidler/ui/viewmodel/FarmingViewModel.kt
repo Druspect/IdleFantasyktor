@@ -12,6 +12,7 @@ import com.fantasyidler.repository.FarmingRepository
 import com.fantasyidler.repository.GameDataRepository
 import com.fantasyidler.repository.GuildRepository
 import com.fantasyidler.repository.PlayerRepository
+import com.fantasyidler.repository.TownRepository
 import com.fantasyidler.simulator.XpTable
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -72,6 +73,7 @@ class FarmingViewModel @Inject constructor(
     private val playerRepo: PlayerRepository,
     private val guildRepo: GuildRepository,
     private val gameData: GameDataRepository,
+    private val townRepo: TownRepository,
     private val json: Json,
 ) : ViewModel() {
 
@@ -100,7 +102,7 @@ class FarmingViewModel @Inject constructor(
 
         val farmingLevel = levels[Skills.FARMING] ?: 1
         val farmingXp    = xpMap[Skills.FARMING]  ?: 0L
-        val patchCount   = farmingRepo.patchCountForLevel(farmingLevel)
+        val patchCount   = farmingRepo.patchCountForLevel(farmingLevel) + townRepo.extraFarmPlots(flags)
 
         val availableCrops = gameData.crops.values
             .filter { it.levelRequired <= farmingLevel }
