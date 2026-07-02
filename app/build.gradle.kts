@@ -33,7 +33,14 @@ android {
         }
     }
 
-    buildTypes {
+  
+  packaging {
+    resources {
+      excludes += "META-INF/INDEX.LIST"
+    }
+  }
+
+  buildTypes {
         release {
             isMinifyEnabled = true
             signingConfig   = signingConfigs.getByName("release")
@@ -127,6 +134,11 @@ dependencies {
 
     // kotlinx.serialization
     implementation(libs.kotlinx.serialization.json)
+    implementation("io.ktor:ktor-server-core:3.0.1")
+    implementation("io.ktor:ktor-server-cio:3.0.1")
+    implementation("io.ktor:ktor-server-content-negotiation:3.0.1")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:3.0.1")
+
 
     // Unit testing (JVM, no device required)
     testImplementation(libs.junit)

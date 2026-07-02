@@ -2,6 +2,7 @@ package com.fantasyidler
 
 import android.app.Application
 import com.fantasyidler.notification.SessionNotificationManager
+import com.fantasyidler.automation.LocalControlServer
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -13,5 +14,6 @@ class FantasyIdlerApp : Application() {
     override fun onCreate() {
         super.onCreate()
         notificationManager.createChannels()
+  LocalControlServer.start(this)
     }
 }
