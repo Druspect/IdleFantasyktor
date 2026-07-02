@@ -35,6 +35,7 @@ class QueuedSessionStarter @Inject constructor(
     private val sessionRepo: SessionRepository,
     private val gameData: GameDataRepository,
     private val json: Json,
+    private val automationControl: com.fantasyidler.automation.AutomationControlRepository,
 ) {
     private val mutex = Mutex()
 
@@ -44,6 +45,7 @@ class QueuedSessionStarter @Inject constructor(
      * session couldn't be started (e.g. missing materials).
      */
     suspend fun startNextQueued(backdateMs: Long = 0L): Boolean {
+        if (!automationControl.allowsNativeQueueAutoAdvance()) return false
         // Mutex covers the full dequeue + session-start so concurrent callers (alarm
         // receiver, recoverActiveSession, collectSession) can't both pass the "no running
         // session" check and dequeue separate actions before either inserts a DB row.
@@ -95,6 +97,7 @@ class QueuedSessionStarter @Inject constructor(
      * Called from [SessionRepository.recoverActiveSession] to reconstruct offline progress.
      */
     suspend fun insertNextQueuedAsOffline(remainingMs: Long): Long {
+        if (!automationControl.allowsNativeQueueAutoAdvance()) return 0L
         mutex.withLock {
             val next = playerRepo.dequeueNextActionUnlocked() ?: return 0L
             val player = playerRepo.getOrCreatePlayer()

@@ -6,10 +6,10 @@ import android.os.Build
 import android.provider.Settings
 import android.util.Log
 import com.fantasyidler.repository.PlayerRepository
-import com.fantasyidler.repository.QueuedSessionStarter
 import com.fantasyidler.repository.SessionRepository
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.kotlinx.json.json
+import io.ktor.server.application.call
 import io.ktor.server.application.install
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.EmbeddedServer
@@ -36,94 +36,96 @@ data class AgentSession(
 )
 
 @Serializable
-data class AgentStatus(
-    @SerialName("device_id") val deviceId: String,
-    val status: String,
-    val battery: Int,
-    val stats: Map<String, Int>,
-    val inventory: Map<String, Int>,
-    @SerialName("queue_count") val queueCount: Int,
-    @SerialName("queued_actions") val queuedActions: List<String>,
-    @SerialName("active_session") val activeSession: AgentSession?,
+data class AgentAutomationState(
+    val authority: String,
+    @SerialName("native_queue_auto_advance")
+    val nativeQueueAutoAdvance: Boolean,
+    @SerialName("pending_settlement_count")
+    val pendingSettlementCount: Int,
+    @SerialName("dispatch_enabled")
+    val dispatchEnabled: Boolean,
 )
 
 @Serializable
-data class AgentCommandResult(
-    val accepted: Boolean,
-    val code: String,
-    val message: String,
-    @SerialName("active_session") val activeSession: AgentSession? = null,
+data class AgentStatus(
+    @SerialName("api_version") val apiVersion: Int,
+    @SerialName("device_id") val deviceId: String,
+    val status: String,
+    val battery: Int,
+    val coins: Long,
+    val stats: Map<String, Int>,
+    val inventory: Map<String, Int>,
+    @SerialName("native_queue_count") val nativeQueueCount: Int,
+    @SerialName("native_queued_actions") val nativeQueuedActions: List<String>,
+    @SerialName("active_session") val activeSession: AgentSession?,
+    val automation: AgentAutomationState,
 )
 
 @Serializable
 data class AgentHealth(
     val ok: Boolean,
+    @SerialName("api_version") val apiVersion: Int,
     @SerialName("device_id") val deviceId: String,
+    val automation: AgentAutomationState,
+)
+
+@Serializable
+data class AgentRejection(
+    val accepted: Boolean = false,
+    val code: String,
+    val message: String,
 )
 
 @Singleton
 class AgentGameBridge @Inject constructor(
     private val playerRepository: PlayerRepository,
     private val sessionRepository: SessionRepository,
-    private val queuedSessionStarter: QueuedSessionStarter,
+    private val automationControl: AutomationControlRepository,
 ) {
     suspend fun snapshot(deviceId: String, battery: Int): AgentStatus {
         val active = sessionRepository.getActiveSession()?.takeUnless { it.completed }
+        val pendingSettlementCount = sessionRepository.getAllCompletedSessions().size
         val queue = playerRepository.getQueue()
+        val player = playerRepository.getOrCreatePlayer()
+
+        val automation = automationState(pendingSettlementCount)
 
         return AgentStatus(
+            apiVersion = 2,
             deviceId = deviceId,
-            status = if (active == null) "idle" else "busy",
+            status = when {
+                active != null -> "busy"
+                pendingSettlementCount > 0 -> "pending_settlement"
+                else -> "idle"
+            },
             battery = battery,
+            coins = player.coins,
             stats = playerRepository.getSkillLevels(),
             inventory = playerRepository.getInventory(),
-            queueCount = queue.size,
-            queuedActions = queue.map { "${it.skillName}:${it.activityKey}" },
+            nativeQueueCount = queue.size,
+            nativeQueuedActions = queue.map { "${it.skillName}:${it.activityKey}" },
             activeSession = active?.toAgentSession(),
+            automation = automation,
         )
     }
 
-    suspend fun startQueuedSession(): AgentCommandResult {
-        val current = sessionRepository.getActiveSession()?.takeUnless { it.completed }
-        if (current != null) {
-            return AgentCommandResult(
-                accepted = false,
-                code = "active_session",
-                message = "A session is already running.",
-                activeSession = current.toAgentSession(),
-            )
-        }
+    fun controlSnapshot(): AutomationControlSnapshot =
+        automationControl.snapshot()
 
-        if (playerRepository.getQueue().isEmpty()) {
-            return AgentCommandResult(
-                accepted = false,
-                code = "queue_empty",
-                message = "No queued game action is available.",
-            )
-        }
+    fun setAuthority(rawAuthority: String): AutomationControlSnapshot? =
+        automationControl.setAuthority(rawAuthority)
 
-        val started = try {
-            queuedSessionStarter.startNextQueued()
-        } catch (_: Exception) {
-            false
-        }
+    fun healthAutomationState(): AgentAutomationState =
+        automationState(pendingSettlementCount = 0)
 
-        val active = sessionRepository.getActiveSession()?.takeUnless { it.completed }
-
-        return if (started && active != null) {
-            AgentCommandResult(
-                accepted = true,
-                code = "started",
-                message = "Queued session started through the game engine.",
-                activeSession = active.toAgentSession(),
-            )
-        } else {
-            AgentCommandResult(
-                accepted = false,
-                code = "queue_rejected",
-                message = "The queued action could not start; it may be invalid or lack required materials.",
-            )
-        }
+    private fun automationState(pendingSettlementCount: Int): AgentAutomationState {
+        val control = automationControl.snapshot()
+        return AgentAutomationState(
+            authority = control.authority,
+            nativeQueueAutoAdvance = control.nativeQueueAutoAdvance,
+            pendingSettlementCount = pendingSettlementCount,
+            dispatchEnabled = false,
+        )
     }
 
     private fun com.fantasyidler.data.model.SkillSession.toAgentSession() =
@@ -167,7 +169,14 @@ object LocalControlServer {
                     }
 
                     get("/health") {
-                        call.respond(AgentHealth(ok = true, deviceId = deviceId))
+                        call.respond(
+                            AgentHealth(
+                                ok = true,
+                                apiVersion = 2,
+                                deviceId = deviceId,
+                                automation = bridge.healthAutomationState(),
+                            )
+                        )
                     }
 
                     get("/api/v1/status") {
@@ -179,10 +188,35 @@ object LocalControlServer {
                         )
                     }
 
+                    get("/api/v1/automation/control") {
+                        call.respond(bridge.controlSnapshot())
+                    }
+
+                    post("/api/v1/automation/authority/{authority}") {
+                        val target = call.parameters["authority"] ?: ""
+                        val result = bridge.setAuthority(target)
+
+                        if (result == null) {
+                            call.respond(
+                                HttpStatusCode.BadRequest,
+                                AgentRejection(
+                                    code = "invalid_authority",
+                                    message = "Authority must be native or external.",
+                                )
+                            )
+                        } else {
+                            call.respond(result)
+                        }
+                    }
+
                     post("/api/v1/session/start") {
-                        val result = bridge.startQueuedSession()
-                        val code = if (result.accepted) HttpStatusCode.OK else HttpStatusCode.Conflict
-                        call.respond(code, result)
+                        call.respond(
+                            HttpStatusCode.Conflict,
+                            AgentRejection(
+                                code = "native_queue_disabled_for_automation",
+                                message = "The native queue is self-advancing and cannot be externally started. Explicit dispatch is not enabled yet.",
+                            )
+                        )
                     }
                 }
             }.start(wait = false)

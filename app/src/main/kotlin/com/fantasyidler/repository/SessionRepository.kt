@@ -23,6 +23,7 @@ class SessionRepository @Inject constructor(
     @ApplicationContext private val context: Context,
     private val json: Json,
     private val gameData: GameDataRepository,
+    private val automationControl: com.fantasyidler.automation.AutomationControlRepository,
 ) {
     val activeSessionFlow: Flow<SkillSession?> = sessionDao.observeActiveSession()
     val completedCountFlow: Flow<Int> = sessionDao.observeCompletedCount()
@@ -145,13 +146,15 @@ class SessionRepository @Inject constructor(
             val endMs = if (session.skillName == "boss") bossFightEndMs(session) else session.endsAt
             if (now >= endMs) {
                 markCompleted(session.sessionId)
-                var catchUpMs = now - endMs
-                while (catchUpMs > 0) {
-                    val used = try { starter.insertNextQueuedAsOffline(catchUpMs) } catch (_: Exception) { 0L }
-                    if (used == 0L) break
-                    catchUpMs -= used
+                if (automationControl.allowsNativeQueueAutoAdvance()) {
+                    var catchUpMs = now - endMs
+                    while (catchUpMs > 0) {
+                        val used = try { starter.insertNextQueuedAsOffline(catchUpMs) } catch (_: Exception) { 0L }
+                        if (used == 0L) break
+                        catchUpMs -= used
+                    }
+                    try { starter.startNextQueued(backdateMs = catchUpMs.coerceAtLeast(0L)) } catch (_: Exception) {}
                 }
-                try { starter.startNextQueued(backdateMs = catchUpMs.coerceAtLeast(0L)) } catch (_: Exception) {}
             }
         }
         if (workerStarter != null) {
@@ -176,6 +179,18 @@ class SessionRepository @Inject constructor(
      * - If it's still running, reschedules the alarm so it fires at the correct time.
      */
     suspend fun recoverActiveSession(starter: QueuedSessionStarter) {
+        if (!automationControl.allowsNativeQueueAutoAdvance()) {
+            val session = try { getActiveSession() } catch (_: Exception) { null } ?: return
+            if (session.completed) return
+            val endMs = if (session.skillName == "boss") bossFightEndMs(session) else session.endsAt
+            if (System.currentTimeMillis() >= endMs) {
+                markCompleted(session.sessionId)
+            } else {
+                scheduleAlarm(session.sessionId, endMs, session.skillName)
+            }
+            return
+        }
+
         val session = try { getActiveSession() } catch (_: Exception) { null } ?: run {
             starter.startNextQueued()
             return

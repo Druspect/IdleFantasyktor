@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.PowerManager
 import com.fantasyidler.notification.SessionNotificationManager
+import com.fantasyidler.automation.AutomationControlRepository
 import com.fantasyidler.repository.QueuedSessionStarter
 import com.fantasyidler.repository.SessionRepository
 import com.fantasyidler.repository.WorkerQueuedSessionStarter
@@ -21,6 +22,7 @@ class SessionAlarmReceiver : BroadcastReceiver() {
     @Inject lateinit var notificationManager: SessionNotificationManager
     @Inject lateinit var queuedSessionStarter: QueuedSessionStarter
     @Inject lateinit var workerQueuedSessionStarter: WorkerQueuedSessionStarter
+    @Inject lateinit var automationControl: AutomationControlRepository
 
     override fun onReceive(context: Context, intent: Intent) {
         // Acquire a partial wake lock so the CPU stays awake after onReceive() returns.
@@ -45,7 +47,7 @@ class SessionAlarmReceiver : BroadcastReceiver() {
                     val slot = session.workerSlot.coerceAtLeast(1)
                     val workerStarted = workerQueuedSessionStarter.startNextQueued(slot)
                     if (!workerStarted) notificationManager.showSessionComplete(skillDisplayName)
-                } else {
+                } else if (automationControl.allowsNativeQueueAutoAdvance()) {
                     var catchUpMs = backdateMs
                     while (catchUpMs > 0) {
                         val used = try { queuedSessionStarter.insertNextQueuedAsOffline(catchUpMs) } catch (_: Exception) { 0L }
@@ -54,6 +56,8 @@ class SessionAlarmReceiver : BroadcastReceiver() {
                     }
                     val started = queuedSessionStarter.startNextQueued(backdateMs = catchUpMs)
                     if (!started) notificationManager.showSessionComplete(skillDisplayName)
+                } else {
+                    notificationManager.showSessionComplete(skillDisplayName)
                 }
             } finally {
                 pending.finish()
