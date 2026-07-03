@@ -1,0 +1,20 @@
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/repository/WorkerQueuedSessionStarter.kt:365:    private fun tierIndex(level: Int): Int = TOOL_TIERS.indexOfLast { it <= level }.coerceAtLeast(0)
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/repository/WorkerQueuedSessionStarter.kt:367:    private fun toolEfficiency(itemKey: String?, slot: String, resourceLevelRequired: Int = 0): Float {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/repository/QueuedSessionStarter.kt:701:    private fun tierIndex(level: Int): Int = TOOL_TIERS.indexOfLast { it <= level }.coerceAtLeast(0)
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/repository/QueuedSessionStarter.kt:703:    private fun toolEfficiency(itemKey: String?, slot: String, resourceLevelRequired: Int = 0): Float {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/repository/SessionRepository.kt:268:    suspend fun abandonSession(sessionId: String) {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/SkillsViewModel.kt:775:    fun collectSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/SkillsViewModel.kt:877:    fun abandonSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/SkillsViewModel.kt:893:    fun debugFinishSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/SkillsViewModel.kt:986:    private fun tierIndex(level: Int): Int =
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/SkillsViewModel.kt:996:    private fun toolEfficiency(itemKey: String?, slot: String, resourceLevelRequired: Int = 0): Float {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/CombatViewModel.kt:694:    fun collectSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/CombatViewModel.kt:980:    fun abandonSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/CombatViewModel.kt:1000:    fun debugFinishSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/CombatViewModel.kt:1231:private fun reclaimChance(level: Int): Double = 0.25 + (level - 1) / 98.0 * 0.50
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/WorkerSkillsViewModel.kt:556:    private fun tierIndex(level: Int) = TOOL_TIERS.indexOfLast { it <= level }.coerceAtLeast(0)
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/WorkerSkillsViewModel.kt:558:    private fun toolEfficiency(itemKey: String?, slot: String): Float {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/HomeViewModel.kt:277:    fun collectSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/HomeViewModel.kt:875:    fun abandonSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/HomeViewModel.kt:891:    fun debugFinishSession() {
+/Users/fuller_m/IdleFantasyktor/app/src/main/kotlin/com/fantasyidler/ui/viewmodel/HomeViewModel.kt:1260:private fun reclaimChance(level: Int): Double = 0.25 + (level - 1) / 98.0 * 0.50
