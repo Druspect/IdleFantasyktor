@@ -55,4 +55,10 @@ data class SkillSession(
      */
     @ColumnInfo(name = "worker_slot", defaultValue = "0")
     val workerSlot: Int = 0,
+
+    @ColumnInfo(name = "origin", defaultValue = "'native'")
+    val origin: String = "native",
+
+    @ColumnInfo(name = "command_id")
+    val commandId: String? = null,
 )

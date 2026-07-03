@@ -21,21 +21,49 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
     }
 }
 
+val MIGRATION_3_4 = object : Migration(3, 4) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL("ALTER TABLE skill_sessions ADD COLUMN origin TEXT NOT NULL DEFAULT 'native'")
+        db.execSQL("ALTER TABLE skill_sessions ADD COLUMN command_id TEXT")
+    }
+}
+
+
+val MIGRATION_4_5 = object : Migration(4, 5) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL(
+            """
+            CREATE TABLE IF NOT EXISTS session_settlement_receipts (
+                session_id TEXT NOT NULL,
+                origin TEXT NOT NULL,
+                command_id TEXT,
+                settled_at_epoch_ms INTEGER NOT NULL,
+                settlement_version INTEGER NOT NULL,
+                outcome_json TEXT NOT NULL,
+                PRIMARY KEY(session_id)
+            )
+            """.trimIndent()
+        )
+    }
+}
+
 @Database(
     entities = [
         Player::class,
         SkillSession::class,
+        SessionSettlementReceipt::class,
         QuestProgress::class,
         FarmingPatch::class,
         GlobalState::class,
         ArenaRecord::class,
     ],
-    version = 3,
+    version = 5,
     exportSchema = true,
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun playerDao(): PlayerDao
     abstract fun skillSessionDao(): SkillSessionDao
+    abstract fun sessionSettlementReceiptDao(): SessionSettlementReceiptDao
     abstract fun questProgressDao(): QuestProgressDao
     abstract fun farmingPatchDao(): FarmingPatchDao
     abstract fun globalStateDao(): GlobalStateDao

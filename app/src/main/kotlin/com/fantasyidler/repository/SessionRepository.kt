@@ -64,6 +64,8 @@ class SessionRepository @Inject constructor(
         alarmOffsetMs: Long? = null,
         insertAsCompleted: Boolean = false,
         backdateMs: Long = 0L,
+        origin: String = "native",
+        commandId: String? = null,
     ): SkillSession {
         val now = System.currentTimeMillis()
         val startedAt = now - backdateMs
@@ -75,6 +77,8 @@ class SessionRepository @Inject constructor(
             frames      = frames,
             activityKey = activityKey,
             completed   = insertAsCompleted,
+            origin      = origin,
+            commandId   = commandId,
         )
         sessionDao.insert(session)
         if (!insertAsCompleted) {
